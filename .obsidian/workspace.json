@@ -176,16 +176,16 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WebPt/Client Side/5.Web socket.md",
+                "file": "CCNA/13.Routing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 5.Web socket"
+              "title": "Outgoing links from 13.Routing"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
