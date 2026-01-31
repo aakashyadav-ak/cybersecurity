@@ -1,0 +1,31 @@
+# --- PRIVATE FILES (Will NOT go to GitHub) ---
+# --- OBSIDIAN SYSTEM FILES ---
+# These are your local UI settings (theme, open tabs, etc.)
+.obsidian/
+**/ .obsidian/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/appearance.json
+.obsidian/hotkeys.json
+
+# Ignore any file or folder with "PRIVATE" in the name
+*PRIVATE*
+# Ignore a specific folder for sensitive data
+Sensitive/
+# Ignore specific files
+passwords.md
+credentials.txt
+
+# --- OBSIDIAN SYSTEM FILES ---
+# These are your local UI settings (theme, open tabs, etc.)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/appearance.json
+.obsidian/hotkeys.json
+
+# --- SYSTEM TEMP FILES ---
+.DS_Store
+Thumbs.db
+*.log
