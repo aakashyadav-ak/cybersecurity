@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WebPt/Server side/Path Traversal or Directory Traversa (server side).md",
+                "file": "CCNA/13.Routing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Path Traversal or Directory Traversa (server side)"
+              "title": "13.Routing"
             }
           }
         ]
@@ -206,6 +206,7 @@
   },
   "active": "aff8c66ca089010c",
   "lastOpenFiles": [
+    "WebPt/Server side/Path Traversal or Directory Traversa (server side).md",
     "WebPt/Server side/15.Forced Browsing (server side).md",
     "WebPt/Server side/14.API Testing.md",
     "WebPt/Server side/13.Bussiness Logics.md",
@@ -232,7 +233,6 @@
     "git",
     "CCNA/12, VLAN & DHCP, VTP & Ether Channel.md",
     "CCNA/11, LAN, Collision Domain, Broadcast Domain, Switching.md",
-    "CCNA/10. TCP IP Model.md",
     "CCNA/zImages/Image.png",
     "WebPt/zImages",
     "WebPt/New folder",
