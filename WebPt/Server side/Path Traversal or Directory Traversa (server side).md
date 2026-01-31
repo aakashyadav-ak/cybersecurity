@@ -51,7 +51,7 @@ ex: /home/ak/Documents/report.txt(linux)
 
 ## 🔹 In Cybersecurity Context
 
-- Absolute paths are often seen in error messages → can leak server structure (info disclosure).[[4.Information disclosure]] 
+- Absolute paths are often seen in error messages → can leak server structure (info disclosure).[[04.Information disclosure]] 
 - Relative paths are often abused in Path Traversal / LFI attacks:
 
 `../../../../etc/passwd`
