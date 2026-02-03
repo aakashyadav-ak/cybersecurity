@@ -282,3 +282,206 @@ print(text[::3])      # Ph oa (every 3rd character)
 # Reverse a string
 print(text[::-1])     # gnimmargorP nohtyP
 ```
+
+**Example:**
+```python
+text = "Cybersecurity"
+#       0123456789...
+
+# First 5 characters
+print(text[:5])       # Cyber
+
+# Last 8 characters
+print(text[-8:])      # security
+
+# Middle part
+print(text[5:13])     # security
+
+# Every other character
+print(text[::2])      # Cbscrt
+
+# Reverse
+print(text[::-1])     # ytirucesebyC
+```
+
+
+## String Operators
+
+### Concatenation (+)
+```python
+# Join strings together using +
+
+first_name = "John"
+last_name = "Doe"
+
+# Concatenate
+full_name = first_name + " " + last_name
+print(full_name)    # John Doe
+
+# Build a message
+ip = "192.168.1.1"
+port = "443"
+url = "https://" + ip + ":" + port
+print(url)          # https://192.168.1.1:443
+
+# Multiple concatenation
+line = "-" + "-" + "-" + "-" + "-"
+print(line)         # -----
+
+# Cannot concatenate string + number directly!
+age = 25
+# message = "Age: " + age    # ERROR! TypeError
+
+# Must convert number to string first
+message = "Age: " + str(age)
+print(message)      # Age: 25
+```
+
+### Repetition (*)
+```python
+# Repeat a string using *
+
+# Create a line
+line = "-" * 40
+print(line)    # ----------------------------------------
+
+# Create a banner
+print("=" * 50)
+print("       SECURITY SCANNER")
+print("=" * 50)
+
+# Repeat text
+echo = "Hello " * 3
+print(echo)    # Hello Hello Hello
+
+# Create patterns
+pattern = "+-" * 20
+print(pattern)    # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+# Indentation
+indent = "    " * 3    # 12 spaces (3 tabs worth)
+print(indent + "Indented text")
+```
+
+### Membership (in, not in)
+```python
+# Check if substring exists in string
+
+email = "admin@example.com"
+
+# in - returns True if found
+print("@" in email)           # True
+print("admin" in email)       # True
+print("example" in email)     # True
+print("xyz" in email)         # False
+
+# not in - returns True if NOT found
+print("xyz" not in email)     # True
+print("@" not in email)       # False
+
+# Security example: Check for SQL injection patterns
+user_input = "SELECT * FROM users"
+
+dangerous_keywords = ["SELECT", "DROP", "DELETE", "INSERT"]
+
+for keyword in dangerous_keywords:
+    if keyword in user_input.upper():
+        print(f"⚠️ Warning: '{keyword}' detected in input!")
+```
+
+### Comparison Operators
+```python
+# Strings can be compared
+
+# Equality
+print("hello" == "hello")     # True
+print("hello" == "Hello")     # False (case sensitive!)
+
+# Inequality
+print("hello" != "world")     # True
+
+# Alphabetical comparison (based on ASCII/Unicode values)
+print("apple" < "banana")     # True (a comes before b)
+print("A" < "a")              # True (uppercase before lowercase)
+print("abc" < "abd")          # True
+
+# Compare lengths
+name1 = "Alice"
+name2 = "Bob"
+print(len(name1) > len(name2))  # True (5 > 3)
+```
+
+## String Methods
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    STRING METHODS                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Methods are functions that belong to strings.                  │
+│                                                                  │
+│   Syntax: string.method()                                        │
+│                                                                  │
+│   Strings are IMMUTABLE, so methods return NEW strings.         │
+│   The original string is NOT changed.                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Case Conversion Methods
+```python
+text = "Hello World"
+
+# Convert to uppercase
+print(text.upper())           # HELLO WORLD
+
+# Convert to lowercase
+print(text.lower())           # hello world
+
+# Title case (first letter of each word)
+print(text.title())           # Hello World
+
+# Capitalize (only first letter of string)
+message = "hello world"
+print(message.capitalize())   # Hello world
+
+# Swap case
+print(text.swapcase())        # hELLO wORLD
+
+# Original is unchanged!
+print(text)                   # Hello World (still the same)
+
+# To save the change:
+text_upper = text.upper()
+print(text_upper)             # HELLO WORLD
+```
+
+### Search Methods
+```python
+text = "Hello World, Hello Python"
+
+# find() - returns index of first occurrence (-1 if not found)
+print(text.find("Hello"))     # 0 (first position)
+print(text.find("World"))     # 6
+print(text.find("xyz"))       # -1 (not found)
+
+# rfind() - search from right (last occurrence)
+print(text.rfind("Hello"))    # 13 (second "Hello")
+
+# index() - like find() but raises error if not found
+print(text.index("World"))    # 6
+# print(text.index("xyz"))    # ERROR! ValueError
+
+# count() - count occurrences
+print(text.count("Hello"))    # 2
+print(text.count("o"))        # 3
+print(text.count("xyz"))      # 0
+
+# startswith() and endswith()
+filename = "security_log.txt"
+print(filename.startswith("security"))   # True
+print(filename.endswith(".txt"))         # True
+print(filename.endswith(".log"))         # False
+
+# Check multiple options with tuple
+print(filename.endswith((".txt", ".log", ".csv")))  # True
+```
