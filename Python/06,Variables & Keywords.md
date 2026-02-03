@@ -208,3 +208,16 @@ greet()          # Output: Hello, World!
 show_message()   # Output: Hello, World!
 print(message)   # Output: Hello, World!
 ```
+
+## Local Variables
+```python
+def my_function():
+    # Local variable - only exists inside this function
+    secret = "I am local"
+    print(secret)       # Works! Inside the function
+
+my_function()           # Output: I am local
+
+# Trying to access local variable outside function:
+# print(secret)         # ERROR! NameError: name 'secret' is not defined
+```
