@@ -77,7 +77,7 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 1.Built-in Modules
+## 1. Built-in Modules
 ```python
 # Step 1: Import the module
 import math
@@ -133,3 +133,26 @@ print(sqrt(16))        # No prefix, but risky!
 ```
 
 ## 2. External Modules
+
+  **PyPI - Python Package Index**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    PyPI - Python Package Index                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Website: https://pypi.org                                      │
+│                                                                  │
+│   • Repository of Python packages                                │
+│   • Over 400,000+ packages available                             │
+│   • Anyone can upload packages                                   │
+│   • Free to use                                                  │
+│                                                                  │
+│   Popular packages:                                              │
+│   • requests - HTTP library                                      │
+│   • numpy - Numerical computing                                  │
+│   • pandas - Data analysis                                       │
+│   • flask - Web framework                                        │
+│   • scapy - Network packets                                      │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
