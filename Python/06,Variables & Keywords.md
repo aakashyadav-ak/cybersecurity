@@ -343,3 +343,20 @@ print(message)           # Hello World
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+```python
+# Method 1: Using keyword module
+import keyword
+
+# Get list of all keywords
+print(keyword.kwlist)
+
+# Count keywords
+print(f"Total keywords: {len(keyword.kwlist)}")
+
+# Check if a word is a keyword
+print(keyword.iskeyword("if"))        # True
+print(keyword.iskeyword("hello"))     # False
+print(keyword.iskeyword("True"))      # True
+print(keyword.iskeyword("true"))      # False (case sensitive!)
+```
