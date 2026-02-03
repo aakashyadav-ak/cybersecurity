@@ -221,3 +221,22 @@ my_function()           # Output: I am local
 # Trying to access local variable outside function:
 # print(secret)         # ERROR! NameError: name 'secret' is not defined
 ```
+
+#### Local vs Global - Same Name
+```python
+name = "Global Alice"       # Global variable
+
+def say_hello():
+    name = "Local Bob"      # Local variable (different from global!)
+    print(f"Inside function: {name}")
+
+say_hello()                 # Output: Inside function: Local Bob
+print(f"Outside function: {name}")  # Output: Outside function: Global Alice
+
+# The local variable "shadows" the global one inside the function
+# But doesn't change the global variable
+```
+
+```
+
+```
