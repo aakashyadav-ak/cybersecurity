@@ -138,3 +138,44 @@ print(len(data))     # 1
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+
+### Accessing Dictionary Items
+#### Using Keys with [ ]
+```python
+user = {
+    "username": "admin",
+    "email": "admin@example.com",
+    "role": "administrator"
+}
+
+# Access value using key
+print(user["username"])     # admin
+print(user["email"])        # admin@example.com
+print(user["role"])         # administrator
+
+# Key not found - ERROR!
+# print(user["password"])   # KeyError: 'password'
+```
+
+#### Using get() Method 
+```python
+user = {
+    "username": "admin",
+    "email": "admin@example.com"
+}
+
+# get() returns None if key not found (no error!)
+print(user.get("username"))     # admin
+print(user.get("password"))     # None (no error!)
+
+# get() with default value
+print(user.get("password", "N/A"))           # N/A
+print(user.get("role", "user"))              # user
+print(user.get("username", "unknown"))       # admin (key exists)
+
+# Comparison: [] vs get()
+# user["password"]           # KeyError!
+# user.get("password")       # None (safe)
+```
+
