@@ -96,3 +96,410 @@ print(squares)    # [1, 4, 9, 16, 25]
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+**Example:**
+```python
+# 1. ORDERED - Items have positions
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])    # apple (always first)
+print(fruits[1])    # banana (always second)
+
+# 2. MUTABLE - Can be changed
+fruits[0] = "mango"
+print(fruits)       # ['mango', 'banana', 'cherry']
+
+# 3. ALLOWS DUPLICATES
+numbers = [1, 2, 2, 3, 3, 3]
+print(numbers)      # [1, 2, 2, 3, 3, 3] (duplicates allowed)
+
+# 4. HETEROGENEOUS - Mixed types
+mixed = [42, "hello", 3.14, True, None, [1, 2, 3]]
+print(mixed)        # All different types in one list
+
+# 5. DYNAMIC SIZE - Can grow/shrink
+data = [1, 2, 3]
+print(len(data))    # 3
+
+data.append(4)
+print(len(data))    # 4
+
+data.pop()
+print(len(data))    # 3
+```
+
+# Indexing & Slicing
+
+## List Indexing
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    LIST INDEXING                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Each item has a position (index)                               │
+│                                                                  │
+│   List:    ["SSH", "HTTP", "HTTPS", "FTP", "DNS"]               │
+│              │       │       │       │      │                    │
+│   Index:     0       1       2       3      4    (positive)      │
+│             -5      -4      -3      -2     -1    (negative)      │
+│                                                                  │
+│   Syntax: list[index]                                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+```python
+services = ["SSH", "HTTP", "HTTPS", "FTP", "DNS"]
+
+# Positive indexing (left to right, starts at 0)
+print(services[0])      # SSH (first item)
+print(services[1])      # HTTP (second item)
+print(services[4])      # DNS (fifth item)
+
+# Negative indexing (right to left, starts at -1)
+print(services[-1])     # DNS (last item)
+print(services[-2])     # FTP (second to last)
+print(services[-5])     # SSH (first item)
+
+# Index out of range causes error
+# print(services[10])   # ERROR! IndexError
+
+# Check list length first
+if len(services) > 5:
+    print(services[5])
+else:
+    print("Index 5 doesn't exist")
+```
+
+## LIST SLICING 
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    LIST SLICING                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Extract a portion of the list                                  │
+│                                                                  │
+│   Syntax: list[start:stop:step]                                  │
+│                                                                  │
+│   • start: Where to begin (included)                             │
+│   • stop:  Where to end (NOT included)                           │
+│   • step:  How many to skip                                      │
+│                                                                  │
+│   All three are optional!                                        │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+```python
+ports = [21, 22, 23, 80, 443, 3306, 8080]
+#        0   1   2   3   4    5     6
+
+# Basic slicing [start:stop]
+print(ports[1:4])       # [22, 23, 80] (index 1, 2, 3)
+print(ports[0:3])       # [21, 22, 23] (index 0, 1, 2)
+
+# Omitting start (begins from 0)
+print(ports[:3])        # [21, 22, 23]
+
+# Omitting stop (goes to end)
+print(ports[4:])        # [443, 3306, 8080]
+
+# Omitting both (entire list copy)
+print(ports[:])         # [21, 22, 23, 80, 443, 3306, 8080]
+
+# Negative indices in slicing
+print(ports[-3:])       # [443, 3306, 8080] (last 3)
+print(ports[:-2])       # [21, 22, 23, 80, 443] (all except last 2)
+
+# Step parameter [start:stop:step]
+print(ports[::2])       # [21, 23, 443, 8080] (every 2nd item)
+print(ports[1::2])      # [22, 80, 3306] (every 2nd, starting from index 1)
+
+# Reverse a list
+print(ports[::-1])      # [8080, 3306, 443, 80, 23, 22, 21]
+```
+
+## Changing List Items
+### Modify Single Item
+```python
+# Lists are MUTABLE - can be changed!
+
+ports = [22, 80, 443]
+print(f"Before: {ports}")    # [22, 80, 443]
+
+# Change item by index
+ports[1] = 8080
+print(f"After: {ports}")     # [22, 8080, 443]
+
+# Change last item
+ports[-1] = 3306
+print(f"After: {ports}")     # [22, 8080, 3306]
+```
+
+### Modify Multiple Items (Slice Assignment)
+```python
+services = ["SSH", "HTTP", "HTTPS", "FTP", "DNS"]
+print(f"Before: {services}")
+
+# Replace a range of items
+services[1:3] = ["SMTP", "IMAP"]
+print(f"After: {services}")    # ['SSH', 'SMTP', 'IMAP', 'FTP', 'DNS']
+
+# Replace with different number of items
+numbers = [1, 2, 3, 4, 5]
+numbers[1:4] = [20, 30]        # Replace 3 items with 2 items
+print(numbers)                  # [1, 20, 30, 5]
+
+# Insert items without removing (empty slice)
+letters = ['a', 'b', 'e', 'f']
+letters[2:2] = ['c', 'd']      # Insert at index 2
+print(letters)                  # ['a', 'b', 'c', 'd', 'e', 'f']
+
+# Remove items using slice
+data = [1, 2, 3, 4, 5]
+data[1:4] = []                  # Remove items at index 1, 2, 3
+print(data)                     # [1, 5]
+```
+
+# List Methods
+
+## Adding Items
+
+#### append() - Add to End
+```python
+# append(item) - Adds ONE item to the END of the list
+
+ports = [22, 80]
+print(f"Before: {ports}")      # [22, 80]
+
+ports.append(443)
+print(f"After: {ports}")       # [22, 80, 443]
+
+ports.append(8080)
+print(f"After: {ports}")       # [22, 80, 443, 8080]
+
+# Append different types
+mixed = [1, 2, 3]
+mixed.append("hello")
+mixed.append(True)
+print(mixed)                   # [1, 2, 3, 'hello', True]
+
+# Append a list (adds as single item - nested list!)
+list1 = [1, 2, 3]
+list1.append([4, 5])
+print(list1)                   # [1, 2, 3, [4, 5]] - Nested!
+```
+
+#### extend() - Add Multiple Items
+```python
+# extend(iterable) - Adds MULTIPLE items to the END
+
+ports = [22, 80]
+print(f"Before: {ports}")      # [22, 80]
+
+# Extend with another list
+ports.extend([443, 8080])
+print(f"After: {ports}")       # [22, 80, 443, 8080]
+
+# Extend with any iterable
+ports.extend((3306, 5432))     # Tuple
+print(f"After: {ports}")       # [22, 80, 443, 8080, 3306, 5432]
+
+# Difference between append and extend
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+
+list1.append([4, 5])           # Adds as ONE item
+list2.extend([4, 5])           # Adds as MULTIPLE items
+
+print(f"append: {list1}")      # [1, 2, 3, [4, 5]]
+print(f"extend: {list2}")      # [1, 2, 3, 4, 5]
+```
+
+#### insert() - Add at Specific Position
+```python
+# insert(index, item) - Adds item at specific position
+
+ports = [22, 443, 8080]
+print(f"Before: {ports}")      # [22, 443, 8080]
+
+# Insert at index 1
+ports.insert(1, 80)
+print(f"After: {ports}")       # [22, 80, 443, 8080]
+
+# Insert at beginning
+ports.insert(0, 21)
+print(f"After: {ports}")       # [21, 22, 80, 443, 8080]
+
+# Insert at end (same as append)
+ports.insert(len(ports), 3306)
+print(f"After: {ports}")       # [21, 22, 80, 443, 8080, 3306]
+
+# Insert with negative index
+numbers = [1, 2, 3, 5]
+numbers.insert(-1, 4)          # Insert before last item
+print(numbers)                 # [1, 2, 3, 4, 5]
+```
+
+##### Comparison: append vs extend vs insert
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           append vs extend vs insert                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   METHOD          WHAT IT DOES                                   │
+│   ─────────────────────────────────────────────────────────────  │
+│   append(x)       Add ONE item to END                           │
+│                   list.append(5) → [1,2,3,5]                    │
+│                                                                  │
+│   extend(list)    Add MULTIPLE items to END                     │
+│                   list.extend([4,5]) → [1,2,3,4,5]              │
+│                                                                  │
+│   insert(i, x)    Add ONE item at INDEX i                       │
+│                   list.insert(1, 5) → [1,5,2,3]                 │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Removing Items
+#### remove() - Remove by Value
+```python
+# remove(value) - Removes FIRST occurrence of value
+
+ports = [22, 80, 443, 80, 8080]
+print(f"Before: {ports}")      # [22, 80, 443, 80, 8080]
+
+# Remove value 80 (first occurrence)
+ports.remove(80)
+print(f"After: {ports}")       # [22, 443, 80, 8080]
+
+# Remove again
+ports.remove(80)
+print(f"After: {ports}")       # [22, 443, 8080]
+
+# Remove value that doesn't exist - ERROR!
+# ports.remove(9999)           # ValueError!
+
+# Safe removal - check first
+if 9999 in ports:
+    ports.remove(9999)
+else:
+    print("9999 not in list")
+```
+
+#### pop() - Remove by Index
+```python
+# pop(index) - Removes item at index and RETURNS it
+# pop() with no argument removes LAST item
+
+ports = [22, 80, 443, 8080]
+print(f"Before: {ports}")      # [22, 80, 443, 8080]
+
+# Pop last item (no argument)
+removed = ports.pop()
+print(f"Removed: {removed}")   # 8080
+print(f"After: {ports}")       # [22, 80, 443]
+
+# Pop at specific index
+removed = ports.pop(1)
+print(f"Removed: {removed}")   # 80
+print(f"After: {ports}")       # [22, 443]
+
+# Pop first item
+removed = ports.pop(0)
+print(f"Removed: {removed}")   # 22
+print(f"After: {ports}")       # [443]
+
+# Pop from empty list - ERROR!
+empty = []
+# empty.pop()                  # IndexError!
+```
+
+#### clear() - Remove All Items
+```python
+# clear() - Removes ALL items
+
+ports = [22, 80, 443, 8080]
+print(f"Before: {ports}")      # [22, 80, 443, 8080]
+print(f"Length: {len(ports)}") # 4
+
+ports.clear()
+print(f"After: {ports}")       # []
+print(f"Length: {len(ports)}") # 0
+```
+
+#### del Statement
+```python
+# del - Delete items or entire list
+
+ports = [21, 22, 23, 80, 443]
+
+# Delete single item
+del ports[0]
+print(ports)           # [22, 23, 80, 443]
+
+# Delete range of items
+del ports[1:3]
+print(ports)           # [22, 443]
+
+# Delete entire list (variable is gone!)
+del ports
+# print(ports)         # ERROR! NameError: name 'ports' is not defined
+```
+
+##### Comparison: remove vs pop vs clear vs del
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           REMOVING ITEMS - COMPARISON                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   METHOD              WHAT IT DOES                               │
+│   ─────────────────────────────────────────────────────────────  │
+│   remove(value)       Remove first item with that VALUE         │
+│                       list.remove(80)                           │
+│                                                                  │
+│   pop(index)          Remove item at INDEX, return it           │
+│                       x = list.pop(2)                           │
+│                                                                  │
+│   pop()               Remove LAST item, return it               │
+│                       x = list.pop()                            │
+│                                                                  │
+│   clear()             Remove ALL items (empty list)             │
+│                       list.clear()                              │
+│                                                                  │
+│   del list[i]         Delete item at index (no return)          │
+│                       del list[2]                               │
+│                                                                  │
+│   del list[i:j]       Delete range of items                     │
+│                       del list[1:4]                             │
+│                                                                  │
+│   del list            Delete the entire list variable           │
+│                       del list                                  │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Finding Items
+#### index() - Find Position
+```python
+# index(value) - Returns index of FIRST occurrence
+
+ports = [22, 80, 443, 80, 8080]
+
+# Find index of value
+print(ports.index(443))       # 2
+print(ports.index(80))        # 1 (first occurrence)
+
+# Value not found - ERROR!
+# print(ports.index(9999))    # ValueError!
+
+# Safe way - check first
+if 9999 in ports:
+    print(ports.index(9999))
+else:
+    print("9999 not found")
+
+# Search within range
+# index(value, start, stop)
+ports = [22, 80, 443, 80, 8080]
+print(ports.index(80, 2))     # 3 (search from index 2)
+```
