@@ -185,3 +185,32 @@ pip install numpy
 pip install pandas
 ```
 
+**Common pip commands**
+```python
+# 1. INSTALL a package
+pip install requests
+
+# 2. INSTALL specific version
+pip install requests==2.28.0
+
+# 3. UPGRADE a package
+pip install --upgrade requests
+
+# 4. UNINSTALL a package
+pip uninstall requests
+
+# 5. LIST installed packages
+pip list
+
+# 6. SHOW package information
+pip show requests
+
+# 7. SEARCH for packages (may not work in newer pip)
+pip search requests
+
+# 8. FREEZE - save installed packages to file
+pip freeze > requirements.txt
+
+# 9. INSTALL from requirements file
+pip install -r requirements.txt
+```
