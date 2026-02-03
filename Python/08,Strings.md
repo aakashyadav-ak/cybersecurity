@@ -485,3 +485,211 @@ print(filename.endswith(".log"))         # False
 # Check multiple options with tuple
 print(filename.endswith((".txt", ".log", ".csv")))  # True
 ```
+
+### Strip Methods (Remove Whitespace)
+```python
+# Remove whitespace from start/end
+
+text = "   Hello World   "
+
+# strip() - remove from both ends
+print(f"'{text.strip()}'")      # 'Hello World'
+
+# lstrip() - remove from left (start)
+print(f"'{text.lstrip()}'")     # 'Hello World   '
+
+# rstrip() - remove from right (end)
+print(f"'{text.rstrip()}'")     # '   Hello World'
+
+# Remove specific characters
+dirty = "###Hello###"
+print(dirty.strip("#"))          # Hello
+
+# Security: Clean user input
+username = "   admin   "
+clean_username = username.strip()
+print(f"Username: '{clean_username}'")    # 'admin'
+```
+
+### Replace Method
+```python
+text = "Hello World"
+
+# replace(old, new)
+print(text.replace("World", "Python"))    # Hello Python
+print(text.replace("l", "L"))             # HeLLo WorLd
+
+# Replace with count limit
+text2 = "one one one one"
+print(text2.replace("one", "two", 2))     # two two one one
+
+# Remove characters (replace with empty string)
+phone = "123-456-7890"
+print(phone.replace("-", ""))             # 1234567890
+
+# Security: Sanitize input
+user_input = "<script>alert('xss')</script>"
+safe_input = user_input.replace("<", "&lt;").replace(">", "&gt;")
+print(safe_input)    # &lt;script&gt;alert('xss')&lt;/script&gt;
+```
+
+### Split and Join Methods
+```python
+# split() - divide string into list
+
+text = "Hello World Python"
+words = text.split()              # Split by whitespace (default)
+print(words)                      # ['Hello', 'World', 'Python']
+
+# Split by specific character
+ip = "192.168.1.1"
+octets = ip.split(".")
+print(octets)                     # ['192', '168', '1', '1']
+
+# Split with limit
+data = "a,b,c,d,e"
+print(data.split(",", 2))         # ['a', 'b', 'c,d,e']
+
+# splitlines() - split by newlines
+text = "Line 1\nLine 2\nLine 3"
+lines = text.splitlines()
+print(lines)                      # ['Line 1', 'Line 2', 'Line 3']
+
+# join() - combine list into string
+words = ['Hello', 'World', 'Python']
+sentence = " ".join(words)
+print(sentence)                   # Hello World Python
+
+# Join with different separators
+print("-".join(words))            # Hello-World-Python
+print(", ".join(words))           # Hello, World, Python
+print("".join(words))             # HelloWorldPython
+
+# Rebuild IP address
+octets = ['192', '168', '1', '1']
+ip = ".".join(octets)
+print(ip)                         # 192.168.1.1
+```
+
+### Validation Methods
+```python
+# Check what type of characters string contains
+
+# isalpha() - only letters
+print("Hello".isalpha())          # True
+print("Hello123".isalpha())       # False
+
+# isdigit() - only digits
+print("12345".isdigit())          # True
+print("123.45".isdigit())         # False (has dot)
+print("12345a".isdigit())         # False
+
+# isalnum() - letters and/or digits
+print("Hello123".isalnum())       # True
+print("Hello 123".isalnum())      # False (has space)
+
+# isspace() - only whitespace
+print("   ".isspace())            # True
+print("  x  ".isspace())          # False
+
+# isupper() and islower()
+print("HELLO".isupper())          # True
+print("hello".islower())          # True
+print("Hello".isupper())          # False
+print("Hello".islower())          # False
+
+# isnumeric() - numeric characters (including fractions, etc.)
+print("12345".isnumeric())        # True
+print("½".isnumeric())            # True
+
+# isidentifier() - valid Python variable name
+print("my_var".isidentifier())    # True
+print("2fast".isidentifier())     # False
+print("my-var".isidentifier())    # False
+```
+
+# String Formatting
+```python
+name = "Alice"
+age = 25
+score = 95.5
+
+# Without formatting (concatenation) - Messy!
+message = "Name: " + name + ", Age: " + str(age) + ", Score: " + str(score)
+
+# With formatting - Clean!
+message = f"Name: {name}, Age: {age}, Score: {score}"
+```
+
+## f-strings (Recommended!)
+```python
+# f-strings - Best and newest method (Python 3.6+)
+
+name = "Alice"
+age = 25
+score = 95.567
+
+# Basic usage
+print(f"Name: {name}")
+print(f"Name: {name}, Age: {age}")
+
+# Expressions inside { }
+print(f"Next year: {age + 1}")              # Next year: 26
+print(f"Double: {score * 2}")               # Double: 191.134
+
+# Formatting numbers
+print(f"Score: {score:.2f}")                # Score: 95.57
+print(f"Age: {age:05d}")                    # Age: 00025
+
+# Alignment and width
+print(f"{'left':<10}")                      # "left      "
+print(f"{'right':>10}")                     # "     right"
+print(f"{'center':^10}")                    # "  center  "
+
+# With expressions
+x = 10
+y = 5
+print(f"{x} + {y} = {x + y}")               # 10 + 5 = 15
+print(f"{x} * {y} = {x * y}")               # 10 * 5 = 50
+```
+
+
+# Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MODULE 11 SUMMARY                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  STRING DECLARATION:                                             │
+│  • Single quotes: 'text'                                         │
+│  • Double quotes: "text"                                         │
+│  • Triple quotes: """text""" (multi-line)                       │
+│                                                                  │
+│  ESCAPE CHARACTERS:                                              │
+│  • \n (newline), \t (tab), \\ (backslash)                       │
+│  • \' (single quote), \" (double quote)                         │
+│  • r"..." for raw strings                                       │
+│                                                                  │
+│  INDEXING & SLICING:                                             │
+│  • text[0] (first), text[-1] (last)                             │
+│  • text[start:stop:step]                                        │
+│  • text[::-1] (reverse)                                         │
+│                                                                  │
+│  OPERATORS:                                                      │
+│  • + (concatenation), * (repetition)                            │
+│  • in, not in (membership)                                      │
+│                                                                  │
+│  KEY METHODS:                                                    │
+│  • upper(), lower(), title(), strip()                           │
+│  • find(), count(), replace()                                   │
+│  • split(), join()                                              │
+│  • startswith(), endswith()                                     │
+│  • isalpha(), isdigit(), isalnum()                             │
+│                                                                  │
+│  FORMATTING:                                                     │
+│  • f"text {variable}" (recommended)                             │
+│  • "text {}".format(value)                                      │
+│  • "text %s" % value                                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
