@@ -167,3 +167,4 @@ myVariable2 = "value"
 # my.variable = "error" # Cannot use dot (.)
 ```
 
+# Variable Scope (Local & Global)
