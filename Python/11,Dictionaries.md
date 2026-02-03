@@ -179,3 +179,152 @@ print(user.get("username", "unknown"))       # admin (key exists)
 # user.get("password")       # None (safe)
 ```
 
+## Adding & Modifying Items
+### Adding New Items
+```python
+# Method 1: Using [ ] with new key
+user = {"username": "admin"}
+
+user["email"] = "admin@example.com"
+user["role"] = "administrator"
+
+print(user)
+# {'username': 'admin', 'email': 'admin@example.com', 'role': 'administrator'}
+
+# Method 2: Using update() with single item
+user.update({"is_active": True})
+print(user)
+```
+
+### Modifying Existing Items
+```python
+user = {
+    "username": "admin",
+    "login_attempts": 0,
+    "is_locked": False
+}
+
+print(f"Before: {user}")
+
+# Modify using [ ]
+user["login_attempts"] = 3
+user["is_locked"] = True
+
+print(f"After: {user}")
+# {'username': 'admin', 'login_attempts': 3, 'is_locked': True}
+```
+
+## Removing Items
+#### pop() Method
+```python
+# pop(key) - Remove item by key and return its value
+
+user = {
+    "username": "admin",
+    "email": "admin@example.com",
+    "role": "administrator",
+    "temp_token": "abc123"
+}
+
+# Remove and get value
+removed = user.pop("temp_token")
+print(f"Removed: {removed}")     # Removed: abc123
+print(f"User: {user}")           # temp_token is gone
+
+# pop() with key that doesn't exist - ERROR!
+# user.pop("password")           # KeyError!
+
+# pop() with default value (no error)
+result = user.pop("password", "not found")
+print(result)                    # not found
+```
+
+### del Keyword
+```python
+# del - Delete item by key
+
+user = {
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "secret123"
+}
+
+# Delete single item
+del user["password"]
+print(user)    # {'username': 'admin', 'email': 'admin@example.com'}
+
+# Delete key that doesn't exist - ERROR!
+# del user["age"]    # KeyError: 'age'
+
+# Safe deletion - check first
+if "age" in user:
+    del user["age"]
+else:
+    print("Key 'age' not found")
+
+# Delete entire dictionary
+del user
+# print(user)    # NameError: name 'user' is not defined
+```
+
+### clear() Method
+```python
+# clear() - Remove ALL items (empty the dictionary)
+
+user = {
+    "username": "admin",
+    "email": "admin@example.com",
+    "role": "administrator"
+}
+
+print(f"Before: {user}")
+print(f"Length: {len(user)}")    # 3
+
+user.clear()
+
+print(f"After: {user}")          # {}
+print(f"Length: {len(user)}")    # 0
+```
+
+# Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     SUMMARY                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  DICTIONARY DEFINITION:                                          │
+│  • Key-value pairs in curly braces { }                          │
+│  • my_dict = {"key": "value"}                                   │
+│  • Keys must be unique and immutable                            │
+│                                                                  │
+│  ACCESSING ITEMS:                                                │
+│  • dict["key"]           - get value (error if missing)         │
+│  • dict.get("key")       - get value (None if missing)          │
+│  • dict.get("key", default) - with default value                │
+│  • "key" in dict         - check if key exists                  │
+│                                                                  │
+│  ADDING / MODIFYING:                                             │
+│  • dict["new_key"] = value    - add or update                   │
+│  • dict.update({...})         - add/update multiple             │
+│                                                                  │
+│  REMOVING ITEMS:                                                 │
+│  • pop(key)       - remove by key, return value                 │
+│  • popitem()      - remove last item                            │
+│  • del dict[key]  - delete by key                               │
+│  • clear()        - remove all items                            │
+│                                                                  │
+│  KEY METHODS:                                                    │
+│  • keys()    - get all keys                                     │
+│  • values()  - get all values                                   │
+│  • items()   - get all (key, value) pairs                       │
+│  • copy()    - create shallow copy                              │
+│  • setdefault(key, default)                                     │
+│                                                                  │
+│  ITERATION:                                                      │
+│  • for key in dict:                                             │
+│  • for key in dict.keys():                                      │
+│  • for value in dict.values():                                  │
+│  • for key, value in dict.items():                              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```

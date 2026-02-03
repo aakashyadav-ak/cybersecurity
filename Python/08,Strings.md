@@ -608,7 +608,7 @@ print("2fast".isidentifier())     # False
 print("my-var".isidentifier())    # False
 ```
 
-# String Formatting
+# ==String Formatting==
 ```python
 name = "Alice"
 age = 25
@@ -657,7 +657,7 @@ print(f"{x} * {y} = {x * y}")               # 10 * 5 = 50
 # Summary
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    MODULE 11 SUMMARY                             │
+│                             SUMMARY                             │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  STRING DECLARATION:                                             │

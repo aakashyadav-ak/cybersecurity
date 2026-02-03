@@ -103,14 +103,14 @@
   - [x] index
 
 ## Module 14: Dictionaries
-- [ ] Dictionary Definition
-- [ ] Dictionary Syntax
-- [ ] Accessing Dictionary Items
-- [ ] Dictionary Methods
-  - [ ] keys, values, items
-  - [ ] update, pop, clear
-  - [ ] del keyword
-- [ ] Adding & Modifying Items
+- [x] Dictionary Definition
+- [x] Dictionary Syntax
+- [x] Accessing Dictionary Items
+- [x] Dictionary Methods
+  - [x] keys, values, items
+  - [x] update, pop, clear
+  - [x] del keyword
+- [x] Adding & Modifying Items
 
 ## Module 15: Sets
 - [ ] Set Definition
