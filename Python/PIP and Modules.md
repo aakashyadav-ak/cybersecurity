@@ -156,3 +156,21 @@ print(sqrt(16))        # No prefix, but risky!
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+### PIP - Python Package Manager
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    WHAT IS PIP?                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   PIP = "Pip Installs Packages"                                  │
+│                                                                  │
+│   • Tool to install external packages                            │
+│   • Downloads from PyPI automatically                            │
+│   • Manages package versions                                     │
+│   • Handles dependencies                                         │
+│   • Comes pre-installed with Python 3.4+                         │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
