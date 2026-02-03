@@ -93,4 +93,48 @@ squares = {x: x**2 for x in range(1, 6)}
 print(squares)   # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-#### 
+#### Keys Must Be Unique
+```python
+# If duplicate keys, last value wins!
+
+data = {
+    "port": 80,
+    "port": 443,     # Duplicate key!
+    "port": 8080     # Duplicate key!
+}
+
+print(data)          # {'port': 8080} - Only last value kept!
+print(len(data))     # 1
+```
+
+## Characteristics of Dictionaries
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              CHARACTERISTICS OF DICTIONARIES                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   1. KEY-VALUE PAIRS                                             │
+│      • Each item has a key and a value                           │
+│      • Access values using keys (not index)                      │
+│                                                                  │
+│   2. UNORDERED (Python 3.6 and earlier)                          │
+│      ORDERED (Python 3.7+)                                       │
+│      • Maintains insertion order in Python 3.7+                  │
+│                                                                  │
+│   3. MUTABLE                                                     │
+│      • Can add, remove, modify items                             │
+│                                                                  │
+│   4. NO DUPLICATE KEYS                                           │
+│      • Each key must be unique                                   │
+│      • Values can be duplicated                                  │
+│                                                                  │
+│   5. KEYS MUST BE IMMUTABLE                                      │
+│      • Strings, numbers, tuples only                            │
+│      • Lists, dicts cannot be keys                              │
+│                                                                  │
+│   6. FAST LOOKUP                                                 │
+│      • O(1) time complexity for access                          │
+│      • Very efficient for large data                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
