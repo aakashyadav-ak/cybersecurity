@@ -135,7 +135,7 @@ print(f"Connecting to {host}:{port} (timeout: {timeout}s)")
 ```
 
 **Example:**
-```
+```python
 # ✓ All these are VALID variable names
 
 name = "Alice"
@@ -153,3 +153,17 @@ myVariable = "value"
 my_variable = "value"
 myVariable2 = "value"
 ```
+
+```python
+# ✗ All these are INVALID - will cause errors!
+
+# 1name = "error"       # Cannot start with number
+# user-name = "error"   # Cannot use hyphen (-)
+# user name = "error"   # Cannot have spaces
+# user@name = "error"   # Cannot use special characters
+# class = "error"       # Cannot use Python keywords
+# for = "error"         # Cannot use Python keywords
+# $price = "error"      # Cannot use $
+# my.variable = "error" # Cannot use dot (.)
+```
+
