@@ -503,3 +503,161 @@ else:
 ports = [22, 80, 443, 80, 8080]
 print(ports.index(80, 2))     # 3 (search from index 2)
 ```
+
+#### count() - Count Occurrences
+```python
+# count(value) - Returns number of times value appears
+
+ports = [22, 80, 443, 80, 8080, 80]
+
+print(ports.count(80))        # 3
+print(ports.count(22))        # 1
+print(ports.count(9999))      # 0 (not found, no error)
+
+# Count in a log analysis
+log_levels = ["INFO", "ERROR", "INFO", "WARNING", "ERROR", "ERROR", "INFO"]
+
+print(f"INFO count: {log_levels.count('INFO')}")       # 3
+print(f"ERROR count: {log_levels.count('ERROR')}")     # 3
+print(f"WARNING count: {log_levels.count('WARNING')}") # 1
+```
+
+## Ordering Items
+#### sort() - Sort In Place
+```python
+# sort() - Sorts the list IN PLACE (modifies original)
+
+ports = [443, 22, 8080, 80, 21]
+print(f"Before: {ports}")      # [443, 22, 8080, 80, 21]
+
+ports.sort()
+print(f"After: {ports}")       # [21, 22, 80, 443, 8080]
+
+# Sort in reverse (descending)
+ports.sort(reverse=True)
+print(f"Descending: {ports}")  # [8080, 443, 80, 22, 21]
+
+# Sort strings
+names = ["Charlie", "Alice", "Bob"]
+names.sort()
+print(names)                   # ['Alice', 'Bob', 'Charlie']
+
+# Sort strings (case-insensitive)
+mixed = ["banana", "Apple", "cherry"]
+mixed.sort()                   # Uppercase comes first!
+print(mixed)                   # ['Apple', 'banana', 'cherry']
+
+mixed.sort(key=str.lower)      # Case-insensitive
+print(mixed)                   # ['Apple', 'banana', 'cherry']
+```
+
+#### reverse() - Reverse In Place
+```python
+# reverse() - Reverses the list IN PLACE
+
+ports = [22, 80, 443]
+print(f"Before: {ports}")      # [22, 80, 443]
+
+ports.reverse()
+print(f"After: {ports}")       # [443, 80, 22]
+
+# Alternative: slicing (creates new list)
+ports = [22, 80, 443]
+reversed_ports = ports[::-1]
+print(reversed_ports)          # [443, 80, 22]
+print(ports)                   # [22, 80, 443] (original unchanged)
+```
+
+#### sorted() - Create Sorted Copy
+```python
+# sorted() - Returns a NEW sorted list (original unchanged)
+
+ports = [443, 22, 8080, 80]
+print(f"Original: {ports}")
+
+# Create sorted copy
+sorted_ports = sorted(ports)
+print(f"Sorted copy: {sorted_ports}")   # [22, 80, 443, 8080]
+print(f"Original: {ports}")              # [443, 22, 8080, 80] (unchanged!)
+
+# Descending
+sorted_desc = sorted(ports, reverse=True)
+print(f"Descending: {sorted_desc}")      # [8080, 443, 80, 22]
+```
+
+
+##### comparison sort() vs sorted()  
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           sort() vs sorted()                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   sort()                      sorted()                           │
+│   ─────────────────────────   ─────────────────────────────     │
+│   Method of list              Built-in function                  │
+│   Modifies original           Creates new list                   │
+│   Returns None                Returns sorted list                │
+│   list.sort()                 sorted(list)                       │
+│                                                                  │
+│   Example:                    Example:                           │
+│   nums = [3,1,2]              nums = [3,1,2]                     │
+│   nums.sort()                 new = sorted(nums)                 │
+│   print(nums) → [1,2,3]       print(new) → [1,2,3]              │
+│                               print(nums) → [3,1,2]              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+# Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MODULE 12 SUMMARY                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  CREATING LISTS:                                                 │
+│  • list = [1, 2, 3]                                             │
+│  • list = list(range(5))                                        │
+│  • list = []  (empty)                                           │
+│                                                                  │
+│  CHARACTERISTICS:                                                │
+│  • Ordered (has index)                                          │
+│  • Mutable (can change)                                         │
+│  • Allows duplicates                                            │
+│  • Mixed data types allowed                                     │
+│                                                                  │
+│  INDEXING & SLICING:                                             │
+│  • list[0]  (first item)                                        │
+│  • list[-1] (last item)                                         │
+│  • list[1:4] (slice)                                            │
+│  • list[::-1] (reverse)                                         │
+│                                                                  │
+│  ADDING ITEMS:                                                   │
+│  • append(x)     - add one to end                               │
+│  • extend(list)  - add multiple to end                          │
+│  • insert(i, x)  - add at index i                               │
+│                                                                  │
+│  REMOVING ITEMS:                                                 │
+│  • remove(x)  - remove by value                                 │
+│  • pop(i)     - remove by index (returns it)                    │
+│  • pop()      - remove last (returns it)                        │
+│  • clear()    - remove all                                      │
+│  • del list[i]                                                  │
+│                                                                  │
+│  FINDING ITEMS:                                                  │
+│  • index(x)  - find position                                    │
+│  • count(x)  - count occurrences                                │
+│  • x in list - check existence                                  │
+│                                                                  │
+│  ORDERING:                                                       │
+│  • sort()           - sort in place                             │
+│  • sort(reverse=True) - descending                              │
+│  • reverse()        - reverse in place                          │
+│  • sorted(list)     - return new sorted list                    │
+│                                                                  │
+│  OTHER:                                                          │
+│  • len(list), min(), max(), sum()                               │
+│  • copy() or list[:] - create copy                              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
