@@ -157,7 +157,7 @@ print(sqrt(16))        # No prefix, but risky!
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### PIP - Python Package Manager
+# PIP - Python Package Manager
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    WHAT IS PIP?                                  │
@@ -172,5 +172,16 @@ print(sqrt(16))        # No prefix, but risky!
 │   • Comes pre-installed with Python 3.4+                         │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
+```
+
+## Installing Packages using PIP
+```python
+# Basic installation
+pip install package_name
+
+# Examples:
+pip install requests
+pip install numpy
+pip install pandas
 ```
 
