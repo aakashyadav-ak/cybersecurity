@@ -114,12 +114,12 @@ print(math.fabs(-5))        # 5.0
 print(math.factorial(5))    # 120 (5! = 5×4×3×2×1)
 ```
 
-```
+```python
 # Method 1: import math
 import math
 print(math.sqrt(16))   # Need prefix
 
-# Method 2: import math as m
+# Method 2: import math as m using alias
 import math as m
 print(m.sqrt(16))      # Shorter prefix
 
@@ -131,3 +131,5 @@ print(sqrt(16))        # No prefix needed
 from math import *
 print(sqrt(16))        # No prefix, but risky!
 ```
+
+## 2. External Modules
