@@ -111,3 +111,45 @@ print(f"Connecting to {host}:{port} (timeout: {timeout}s)")
 ```
 
 ## Variable Naming Rules
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              VARIABLE NAMING RULES                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   MUST FOLLOW (or you get errors):                               │
+│                                                                  │
+│   ✓ Can contain letters (a-z, A-Z)                              │
+│   ✓ Can contain numbers (0-9)                                   │
+│   ✓ Can contain underscore (_)                                  │
+│   ✓ Must START with letter or underscore                        │
+│                                                                  │
+│   ✗ Cannot start with a number                                  │
+│   ✗ Cannot contain spaces                                       │
+│   ✗ Cannot contain special characters (@, #, $, %, etc.)        │
+│   ✗ Cannot be a Python keyword                                  │
+│                                                                  │
+│   ⚠️ Python is CASE SENSITIVE                                   │
+│      age, Age, AGE are THREE different variables!               │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Example:**
+```
+# ✓ All these are VALID variable names
+
+name = "Alice"
+Name = "Bob"
+NAME = "Charlie"
+_name = "David"
+_Name = "Eve"
+name1 = "Frank"
+name_1 = "Grace"
+userName = "Henry"
+user_name = "Iris"
+PORT_443 = 443
+__private = "secret"
+myVariable = "value"
+my_variable = "value"
+myVariable2 = "value"
+```
