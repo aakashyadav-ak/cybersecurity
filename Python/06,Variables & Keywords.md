@@ -237,6 +237,109 @@ print(f"Outside function: {name}")  # Output: Outside function: Global Alice
 # But doesn't change the global variable
 ```
 
+## Variable Reassignment
+
+### Changing Variable Values
+```python
+# Variables can be given new values at any time
+
+# Initial assignment
+age = 25
+print(f"Age: {age}")      # Age: 25
+
+# Reassignment
+age = 26
+print(f"Age: {age}")      # Age: 26
+
+# Reassignment again
+age = 30
+print(f"Age: {age}")      # Age: 30
 ```
 
+
+### Dynamic Typing - Changing Types
+
+```python
+# Python allows changing the TYPE of a variable!
+
+# Start as integer
+data = 100
+print(type(data))        # <class 'int'>
+
+# Change to string
+data = "Hello"
+print(type(data))        # <class 'str'>
+
+# Change to list
+data = [1, 2, 3]
+print(type(data))        # <class 'list'>
+
+# Change to boolean
+data = True
+print(type(data))        # <class 'bool'>
+
+# This is called DYNAMIC TYPING
+# Other languages (Java, C) don't allow this!
+```
+
+### Updating Variables with Operations
+```python
+# Using current value to calculate new value
+
+counter = 0
+
+# Long way
+counter = counter + 1
+print(counter)           # 1
+
+# Short way (shorthand operators)
+counter += 1             # Same as: counter = counter + 1
+print(counter)           # 2
+
+counter -= 1             # Same as: counter = counter - 1
+print(counter)           # 1
+
+# Other shorthand operators
+x = 10
+x *= 2                   # x = x * 2 → 20
+x /= 4                   # x = x / 4 → 5.0
+x **= 2                  # x = x ** 2 → 25.0
+
+# String concatenation
+message = "Hello"
+message += " World"      # message = message + " World"
+print(message)           # Hello World
+```
+
+# Keywords in Python
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    WHAT ARE KEYWORDS?                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   KEYWORDS are reserved words with special meaning in Python.    │
+│                                                                  │
+│   • They are part of Python's syntax                             │
+│   • You CANNOT use them as variable names                        │
+│   • They are case-sensitive                                      │
+│   • Python 3.11 has 35 keywords                                  │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              ALL PYTHON KEYWORDS (35)                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   False      await      else       import     pass               │
+│   None       break      except     in         raise              │
+│   True       class      finally    is         return             │
+│   and        continue   for        lambda     try                │
+│   as         def        from       nonlocal   while              │
+│   assert     del        global     not        with               │
+│   async      elif       if         or         yield              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 ```
