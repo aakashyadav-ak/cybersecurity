@@ -214,3 +214,76 @@ pip freeze > requirements.txt
 # 9. INSTALL from requirements file
 pip install -r requirements.txt
 ```
+
+## Example: Using Built-in math Module
+```python
+# calculator.py
+import math
+
+print("=== Math Calculator ===")
+print()
+
+# Square root
+number = 144
+print(f"Square root of {number}: {math.sqrt(number)}")
+
+# Power
+base = 2
+exponent = 10
+print(f"{base} to the power of {exponent}: {math.pow(base, exponent)}")
+
+# Circle area
+radius = 5
+area = math.pi * radius ** 2
+print(f"Area of circle with radius {radius}: {area:.2f}")
+
+# Floor and ceiling
+value = 7.6
+print(f"Floor of {value}: {math.floor(value)}")
+print(f"Ceiling of {value}: {math.ceil(value)}")
+```
+
+# Security-Related Modules
+```
+┌─────────────────────────────────────────────────────────────────┐
+│             MODULES FOR CYBERSECURITY                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  BUILT-IN:                                                       │
+│  ├── hashlib    → Hashing (MD5, SHA256, etc.)                   │
+│  ├── secrets    → Secure random numbers                         │
+│  ├── socket     → Network connections                           │
+│  └── ssl        → SSL/TLS encryption                            │
+│                                                                  │
+│  EXTERNAL (pip install):                                        │
+│  ├── requests   → HTTP requests                                 │
+│  ├── scapy      → Packet manipulation                           │
+│  ├── paramiko   → SSH connections                               │
+│  ├── pycryptodome → Encryption/Decryption                      │
+│  ├── python-nmap → Nmap port scanning                          │
+│  └── beautifulsoup4 → Web scraping                             │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Example: hashlib (Built-in)
+```python
+import hashlib
+
+# Hash a password (for demonstration)
+password = "MySecretPassword123"
+
+# Create MD5 hash
+md5_hash = hashlib.md5(password.encode()).hexdigest()
+print(f"MD5: {md5_hash}")
+
+# Create SHA256 hash (more secure)
+sha256_hash = hashlib.sha256(password.encode()).hexdigest()
+print(f"SHA256: {sha256_hash}")
+```
+
+**Output**
+```
+MD5: 5f4dcc3b5aa765d61d8327deb882cf99
+SHA256: a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+```
