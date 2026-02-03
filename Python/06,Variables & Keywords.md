@@ -168,3 +168,43 @@ myVariable2 = "value"
 ```
 
 # Variable Scope (Local & Global)
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    WHAT IS SCOPE?                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   SCOPE = Where a variable can be accessed                       │
+│                                                                  │
+│   Two types:                                                     │
+│                                                                  │
+│   1. GLOBAL SCOPE                                                │
+│      • Variable created OUTSIDE any function                     │
+│      • Can be accessed ANYWHERE in the program                   │
+│                                                                  │
+│   2. LOCAL SCOPE                                                 │
+│      • Variable created INSIDE a function                        │
+│      • Can ONLY be accessed inside that function                 │
+│      • Destroyed when function ends                              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+## Global Variables
+```python
+# Global variable - defined outside any function
+message = "Hello, World!"
+
+def greet():
+    # Can READ global variable inside function
+    print(message)
+
+def show_message():
+    # Can also read here
+    print(message)
+
+# Call the functions
+greet()          # Output: Hello, World!
+show_message()   # Output: Hello, World!
+print(message)   # Output: Hello, World!
+```
