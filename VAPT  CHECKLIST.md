@@ -6,22 +6,22 @@
 ## 1.1 Networking Fundamentals
 
 ### OSI Model
-- [ ] Layer 1 - Physical (Cables, Hubs)
-- [ ] Layer 2 - Data Link (MAC, Switches, ARP)
-- [ ] Layer 3 - Network (IP, Routers, ICMP)
-- [ ] Layer 4 - Transport (TCP, UDP, Ports)
-- [ ] Layer 5 - Session (Sessions, Authentication)
-- [ ] Layer 6 - Presentation (Encryption, Compression)
-- [ ] Layer 7 - Application (HTTP, FTP, DNS)
+- [x] Layer 1 - Physical (Cables, Hubs)
+- [x] Layer 2 - Data Link (MAC, Switches, ARP)
+- [x] Layer 3 - Network (IP, Routers, ICMP)
+- [x] Layer 4 - Transport (TCP, UDP, Ports)
+- [x] Layer 5 - Session (Sessions, Authentication)
+- [x] Layer 6 - Presentation (Encryption, Compression)
+- [x] Layer 7 - Application (HTTP, FTP, DNS)
 
 ### TCP/IP Model
-- [ ] Network Access Layer
-- [ ] Internet Layer
-- [ ] Transport Layer
-- [ ] Application Layer
-- [ ] TCP vs UDP differences
-- [ ] TCP 3-way handshake (SYN, SYN-ACK, ACK)
-- [ ] TCP flags (SYN, ACK, FIN, RST, PSH, URG)
+- [x] Network Access Layer
+- [x] Internet Layer
+- [x] Transport Layer
+- [x] Application Layer
+- [x] TCP vs UDP differences
+- [x] TCP 3-way handshake (SYN, SYN-ACK, ACK)
+- [x] TCP flags (SYN, ACK, FIN, RST, PSH, URG)
 
 ### IP Addressing
 - [x] IPv4 addressing
@@ -34,31 +34,31 @@
 - [x] DHCP working
 
 ### Common Protocols
-- [ ] HTTP/HTTPS (Port 80/443)
-- [ ] FTP (Port 21)
-- [ ] SSH (Port 22)
-- [ ] Telnet (Port 23)
-- [ ] SMTP (Port 25)
-- [ ] DNS (Port 53)
-- [ ] TFTP (Port 69)
-- [ ] POP3 (Port 110)
-- [ ] IMAP (Port 143)
-- [ ] SNMP (Port 161/162)
-- [ ] LDAP (Port 389)
-- [ ] SMB (Port 445)
-- [ ] RDP (Port 3389)
-- [ ] MySQL (Port 3306)
-- [ ] PostgreSQL (Port 5432)
-- [ ] MongoDB (Port 27017)
+- [x] HTTP/HTTPS (Port 80/443)
+- [x] FTP (Port 21)
+- [x] SSH (Port 22)
+- [x] Telnet (Port 23)
+- [x] SMTP (Port 25)
+- [x] DNS (Port 53)
+- [x] TFTP (Port 69)
+- [x] POP3 (Port 110)
+- [x] IMAP (Port 143)
+- [x] SNMP (Port 161/162)
+- [x] LDAP (Port 389)
+- [x] SMB (Port 445)
+- [x] RDP (Port 3389)
+- [x] MySQL (Port 3306)
+- [x] PostgreSQL (Port 5432)
+- [x] MongoDB (Port 27017)
 
 ### Network Security Devices
-- [ ] Firewalls (Stateful vs Stateless)
-- [ ] IDS (Intrusion Detection System)
-- [ ] IPS (Intrusion Prevention System)
-- [ ] WAF (Web Application Firewall)
-- [ ] Proxy servers
-- [ ] Load balancers
-- [ ] VPN (Virtual Private Network)
+- [x] Firewalls (Stateful vs Stateless)
+- [x] IDS (Intrusion Detection System)
+- [x] IPS (Intrusion Prevention System)
+- [x] WAF (Web Application Firewall)
+- [x] Proxy servers
+- [x] Load balancers
+- [x] VPN (Virtual Private Network)
 
 ### Network Analysis
 - [ ] Wireshark basics
@@ -213,12 +213,12 @@
 
 ### Web Technologies
 - [ ] HTML basics
-- [ ] HTTP methods (GET, POST, PUT, DELETE)
-- [ ] HTTP headers
-- [ ] HTTP status codes
-- [ ] Cookies and sessions
+- [x] HTTP methods (GET, POST, PUT, DELETE)
+- [x] HTTP headers
+- [x] HTTP status codes
+- [x] Cookies and sessions
 - [ ] REST API concepts
-- [ ] JSON format
+- [x] JSON format
 
 
 # ═══════════════════════════════════════════════════════
@@ -244,9 +244,9 @@
 - [ ] Ethical hacking principles
 
 ### Types of Testing
-- [ ] Black Box (no prior knowledge)
-- [ ] White Box (full knowledge, source code)
-- [ ] Grey Box (partial knowledge)
+- [x] Black Box (no prior knowledge)
+- [x] White Box (full knowledge, source code)
+- [x] Grey Box (partial knowledge)
 - [ ] External testing
 - [ ] Internal testing
 - [ ] Blind testing
