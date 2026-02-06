@@ -19,17 +19,12 @@
 - [ ] Lesson 01: What is SIEM and Why SOC Needs It
 - [ ] Lesson 02: SIEM Architecture & Components
 - [ ] Lesson 03: Log Sources (Windows, Linux, Network, Application)
-- [ ] Lesson 04: Log Collection & Ingestion
-- [ ] Lesson 05: Log Parsing & Normalization
 - [ ] Lesson 06: Creating Detection Rules & Alerts
 - [ ] Lesson 07: Alert Triage & Investigation
-	      
-	      
-	- [ ] Lesson 08: Dashboard Creation & Visualization
 	- [ ] Lesson 09: Use Cases & Correlation Rules
 	- [ ] Lesson 10: Alert Tuning & False Positive Reduction
 	- [ ] Lesson 11: Popular SIEM Tools (Splunk, QRadar, Sentinel, ELK)
-	- [ ] Lesson 12: SIEM Best Practices
+
 
 ### Module 02: EDR/XDR Operations
 - [ ] Lesson 01: Antivirus vs EPP vs EDR vs XDR
@@ -41,7 +36,6 @@
 		- [ ] Lesson 07: Threat Hunting with EDR
 		- [ ] Lesson 08: IOC vs IOA Analysis
 		- [ ] Lesson 09: Common EDR Tools (CrowdStrike, Defender, SentinelOne, Carbon Black)
-		- [ ] Lesson 10: EDR + SIEM Integration
 		- [ ] Lesson 11: XDR Concepts & Benefits
 
 ### Module 03: MITRE ATT&CK Framework
@@ -50,11 +44,9 @@
 - [ ] Lesson 03: Tactics (14 Categories Explained)
 - [ ] Lesson 04: Techniques & Sub-Techniques
 - [ ] Lesson 05: Mapping Alerts to MITRE ATT&CK
-		- [ ] Lesson 06: Using ATT&CK for Detection Engineering
 		- [ ] Lesson 07: ATT&CK Navigator Tool
 		- [ ] Lesson 08: Threat Hunting with ATT&CK
-		- [ ] Lesson 09: Common Attack Patterns (Kill Chain Mapping)
-		- [ ] Lesson 10: ATT&CK-Based Reporting
+		- [ ] Lesson 09: Common Attack Patterns (Kill Chain Mapping
 
 ### Module 04: Incident Response Fundamentals
 - [ ] Lesson 01: What is Incident Response
@@ -63,9 +55,6 @@
 - [ ] Lesson 04: Alert Triage Process
 - [ ] Lesson 05: Initial Analysis & Scoping
 - [ ] Lesson 06: Containment Strategies
-		- [ ] Lesson 07: Evidence Collection & Preservation
-		- [ ] Lesson 08: Eradication & Recovery
-		- [ ] Lesson 09: Post-Incident Analysis & Lessons Learned
 		- [ ] Lesson 10: Incident Documentation & Reporting
 		- [ ] Lesson 11: Communication During Incidents
 
