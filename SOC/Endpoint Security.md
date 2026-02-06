@@ -6,7 +6,10 @@
 - [x] 1.3 Log Sources (On-Prem vs **Cloud Logs like CloudTrail/Entra**)
 - [x] 1.4 Alert Triage & Investigation Process
 - [x] 1.5 False Positives & How to Reduce Them
-- [ ] 1.6 **SOAR & Playbooks** (How to automate triage via Python)
+- [x] 1.6 **SOAR & Playbooks** (How to automate triage via Python)
+ - [ ] What are IOCs (Hashes, IPs, Domains)
+		- [ ] Using TI platforms (VirusTotal, OTX, AbuseIPDB)
+		- [ ] Understanding threat actor TTPs
 
 ---
 
@@ -27,9 +30,7 @@
 - [ ] 3.3 14 Tactics Explained (Initial Access to Impact)
 - [ ] 3.4 Mapping Alerts to MITRE Techniques
 - [ ] 3.5 **Living off the Land (LOLBins)**: How attackers use legitimate tools (PowerShell/CMD).
-		- [ ] What are IOCs (Hashes, IPs, Domains)
-		- [ ] Using TI platforms (VirusTotal, OTX, AbuseIPDB)
-		- [ ] Understanding threat actor TTPs
+		
 ---
 
 ## Module 04: Incident Response Basics
