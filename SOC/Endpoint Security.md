@@ -25,8 +25,8 @@
 ---
 
 ## Module 03: MITRE ATT&CK Framework
-- [ ] 3.1 What is MITRE ATT&CK & Why use it?
-- [ ] 3.2 Understanding the Matrix Structure
+- [x] 3.1 What is MITRE ATT&CK & Why use it?
+- [x] 3.2 Understanding the Matrix Structure
 - [ ] 3.3 14 Tactics Explained (Initial Access to Impact)
 - [ ] 3.4 Mapping Alerts to MITRE Techniques
 - [ ] 3.5 **Living off the Land (LOLBins)**: How attackers use legitimate tools (PowerShell/CMD).
