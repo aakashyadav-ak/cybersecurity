@@ -652,3 +652,52 @@ IOCs are pieces of forensic data (evidence) that indicate a computer or network 
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+
+## TTPs = Tactics, Techniques, and Procedures
+This is the behavioral fingerprint of how attackers operate.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     TTP FRAMEWORK                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   ╔═══════════════════════════════════════════════════════════╗ │
+│   ║                                                           ║ │
+│   ║   TACTICS (The "WHY")                                     ║ │
+│   ║   ═══════════════════                                     ║ │
+│   ║   • The attacker's GOAL or OBJECTIVE                      ║ │
+│   ║   • What are they trying to accomplish?                   ║ │
+│   ║   • High-level phase of the attack                        ║ │
+│   ║                                                           ║ │
+│   ║   Example: "I want to gain access to the network"         ║ │
+│   ║                                                           ║ │
+│   ╚═══════════════════════════════════════════════════════════╝ │
+│                          ↓                                      │
+│   ╔═══════════════════════════════════════════════════════════╗ │
+│   ║                                                           ║ │
+│   ║   TECHNIQUES (The "WHAT")                                 ║ │
+│   ║   ════════════════════════                                ║ │
+│   ║   • The METHOD used to achieve the tactic                 ║ │
+│   ║   • How does the attacker accomplish their goal?          ║ │
+│   ║   • General approach or category                          ║ │
+│   ║                                                           ║ │
+│   ║   Example: "I will use phishing emails"                   ║ │
+│   ║                                                           ║ │
+│   ╚═══════════════════════════════════════════════════════════╝ │
+│                          ↓                                      │
+│   ╔═══════════════════════════════════════════════════════════╗ │
+│   ║                                                           ║ │
+│   ║   PROCEDURES (The "HOW")                                  ║ │
+│   ║   ══════════════════════                                  ║ │
+│   ║   • The SPECIFIC implementation                           ║ │
+│   ║   • Exact tools, commands, patterns                       ║ │
+│   ║   • Unique to each threat actor                          ║ │
+│   ║                                                           ║ │
+│   ║   Example: "Send Excel with macro that runs encoded       ║ │
+│   ║            PowerShell to download Cobalt Strike beacon"   ║ │
+│   ║                                                           ║ │
+│   ╚═══════════════════════════════════════════════════════════╝ │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```

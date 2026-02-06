@@ -7,9 +7,9 @@
 - [x] 1.4 Alert Triage & Investigation Process
 - [x] 1.5 False Positives & How to Reduce Them
 - [x] 1.6 **SOAR & Playbooks** (How to automate triage via Python)
- - [ ] What are IOCs (Hashes, IPs, Domains)
-		- [ ] Using TI platforms (VirusTotal, OTX, AbuseIPDB)
-		- [ ] Understanding threat actor TTPs
+ - [x] What are IOCs (Hashes, IPs, Domains)
+ - [x] Using TI platforms (VirusTotal, OTX, AbuseIPDB)
+ - [ ] Understanding threat actor TTPs
 
 ---
 
