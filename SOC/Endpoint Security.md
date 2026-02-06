@@ -18,9 +18,9 @@
 - [x] 2.1 Antivirus vs EPP vs EDR vs XDR
 - [x] 2.2 How EDR Works (Architecture & Kernel Visibility)
 - [x] 2.3 Alert Triage: Analyzing **Process Trees**
-- [ ] 2.4 Endpoint Isolation & Containment
-- [ ] 2.5 IOC vs IOA (Indicators of Compromise vs. Attack)
-- [ ] 2.6 **ITDR (Identity Threat Detection & Response)** - Detecting MFA bypass.
+- [x] 2.4 Endpoint Isolation & Containment
+- [x] 2.5 IOC vs IOA (Indicators of Compromise vs. Attack)
+- [x] 2.6 **ITDR (Identity Threat Detection & Response)** - Detecting MFA bypass.
 
 ---
 

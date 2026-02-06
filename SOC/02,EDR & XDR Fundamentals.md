@@ -576,141 +576,45 @@ ITDR = EDR for Identity Systems (Active Directory, Entra ID, Okta)
 
 ### Common Identity Attacks
 
-#### MFA Bypass Techniques & Detection
-
+#### 1. MFA Bypass: MFA Fatigue (Push Bombing)
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      MFA BYPASS TECHNIQUES                                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  1. MFA FATIGUE / PROMPT BOMBING                                           │
-│  ═══════════════════════════════                                            │
-│                                                                             │
-│  Attack Flow:                                                               │
-│  ┌───────────────────────────────────────────────────────────────────┐     │
-│  │                                                                    │     │
-│  │  Attacker has            Sends many MFA         User frustrated   │     │
-│  │  password         ────▶  push requests   ────▶  accidentally     │     │
-│  │                          (2am, repeatedly)      approves one      │     │
-│  │                                                                    │     │
-│  └───────────────────────────────────────────────────────────────────┘     │
-│                                                                             │
-│  Detection Indicators:                                                      │
-│  • Multiple MFA push requests in short timeframe (>3 in 10 minutes)        │
-│  • MFA requests at unusual hours for user                                  │
-│  • MFA denied multiple times then approved                                 │
-│  • Authentication from unusual location after approval                     │
-│                                                                             │
-│  ITDR Alert Example:                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ ⚠️ MFA Fatigue Attack Suspected                                    │   │
-│  │                                                                      │   │
-│  │ User: john.smith@company.com                                        │   │
-│  │ Time: 02:34 AM (unusual for this user)                              │   │
-│  │ Events:                                                              │   │
-│  │   - 02:30 MFA Push Denied                                           │   │
-│  │   - 02:31 MFA Push Denied                                           │   │
-│  │   - 02:32 MFA Push Denied                                           │   │
-│  │   - 02:33 MFA Push Denied                                           │   │
-│  │   - 02:34 MFA Push APPROVED                                         │   │
-│  │                                                                      │   │
-│  │ Post-Approval Activity:                                             │   │
-│  │   - Login from IP: 185.220.101.35 (Tor Exit Node)                   │   │
-│  │   - Accessed: SharePoint Finance folder (never accessed before)    │   │
-│  │                                                                      │   │
-│  │ Recommended Action: IMMEDIATE account disable + investigation      │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-│                                                                             │
-│  2. ADVERSARY-IN-THE-MIDDLE (AiTM) / AITM PHISHING                         │
-│  ═══════════════════════════════════════════════════                        │
-│                                                                             │
-│  Attack Flow:                                                               │
-│  ┌───────────────────────────────────────────────────────────────────┐     │
-│  │                                                                    │     │
-│  │   User            Phishing           Attacker          Real       │     │
-│  │                    Site               Proxy           Service     │     │
-│  │                                                                    │     │
-│  │   ┌──────┐      ┌──────────┐      ┌──────────┐      ┌──────────┐ │     │
-│  │   │      │─────▶│ Fake     │─────▶│ Captures │─────▶│ Azure AD │ │     │
-│  │   │      │      │ Login    │      │ Creds +  │      │          │ │     │
-│  │   │      │      │ Page     │      │ Session  │      │          │ │     │
-│  │   │      │◀─────│          │◀─────│ Cookie   │◀─────│          │ │     │
-│  │   │ User │      │          │      │          │      │          │ │     │
-│  │   │      │      └──────────┘      └──────────┘      └──────────┘ │     │
-│  │   │      │  Sees real MFA   Relays MFA to   MFA succeeds!       │     │
-│  │   │      │  prompt          real service                         │     │
-│  │   └──────┘                                                        │     │
-│  │                                                                    │     │
-│  │   Attacker now has valid session cookie - MFA BYPASSED            │     │
-│  │                                                                    │     │
-│  └───────────────────────────────────────────────────────────────────┘     │
-│                                                                             │
-│  Detection Indicators:                                                      │
-│  • Login source IP doesn't match user's usual locations                   │
-│  • Session created from known phishing infrastructure                      │
-│  • User agent doesn't match their typical browser                          │
-│  • Session cookie used from different IP than authentication               │
-│  • Impossible travel: Auth in NYC, activity from Russia 5 min later       │
-│                                                                             │
-│  ITDR Alert Example:                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ 🚨 AiTM Attack Detected - Session Hijacking                         │   │
-│  │                                                                      │   │
-│  │ User: cfo@company.com                                               │   │
-│  │                                                                      │   │
-│  │ Authentication:                                                      │   │
-│  │   - Time: 10:15 AM                                                  │   │
-│  │   - IP: 67.180.25.101 (user's home ISP - expected)                 │   │
-│  │   - MFA: Approved                                                   │   │
-│  │   - Location: San Francisco, CA                                     │   │
-│  │                                                                      │   │
-│  │ Session Activity (5 minutes later):                                 │   │
-│  │   - IP: 185.220.101.35 (Russia - TOR)                              │   │
-│  │   - Same session token being used                                   │   │
-│  │   - Accessed: Email, SharePoint                                     │   │
-│  │   - Downloaded: 500MB of files                                      │   │
-│  │                                                                      │   │
-│  │ Detection: Impossible travel + Session IP mismatch                  │   │
-│  │ Confidence: 99%                                                     │   │
-│  │                                                                      │   │
-│  │ Automated Response Triggered:                                       │   │
-│  │   ✓ All sessions revoked                                           │   │
-│  │   ✓ Account temporarily blocked                                    │   │
-│  │   ✓ SOC alerted                                                    │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-│                                                                             │
-│  3. SIM SWAPPING                                                            │
-│  ═══════════════                                                            │
-│                                                                             │
-│  Attack Flow:                                                               │
-│  ┌───────────────────────────────────────────────────────────────────┐     │
-│  │                                                                    │     │
-│  │  Attacker social    Carrier transfers   Attacker receives       │     │
-│  │  engineers carrier  number to attacker  all SMS MFA codes       │     │
-│  │                                                                    │     │
-│  │  "I lost my phone,  "Number ported"     "Your code is 847291"   │     │
-│  │   need new SIM"                          → Account takeover      │     │
-│  │                                                                    │     │
-│  └───────────────────────────────────────────────────────────────────┘     │
-│                                                                             │
-│  Detection is DIFFICULT - occurs at carrier level                          │
-│  Prevention: Use authenticator apps, FIDO2 keys instead of SMS            │
-│                                                                             │
-│                                                                             │
-│  4. TOKEN THEFT (Cookie/Session Stealing)                                  │
-│  ═══════════════════════════════════════                                    │
-│                                                                             │
-│  Attack Vectors:                                                            │
-│  • Malware that steals browser cookies                                     │
-│  • Memory scraping on compromised endpoints                                │
-│  • Man-in-the-browser attacks                                              │
-│                                                                             │
-│  Detection Indicators:                                                      │
-│  • Same token used from multiple IPs simultaneously                        │
-│  • Token used from unexpected geographic location                          │
-│  • Token activity after user logs out                                      │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+1. Attacker steals password (phishing)
+2. Attacker floods user with MFA push notifications
+3. User accidentally approves OR gets annoyed and approves
+4. Attacker gains access
+```
+
+**ITDR Detection:**
+```
+Alert: "10+ MFA push requests within 5 minutes from single user"
+Response:
+  - Temporary account lock
+  - Force password reset
+  - Notify user/SOC
+```
+
+
+#### 2. Golden Ticket Attack
+Forge Kerberos TGT (Ticket Granting Ticket) using stolen krbtgt hash
+
+
+**Detection (ITDR/EDR):**
+```
+Anomaly: TGT lifetime > 10 hours (default: 10h, but attacker sets to 10 years)
+Event ID: 4768 (Kerberos TGT request)
+  - Check "Ticket Options" field
+  - Validate krbtgt password last changed date
+```
+
+#### 3. Pass-the-Hash (PtH)
+Use NTLM hash to authenticate (without password)
+
+ITDR Detection:
+```
+Event ID: 4624 (Logon)
+  - LogonType: 3 (Network)
+  - AuthenticationPackage: NTLM (instead of Kerberos)
+  - From: Non-domain-joined IP
+
+Alert: "NTLM authentication from admin account to 10+ hosts in 1 minute"
 ```
