@@ -503,109 +503,16 @@ A playbook is a documented set of steps to respond to a specific type of alert.
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### Python Automation 
-automating IOC enrichment:
+#### example of automation
 ```python
-#!/usr/bin/env python3
-"""
-SOC Automation: IP Reputation Checker
-Checks suspicious IPs against multiple threat intel sources
-"""
-
 import requests
-import json
-from datetime import datetime
 
-# API Keys (store securely in production!)
-ABUSEIPDB_KEY = "your_api_key_here"
-VIRUSTOTAL_KEY = "your_api_key_here"
+def check_abuseipdb(ip, api_key):
+    url = f"https://api.abuseipdb.com/api/v2/check"
+    headers = {'Key': api_key, 'Accept': 'application/json'}
+    params = {'ipAddress': ip, 'maxAgeInDays': 90}
+    r = requests.get(url, headers=headers, params=params)
+    return r.json()['data']['abuseConfidenceScore']
 
-def check_abuseipdb(ip_address):
-    """Check IP against AbuseIPDB"""
-    url = "https://api.abuseipdb.com/api/v2/check"
-    headers = {
-        "Accept": "application/json",
-        "Key": ABUSEIPDB_KEY
-    }
-    params = {
-        "ipAddress": ip_address,
-        "maxAgeInDays": 90
-    }
-    
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        data = response.json()["data"]
-        
-        return {
-            "ip": ip_address,
-            "abuse_score": data["abuseConfidenceScore"],
-            "total_reports": data["totalReports"],
-            "country": data["countryCode"],
-            "isp": data["isp"],
-            "is_tor": data["isTor"],
-            "verdict": "MALICIOUS" if data["abuseConfidenceScore"] > 50 else "SUSPICIOUS" if data["abuseConfidenceScore"] > 25 else "CLEAN"
-        }
-    except Exception as e:
-        return {"error": str(e)}
-
-def check_virustotal(ip_address):
-    """Check IP against VirusTotal"""
-    url = f"https://www.virustotal.com/api/v3/ip_addresses/{ip_address}"
-    headers = {"x-apikey": VIRUSTOTAL_KEY}
-    
-    try:
-        response = requests.get(url, headers=headers)
-        data = response.json()["data"]["attributes"]
-        stats = data["last_analysis_stats"]
-        
-        return {
-            "ip": ip_address,
-            "malicious_votes": stats["malicious"],
-            "suspicious_votes": stats["suspicious"],
-            "harmless_votes": stats["harmless"],
-            "country": data.get("country", "Unknown"),
-            "as_owner": data.get("as_owner", "Unknown")
-        }
-    except Exception as e:
-        return {"error": str(e)}
-
-def enrich_ip(ip_address):
-    """Main function to enrich an IP with threat intel"""
-    print(f"\n{'='*60}")
-    print(f"  IP ENRICHMENT REPORT: {ip_address}")
-    print(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"{'='*60}\n")
-    
-    # Check AbuseIPDB
-    print("[*] Checking AbuseIPDB...")
-    abuse_result = check_abuseipdb(ip_address)
-    if "error" not in abuse_result:
-        print(f"    Abuse Score: {abuse_result['abuse_score']}/100")
-        print(f"    Total Reports: {abuse_result['total_reports']}")
-        print(f"    Country: {abuse_result['country']}")
-        print(f"    Is Tor Exit: {abuse_result['is_tor']}")
-        print(f"    Verdict: {abuse_result['verdict']}")
-    
-    # Check VirusTotal
-    print("\n[*] Checking VirusTotal...")
-    vt_result = check_virustotal(ip_address)
-    if "error" not in vt_result:
-        print(f"    Malicious: {vt_result['malicious_votes']} vendors")
-        print(f"    Suspicious: {vt_result['suspicious_votes']} vendors")
-        print(f"    AS Owner: {vt_result['as_owner']}")
-    
-    # Overall verdict
-    print(f"\n{'='*60}")
-    if abuse_result.get("verdict") == "MALICIOUS" or vt_result.get("malicious_votes", 0) > 5:
-        print("  🚨 FINAL VERDICT: MALICIOUS - BLOCK IMMEDIATELY")
-    elif abuse_result.get("verdict") == "SUSPICIOUS" or vt_result.get("suspicious_votes", 0) > 3:
-        print("  ⚠️  FINAL VERDICT: SUSPICIOUS - INVESTIGATE FURTHER")
-    else:
-        print("  ✅ FINAL VERDICT: LIKELY CLEAN")
-    print(f"{'='*60}\n")
-
-# Example usage
-if __name__ == "__main__":
-    suspicious_ip = "185.220.101.1"  # Known Tor exit node
-    enrich_ip(suspicious_ip)
+# In playbook: if score > 85 → auto-block on firewall
 ```

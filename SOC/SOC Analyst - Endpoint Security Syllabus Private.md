@@ -16,8 +16,8 @@
 ## TIER 1: CRITICAL (Must Know First)
 
 ### Module 01: SIEM Fundamentals & Operations
-- [ ] Lesson 01: What is SIEM and Why SOC Needs It
-- [ ] Lesson 02: SIEM Architecture & Components
+- [x] Lesson 01: What is SIEM and Why SOC Needs It
+- [x] Lesson 02: SIEM Architecture & Components
 - [ ] Lesson 03: Log Sources (Windows, Linux, Network, Application)
 - [ ] Lesson 04: Log Collection & Ingestion
 - [ ] Lesson 05: Log Parsing & Normalization
