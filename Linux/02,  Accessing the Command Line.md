@@ -112,3 +112,38 @@ cd ../..    # Go up two directories
 | `cat /etc/os-release` | OS version         | Identify target OS        |
 
 #### User Information Commands
+
+| Command | Purpose                | VAPT Use             |
+| :------ | :--------------------- | :------------------- |
+| `who`   | Logged in users        | See active sessions  |
+| `w`     | Detailed user activity | Monitor user actions |
+| `last`  | Login history          | Investigate access   |
+| `users` | List logged in users   | Quick user check     |
+#### Command History
+
+| Action | Method |
+| :--- | :--- |
+| View history | `history` |
+| Run last command | `!!` |
+| Run command by number | `!42` |
+| Search history | `Ctrl` + `R` (then type) |
+| Clear history | `history -c` |
+
+
+==~/.bash_history==:
+sensitive information like passwords, commands, and accessed files.
+
+### Running Multiple Commands
+#### Sequential Execution (;)
+
+Run commands one after another regardless of success:
+```
+cd /tmp; ls; pwd
+```
+
+#### Conditional AND (&&)
+
+Run next command only if previous succeeds:
+```
+cd /etc && cat passwd
+```
