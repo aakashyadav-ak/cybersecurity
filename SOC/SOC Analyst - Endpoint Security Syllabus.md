@@ -97,11 +97,7 @@
 - [ ] Lesson 01: What is Threat Intelligence
 - [ ] Lesson 02: Types of Threat Intelligence (Strategic, Tactical, Operational)
 - [ ] Lesson 03: IOC Types (Hash, IP, Domain, URL, Email)
-- [ ] Lesson 04: Threat Intel Platforms (MISP, OTX, ThreatConnect)
 - [ ] Lesson 05: Using Threat Intel in SOC Operations
-- [ ] Lesson 06: Threat Actor Profiles & TTPs
-- [ ] Lesson 07: Intelligence-Driven Detection
-
 ---
 
 ## TIER 3: GOOD TO KNOW
@@ -117,17 +113,17 @@
 ### Module 10: APT & Advanced Threats
 - [ ] Lesson 01: What is Advanced Persistent Threat (APT)
 - [ ] Lesson 02: APT Lifecycle & Progression
-- [ ] Lesson 03: Famous APT Groups & Their TTPs
-- [ ] Lesson 04: Detecting APT Activity
-- [ ] Lesson 05: APT Hunting Techniques
-- [ ] Lesson 06: Defense Strategies Against APT
+		- [ ] Lesson 03: Famous APT Groups & Their TTPs
+		- [ ] Lesson 04: Detecting APT Activity
+		- [ ] Lesson 05: APT Hunting Techniques
+		- [ ] Lesson 06: Defense Strategies Against APT
 
 ### Module 11: Data Loss Prevention (DLP)
 - [ ] Lesson 01: DLP Concepts & Why It Matters
 - [ ] Lesson 02: Types of DLP (Network, Endpoint, Cloud)
 - [ ] Lesson 03: DLP Alert Types
-- [ ] Lesson 04: Investigating Data Exfiltration
-- [ ] Lesson 05: DLP Policy Management
+		- [ ] Lesson 04: Investigating Data Exfiltration
+		- [ ] Lesson 05: DLP Policy Management
 
 ### Module 12: SOC Operations & Soft Skills
 - [ ] Lesson 01: SOC Structure & Roles (L1, L2, L3)
