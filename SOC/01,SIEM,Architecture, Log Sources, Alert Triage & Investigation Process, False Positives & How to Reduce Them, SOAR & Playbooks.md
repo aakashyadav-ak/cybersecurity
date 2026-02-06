@@ -524,7 +524,61 @@ def check_abuseipdb(ip, api_key):
 
 IOC = Evidence that a system has been compromised
 
-Think of IOCs as forensic clues left behind by attackers - like fingerprints at a crime scene.
+IOCs are pieces of forensic data (evidence) that indicate a computer or network has already been breached. They are usually static—meaning they don't change based on context.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│   PHYSICAL CRIME SCENE          CYBER ATTACK                    │
+│   ════════════════════          ════════════                    │
+│                                                                  │
+│   Fingerprints         ───►     File Hashes                     │
+│   License Plate        ───►     IP Addresses                    │
+│   Phone Number         ───►     Domain Names                    │
+│   DNA Evidence         ───►     Malware Signatures              │
+│   Bullet Casings       ───►     Registry Keys                   │
+│   Ransom Note          ───►     Ransom Note Files               │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
+## Types of IOCs
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      IOC CATEGORIES                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │              NETWORK-BASED IOCs                          │    │
+│  ├─────────────────────────────────────────────────────────┤    │
+│  │  • IP Addresses      → C2 servers, attack origin        │    │
+│  │  • Domain Names      → Malicious/phishing sites         │    │
+│  │  • URLs              → Specific malicious pages         │    │
+│  │  • Email Addresses   → Phishing sender addresses        │    │
+│  │  • User Agents       → Malware HTTP signatures          │    │
+│  │  • JA3 Hashes        → TLS client fingerprints          │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │              HOST-BASED IOCs                             │    │
+│  ├─────────────────────────────────────────────────────────┤    │
+│  │  • File Hashes       → MD5, SHA1, SHA256 of malware     │    │
+│  │  • File Names        → Known malware names              │    │
+│  │  • File Paths        → Suspicious locations             │    │
+│  │  • Registry Keys     → Persistence mechanisms           │    │
+│  │  • Mutex Names       → Malware identifiers              │    │
+│  │  • Scheduled Tasks   → Persistence tasks                │    │
+│  │  • Service Names     → Malicious services               │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │              EMAIL-BASED IOCs                            │    │
+│  ├─────────────────────────────────────────────────────────┤    │
+│  │  • Sender Address    → Spoofed/malicious senders        │    │
+│  │  • Subject Lines     → Known phishing subjects          │    │
+│  │  • Attachment Hashes → Malicious document hashes        │    │
+│  │  • Reply-To Address  → Different from sender            │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 ```
