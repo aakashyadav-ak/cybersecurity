@@ -516,3 +516,15 @@ def check_abuseipdb(ip, api_key):
 
 # In playbook: if score > 85 → auto-block on firewall
 ```
+
+
+---
+
+### IOCs (Indicators of Compromise)
+
+IOC = Evidence that a system has been compromised
+
+Think of IOCs as forensic clues left behind by attackers - like fingerprints at a crime scene.
+```
+
+```
