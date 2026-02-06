@@ -186,3 +186,137 @@ This search finds: Brute force attempts (more than 10 failed logins per IP/user)
 ```
 
 ## Cloud Log Sources
+Critical cloud logs you MUST know:
+
+**AWS**
+
+CloudTrail (MUST) → Every API call (who logged into console, who launched EC2, etc.)
+VPC Flow Logs → Network traffic
+GuardDuty → Built-in threat detection
+S3 Access Logs
+
+**Azure**
+
+Azure Activity Log → Control plane (who created a VM, changed RBAC)
+Sign-in Logs (Entra ID) → Critical for identity attacks
+NSG Flow Logs → Network
+Microsoft Defender for Cloud alerts
+
+
+
+
+---
+
+# Alert Triage & Investigation Process
+
+## The Triage Workflow:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ALERT TRIAGE WORKFLOW                             │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│   [ALERT FIRES]                                                     │
+│        │                                                            │
+│        ▼                                                            │
+│   ┌─────────────┐                                                   │
+│   │ 1. RECEIVE  │  Read the alert, understand what triggered       │
+│   └──────┬──────┘                                                   │
+│          ▼                                                          │
+│   ┌─────────────┐                                                   │
+│   │ 2. VALIDATE │  Is this real? Check for false positive          │
+│   └──────┬──────┘                                                   │
+│          ▼                                                          │
+│   ┌─────────────┐                                                   │
+│   │ 3. ENRICH   │  Gather more context (user info, past behavior)  │
+│   └──────┬──────┘                                                   │
+│          ▼                                                          │
+│   ┌─────────────┐                                                   │
+│   │ 4. SCOPE    │  Is this affecting more systems/users?           │
+│   └──────┬──────┘                                                   │
+│          ▼                                                          │
+│   ┌─────────────┐                                                   │
+│   │ 5. DECIDE   │  Escalate? Close? Investigate further?           │
+│   └──────┬──────┘                                                   │
+│          ▼                                                          │
+│   ┌─────────────┐                                                   │
+│   │ 6. DOCUMENT │  Record findings, actions taken                  │
+│   └─────────────┘                                                   │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+
+### Real-World Example:
+Alert: Multiple failed logins detected for user john.doe
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 1: RECEIVE                                                    │
+├────────────────────────────────────────────────────────────────────┤
+│ Alert: 15 failed logins for john.doe in 2 minutes                 │
+│ Source IP: 45.33.32.156                                           │
+│ Time: 2024-03-15 08:30:00 UTC                                     │
+└────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 2: VALIDATE                                                   │
+├────────────────────────────────────────────────────────────────────┤
+│ Questions to ask:                                                  │
+│ - Is john.doe a real user? → YES, Sales team                      │
+│ - Is this normal behavior? → NO, usually logs in once             │
+│ - Is source IP internal/external? → EXTERNAL                      │
+└────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 3: ENRICH                                                     │
+├────────────────────────────────────────────────────────────────────┤
+│ Check the source IP:                                               │
+│ - VirusTotal: Flagged by 8 vendors as malicious                   │
+│ - AbuseIPDB: Reported 47 times for brute force                    │
+│ - GeoIP: Located in Russia                                        │
+│                                                                    │
+│ Check the user:                                                    │
+│ - Last legitimate login: Yesterday from NYC office                │
+│ - VPN user? NO                                                    │
+│ - Password recently changed? NO                                   │
+└────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 4: SCOPE                                                      │
+├────────────────────────────────────────────────────────────────────┤
+│ Search: Are other users being targeted by this IP?                │
+│                                                                    │
+│ Query: index=auth src_ip="45.33.32.156" action=failure            │
+│ Result: 5 other users also have failed logins from this IP!       │
+│         → This is a password spraying attack                      │
+└────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 5: DECIDE                                                     │
+├────────────────────────────────────────────────────────────────────┤
+│ Verdict: TRUE POSITIVE - Password Spraying Attack                 │
+│                                                                    │
+│ Actions:                                                           │
+│ ✓ Block IP at firewall                                            │
+│ ✓ Check if any login succeeded (DATA BREACH?)                     │
+│ ✓ Force password reset for targeted users                         │
+│ ✓ Escalate to L2/Incident Response                                │
+└────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────────┐
+│ STEP 6: DOCUMENT                                                   │
+├────────────────────────────────────────────────────────────────────┤
+│ Ticket #12345                                                      │
+│ Summary: Password spraying attack from 45.33.32.156               │
+│ Affected: 6 users (john.doe, jane.smith, etc.)                    │
+│ Actions: IP blocked, passwords reset, escalated to IR             │
+│ MITRE: T1110.003 (Password Spraying)                              │
+│ Status: Escalated                                                  │
+└────────────────────────────────────────────────────────────────────┘
+```
