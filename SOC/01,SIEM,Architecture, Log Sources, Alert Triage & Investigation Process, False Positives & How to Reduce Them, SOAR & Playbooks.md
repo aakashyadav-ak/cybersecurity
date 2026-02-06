@@ -582,3 +582,73 @@ IOCs are pieces of forensic data (evidence) that indicate a computer or network 
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+
+## IOC vs IOA (Indicators of Attack)
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     IOC vs IOA                                   │
+├────────────────────────────┬────────────────────────────────────┤
+│           IOC              │              IOA                   │
+│  (Indicator of Compromise) │     (Indicator of Attack)         │
+├────────────────────────────┼────────────────────────────────────┤
+│                            │                                    │
+│  WHAT = The Evidence       │  HOW = The Behavior               │
+│                            │                                    │
+│  Reactive                  │  Proactive                        │
+│  Found AFTER attack        │  Detected DURING attack           │
+│                            │                                    │
+│  Static artifacts          │  Dynamic patterns                 │
+│                            │                                    │
+│  Easy to change            │  Hard to change                   │
+│                            │                                    │
+│  "This hash is bad"        │  "This behavior is suspicious"    │
+│                            │                                    │
+└────────────────────────────┴────────────────────────────────────┘
+```
+
+**example:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           RANSOMWARE ATTACK: IOC vs IOA                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  IOC APPROACH (Reactive)                                  │  │
+│  ├───────────────────────────────────────────────────────────┤  │
+│  │                                                           │  │
+│  │  Known ransomware hash:                                   │  │
+│  │  SHA256: 7b2e8a91c3f4d5e6a7b8c9d0e1f2a3b4...             │  │
+│  │                                                           │  │
+│  │  Known C2 IP: 192.168.100.50                             │  │
+│  │  Known ransom note: "README_DECRYPT.txt"                 │  │
+│  │                                                           │  │
+│  │  ❌ If attacker recompiles → NEW hash → EVADES detection │  │
+│  │  ❌ If attacker uses new IP → EVADES detection           │  │
+│  │  ❌ Detection happens AFTER encryption started           │  │
+│  │                                                           │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  IOA APPROACH (Proactive)                                 │  │
+│  ├───────────────────────────────────────────────────────────┤  │
+│  │                                                           │  │
+│  │  Suspicious BEHAVIOR pattern detected:                   │  │
+│  │                                                           │  │
+│  │  1️⃣ Word.exe spawned PowerShell        [UNUSUAL]         │  │
+│  │          ↓                                                │  │
+│  │  2️⃣ PowerShell downloaded .exe file    [SUSPICIOUS]      │  │
+│  │          ↓                                                │  │
+│  │  3️⃣ New process started encrypting     [MALICIOUS]       │  │
+│  │          ↓                                                │  │
+│  │  4️⃣ vssadmin deleted shadow copies     [RANSOMWARE!]     │  │
+│  │                                                           │  │
+│  │  ✅ Works even with ZERO-DAY ransomware                  │  │
+│  │  ✅ Behavior stays same even if hash changes             │  │
+│  │  ✅ Can STOP attack before encryption completes          │  │
+│  │                                                           │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
