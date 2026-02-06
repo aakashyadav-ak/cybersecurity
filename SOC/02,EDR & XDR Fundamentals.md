@@ -415,3 +415,64 @@ ___
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+#### When to Isolate an Endpoint:
+✅ Isolate if:
+
+- Active C2 communication detected
+- Ransomware encryption in progress
+- Lateral movement from this host
+- Insider threat containment
+
+❌ Do NOT isolate if:
+
+- False positive (benign admin tool)
+- Production server (isolate after business approval)
+- Already disconnected host
+
+## Isolation Methods
+#### 1. Network Isolation (Most Common)
+```
+┌──────────────────┐
+│  Infected Host   │
+│   (IP: 10.1.1.50)│
+└────────┬─────────┘
+         │ ⛔ BLOCKED
+    ┌────▼─────┐
+    │ Firewall │ ← EDR pushes ACL rule
+    │   Rule   │   DENY 10.1.1.50 ANY
+    └──────────┘
+         ✅ ALLOWED (EDR agent only)
+    ┌────▼─────┐
+    │ EDR Cloud│ ← Still phones home for commands
+    └──────────┘
+```
+
+
+#### 2. OS-Level Containment
+
+**Windows:** Disable network adapter
+```powershell
+Disable-NetAdapter -Name "Ethernet" -Confirm:$false
+```
+
+**Linux:** Drop all traffic (except EDR)
+```bash
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -A OUTPUT -d <EDR_IP> -j ACCEPT  # Allow EDR comms
+```
+
+#### 3. VLAN Quarantine
+
+Move infected host to isolated VLAN with no Internet/LAN access:
+```
+Normal VLAN (10.1.1.0/24) → Quarantine VLAN (192.168.99.0/24)
+```
+
+
+---
+#  IOC vs IOA (Indicators of Compromise vs. Attack)
+
+## IOC (Indicators of Compromise)
+Evidence that a breach has already occurred
