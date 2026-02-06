@@ -34,3 +34,13 @@ A Linux distribution is a complete operating system built around the Linux kerne
 - Default applications
 - Desktop environment (optional)
 - Configuration tools
+
+
+| Distro            | Base        | Use Case              |
+| :---------------- | :---------- | :-------------------- |
+| **RHEL**          | Independent | Enterprise servers    |
+| **CentOS Stream** | RHEL        | Development/Testing   |
+| **Rocky Linux**   | RHEL        | Free RHEL alternative |
+| **Ubuntu**        | Debian      | Desktops/Servers      |
+| **Kali Linux**    | Debian      | Penetration Testing   |
+| **Fedora**        | Independent | Cutting-edge features |
