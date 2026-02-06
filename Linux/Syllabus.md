@@ -1,14 +1,14 @@
 # RHEL 
 
 ## Module 01: Getting Started with Red Hat Enterprise Linux
-- [ ] What Is Linux?
+- [x] What Is Linux?
 
 ## Module 02: Accessing the Command Line
-- [ ] Access the Command Line
-- [ ] Execute Commands with the Bash Shell
+- [x] Access the Command Line
+- [x] Execute Commands with the Bash Shell
 
 ## Module 03: Managing Files from the Command Line
-- [ ] Describe Linux file system Hierarchy Concepts
+- [x] Describe Linux file system Hierarchy Concepts
 - [ ] Specify Files by Name
 - [ ] Manage Files with Command-line Tools
 - [ ] Make Links Between Files
