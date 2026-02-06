@@ -701,3 +701,53 @@ This is the behavioral fingerprint of how attackers operate.
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+###  Ransomware Attack TTPs
+```
+┌─────────────────────────────────────────────────────────────────┐
+│             LOCKBIT RANSOMWARE TTPs                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  TACTIC: Initial Access                                         │
+│  ═══════════════════════                                        │
+│  ├── TECHNIQUE: Phishing (T1566)                               │
+│  └── PROCEDURE: Sends email with Excel attachment              │
+│                 containing malicious macro                      │
+│                                                                  │
+│  TACTIC: Execution                                              │
+│  ═══════════════                                                │
+│  ├── TECHNIQUE: PowerShell (T1059.001)                         │
+│  └── PROCEDURE: Macro executes encoded PowerShell              │
+│                 powershell -enc BASE64STRING                   │
+│                                                                  │
+│  TACTIC: Persistence                                            │
+│  ═══════════════════                                            │
+│  ├── TECHNIQUE: Scheduled Task (T1053.005)                     │
+│  └── PROCEDURE: Creates task "SystemUpdate" to run             │
+│                 malware at startup                              │
+│                                                                  │
+│  TACTIC: Defense Evasion                                        │
+│  ═══════════════════════                                        │
+│  ├── TECHNIQUE: Disable Security Tools (T1562.001)             │
+│  └── PROCEDURE: Kills processes: MsMpEng.exe, avp.exe         │
+│                                                                  │
+│  TACTIC: Credential Access                                      │
+│  ═════════════════════════                                      │
+│  ├── TECHNIQUE: LSASS Dump (T1003.001)                         │
+│  └── PROCEDURE: Uses Mimikatz or comsvcs.dll                   │
+│                 rundll32 comsvcs.dll MiniDump                  │
+│                                                                  │
+│  TACTIC: Lateral Movement                                       │
+│  ════════════════════════                                       │
+│  ├── TECHNIQUE: Remote Services (T1021.002)                    │
+│  └── PROCEDURE: Uses PsExec to spread                          │
+│                 psexec.exe \\target -c ransomware.exe          │
+│                                                                  │
+│  TACTIC: Impact                                                 │
+│  ══════════════                                                 │
+│  ├── TECHNIQUE: Data Encrypted (T1486)                         │
+│  └── PROCEDURE: Encrypts files with .lockbit extension        │
+│                 Drops RESTORE-MY-FILES.txt ransom note         │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
