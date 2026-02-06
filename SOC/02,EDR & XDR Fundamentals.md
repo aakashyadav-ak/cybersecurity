@@ -476,3 +476,99 @@ Normal VLAN (10.1.1.0/24) → Quarantine VLAN (192.168.99.0/24)
 
 ## IOC (Indicators of Compromise)
 Evidence that a breach has already occurred
+
+#### Example:
+
+| Type             | Example                                                      | Detection Method        |
+| :--------------- | :----------------------------------------------------------- | :---------------------- |
+| **File Hash**    | `44d88612fea8a8f36de82e1278abb02f` (WannaCry)                | AV/EDR signature match  |
+| **IP Address**   | `185.220.101.1` (Known C2 server)                            | Firewall logs, SIEM     |
+| **Domain**       | `evil-phishing.com`                                          | DNS logs                |
+| **Mutex**        | `\BaseNamedObjects\MutexCantRepeat` (Emotet)                 | Process memory analysis |
+| **Registry Key** | `HKLM\Software\Microsoft\Windows\CurrentVersion\Run\Malware` | Registry monitoring     |
+
+**Limitation:** IOCs are reactive (attackers can change hashes/IPs easily)
+
+
+## IOA (Indicators of Attack)
+Behavioral patterns of an ongoing attack (TTP-based)
+
+#### Example:
+
+| TTP (MITRE ATT&CK)                | Behavior                                        | EDR Detection            |
+| :-------------------------------- | :---------------------------------------------- | :----------------------- |
+| **T1059.001** (PowerShell)        | `powershell.exe -enc <base64>`                  | Command-line monitoring  |
+| **T1055** (Process Injection)     | `CreateRemoteThread()` into `explorer.exe`      | API hooking              |
+| **T1003** (Credential Dumping)    | `lsass.exe` memory access by non-system process | Memory access monitoring |
+| **T1547.001** (Registry Run Keys) | New autorun entry in `HKCU\...\Run`             | Registry change events   |
+
+**Advantage:** IOAs detect unknown malware using the same TTPs
+
+| Aspect | IOC | IOA |
+| :--- | :--- | :--- |
+| **Focus** | Artifacts (files, IPs) | Behaviors (actions) |
+| **Detection** | Signature-based | Behavioral analytics |
+| **Evasion** | Easy (change hash) | Hard (must change TTP) |
+| **Example** | Hash of `mimikatz.exe` | LSASS memory dumping behavior |
+| **MITRE Mapping** | N/A | Directly maps to ATT&CK TTPs |
+
+
+
+---
+
+# ITDR (Identity Threat Detection & Response)
+
+ITDR = EDR for Identity Systems (Active Directory, Entra ID, Okta)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    IDENTITY THREAT LANDSCAPE                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  "Identity is the New Perimeter"                                           │
+│                                                                             │
+│  Modern Attack Flow:                                                        │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                      │   │
+│  │   ┌───────────┐    ┌────────────┐    ┌────────────┐    ┌─────────┐ │   │
+│  │   │  Phishing │───▶│ Credential │───▶│ Valid Login│───▶│ Access  │ │   │
+│  │   │   Email   │    │  Harvested │    │ (looks     │    │ Data    │ │   │
+│  │   │           │    │            │    │  legitimate)│   │ Move    │ │   │
+│  │   └───────────┘    └────────────┘    └────────────┘    │ Laterally│ │   │
+│  │                                                        └─────────┘ │   │
+│  │                                                                      │   │
+│  │   Traditional Endpoint Detection: Often misses this!                │   │
+│  │   • No malware executed                                              │   │
+│  │   • User is "real"                                                   │   │
+│  │   • Access appears legitimate                                        │   │
+│  │                                                                      │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  KEY IDENTITY ATTACK VECTORS:                                              │
+│  ═══════════════════════════                                                │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ Attack Type          │ Description                │ MITRE ID       │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ Credential Stuffing  │ Using leaked creds to      │ T1110.004     │   │
+│  │                      │ access accounts            │               │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ Password Spraying    │ Common passwords across    │ T1110.003     │   │
+│  │                      │ many accounts              │               │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ Phishing/Vishing     │ Social engineering for     │ T1566         │   │
+│  │                      │ credentials                │               │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ MFA Bypass           │ Circumventing second       │ T1111         │   │
+│  │                      │ factor                     │               │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ Session Hijacking    │ Stealing tokens/cookies    │ T1550.001     │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ Golden Ticket        │ Forged Kerberos tickets    │ T1558.001     │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ DCSync               │ Replicating AD credentials │ T1003.006     │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
