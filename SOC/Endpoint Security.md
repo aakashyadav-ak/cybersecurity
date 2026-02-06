@@ -90,18 +90,3 @@
 - [ ] **Lab 04:** Python Automation (Write a script to check an IP against the AbuseIPDB API)
 
 ---
-
-> [!question] 
-> 1. **"You see a successful login (4624) from a foreign IP, but the user has MFA. What happened?"** 
->    *Answer: Session Token Theft or MFA Fatigue.*
-> 2. **"How do you tell a sysadmin apart from an attacker using PowerShell?"**
->    *Answer: Context & Parent Process (e.g., PowerShell spawned by Word is bad).*
-> 3. **"What is the difference between Logon Type 2 and Type 10?"**
->    *Answer: Type 2 is Physical/Interactive. Type 10 is Remote (RDP).*
-> 4. **"What is your first step when you confirm a Ransomware alert?"**
->    *Answer: Host Isolation via EDR.*
-> 5. **"How would you use Python in this SOC role?"**
->    *Answer: Automating alert enrichment and IOC lookups via API.*
-
----
-
