@@ -9,7 +9,7 @@
 - [x] 1.6 **SOAR & Playbooks** (How to automate triage via Python)
  - [x] What are IOCs (Hashes, IPs, Domains)
  - [x] Using TI platforms (VirusTotal, OTX, AbuseIPDB)
- - [ ] Understanding threat actor TTPs
+ - [x] Understanding threat actor TTPs
 
 ---
 
