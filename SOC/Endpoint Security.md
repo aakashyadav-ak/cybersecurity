@@ -1,11 +1,11 @@
 # SOC Checklist 
 
 ## Module 01: SIEM Essentials
-- [ ] 1.1 What is SIEM & Why SOC Needs It
-- [ ] 1.2 SIEM Architecture (Forwarders, Indexers, Search Heads)
-- [ ] 1.3 Log Sources (On-Prem vs **Cloud Logs like CloudTrail/Entra**)
-- [ ] 1.4 Alert Triage & Investigation Process
-- [ ] 1.5 False Positives & How to Reduce Them
+- [x] 1.1 What is SIEM & Why SOC Needs It
+- [x] 1.2 SIEM Architecture (Forwarders, Indexers, Search Heads)
+- [x] 1.3 Log Sources (On-Prem vs **Cloud Logs like CloudTrail/Entra**)
+- [x] 1.4 Alert Triage & Investigation Process
+- [x] 1.5 False Positives & How to Reduce Them
 - [ ] 1.6 **SOAR & Playbooks** (How to automate triage via Python)
 
 ---

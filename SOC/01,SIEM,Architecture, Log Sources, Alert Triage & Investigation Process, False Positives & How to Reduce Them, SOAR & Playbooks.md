@@ -320,3 +320,292 @@ Alert: Multiple failed logins detected for user john.doe
 │ Status: Escalated                                                  │
 └────────────────────────────────────────────────────────────────────┘
 ```
+
+
+---
+
+# False Positives & How to Reduce Them
+
+## What is a False Positive
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ALERT OUTCOMES                                │
+├─────────────────────┬───────────────────────────────────────────┤
+│ TRUE POSITIVE (TP)  │ Alert fired + Actually malicious         │
+│                     │ "Correct alert - real attack"             │
+├─────────────────────┼───────────────────────────────────────────┤
+│ FALSE POSITIVE (FP) │ Alert fired + NOT malicious              │
+│                     │ "Wrong alert - wasted time"               │
+├─────────────────────┼───────────────────────────────────────────┤
+│ TRUE NEGATIVE (TN)  │ No alert + Nothing malicious             │
+│                     │ "Correctly quiet"                         │
+├─────────────────────┼───────────────────────────────────────────┤
+│ FALSE NEGATIVE (FN) │ No alert + Actually malicious            │
+│                     │ "WORST CASE - missed attack!"             │
+└─────────────────────┴───────────────────────────────────────────┘
+```
+
+### Common Causes of False Positives:
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ CAUSE                      │ EXAMPLE                               │
+├────────────────────────────┼───────────────────────────────────────┤
+│ Overly broad rules         │ Alert on ANY PowerShell execution    │
+├────────────────────────────┼───────────────────────────────────────┤
+│ Legitimate admin activity  │ IT admin running vulnerability scan  │
+├────────────────────────────┼───────────────────────────────────────┤
+│ Known business processes   │ Backup server connecting to many IPs │
+├────────────────────────────┼───────────────────────────────────────┤
+│ Outdated threat intel      │ Blocking IP that's now legitimate    │
+├────────────────────────────┼───────────────────────────────────────┤
+│ Time zone issues           │ "After hours login" for remote worker│
+└────────────────────────────┴───────────────────────────────────────┘
+```
+
+
+## How to Reduce False Positives:
+#### 1. Tuning Alert Rules
+```sql
+-- BAD RULE (Too Broad):
+index=windows EventCode=4688 process_name="powershell.exe"
+| alert
+
+-- GOOD RULE (More Specific):
+index=windows EventCode=4688 process_name="powershell.exe"
+| where NOT match(user, "^(svc_|admin_)")     -- Exclude service accounts
+| where NOT match(parent_process, "SCCM")      -- Exclude known tools
+| where match(command_line, "-enc|-nop|-exec bypass")  -- Suspicious flags
+| alert
+```
+
+
+#### 2. Whitelisting/Allowlisting
+```
+┌───────────────────────────────────────────────────────────┐
+│                  WHITELIST EXAMPLES                        │
+├───────────────────────────────────────────────────────────┤
+│ IP Whitelist:                                             │
+│   - Vulnerability scanner: 10.1.1.50                      │
+│   - Backup server: 10.1.1.100                             │
+│                                                           │
+│ User Whitelist:                                           │
+│   - Service accounts: svc_backup, svc_monitoring          │
+│                                                           │
+│ Process Whitelist:                                        │
+│   - Known admin tools: psexec.exe (when run by IT)        │
+└───────────────────────────────────────────────────────────┘
+```
+
+#### 3. Adding Context to Alerts
+```
+Instead of: "Failed login detected"
+
+Better:     "Failed login detected"
+            + User's normal login pattern
+            + Source IP reputation
+            + Time of day analysis
+            + Number of failures in timeframe
+```
+
+
+
+#### 4. Risk-Based Alerting
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    RISK SCORING                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Event: PowerShell execution                    +10 points     │
+│   + Encoded command                              +20 points     │
+│   + Running from temp folder                     +15 points     │
+│   + User is not IT admin                         +25 points     │
+│   + First time this user ran PowerShell         +30 points     │
+│   ─────────────────────────────────────────────────────────     │
+│   TOTAL RISK SCORE:                              100 points     │
+│                                                                  │
+│   Threshold for alert: 50 points                                │
+│   Verdict: ALERT! (Score exceeds threshold)                     │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+---
+
+
+# SOAR & Playbooks
+SOAR = Security Orchestration, Automation, and Response
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        SOAR EXPLAINED                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ORCHESTRATION:  Connect all your security tools together       │
+│                  (SIEM ↔ EDR ↔ Firewall ↔ Ticketing)            │
+│                                                                  │
+│  AUTOMATION:     Run tasks automatically without human input    │
+│                  (Enrich IOCs, block IPs, disable accounts)     │
+│                                                                  │
+│  RESPONSE:       Take action to contain/remediate threats       │
+│                  (Isolate endpoint, revoke session)             │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Popular SOAR Platforms 
+
+
+| Platform | Notes | Why it's used in 2026 |
+| :--- | :--- | :--- |
+| **Splunk SOAR (Phantom)** | Deeply integrates with Splunk SIEM. | Known for high-level "Visual Playbooks" and massive scale. |
+| **Microsoft Sentinel** | Uses "Logic Apps" for automation. | The default for Azure-heavy environments; easy to set up. |
+| **Cortex XSOAR (Palo Alto)** | The current market leader. | Has the largest library of pre-built integrations (over 1,000+). |
+| **Swimlane** | Cloud-native, low-code platform. | Popular for its "Turbine" engine which handles high-speed automation. |
+| **Tines** | API-first, "No-code" automation. | Extremely flexible; loved by analysts because it works with any tool. |
+
+---
+
+## Playbook
+
+A playbook is a documented set of steps to respond to a specific type of alert.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              PLAYBOOK: Phishing Email Response                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  TRIGGER: User reports suspicious email                         │
+│                                                                  │
+│  STEP 1: Extract IOCs from email                                │
+│          ├── Sender address                                     │
+│          ├── URLs in body                                       │
+│          ├── Attachment hashes                                  │
+│                                                                  │
+│  STEP 2: Check IOCs against threat intel                        │
+│          ├── VirusTotal lookup                                  │
+│          ├── URLScan.io check                                   │
+│          ├── Internal blocklist check                           │
+│                                                                  │
+│  STEP 3: If malicious:                                          │
+│          ├── Block sender domain in email gateway               │
+│          ├── Block URL in proxy                                 │
+│          ├── Search for other recipients                        │
+│          ├── Delete email from all mailboxes                    │
+│                                                                  │
+│  STEP 4: If clicked:                                            │
+│          ├── Isolate user's endpoint                            │
+│          ├── Force password reset                               │
+│          ├── Revoke active sessions                             │
+│                                                                  │
+│  STEP 5: Document and close ticket                              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Python Automation 
+automating IOC enrichment:
+```python
+#!/usr/bin/env python3
+"""
+SOC Automation: IP Reputation Checker
+Checks suspicious IPs against multiple threat intel sources
+"""
+
+import requests
+import json
+from datetime import datetime
+
+# API Keys (store securely in production!)
+ABUSEIPDB_KEY = "your_api_key_here"
+VIRUSTOTAL_KEY = "your_api_key_here"
+
+def check_abuseipdb(ip_address):
+    """Check IP against AbuseIPDB"""
+    url = "https://api.abuseipdb.com/api/v2/check"
+    headers = {
+        "Accept": "application/json",
+        "Key": ABUSEIPDB_KEY
+    }
+    params = {
+        "ipAddress": ip_address,
+        "maxAgeInDays": 90
+    }
+    
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        data = response.json()["data"]
+        
+        return {
+            "ip": ip_address,
+            "abuse_score": data["abuseConfidenceScore"],
+            "total_reports": data["totalReports"],
+            "country": data["countryCode"],
+            "isp": data["isp"],
+            "is_tor": data["isTor"],
+            "verdict": "MALICIOUS" if data["abuseConfidenceScore"] > 50 else "SUSPICIOUS" if data["abuseConfidenceScore"] > 25 else "CLEAN"
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+def check_virustotal(ip_address):
+    """Check IP against VirusTotal"""
+    url = f"https://www.virustotal.com/api/v3/ip_addresses/{ip_address}"
+    headers = {"x-apikey": VIRUSTOTAL_KEY}
+    
+    try:
+        response = requests.get(url, headers=headers)
+        data = response.json()["data"]["attributes"]
+        stats = data["last_analysis_stats"]
+        
+        return {
+            "ip": ip_address,
+            "malicious_votes": stats["malicious"],
+            "suspicious_votes": stats["suspicious"],
+            "harmless_votes": stats["harmless"],
+            "country": data.get("country", "Unknown"),
+            "as_owner": data.get("as_owner", "Unknown")
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+def enrich_ip(ip_address):
+    """Main function to enrich an IP with threat intel"""
+    print(f"\n{'='*60}")
+    print(f"  IP ENRICHMENT REPORT: {ip_address}")
+    print(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"{'='*60}\n")
+    
+    # Check AbuseIPDB
+    print("[*] Checking AbuseIPDB...")
+    abuse_result = check_abuseipdb(ip_address)
+    if "error" not in abuse_result:
+        print(f"    Abuse Score: {abuse_result['abuse_score']}/100")
+        print(f"    Total Reports: {abuse_result['total_reports']}")
+        print(f"    Country: {abuse_result['country']}")
+        print(f"    Is Tor Exit: {abuse_result['is_tor']}")
+        print(f"    Verdict: {abuse_result['verdict']}")
+    
+    # Check VirusTotal
+    print("\n[*] Checking VirusTotal...")
+    vt_result = check_virustotal(ip_address)
+    if "error" not in vt_result:
+        print(f"    Malicious: {vt_result['malicious_votes']} vendors")
+        print(f"    Suspicious: {vt_result['suspicious_votes']} vendors")
+        print(f"    AS Owner: {vt_result['as_owner']}")
+    
+    # Overall verdict
+    print(f"\n{'='*60}")
+    if abuse_result.get("verdict") == "MALICIOUS" or vt_result.get("malicious_votes", 0) > 5:
+        print("  🚨 FINAL VERDICT: MALICIOUS - BLOCK IMMEDIATELY")
+    elif abuse_result.get("verdict") == "SUSPICIOUS" or vt_result.get("suspicious_votes", 0) > 3:
+        print("  ⚠️  FINAL VERDICT: SUSPICIOUS - INVESTIGATE FURTHER")
+    else:
+        print("  ✅ FINAL VERDICT: LIKELY CLEAN")
+    print(f"{'='*60}\n")
+
+# Example usage
+if __name__ == "__main__":
+    suspicious_ip = "185.220.101.1"  # Known Tor exit node
+    enrich_ip(suspicious_ip)
+```
