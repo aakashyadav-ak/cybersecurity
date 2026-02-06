@@ -147,3 +147,48 @@ Run next command only if previous succeeds:
 ```
 cd /etc && cat passwd
 ```
+
+#### Conditional OR (||)
+
+Run next command only if previous fails
+```
+cd /nonexistent || echo "Directory not found"
+```
+
+
+### Getting Help
+| Method | Usage | Example |
+| :--- | :--- | :--- |
+| **--help** | Quick help | `ls --help` |
+| **man** | Full manual | `man ls` |
+| **info** | Detailed info | `info ls` |
+| **whatis** | One-line description | `whatis ls` |
+| **which** | Command location | `which python` |
+| **type** | Command type | `type cd` |
+
+## cyber
+#### System Enumeration:
+```
+uname -a                    # Kernel version
+cat /etc/os-release         # OS details
+cat /proc/version           # Kernel and compiler info
+hostname                    # System name
+hostnamectl                 # Detailed host info
+```
+
+#### User Enumeration:
+```
+whoami                      # Current user
+id                          # User ID and groups
+cat /etc/passwd             # All users
+cat /etc/group              # All groups
+cat /etc/shadow             # Password hashes (needs root)
+```
+
+#### Network Enumeration:
+```
+ip a                        # Network interfaces
+ip route                    # Routing table
+cat /etc/resolv.conf        # DNS servers
+ss -tulnp                   # Open ports
+```
