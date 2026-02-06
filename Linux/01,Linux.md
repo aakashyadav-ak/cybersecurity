@@ -21,11 +21,17 @@ Linux is a **free and open-source operating system** based on Unix. It was creat
 ### 1. Kernel
 **The kernel manages:**
 
-- Process Management: Scheduling, creation, termination
-- Memory Management: RAM allocation, virtual memory
-- Device Drivers: Hardware communication
-- System Calls: Interface for applications
+- **Process Management:** Scheduling, creation, termination
+- **Memory Management:** RAM allocation, virtual memory
+- **Device Drivers:** Hardware communication
+- **System Calls:** Interface for applications
 - **Security:** Access controls, permissions
+  
+```bash
+  # Multiple ways to check kernel
+uname -r                    # Kernel release
+uname -a                    # All system info
+```
 
 ### 2. Shell
 - Command-line interface for interacting with the system
