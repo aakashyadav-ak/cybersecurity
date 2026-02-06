@@ -15,7 +15,7 @@
 
 ## Module 02: EDR/XDR Fundamentals
 
-- [ ] 2.1 Antivirus vs EPP vs EDR vs XDR
+- [x] 2.1 Antivirus vs EPP vs EDR vs XDR
 - [ ] 2.2 How EDR Works (Architecture & Kernel Visibility)
 - [ ] 2.3 Alert Triage: Analyzing **Process Trees**
 - [ ] 2.4 Endpoint Isolation & Containment
@@ -30,7 +30,6 @@
 - [ ] 3.3 14 Tactics Explained (Initial Access to Impact)
 - [ ] 3.4 Mapping Alerts to MITRE Techniques
 - [ ] 3.5 **Living off the Land (LOLBins)**: How attackers use legitimate tools (PowerShell/CMD).
-		
 ---
 
 ## Module 04: Incident Response Basics
