@@ -16,7 +16,15 @@ Prevent future fires     →          Improve defenses
 ## Security Incident
 Incident = Any event that threatens the confidentiality, integrity, or availability of systems/data.
 
-
+| Type                    | Example                     | Severity    |
+| :---------------------- | :-------------------------- | :---------- |
+| **Malware Infection**   | Ransomware encrypting files | Critical    |
+| **Phishing Attack**     | User clicked malicious link | Medium-High |
+| **Data Breach**         | Customer data stolen        | Critical    |
+| **Unauthorized Access** | Hacker logged into server   | High        |
+| **Insider Threat**      | Employee stealing data      | High        |
+| **DDoS Attack**         | Website taken offline       | Medium-High |
+| **Account Compromise**  | Stolen credentials used     | High        |
 ## Event vs Alert vs Incident
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -68,3 +76,27 @@ Example:
 
 ---
 #  IR Lifecycle (NIST vs SANS Frameworks)
+### Two Major Frameworks
+
+| Feature    | NIST SP 800-61           | SANS PICERL         |
+| :--------- | :----------------------- | :------------------ |
+| **Phases** | 4 Phases                 | 6 Phases            |
+| **Origin** | Government standard (US) | Industry popular    |
+| **Focus**  | Broader focus            | More detailed steps |
+### NIST IR Lifecycle (4 Phases)
+```
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    │
+│   │ PREPARATION │───▶│  DETECTION  │───▶│ CONTAINMENT │    │
+│   │             │    │  & ANALYSIS │    │ ERADICATION │    │
+│   │             │    │             │    │  RECOVERY   │    │
+│   └─────────────┘    └─────────────┘    └──────┬──────┘    │
+│         ▲                                      │            │
+│         │            ┌─────────────┐           │            │
+│         └────────────│POST-INCIDENT│◀──────────┘            │
+│                      │  ACTIVITY   │                        │
+│                      └─────────────┘                        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
