@@ -3,12 +3,29 @@
 Linux is a **free and open-source operating system** based on Unix. It was created by **Linus Torvalds** in 1991.
 
 ## Key Components of Linux
+
+### The Linux Architecture
+```
+┌─────────────────────────────────────┐
+│         User Applications           │  Layer 4
+├─────────────────────────────────────┤
+│            Shell/CLI                │  Layer 3
+├─────────────────────────────────────┤
+│         System Libraries            │  Layer 2
+├─────────────────────────────────────┤
+│          Linux Kernel               │  Layer 1
+├─────────────────────────────────────┤
+│           Hardware                  │  Layer 0
+└─────────────────────────────────────┘
+```
 ### 1. Kernel
-- Core component of the operating system
-- Manages hardware resources (CPU, memory, devices)
-- Handles system calls and process management
-- Acts as bridge between hardware and software
-- RHEL uses a modified and hardened Linux kernel
+**The kernel manages:**
+
+- Process Management: Scheduling, creation, termination
+- Memory Management: RAM allocation, virtual memory
+- Device Drivers: Hardware communication
+- System Calls: Interface for applications
+- **Security:** Access controls, permissions
 
 ### 2. Shell
 - Command-line interface for interacting with the system
