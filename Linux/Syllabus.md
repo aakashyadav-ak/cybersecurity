@@ -9,8 +9,8 @@
 
 ## Module 03: Managing Files from the Command Line
 - [x] Describe Linux file system Hierarchy Concepts
-- [ ] Specify Files by Name
-- [ ] Manage Files with Command-line Tools
+- [x] Specify Files by Name
+- [x] Manage Files with Command-line Tools
 - [ ] Make Links Between Files
 - [ ] Match File Names with Shell Expansions
 
