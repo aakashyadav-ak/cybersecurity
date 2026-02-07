@@ -36,3 +36,33 @@ Groups help manage permissions for multiple users at once.
 - User "john"
 - Primary group: john
 - Secondary groups: developers, wheel
+
+
+## Important Files
+
+| File | What it stores |
+|------|----------------|
+| /etc/passwd | User account information |
+| /etc/shadow | Encrypted passwords |
+| /etc/group | Group information |
+
+### Understanding /etc/passwd
+```
+cat /etc/passwd
+```
+
+**Each line is one user:**
+```
+john:x:1001:1001:John Smith:/home/john:/bin/bash
+```
+
+| Part | Meaning |
+|------|---------|
+| john | Username |
+| x | Password is in `/etc/shadow` |
+| 1001 | User ID (UID) |
+| 1001 | Group ID (GID) |
+| John Smith | Description / Full name |
+| /home/john | Home directory |
+| /bin/bash | Login shell |
+### Understanding /etc/group
