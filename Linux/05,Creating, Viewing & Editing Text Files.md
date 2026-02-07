@@ -279,3 +279,11 @@ history
 ```
 history -c
 ```
+
+
+
+#### ==Check for passwords in environment:==
+```
+env | grep -i pass
+env | grep -i key
+```
