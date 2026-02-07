@@ -29,7 +29,7 @@
 ## Module 07: Controlling Access to Files
 - [x] Interpret Linux File System Permissions
 - [x] Manage File System Permissions from the Command Line
-- [ ] Manage Default Permissions and File Access
+- [x] Manage Default Permissions and File Access
 
 ## Module 08: Monitoring and Managing Linux Processes
 - [ ] Process States and Lifecycle
