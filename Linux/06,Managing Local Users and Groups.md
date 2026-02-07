@@ -182,3 +182,14 @@ sudo vim /etc/hosts             # Edit system file
 sudo -i                         # Get root shell
 sudo -s                         # Get root shell (keeps environment)
 ```
+
+
+
+---
+
+
+#  Manage Local User Accounts
+View All Users
+```
+cat etc/passwd
+```
