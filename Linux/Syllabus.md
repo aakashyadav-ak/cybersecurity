@@ -27,7 +27,7 @@
 - [x] Manage User Passwords
 
 ## Module 07: Controlling Access to Files
-- [ ] Interpret Linux File System Permissions
+- [x] Interpret Linux File System Permissions
 - [ ] Manage File System Permissions from the Command Line
 - [ ] Manage Default Permissions and File Access
 
