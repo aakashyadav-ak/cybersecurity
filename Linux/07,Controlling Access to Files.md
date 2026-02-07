@@ -58,3 +58,28 @@ ls -l
 -rw-r--r--
 ```
 
+| Part  | Characters | Meaning                            |
+| :---- | :--------- | :--------------------------------- |
+| **1** | `-`        | File type (regular file)           |
+| **2** | `rw-`      | Owner can read, write, not execute |
+| **3** | `r--`      | Group can read only                |
+| **4** | `r--`      | Others can read only               |
+
+#### Permission Examples
+| Permission | Meaning |
+| :--- | :--- |
+| `rwx` | Read + Write + Execute (full access) |
+| `rw-` | Read + Write (no execute) |
+| `r-x` | Read + Execute (no write) |
+| `r--` | Read only |
+| `---` | No access |
+
+
+#### Common Permission Patterns
+| Permission | Who can do what |
+| :--- | :--- |
+| `-rw-------` | Only owner can read/write |
+| `-rw-r--r--` | Owner read/write, everyone else read |
+| `-rwxr-xr-x` | Owner full, everyone else read/execute |
+| `-rwx------` | Only owner has full access |
+| `drwxr-xr-x` | Directory, owner full, others can enter and list |
