@@ -204,3 +204,39 @@ echo $PATH
 ```
 
 These are folders separated by :
+
+
+
+## Aliases - Create Shortcuts
+Tired of typing long commands? Create shortcuts!
+
+**Create alias:**
+```
+alias ll='ls -la'
+```
+
+
+```
+alias c='clear'
+alias h='history'
+alias ports='ss -tulnp'
+```
+
+#### See all aliases:
+```
+alias
+```
+
+####
+```
+unalias ll
+```
+
+
+## Make Changes Permanent
+Changes disappear when you close terminal!
+
+To keep them forever, add to ~/.bashrc:
+```
+nano ~/.bashrc
+```
