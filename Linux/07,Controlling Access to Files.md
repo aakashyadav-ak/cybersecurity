@@ -145,3 +145,17 @@ ls -la
 ___
 
 # Manage File System Permissions from the Command Line
+
+## chmod - Change Permissions
+
+**Two ways to use chmod:**
+- Symbolic method (letters)
+- Numeric method (numbers)
+
+
+### Symbolic Method
+
+**Format:**
+```
+chmod WHO+/-PERMISSION filename
+```
