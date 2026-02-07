@@ -20,3 +20,19 @@ man 5 passwd                    # Section 5 of passwd
 man -k keyword                  # Search for keyword
 man -f command                  # Short description (like whatis)
 ```
+
+## Documentation in /usr/share/doc
+Many packages include additional documentation.
+```bash
+ls /usr/share/doc/
+ls /usr/share/doc/bash/
+cat /usr/share/doc/sudo/README
+```
+
+**Common files found:**
+- README
+- CHANGELOG
+- COPYING (license)
+- INSTALL
+- Configuration examples
+- Sample files
