@@ -189,7 +189,143 @@ sudo -s                         # Get root shell (keeps environment)
 
 
 #  Manage Local User Accounts
-View All Users
+
+**View All Users**
 ```
-cat etc/passwd
+cat /etc/passwd
+```
+
+
+## Create New User
+```
+sudo adduser <username>
+```
+
+**This creates:**
+- User "username"
+- Home folder /home/"username"
+- Primary group "username"
+
+
+### Set Password for New User
+
+**New user has no password! Set one:**
+```
+sudo passwd <username>
+```
+
+### Modify Existing User
+
+#### Change shell:
+```
+sudo usermod -s /bin/zsh <username>
+```
+
+#### Add to group:
+```
+sudo usermod -aG wheel <username>
+```
+
+#### Unlock user:
+```
+sudo usermod -U john
+```
+
+
+#### Change username:
+```
+sudo usermod -l newname oldname
+```
+
+
+#### Delete User:
+
+**Delete user only:**
+```
+sudo userdel john
+```
+
+**Delete user AND home folder:**
+```
+sudo userdel -r john
+```
+
+
+___
+
+#  Manage Local Group Accounts
+
+**View All Groups:**
+```
+cat /etc/group
+```
+
+**Your groups:**
+```
+groups
+```
+
+**Another user's groups:**
+```
+groups john
+```
+
+## Create New Group
+
+```
+sudo groupadd developers
+```
+
+**With specific GID:**
+```
+sudo groupadd -g 2000 developers
+```
+
+### Add User to Group
+```
+sudo usermod -aG developers john
+```
+
+==Remember: Always use -aG (append) or you remove other groups!==
+
+**Alternative command:**
+```
+sudo gpasswd -a john developers
+```
+
+### Remove User from Group
+```
+sudo gpasswd -d john developers
+```
+
+### Delete Group
+```
+sudo groupdel developers
+```
+
+Note: Cannot delete a group if it's someone's primary group.
+
+
+___
+
+#  Manage User Passwords
+
+## Change Your Own Password
+```
+passwd
+```
+Enter old password, then new password twice.
+
+#### Change Another User's Password (Need sudo)
+```
+sudo passwd john
+```
+Root doesn't need to know old password!
+
+
+## Password Information
+
+**Passwords are stored in /etc/shadow:**
+```
+sudo cat /etc/shadow
 ```

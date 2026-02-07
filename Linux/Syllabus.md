@@ -20,10 +20,10 @@
 - [x] Change the Shell Environment
 
 ## Module 06: Managing Local Users and Groups
-- [ ] Describe User and Group Concepts
-- [ ] Gain Superuser Access
-- [ ] Manage Local User Accounts
-- [ ] Manage Local Group Accounts
+- [x] Describe User and Group Concepts
+- [x] Gain Superuser Access
+- [x] Manage Local User Accounts
+- [x] Manage Local Group Accounts
 - [ ] Manage User Passwords
 
 ## Module 07: Controlling Access to Files
