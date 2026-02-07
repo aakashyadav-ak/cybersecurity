@@ -205,6 +205,12 @@ echo $PATH
 
 These are folders separated by :
 
+### Add Folder to PATH
+```
+export PATH=$PATH:/home/john/scripts
+```
+Now system will also look in /home/john/scripts for commands.
+
 
 
 ## Aliases - Create Shortcuts
@@ -239,4 +245,17 @@ Changes disappear when you close terminal!
 To keep them forever, add to ~/.bashrc:
 ```
 nano ~/.bashrc
+```
+
+**Add your lines at the bottom:**
+```
+alias ll='ls -la'
+alias c='clear'
+export PATH=$PATH:/home/john/scripts
+```
+Save and exit (Ctrl+O, Ctrl+X)
+
+**Apply changes now:**
+```
+source ~/.bashrc
 ```
