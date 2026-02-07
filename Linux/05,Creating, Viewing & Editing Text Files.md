@@ -57,4 +57,44 @@ history | grep ssh              # Find ssh commands in history
 cat /etc/passwd | wc -l         # Count total lines
 ```
 
+___ 
 
+# Edit Text Files from the Shell Prompt
+
+**Two Main Editors:**
+
+| Editor   | Difficulty | Best For       |
+| :------- | :--------- | :------------- |
+| **nano** | Easy       | Beginners      |
+| **vim**  | Hard       | Advanced users |
+
+## Nano Editor
+
+Open a File
+```bash
+nano filename.txt
+```
+
+**Basic command:**
+
+| Action         | Keys to press             |
+| :------------- | :------------------------ |
+| **Save file**  | `Ctrl` + `O` then `Enter` |
+| **Exit**       | `Ctrl` + `X`              |
+| **Cut line**   | `Ctrl` + `K`              |
+| **Paste**      | `Ctrl` + `U`              |
+| **Search**     | `Ctrl` + `W`              |
+| **Go to line** | `Ctrl` + `_`              |
+
+
+## Vim Editor
+Vim has modes. This confuses beginners.
+
+**Two Main Modes:**
+
+| Mode       | Purpose                   | How to enter |
+| :--------- | :------------------------ | :----------- |
+| **Normal** | Move around, delete, copy | Press `Esc`  |
+| **Insert** | Type text                 | Press `i`    |
+
+### Basic Vim Steps
