@@ -183,14 +183,14 @@ sudo -i                         # Get root shell
 sudo -s                         # Get root shell (keeps environment)
 ```
 
-| Command | What it does | Password needed |
-| :--- | :--- | :--- |
-| `su` | Switch to root (no environment) | **Root** password |
-| `su -` | Switch to root (full environment) | **Root** password |
-| `su - john` | Switch to john (full environment) | **John's** password |
-| `sudo su` | Switch to root using YOUR password | **Your** password |
-| `sudo su -` | Switch to root with full environment | **Your** password |
-| `sudo -i` | Same as `sudo su -` | **Your** password |
+| Command     | What it does                         | Password needed     |
+| :---------- | :----------------------------------- | :------------------ |
+| `su`        | Switch to root (no environment)      | **Root** password   |
+| `su -`      | Switch to root (full environment)    | **Root** password   |
+| `su - john` | Switch to john (full environment)    | **John's** password |
+| `sudo su`   | Switch to root using YOUR password   | **Your** password   |
+| `sudo su -` | Switch to root with full environment | **Your** password   |
+| `sudo -i`   | Same as `sudo su -`                  | **Your** password   |
 
 ---
 
