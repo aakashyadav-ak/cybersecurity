@@ -12,7 +12,7 @@
 - [x] Specify Files by Name
 - [x] Manage Files with Command-line Tools
 - [ ] Make Links Between Files
-- [ ] Match File Names with Shell Expansions
+- [x] Match File Names with Shell Expansions
 
 ## Module 05: Creating, Viewing & Editing Text Files
 - [ ] Redirect Output to a File or Program

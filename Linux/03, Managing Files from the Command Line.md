@@ -283,3 +283,50 @@ ls file[0-9].txt                # file0.txt through file9.txt
 ls file[!0-9].txt               # NOT file0.txt through file9.txt
 ls file[^0-9].txt               # Same as above (^ = !)
 ```
+
+
+
+# The find Command
+Powerful command for searching files.
+
+**Basic syntax:**
+```
+find [path] [options] [expression]
+```
+
+```bash
+find / -name passwd                     # Find by name
+find / -iname passwd                    # Case-insensitive
+find / -name "*.conf"                   # Wildcard search
+find /home -user john                   # Files owned by user
+find / -group admin                     # Files owned by group
+find / -type f                          # Files only
+find / -type d                          # Directories only
+find / -type l                          # Symbolic links
+find / -size +10M                       # Files larger than 10MB
+find / -size -1k                        # Files smaller than 1KB
+find / -mtime -7                        # Modified in last 7 days
+find / -atime +30                       # Accessed more than 30 days ago
+find / -perm 777                        # Exact permissions
+find / -perm -4000                      # SUID files
+find / -perm -2000                      # SGID files
+find / -writable                        # Writable by current user
+find / -executable                      # Executable by current user
+```
+
+# The locate Command
+Faster than find but uses a database.
+
+```bash
+locate passwd                   # Find files containing "passwd"
+locate -i readme                # Case-insensitive
+locate -c "*.conf"              # Count matches
+updatedb                        # Update database (root required)
+```
+# The which and whereis Commands
+``` bash
+which python                    # Find command location
+which -a python                 # All locations in PATH
+whereis python                  # Binary, source, and man page locations
+type python                     # How shell interprets command
+```
