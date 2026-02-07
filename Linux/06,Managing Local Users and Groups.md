@@ -118,3 +118,51 @@ Root is the superuser - the most powerful account.
 | :------- | :------------- | :---------------------- |
 | **su**   | `su -`         | Switch to root user     |
 | **sudo** | `sudo command` | Run one command as root |
+
+#### Using su (Switch User)
+**Switch to root:**
+```
+su -
+```
+Enter root password. Now you ARE root.
+
+**Switch to another user:**
+```
+su - <username>
+```
+
+**Exit back:**
+```
+exit
+```
+
+#### Using sudo 
+
+**Run ONE command with root power:**
+```
+sudo cat /etc/shadow
+```
+Enter YOUR password (not root's).
+
+**Why sudo is better:**
+- Don't need to know root password
+- Only runs one command as root
+- Logs what you did
+- Safer than being root all the time
+
+
+### Who Can Use sudo?
+Users in the wheel group can use sudo.
+
+**Check if you can use sudo:**
+```
+groups
+```
+
+Look for "wheel" in the list.
+
+
+**Check sudo configuration:**
+```
+sudo cat /etc/sudoers
+```
