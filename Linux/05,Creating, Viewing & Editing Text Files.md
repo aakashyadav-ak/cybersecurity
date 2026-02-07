@@ -98,3 +98,70 @@ Vim has modes. This confuses beginners.
 | **Insert** | Type text                 | Press `i`    |
 
 ### Basic Vim Steps
+#### Open file:
+```
+vim filename.txt
+```
+
+**To type text:**
+- Press i (now you can type)
+- Type your text
+- Press Esc when done typing
+  
+**To save and quit:**
+- Press Esc
+- Type :wq
+- Press Enter
+  
+**To quit without saving:**
+- Press Esc
+- Type :q!
+- Press Enter
+
+#### Vim Cheat Sheet 
+
+
+
+
+
+## Create File Without Editor
+Create File Without Editor
+
+#### Create small file:
+```
+echo "Hello World" > myfile.txt
+```
+
+#### Create file with multiple lines:
+```
+cat > notes.txt << EOF
+Line 1
+Line 2
+Line 3
+EOF
+```
+
+
+---
+
+# Change the Shell Environment
+## Environment Variables
+Variables are like containers that store information.
+
+The system uses variables to remember things like:
+- Your username
+- Your home folder
+- Where to find commands
+
+### View Variables
+**See one variable:**
+```
+echo $HOME
+echo $USER
+echo $SHELL
+```
+
+==**See all variables:**==
+```
+env
+```
