@@ -249,4 +249,107 @@ sudo chgrp developers file.txt
 
 ___
 
-# 
+# Manage Default Permissions and File Access
+## umask - Default Permission Mask
+When you create new files, what permissions do they get?
+
+umask controls this!
+
+
+#### Check Current umask
+```
+umask
+```
+
+**output:**
+```
+0022
+```
+
+### How umask Works
+
+**Default permissions:**
+- Files: 666 (no execute by default)
+- Directories: 777
+
+**umask subtracts from defaults:**
+```
+Files:       666 - 022 = 644 (rw-r--r--)
+Directories: 777 - 022 = 755 (rwxr-xr-x)
+```
+
+## Set umask
+#### Temporary (current session):
+```
+umask 077
+```
+
+#### Permanent (add to ~/.bashrc):
+```
+echo "umask 077" >> ~/.bashrc
+```
+
+
+## Special Permissions
+**Three Special Permissions:**
+
+| Permission     | Number | On Files          | On Directories              |
+| :------------- | :----- | :---------------- | :-------------------------- |
+| **SUID**       | `4`    | Run as file owner | -                           |
+| **SGID**       | `2`    | Run as file group | New files inherit group     |
+| **Sticky Bit** | `1`    | -                 | Only owner can delete files |
+
+
+### SUID (Set User ID)
+When you run the file, it runs as the owner (not you).
+
+**Example:** /usr/bin/passwd
+
+```
+ls -l /usr/bin/passwd
+-rwsr-xr-x. 1 root root 27856 Jan 1 10:00 /usr/bin/passwd
+```
+See the s instead of x? That's SUID.
+
+Regular users can run passwd to change their password, and it runs as root!
+
+#### Set SUID:
+```
+chmod u+s file
+chmod 4755 file
+```
+Tip: SUID files are gold for privilege escalation!
+
+### SGID (Set Group ID)
+On files: Runs as the file's group.
+
+On directories: New files inherit the directory's group.
+
+**Example:**
+```
+ls -l
+drwxrwsr-x. 2 john developers 4096 Jan 1 10:00 shared
+```
+See the s in group section? That's SGID.
+
+#### Set SGID:
+```
+chmod g+s directory
+chmod 2755 directory
+```
+
+### Sticky Bit
+Only file owner can delete their files (even if others have write permission).
+
+Used on shared directories like /tmp.
+```
+ls -ld /tmp
+drwxrwxrwt. 10 root root 4096 Jan 1 10:00 /tmp
+```
+See the t at the end? That's sticky bit.
+
+#### Set sticky bit:
+```
+chmod +t directory
+chmod 1777 directory
+```
