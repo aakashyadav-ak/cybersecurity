@@ -159,3 +159,89 @@ ___
 ```
 chmod WHO+/-PERMISSION filename
 ```
+
+**example:**
+```
+chmod u+x script.sh
+```
+
+#### WHO:
+| Letter | Meaning        |
+| :----- | :------------- |
+| `u`    | Owner (user)   |
+| `g`    | Group          |
+| `o`    | Others         |
+| `a`    | All (everyone) |
+
+#### Operators:
+| Symbol | Meaning              |
+| :----- | :------------------- |
+| `+`    | Add permission       |
+| `-`    | Remove permission    |
+| `=`    | Set exact permission |
+
+### Symbolic Examples
+
+**Add execute for owner:**
+```
+chmod u+x script.sh
+```
+
+
+**Remove write for others:**
+```
+chmod o-w file.txt
+```
+
+
+### Numeric Method
+
+**Format:**
+```
+chmod NUMBER filename
+```
+
+**Examples:**
+
+```bash
+chmod 755 script.sh         # rwxr-xr-x
+chmod 644 file.txt          # rw-r--r--
+chmod 600 secret.txt        # rw-------
+chmod 700 private_dir       # rwx------
+chmod 777 open_file         # rwxrwxrwx (dangerous!)
+```
+
+
+## chmod for Directories
+
+**Same commands work:**
+```
+chmod 755 mydir             # Owner full, others can enter/list
+chmod 700 private           # Only owner can access
+```
+
+
+## chown - Change Owner
+
+**Change owner:**
+```
+sudo chown newowner file.txt
+```
+
+**Change owner and group:**
+```
+sudo chown newowner:newgroup file.txt
+```
+
+**Change group only:**
+```
+sudo chown :newgroup file.txt
+```
+
+
+## chgrp - Change Group
+
+**Change group only:**
+```
+sudo chgrp developers file.txt
+```
