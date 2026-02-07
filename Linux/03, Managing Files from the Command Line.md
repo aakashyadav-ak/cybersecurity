@@ -230,6 +230,21 @@ wc -c file.txt                  # Bytes only
 wc -m file.txt                  # Characters only
 ```
 
+
+#### Hidden Directories
+
+| File | Purpose |
+| :--- | :--- |
+| `~/.bash_history` | Command history |
+| `~/.bashrc` | Bash configuration |
+| `~/.bash_profile` | Login configuration |
+| `~/.ssh/` | SSH keys and config |
+| `~/.ssh/authorized_keys` | Allowed SSH public keys |
+| `~/.ssh/id_rsa` | Private SSH key (**CRITICAL**) |
+| `~/.ssh/known_hosts` | Known SSH servers |
+| `~/.gnupg/` | GPG keys |
+| `~/.config/` | Application configs |
+
 ---
 
 # Make Links Between Files
