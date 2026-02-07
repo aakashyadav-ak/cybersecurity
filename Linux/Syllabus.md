@@ -24,7 +24,7 @@
 - [x] Gain Superuser Access
 - [x] Manage Local User Accounts
 - [x] Manage Local Group Accounts
-- [ ] Manage User Passwords
+- [x] Manage User Passwords
 
 ## Module 07: Controlling Access to Files
 - [ ] Interpret Linux File System Permissions

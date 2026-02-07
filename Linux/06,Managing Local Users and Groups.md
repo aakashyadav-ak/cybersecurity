@@ -329,3 +329,48 @@ Root doesn't need to know old password!
 ```
 sudo cat /etc/shadow
 ```
+
+**example:**
+```
+john:$6$xyz...abc:19000:0:99999:7:::
+```
+
+| Field | Meaning |
+| :--- | :--- |
+| `john` | Username |
+| `$6$xyz...` | Encrypted password |
+| `19000` | Days since Jan 1, 1970 (Last changed) |
+| `0` | Min days before password change allowed |
+| `99999` | Max days password is valid |
+| `7` | Warning days before expiration 
+
+### Password Hash Types
+The password hash starts with a prefix:
+
+| Prefix | Algorithm | Status             |
+| :----- | :-------- | :----------------- |
+| `$1$`  | MD5       | ❌ Old, Weak        |
+| `$5$`  | SHA-256   | ✅ Secure           |
+| `$6$`  | SHA-512   | ✅ Current Standard |
+#### Check Password Status
+```
+sudo passwd -S john
+```
+
+output:
+```
+john PS 2023-01-15 0 99999 7 -1 (Password set, SHA512 crypt.)
+```
+
+### Lock and Unlock Accounts
+
+**Lock account (disable password):**
+```
+sudo passwd -l john
+```
+
+
+**Unlock account:**
+```
+sudo passwd -u john
+```
