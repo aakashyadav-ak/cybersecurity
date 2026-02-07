@@ -259,3 +259,23 @@ Save and exit (Ctrl+O, Ctrl+X)
 ```
 source ~/.bashrc
 ```
+
+## Command History
+Bash remembers your old commands.
+
+**View history:**
+```
+history
+```
+
+**Run old command:**
+```
+!50                             # Run command number 50
+!!                              # Run last command
+```
+
+
+**Clear history:**
+```
+history -c
+```
