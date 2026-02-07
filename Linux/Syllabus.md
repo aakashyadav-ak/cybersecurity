@@ -15,9 +15,9 @@
 - [x] Match File Names with Shell Expansions
 
 ## Module 05: Creating, Viewing & Editing Text Files
-- [ ] Redirect Output to a File or Program
-- [ ] Edit Text Files from the Shell Prompt
-- [ ] Change the Shell Environment
+- [x] Redirect Output to a File or Program
+- [x] Edit Text Files from the Shell Prompt
+- [x] Change the Shell Environment
 
 ## Module 06: Managing Local Users and Groups
 - [ ] Describe User and Group Concepts
