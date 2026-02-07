@@ -66,3 +66,55 @@ john:x:1001:1001:John Smith:/home/john:/bin/bash
 | /home/john | Home directory |
 | /bin/bash | Login shell |
 ### Understanding /etc/group
+```
+cat /etc/group
+```
+
+**Each line is one group:**
+```
+developers:x:1010:john,sarah,mike
+```
+
+
+| Part | Meaning |
+| :--- | :--- |
+| `developers` | Group name |
+| `x` | Password (usually empty) |
+| `1010` | Group ID (GID) |
+| `john,sarah,mike` | Members of this group |
+
+**What groups am I in?**
+```
+groups
+```
+
+
+---
+
+# Gain Superuser Access
+## Root?
+Root is the superuser - the most powerful account.
+
+- UID is always 0
+- Can do ANYTHING on the system
+- Can read/write/delete any file
+- Can add/remove users
+- Very dangerous if misused!
+
+
+#### Root Prompt vs Normal Prompt
+```
+[john@server ~]$              # Normal user ($ sign)
+[root@server ~]#              # Root user (# sign)
+```
+
+- $ = regular user
+-  # = root user
+
+
+### Two Ways to Get Root Power
+
+| Method   | Command        | What it does            |
+| :------- | :------------- | :---------------------- |
+| **su**   | `su -`         | Switch to root user     |
+| **sudo** | `sudo command` | Run one command as root |
