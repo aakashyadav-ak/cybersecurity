@@ -119,10 +119,17 @@ vim filename.txt
 - Press Enter
 
 #### Vim Cheat Sheet 
-
-
-
-
+| Action | Keys |
+| :--- | :--- |
+| **Start typing** (Insert mode) | `i` |
+| **Stop typing** (Normal mode) | `Esc` |
+| **Save** | `:w` + `Enter` |
+| **Quit** | `:q` + `Enter` |
+| **Save and quit** | `:wq` + `Enter` |
+| **Quit without saving** | `:q!` + `Enter` |
+| **Delete line** | `dd` |
+| **Undo** | `u` |
+| **Search** | `/word` + `Enter` |
 
 ## Create File Without Editor
 Create File Without Editor
@@ -165,3 +172,35 @@ echo $SHELL
 ```
 env
 ```
+
+#### Important Variables
+
+| Variable | What it stores | Example Value |
+| :--- | :--- | :--- |
+| `$HOME` | Your home folder | `/home/john` |
+| `$USER` | Your username | `john` |
+| `$SHELL` | Your shell program | `/bin/bash` |
+| `$PWD` | Current folder | `/home/john/docs` |
+| `$PATH` | Where commands are found | `/usr/bin:/bin` |
+### Create Your Own Variable
+```
+MYNAME="ak"
+echo $MYNAME
+```
+
+output:ak
+
+## The PATH Variable
+PATH tells the system where to look for commands.
+
+```
+echo $PATH
+```
+
+
+**Output looks like:**
+```
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+```
+
+These are folders separated by :
