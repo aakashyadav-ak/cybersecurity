@@ -58,7 +58,7 @@
 - [ ] Configure Hostnames and Name Resolution
 
 ## Module 13: Archiving and Transferring Files
-- [ ] Manage Compressed tar Archives
+- [x] Manage Compressed tar Archives
 - [ ] Transfer Files Between Systems Securely
 - [ ] Synchronize Files Between Systems Securely
 
