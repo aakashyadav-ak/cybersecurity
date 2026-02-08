@@ -157,6 +157,7 @@ A framework describing stages of a cyber attack.
 | **7. Actions on Objectives** | Achieve goals                 | Data exfiltration       |
 
 ### MITRE ATT&CK Framework
+Alternative framework with tactics and techniques:
 
 | Tactic | Description |
 |--------|-------------|
