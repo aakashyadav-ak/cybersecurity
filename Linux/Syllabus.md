@@ -32,9 +32,9 @@
 - [x] Manage Default Permissions and File Access
 
 ## Module 08: Monitoring and Managing Linux Processes
-- [ ] Process States and Lifecycle
+- [x] Process States and Lifecycle
 - [ ] Control Jobs
-- [ ] Kill Processes
+- [x] Kill Processes
 - [ ] Monitor Process Activity
 
 ## Module 09: Controlling Services and Daemons

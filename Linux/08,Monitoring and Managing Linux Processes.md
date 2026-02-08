@@ -103,3 +103,90 @@ See parent-child relationships:
 ```
 pstree
 ```
+
+
+
+___
+
+# Kill Processes
+**Why Kill Processes?**
+- Process is frozen/not responding
+- Process is using too much CPU/memory
+- You want to stop a service
+- Malicious process running
+
+## Signals
+To kill a process, you send it a signal.
+
+
+**Common signals:**
+
+| Signal      | Number | Meaning                    |
+| :---------- | :----- | :------------------------- |
+| **SIGHUP**  | `1`    | Hangup (reload config)     |
+| **SIGINT**  | `2`    | Interrupt (Ctrl+C)         |
+| **SIGKILL** | `9`    | Force kill (cannot ignore) |
+| **SIGTERM** | `15`   | Terminate nicely (default) |
+| **SIGSTOP** | `19`   | Pause process              |
+| **SIGCONT** | `18`   | Continue paused process    |
+
+**View All Signals:**
+```
+kill -l
+```
+
+#### kill Command
+**Basic syntax:**
+```
+kill PID
+```
+Sends SIGTERM (15) by default - asks process to quit nicely.
+
+**Kill Process Example:**
+
+First find the PID:
+```
+ps aux | grep firefox
+```
+
+Output:
+```
+john  1234  5.0  3.0  123456  78900  ?  Sl  10:00  1:00 firefox
+```
+PID= 1234
+
+**Kill it:**
+```
+kill 1234
+```
+
+#### Force Kill (When Normal Kill Doesn't Work)
+SIGKILL (9) - Cannot be ignored:
+```
+kill -9 1234
+kill -SIGKILL 1234
+kill -KILL 1234
+```
+
+#### killall - Kill by Name
+Kill all processes with that name:
+
+```
+killall firefox
+killall -9 firefox              # Force kill
+```
+
+
+#### Kill Zombie Processes
+Zombies can't be killed directly!
+
+Find zombies:
+```
+ps aux | grep Z
+```
+
+Kill the parent process:
+```
+ps -ef | grep <zombie_PID>      # Find PPID
+kill <PPID>                      # Kill parent
+```
