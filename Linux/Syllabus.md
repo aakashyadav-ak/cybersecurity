@@ -47,9 +47,9 @@
 - [ ] Customize Open Secure Shell (SSH) Service Configuration
 
 ## Module 11: Analyzing and Storing Logs
-- [ ] Describe System Log Architecture
-- [ ] Review Syslog Files
-- [ ] Review System Journal Entries
+- [x] Describe System Log Architecture
+- [x] Review Syslog Files
+- [x] Review System Journal Entries
 
 ## Module 12: Managing Networking
 - [ ] Describe Networking Concepts
