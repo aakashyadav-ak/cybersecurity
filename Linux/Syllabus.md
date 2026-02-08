@@ -53,7 +53,7 @@
 
 ## Module 12: Managing Networking
 - [ ] Describe Networking Concepts
-- [ ] Validate Network Configuration
+- [x] Validate Network Configuration
 - [ ] Configure Networking from the Command Line
 - [ ] Configure Hostnames and Name Resolution
 
