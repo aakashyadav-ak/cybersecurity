@@ -56,3 +56,26 @@ ssh -v john@192.168.1.100      # Verbose
 ssh -vv john@192.168.1.100     # More verbose
 ssh -vvv john@192.168.1.100    # Most verbose
 ```
+
+
+___
+
+# Configure SSH Key-based Authentication
+
+## Use of SSH Keys
+
+| Feature | Password Login | Key-based Login |
+| :--- | :--- | :--- |
+| **User Experience** | Type password every time | No password needed |
+| **Security Risk** | Can be brute-forced | ✅ Much more secure |
+| **Weakness** | Easy to guess weak passwords | Keys are very long |
+
+#### How Key Authentication Works
+```
+1. You have: Private Key (secret) + Public Key (share it)
+2. Server has: Your Public Key in authorized_keys
+3. You connect → Server challenges you
+4. Your Private Key proves your identity
+5. Access granted!
+```
+
