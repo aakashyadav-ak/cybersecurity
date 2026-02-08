@@ -35,7 +35,7 @@
 - [x] Process States and Lifecycle
 - [ ] Control Jobs
 - [x] Kill Processes
-- [ ] Monitor Process Activity
+- [x] Monitor Process Activity
 
 ## Module 09: Controlling Services and Daemons
 - [ ] Identify Automatically Started System Processes

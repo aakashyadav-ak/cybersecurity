@@ -195,3 +195,45 @@ kill <PPID>                      # Kill parent
 ___
 
 # Monitor Process Activity
+
+## top - Real-time Process Monitor
+```
+top
+```
+
+Output updates every 3 seconds:
+```
+top - 10:30:00 up 5 days,  2:30,  2 users,  load average: 0.15, 0.10, 0.05
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us,  1.0 sy,  0.0 ni, 96.5 id,  0.5 wa,  0.0 hi,  0.0 si
+MiB Mem :   7976.5 total,   2345.6 free,   3456.7 used,   2174.2 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   4123.4 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 1234 john      20   0  123456  56789  12345 S   5.0   0.7   1:23.45 firefox
+ 5678 root      20   0   98765  34567   8901 S   2.0   0.4   0:45.67 apache2
+```
+
+
+## htop - Better Version of top
+
+Install first:
+```
+sudo apt install htop
+```
+
+```
+htop
+```
+
+**Benefits:**
+- Colored output
+- Easier to use
+- Mouse support
+- Easier to kill processes
+
+
+### free - Memory Usage
+```
+free -h
+```
