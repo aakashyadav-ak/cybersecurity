@@ -113,11 +113,11 @@ Authorized practice of detecting vulnerabilities in systems by bypassing securit
 ### Purpose of Ethical Hacking
 - [ ] Identify vulnerabilities
 - [ ] Test security controls
-- [x] Ensure compliance
-- [x] Protect against attacks
-- [x] Improve security posture
-- [x] Safeguard customer data
-- [x] Avoid security breaches
+- [ ] Ensure compliance
+- [ ] Protect against attacks
+- [ ] Improve security posture
+- [ ] Safeguard customer data
+- [ ] Avoid security breaches
 
 ### Skills of an Ethical Hacker
 
@@ -146,15 +146,15 @@ Authorized practice of detecting vulnerabilities in systems by bypassing securit
 ### Lockheed Martin Cyber Kill Chain
 A framework describing stages of a cyber attack.
 
-| Stage | Description | Example |
-|-------|-------------|---------|
-| **1. Reconnaissance** | Research and identify targets | Email harvesting, OSINT |
-| **2. Weaponization** | Create malicious payload | Exploit + backdoor |
-| **3. Delivery** | Transmit weapon to target | Email, USB, website |
-| **4. Exploitation** | Trigger the exploit | Vulnerability exploited |
-| **5. Installation** | Install malware | Backdoor installed |
-| **6. Command & Control** | Remote control channel | C2 server communication |
-| **7. Actions on Objectives** | Achieve goals | Data exfiltration |
+| Stage                        | Description                   | Example                 |
+| ---------------------------- | ----------------------------- | ----------------------- |
+| **1. Reconnaissance**        | Research and identify targets | Email harvesting, OSINT |
+| **2. Weaponization**         | Create malicious payload      | Exploit + backdoor      |
+| **3. Delivery**              | Transmit weapon to target     | Email, USB, website     |
+| **4. Exploitation**          | Trigger the exploit           | Vulnerability exploited |
+| **5. Installation**          | Install malware               | Backdoor installed      |
+| **6. Command & Control**     | Remote control channel        | C2 server communication |
+| **7. Actions on Objectives** | Achieve goals                 | Data exfiltration       |
 
 ### MITRE ATT&CK Framework
 
