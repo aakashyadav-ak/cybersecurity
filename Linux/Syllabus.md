@@ -42,7 +42,7 @@
 - [ ] Control System Services
 
 ## Module 10: Configuring and Securing SSH
-- [ ] Access the Remote Command Line with Secure Shell (SSH)
+- [x] Access the Remote Command Line with Secure Shell (SSH)
 - [ ] Configure Secure Shell (SSH) Key-based Authentication
 - [ ] Customize Open Secure Shell (SSH) Service Configuration
 
