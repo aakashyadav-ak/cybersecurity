@@ -190,3 +190,8 @@ Kill the parent process:
 ps -ef | grep <zombie_PID>      # Find PPID
 kill <PPID>                      # Kill parent
 ```
+
+
+___
+
+# Monitor Process Activity
