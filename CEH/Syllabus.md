@@ -1,12 +1,12 @@
 # CEH v12 Complete Syllabus Checklist
 
 ## Module 1: Introduction to Ethical Hacking
-- [ ] Information security overview
-- [ ] Cyber kill chain concepts
-- [ ] Hacking concepts
-- [ ] Ethical hacking concepts
-- [ ] Information security controls
-- [ ] Information security laws and standards
+- [x] Information security overview
+- [x] Cyber kill chain concepts
+- [x] Hacking concepts
+- [x] Ethical hacking concepts
+- [x] Information security controls
+- [x] Information security laws and standards
 - [ ] Hacking methodologies (CEH, LPT, OSSTMM)
 
 ---
