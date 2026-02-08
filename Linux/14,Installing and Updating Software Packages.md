@@ -91,3 +91,55 @@ sudo apt purge nmap
 ```
 apt list --installed
 ```
+
+___
+
+#  Install and Update Software Packages with APT
+**View repositories:**
+```
+cat /etc/apt/sources.list
+```
+
+**Default Kali repo:**
+```
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
+```
+
+## kali Metapackages
+Kali has metapackages = groups of tools.
+
+**List available:**
+```
+apt search kali-tools
+```
+
+
+## Install Python Tools with pip
+
+**Many security tools are Python-based:**
+```
+pip3 install impacket
+pip3 install pwntools
+pip3 install requests
+```
+
+**Or using apt:**
+```
+sudo apt install python3-impacket
+```
+
+## Install from GitHub
+
+**Many tools are on GitHub:**
+```
+cd /opt
+sudo git clone https://github.com/tool/repo.git
+cd repo
+pip3 install -r requirements.txt
+```
+
+#### APT History
+**View apt log:**
+```
+cat /var/log/apt/history.log
+```

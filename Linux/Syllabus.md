@@ -63,12 +63,12 @@
 - [ ] Synchronize Files Between Systems Securely
 
 ## Module 14: Installing and Updating Software Packages
-- [ ] Install and Update Software Packages
+- [x] Install and Update Software Packages
 - [ ] Explain and Investigate RPM Software Packages
-- [ ] Install and Update Software Packages with DNF
+- [x] Install and Update Software Packages with DNF
 
 ## Module 15: Accessing Linux File Systems
-- [ ] Identify File Systems and Devices
+- [x] Identify File Systems and Devices
 - [ ] Mount and Unmount File Systems
 - [ ] Locate Files on the System
 
