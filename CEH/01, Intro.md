@@ -314,34 +314,3 @@ Multiple layers of security:
 | APT | Advanced Persistent Threat |
 | OSINT | Open Source Intelligence |
 | C2 | Command and Control |
-
----
-
-## Practice Questions
-
-- [ ] What are the three components of the CIA Triad?
-- [ ] Name all 5 phases of hacking
-- [ ] What is the difference between White Hat and Black Hat hackers?
-- [ ] List all 7 stages of the Cyber Kill Chain
-- [ ] What are the three types of penetration testing?
-- [ ] What is Defense in Depth?
-- [ ] Name 5 important security laws/standards
-
----
-
-## My Notes
-> Add your personal notes here
-
-
-
----
-
-## Resources
-- [ ] EC-Council Official Courseware
-- [ ] CEH v12 Study Guide
-- [ ] Practice Labs Completed
-- [ ] Flashcards Created
-
----
-
-#CEH #Module1 #EthicalHacking #Cybersecurity #InfoSec
