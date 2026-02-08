@@ -38,7 +38,7 @@
 - [x] Monitor Process Activity
 
 ## Module 09: Controlling Services and Daemons
-- [ ] Identify Automatically Started System Processes
+- [x] Identify Automatically Started System Processes
 - [ ] Control System Services
 
 ## Module 10: Configuring and Securing SSH
