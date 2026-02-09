@@ -7,6 +7,15 @@
 ### What is Footprinting?
 Footprinting is the **first phase** of ethical hacking where an attacker collects information about a target system, network, or organization before attempting an attack.
 
+```
+┌─────────────────────────────────────────────────────────────┐
+│                 FOOTPRINTING METHODOLOGY                     │
+├─────────────────────────────────────────────────────────────┤
+│  1. Define Scope → 2. Gather Info → 3. Analyze Data         │
+│                           ↓                                  │
+│  4. Create Report → 5. Identify Vulnerabilities              │
+└─────────────────────────────────────────────────────────────┘
+```
 ### Objectives of Footprinting
 - Collect network information (domain names, IP addresses, protocols)
 - Collect system information (usernames, system banners, OS details)
