@@ -139,19 +139,6 @@ apache port:443 country:US
 
 ## 3. Footprinting Through Web Services
 
-### People Search Services
-- Pipl - Deep web people search
-- Spokeo - People search engine
-- Intelius - Background check services
-- BeenVerified - People search
-- PeekYou - Social media aggregator
-
-### Financial Services
-- SEC EDGAR - Company filings and reports
-- Crunchbase - Company information
-- D&B Hoovers - Business intelligence
-- Bloomberg - Financial data
-
 ### Job Portals (Information Gathering)
 - LinkedIn Jobs
 - Indeed
