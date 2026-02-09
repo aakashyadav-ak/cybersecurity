@@ -812,23 +812,6 @@ v=DMARC1; p=reject; rua=mailto:reports@target.com
 
 DKIM - Configured through email server
 
-### Countermeasure Checklist
-- [ ] Configure DNS servers to disable zone transfers
-- [ ] Use WHOIS privacy protection services
-- [ ] Remove metadata from published documents
-- [ ] Configure web servers to hide version information
-- [ ] Implement email authentication (SPF, DKIM, DMARC)
-- [ ] Conduct regular security awareness training
-- [ ] Monitor for exposed credentials and data leaks
-- [ ] Implement proper document disposal policies
-- [ ] Limit information in job postings
-- [ ] Regular OSINT audits on your organization
-- [ ] Use robots.txt carefully (can reveal sensitive paths)
-- [ ] Implement network segmentation
-- [ ] Block unnecessary ICMP at network perimeter
-- [ ] Regular penetration testing
-- [ ] Monitor social media for information leakage
-
 ---
 
 ## Quick Reference Card
@@ -883,9 +866,6 @@ site:target.com intext:password
 | 3389 | RDP |
 
 ---
-
-## Exam Tips
-
 ### CEH Exam Focus Areas
 1. Know the difference between passive and active footprinting
 2. Memorize common Google dork operators
@@ -894,33 +874,3 @@ site:target.com intext:password
 5. Understand email header analysis
 6. Be familiar with major footprinting tools
 7. Know countermeasures for each footprinting technique
-
-### Common Exam Questions
-
-Q: Which is a passive footprinting technique?
-A: Searching through Google, WHOIS lookup, checking job postings
-
-Q: What does zone transfer reveal?
-A: All DNS records for a domain
-
-Q: Which tool is used for email harvesting?
-A: theHarvester
-
-Q: What header reveals web server version?
-A: Server header
-
-Q: Which RIR covers North America?
-A: ARIN
-
-Q: What is the purpose of traceroute?
-A: To discover the path packets take to reach the target
-
-Q: Which DNS record type is used for mail servers?
-A: MX record
-
-Q: What information can be found in robots.txt?
-A: Directories that website owners want to hide from search engines
-
----
-
-#CEH #EthicalHacking #Footprinting #Reconnaissance #OSINT #Module2
