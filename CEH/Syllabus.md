@@ -12,18 +12,18 @@
 ---
 
 ## Module 2: Footprinting and Reconnaissance
-- [ ] Footprinting concepts
-- [ ] Footprinting through search engines
-- [ ] Footprinting through web services
-- [ ] Footprinting through social networking sites
-- [ ] Website footprinting
-- [ ] Email footprinting
-- [ ] WHOIS footprinting
-- [ ] DNS footprinting
-- [ ] Network footprinting
-- [ ] Footprinting through social engineering
-- [ ] Footprinting tools
-- [ ] Footprinting countermeasures
+- [x] Footprinting concepts
+- [x] Footprinting through search engines
+- [x] Footprinting through web services
+- [x] Footprinting through social networking sites
+- [x] Website footprinting
+- [x] Email footprinting
+- [x] WHOIS footprinting
+- [x] DNS footprinting
+- [x] Network footprinting
+- [x] Footprinting through social engineering
+- [x] Footprinting tools
+- [x] Footprinting countermeasures
 
 ---
 
