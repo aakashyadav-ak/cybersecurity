@@ -874,6 +874,217 @@ site:target.com intext:password
 | 3306 | MySQL |
 | 3389 | RDP |
 
+___
+# Summary
+## Footprinting Types
+
+| Type | Description |
+|------|-------------|
+| **Passive** | No direct interaction (OSINT, Google, WHOIS) |
+| **Active** | Direct interaction (DNS queries, scanning) |
+
+---
+
+## Google Dorking (Quick Reference)
+
+| Operator | Usage |
+|----------|-------|
+| site: | site:target.com |
+| filetype: | filetype:pdf password |
+| inurl: | inurl:admin |
+| intitle: | intitle:"index of" |
+| intext: | intext:password |
+
+### Common Dorks for VAPT
+
+site:target.com filetype:sql
+site:target.com filetype:env
+site:target.com inurl:admin
+site:target.com intitle:"index of"
+site:target.com ext:bak OR ext:old
+site:target.com intext:"sql syntax"
+
+---
+
+## OSINT Tools
+
+| Tool | Purpose | Command |
+|------|---------|---------|
+| theHarvester | Email/Subdomain | theHarvester -d target.com -b all |
+| Sublist3r | Subdomains | sublist3r -d target.com |
+| Amass | Subdomains | amass enum -d target.com |
+| Shodan | IoT/Services | shodan search hostname:target.com |
+| crt.sh | SSL Certs | curl "https://crt.sh/?q=%25.target.com" |
+
+---
+
+## DNS Enumeration
+
+### Commands
+
+nslookup -type=ANY target.com
+dig target.com ANY
+dig axfr @ns1.target.com target.com
+fierce --domain target.com
+dnsrecon -d target.com
+dnsenum target.com
+
+### DNS Record Types
+
+| Record | Purpose |
+|--------|---------|
+| A | IPv4 Address |
+| AAAA | IPv6 Address |
+| MX | Mail Server |
+| NS | Name Server |
+| TXT | SPF/DKIM/DMARC |
+| CNAME | Alias |
+| SOA | Zone Info |
+
+---
+
+## WHOIS Lookup
+
+whois target.com
+whois <IP_ADDRESS>
+
+### Regional Registries
+
+| RIR | Region |
+|-----|--------|
+| ARIN | North America |
+| RIPE | Europe |
+| APNIC | Asia-Pacific |
+| LACNIC | Latin America |
+| AFRINIC | Africa |
+
+---
+
+## Network Footprinting
+
+traceroute target.com
+tracert target.com (Windows)
+tcptraceroute target.com 80
+
+---
+
+## Email Footprinting
+
+### Tools
+- Hunter.io
+- theHarvester
+- Infoga
+
+### Key Email Headers
+
+| Header | Information |
+|--------|-------------|
+| Received | Server path |
+| X-Originating-IP | Sender IP |
+| X-Mailer | Email client |
+
+---
+
+## Website Footprinting
+
+### Technology Detection
+
+whatweb target.com
+curl -I target.com
+
+### Check Files
+
+curl target.com/robots.txt
+curl target.com/sitemap.xml
+curl target.com/.git/HEAD
+curl target.com/.env
+
+### Tools
+- Wappalyzer
+- BuiltWith
+- Netcraft
+
+---
+
+## Social Media OSINT
+
+### GitHub Dorks
+
+org:targetcompany password
+org:targetcompany api_key
+org:targetcompany filename:.env
+org:targetcompany filename:config
+
+### Tools
+
+| Tool | Purpose |
+|------|---------|
+| Sherlock | Username search |
+| Maltego | Link analysis |
+
+---
+
+## Essential VAPT Tools
+
+| Tool | Purpose |
+|------|---------|
+| Recon-ng | Recon framework |
+| Maltego | Visual OSINT |
+| SpiderFoot | Automated OSINT |
+| FOCA | Metadata extraction |
+| Shodan | Device search |
+| theHarvester | Email harvesting |
+
+### Recon-ng Quick Start
+
+recon-ng
+workspaces create target
+db insert domains target.com
+modules load recon/domains-hosts/hackertarget
+run
+show hosts
+
+---
+
+## Countermeasures (For Reports)
+
+| Area | Recommendation |
+|------|----------------|
+| DNS | Disable zone transfers |
+| WHOIS | Enable privacy protection |
+| Web | Remove version headers |
+| Email | Implement SPF, DKIM, DMARC |
+| Metadata | Strip from documents |
+
+---
+
+## Quick Command Reference
+
+# Subdomain Enumeration
+sublist3r -d target.com
+amass enum -d target.com
+subfinder -d target.com
+
+# DNS
+dig target.com ANY
+dig axfr @ns.target.com target.com
+
+# WHOIS
+whois target.com
+
+# Web Tech
+whatweb target.com
+curl -I target.com
+
+# Email Harvest
+theHarvester -d target.com -b all
+
+# Network Path
+traceroute target.com
+
+---
+
+#VAPT #Reconnaissance #Footprinting #OSINT
 ---
 ### CEH Exam Focus Areas
 1. Know the difference between passive and active footprinting
