@@ -10,13 +10,13 @@
 ---
 
 ##  IP Addressing & Subnetting (Must)
-- [ ] IPv4 structure
+- [x] IPv4 structure
 - [ ] Private vs Public IP ranges
 - [ ] Loopback (127.0.0.1)
 - [ ] APIPA (169.254.x.x)
-- [ ] CIDR notation (/24, /16, etc.)
-- [ ] Network ID vs Broadcast vs Host range
-- [ ] Subnetting basics (/24, /25, /26, /27)
+- [x] CIDR notation (/24, /16, etc.)
+- [x] Network ID vs Broadcast vs Host range
+- [x] Subnetting basics (/24, /25, /26, /27)
 - [ ] Default Gateway concept
 
 ---
