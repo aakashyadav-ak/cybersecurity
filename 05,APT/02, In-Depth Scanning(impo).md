@@ -34,3 +34,7 @@ Total Ports: 65,535 (TCP) + 65,535 (UDP) = 131,070
 | **3306** | MySQL | TCP | Database attacks |
 | **3389** | RDP | TCP | BlueKeep, brute force |
 | **5432** | PostgreSQL | TCP | Database attacks |
+
+
+# Tools
+## NMAP
