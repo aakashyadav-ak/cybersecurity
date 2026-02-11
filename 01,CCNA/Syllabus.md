@@ -41,9 +41,9 @@
 ---
 
 ##  NAT & Network Boundaries
-- [ ] NAT concept
-- [ ] SNAT vs DNAT
-- [ ] PAT (NAT Overload)
+- [x] NAT concept
+- [x] SNAT vs DNAT
+- [x] PAT (NAT Overload)
 - [ ] Port Forwarding
 - [ ] DMZ concept
 
