@@ -11,20 +11,20 @@
 
 ##  IP Addressing & Subnetting (Must)
 - [x] IPv4 structure
-- [ ] Private vs Public IP ranges
-- [ ] Loopback (127.0.0.1)
-- [ ] APIPA (169.254.x.x)
+- [x] Private vs Public IP ranges
+- [x] Loopback (127.0.0.1)
+- [x] APIPA (169.254.x.x)
 - [x] CIDR notation (/24, /16, etc.)
 - [x] Network ID vs Broadcast vs Host range
 - [x] Subnetting basics (/24, /25, /26, /27)
-- [ ] Default Gateway concept
+- [x] Default Gateway concept
 
 ---
 
 ##  Switching Concepts (Layer 2)
-- [ ] MAC Address basics
-- [ ] ARP working (Request/Reply)
-- [ ] ARP Table meaning
+- [x] MAC Address basics
+- [x] ARP working (Request/Reply)
+- [x] ARP Table meaning
 - [ ] Switch vs Hub vs Router
 - [ ] VLAN basics
 - [ ] Trunk vs Access ports (basic)
