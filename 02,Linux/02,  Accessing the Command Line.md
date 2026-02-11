@@ -87,11 +87,11 @@ ls -la /etc             # Command + options + argument
 ## Essential Commands 
 #### 1. Navigation Commands
 
-| Command | Purpose | Example |
-| :--- | :--- | :--- |
-| **pwd** | Print working directory | `pwd` |
-| **cd** | Change directory | `cd /var/log` |
-| **ls** | List directory contents | `ls -la` |
+| Command | Purpose                 | Example       |
+| :------ | :---------------------- | :------------ |
+| **pwd** | Print working directory | `pwd`         |
+| **cd**  | Change directory        | `cd /var/log` |
+| **ls**  | List directory contents | `ls -la`      |
 #### cd shortcut
 ```
 cd          # Go to home directory
