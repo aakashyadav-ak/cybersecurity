@@ -1,8 +1,8 @@
 # Networking 
 
 ##  Fundamentals
-- [ ] OSI Model (L1–L7)
-- [ ] TCP/IP Model
+- [x] OSI Model (L1–L7)
+- [x] TCP/IP Model
 - [ ] TCP vs UDP
 - [ ] Encapsulation / Decapsulation
 - [ ] MTU + Fragmentation (basic)
