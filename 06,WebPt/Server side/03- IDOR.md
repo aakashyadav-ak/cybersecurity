@@ -1,6 +1,11 @@
 # 1. IDOR(Insecure Direct Object Reference)(server side)
 
-- IDOR occurs when an application provides direct access to objects based on user-supplied input. As a result of this vulnerability, attackers can bypass authorization and access resources in the system directly, for example database records or+ files.
+IDOR = Insecure Direct Object Reference  (OWASP traditional term)
+BOLA = Broken Object Level Authorization (OWASP API Top 10 term)
+
+- Application uses a user-supplied identifier (ID, filename, key)
+- To directly fetch an object from the backend
+- WITHOUT checking "Does THIS user OWN this object?"
 
 - ==Attacker accesses unauthorized resources by manipulating object identifiers(ID of user,filename,etc).==
 
@@ -88,6 +93,7 @@
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
 
 #### Real Life Testing
 1. **Create Two Accounts:** Create User A (Attacker) and User B (Victim).
