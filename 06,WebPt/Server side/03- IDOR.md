@@ -160,6 +160,14 @@ POST /api/reset-password
 /user/{"id":123} → /user/{"id":456}
 ```
 
+## IDOR ≠ Only READ 
+
+**C - CREATE:**  POST /api/posts     {"author_id": "other_user"}
+**R - READ:**    GET  /api/users/1002/profile
+**U - UPDATE:**  PUT  /api/users/1002  {"email": "attacker@evil.com"}
+**D - DELETE:**  DELETE /api/orders/ORD-5523
+
+=="IDOR can lead to data modification and deletion, not just viewing"==
 ## Mitigation
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
