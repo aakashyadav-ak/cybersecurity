@@ -11,3 +11,17 @@
 | 7 | Weak / Predictable Tokens (Reset links, session IDs) | Account takeover, session hijacking |
 | 8 | Insecure JWT Implementation (none alg, weak secret) | Auth bypass, privilege escalation |
 | 9 | Encryption Missing for Sensitive Data at Rest | Database compromise leads to readable PII |
+
+## A02:2025 - Cryptographic Failures (Types)
+
+| # | Type (What is wrong) | Simple Example |
+|---|-----------------------|----------------|
+| 1 | No Encryption in Transit | Login page on HTTP instead of HTTPS |
+| 2 | Weak / Deprecated TLS | TLS 1.0, weak cipher suites |
+| 3 | Missing HTTPS Enforcement | No HSTS, allows SSL stripping |
+| 4 | Weak Password Storage | MD5/SHA1 hashes, no salt |
+| 5 | Weak / Broken Crypto Algorithms | DES/RC4, small key sizes |
+| 6 | Poor Key Management | Hardcoded keys, exposed private keys |
+| 7 | Sensitive Data Exposure | PII in URL, logs, error messages |
+| 8 | Weak Tokens / Randomness | Predictable reset tokens/session IDs |
+| 9 | Misuse of JWT / Crypto Libraries | `alg=none`, weak JWT secret |
