@@ -576,8 +576,7 @@ If DB leaks → data is readable.
 
 ---
 
-# 🧪 How to Test A02 Quickly (VAPT)
-
+# How to Test 
 ## TLS Testing
 - Check if HTTPS exists
 - Check TLS versions supported
@@ -594,7 +593,7 @@ If DB leaks → data is readable.
 
 ---
 
-# ✅ Common Tools Used
+# Tools Used
 - Browser DevTools (Network tab)
 - Burp Suite
 - SSLScan / testssl.sh
@@ -602,21 +601,3 @@ If DB leaks → data is readable.
 
 ---
 
-# 🧠 Interview Q&A (Quick)
-
-### Q1: What is A02?
-**A02 is cryptographic failures: when sensitive data is not encrypted properly or crypto is weak/misused.**
-
-### Q2: Give examples
-- HTTP login page
-- weak TLS 1.0 enabled
-- MD5 password hashes
-- API keys exposed in source code
-
-### Q3: What is the best fix for password hashing?
-**Use bcrypt / Argon2 with salt.**
-
----
-
-# 📌 One-line Summary
-> **A02 = Weak encryption + exposed secrets + weak password storage → data theft & account takeover**
