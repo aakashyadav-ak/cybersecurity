@@ -36,7 +36,7 @@
 - [ ] Route table basics
 - [ ] Static vs Dynamic routing (high level)
 - [ ] Traceroute working
-- [ ] ICMP basics (Echo, TTL)
+- [x] ICMP basics (Echo, TTL)
 
 ---
 
