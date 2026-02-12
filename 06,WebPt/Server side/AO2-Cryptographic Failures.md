@@ -362,17 +362,121 @@ Passwords stored using weak hashing algorithms.
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
+#### SALT
+**WITHOUT SALT:**
+────────────────────────────────────────
+  User A password: "password123"
+  MD5("password123") = "482c811da5d5b4bc..."
+  
+  User B password: "password123"  
+  MD5("password123") = "482c811da5d5b4bc..."  ← SAME HASH!
+  
+  Problem 1: Attacker sees both users have same password
+  Problem 2: Pre-computed rainbow table instantly cracks it
+  
+
+**WITH SALT (Random unique value per user):**
+────────────────────────────────────────
+  User A: salt = "x7k2m9"
+  bcrypt("password123" + "x7k2m9") = "$2b$12$LJ3m5..." 
+  
+  User B: salt = "p3q8n1"
+  bcrypt("password123" + "p3q8n1") = "$2b$12$Rk9w2..."  ← DIFFERENT!
+  
+  Even with SAME password → DIFFERENT hashes
+  Rainbow tables become USELESS
+  Each password must be cracked individually
+
+
+SALT Rules:
+  → Must be RANDOM (not predictable)
+  → Must be UNIQUE per user (not global)
+  → Must be long enough (16+ bytes)
+  → Stored alongside the hash (not secret)
+  → bcrypt/argon2 generate salt AUTOMATICALLY
+
+
+#### Example:
+```
+Scenario: Database Breach at E-Commerce Site
+
+Database dump stolen by attacker:
+┌───────┬──────────────┬──────────────────────────────────┐
+│ User  │ Email        │ Password Hash                     │
+├───────┼──────────────┼──────────────────────────────────┤
+│ Ravi  │ ravi@x.com   │ 482c811da5d5b4bca... (MD5)       │
+│ Priya │ priya@x.com  │ e10adc3949ba59ab... (MD5)         │
+│ Amit  │ amit@x.com   │ 482c811da5d5b4bca... (MD5)        │
+└───────┴──────────────┴──────────────────────────────────┘
+
+Attacker's process:
+  Step 1: Identify hash type → MD5 (32 hex chars, no salt)
+  Step 2: Use rainbow table / hashcat:
+          hashcat -m 0 hashes.txt rockyou.txt
+  Step 3: Results in SECONDS:
+          482c811da5d5b4bca... = "password123"
+          e10adc3949ba59ab...  = "123456"
+  Step 4: Ravi and Amit have SAME hash = SAME password
+  Step 5: Try credentials on Gmail, Facebook, Banking → 
+          CREDENTIAL STUFFING attack!
+
+
+If bcrypt was used instead:
+  $2b$12$LJ3m5Xq8kR2Wp...  → Cracking time: YEARS per hash
+  Each hash is unique (salted) → No pattern recognition
+  → Attacker gives up
+```
+
+
+### Testing
+```
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│  1. Check stored password hashes (if DB access available)   │
+│     → MD5: 32 hex characters    (e.g., 5f4dcc3b5aa765d6)  │
+│     → SHA1: 40 hex characters   (e.g., 5baa61e4c9b93f3f)  │
+│     → SHA256: 64 hex characters                            │
+│     → bcrypt: starts with $2b$  (e.g., $2b$12$...)        │
+│     → Argon2: starts with $argon2id$                       │
+│                                                              │
+│  2. Registration test                                        │
+│     → Register two accounts with SAME password              │
+│     → If password hashes are identical = NO SALT            │
+│                                                              │
+│  3. Password reset/recovery                                  │
+│     → If site sends password in PLAINTEXT email              │
+│       = passwords stored in plaintext/reversible encryption  │
+│     → Secure sites send RESET LINK, never the password      │
+│                                                              │
+│  4. Check password policy                                    │
+│     → Does it accept weak passwords like "123456"?          │
+│     → No minimum length/complexity = weak                    │
+│                                                              │
+│  5. Use hash identification tools                            │
+│     → hash-identifier                                        │
+│     → hashid                                                 │
+│     → name-that-hash                                         │
+│                                                              │
+│  Cracking Tools (for authorized testing):                    │
+│     → hashcat                                                │
+│     → john the ripper                                        │
+│     → Online: crackstation.net, hashes.com                   │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+```
 ### Impact
 - offline cracking
 - credential stuffing
 - full account compromise
 
-### Fix
-Use strong hashing:
-- bcrypt
-- scrypt
-- Argon2
-
+### Mitigation
+1. Use Argon2id (BEST) or bcrypt (GOOD) for password hashing
+2. NEVER use MD5, SHA1, or plain SHA256 for passwords
+3. Salt is automatically handled by bcrypt/Argon2
+4. Never store passwords in plaintext or reversible encryption
+5. Never send passwords via email
+6. Implement password policy (min 8 chars, complexity)
+7. Implement account lockout / rate limiting on login
 ---
 
 ## 4) Hardcoded Secrets / Exposed Keys
@@ -441,9 +545,6 @@ Reset tokens/session IDs are guessable.
 - expire tokens quickly
 
 ---
-
-# 🟡 Optional (Good to know, not mandatory for fresher)
-
 ## 7) Missing HSTS
 ### What is it?
 Browser can be forced to use HTTP.
