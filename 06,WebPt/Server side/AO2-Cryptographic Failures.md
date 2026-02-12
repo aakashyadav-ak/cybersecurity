@@ -284,11 +284,83 @@ Tool 5: Burp Suite
 ### What is it?
 Passwords stored using weak hashing algorithms.
 
+#### Hashing vs Encryptio
+```
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│  ENCRYPTION                      HASHING                    │
+│  ──────────                      ───────                    │
+│  TWO-WAY                         ONE-WAY                    │
+│  Encrypt & Decrypt               Hash only, CANNOT reverse  │
+│  Uses a KEY                      No key needed              │
+│  Used for: data at rest/transit  Used for: passwords        │
+│                                                              │
+│  Example:                        Example:                    │
+│  AES-256("hello", key)           SHA256("hello")            │
+│  = "encrypted_blob"              = "2cf24dba5fb0a30e..."    │
+│  Can decrypt back to "hello"     Cannot get "hello" back    │
+│                                                              │
+│  For PASSWORDS → Always use HASHING, never encryption       │
+│  WHY? → If encryption key is stolen, ALL passwords exposed │
+│         With hashing, no key exists to steal                │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+```
 ### Bad examples
-- MD5
-- SHA1
-- SHA256 without salt
-- plain text password storage (worst)
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  ❌ WEAK/BROKEN HASHING (NEVER use for passwords)                  │
+│  ─────────────────────────────────────────────────                  │
+│                                                                     │
+│  Algorithm     Why It's Weak                                        │
+│  ──────────    ──────────────────────────────────────               │
+│  MD5           → Broken since 2004                                  │
+│                → Collision attacks possible                         │
+│                → Can be cracked in SECONDS                          │
+│                → Rainbow tables freely available                    │
+│                → Example: md5("password") = "5f4dcc3b5aa765d6..."  │
+│                                                                     │
+│  SHA-1         → Broken since 2017 (Google SHAttered attack)       │
+│                → Collision found in practice                        │
+│                → Fast to compute = fast to crack                   │
+│                                                                     │
+│  SHA-256/512   → Not broken BUT too FAST for passwords             │
+│  (plain)       → GPU can compute BILLIONS per second               │
+│                → NOT designed for password hashing                  │
+│                → OK for file integrity, NOT for passwords          │
+│                                                                     │
+│  No Salt       → Same password = Same hash always                  │
+│                → Rainbow table attack works                         │
+│                → If two users have same password,                  │
+│                  their hashes are IDENTICAL                         │
+│                                                                     │
+│                                                                     │
+│  ✅ STRONG HASHING (USE these for passwords)                       │
+│  ─────────────────────────────────────────────                      │
+│                                                                     │
+│  Algorithm     Why It's Strong                                      │
+│  ──────────    ──────────────────────────────────────               │
+│  bcrypt        → Intentionally SLOW (cost factor)                  │
+│                → Built-in salt                                      │
+│                → Industry standard since 1999                      │
+│                → Recommended cost factor: 12+                      │
+│                                                                     │
+│  scrypt        → Memory-hard (needs lots of RAM)                   │
+│                → Resists GPU/ASIC attacks                          │
+│                → Good for high-security applications               │
+│                                                                     │
+│  Argon2        → Winner of Password Hashing Competition (2015)     │
+│  (Argon2id)    → Memory-hard + CPU-hard                            │
+│                → BEST choice for new applications                  │
+│                → Recommended by OWASP                              │
+│                                                                     │
+│  PBKDF2        → Uses iteration count (100,000+ recommended)      │
+│                → NIST approved                                      │
+│                → Used when bcrypt/argon2 unavailable               │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ### Impact
 - offline cracking
