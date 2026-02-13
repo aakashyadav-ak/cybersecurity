@@ -41,3 +41,5 @@
 # [[20.OS Command Injection]]
 
 # [[03.XSS (Cross site scripting)]]
+
+# [[21.XXE — XML External Entity Injection]]
