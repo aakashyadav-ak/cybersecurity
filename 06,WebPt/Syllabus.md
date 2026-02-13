@@ -5,15 +5,15 @@
 **Interview line:** "Access control is not properly enforced on server-side."
 
 ### Common Examples
-- [ ] IDOR (Insecure Direct Object Reference)
-- [ ] Accessing other users’ data by changing `id=1001 → 1002`
-- [ ] Missing authorization on APIs
-- [ ] Admin pages accessible to normal users
+- [x] IDOR (Insecure Direct Object Reference)
+- [x] Accessing other users’ data by changing `id=1001 → 1002`
+- [x] Missing authorization on APIs
+- [x] Admin pages accessible to normal users
 
 ### How to Test (Basic)
-- [ ] Change user IDs / object IDs
-- [ ] Test role-based access (user vs admin)
-- [ ] Directly call API endpoints without permission
+- [x] Change user IDs / object IDs
+- [x] Test role-based access (user vs admin)
+- [x] Directly call API endpoints without permission
 
 ---
 
@@ -22,15 +22,15 @@
 **Interview line:** "Weak encryption, missing HTTPS, or improper storage of secrets."
 
 ### Common Examples
-- [ ] HTTP instead of HTTPS
-- [ ] Weak hashing like MD5/SHA1 for passwords
-- [ ] Sensitive data in URL
-- [ ] No encryption for PII
+- [x] HTTP instead of HTTPS
+- [x] Weak hashing like MD5/SHA1 for passwords
+- [x] Sensitive data in URL
+- [x] No encryption for PII
 
 ### How to Test
 - [ ] Check TLS/SSL config
-- [ ] Look for sensitive data in responses
-- [ ] Check password storage method (if possible)
+- [x] Look for sensitive data in responses
+- [x] Check password storage method (if possible)
 
 ---
 
@@ -39,16 +39,16 @@
 **Interview line:** "Untrusted input is interpreted as command/query."
 
 ### Common Examples
-- [ ] SQL Injection
-- [ ] Command Injection
+- [x] SQL Injection
+- [x] Command Injection
 - [ ] LDAP Injection
 - [ ] NoSQL Injection
 
 ### How to Test
-- [ ] `' OR 1=1--`
-- [ ] `; whoami`
-- [ ] Use Burp + payloads
-- [ ] Look for errors or abnormal responses
+- [x] `' OR 1=1--`
+- [x] `; whoami`
+- [x] Use Burp + payloads
+- [x] Look for errors or abnormal responses
 
 ---
 
