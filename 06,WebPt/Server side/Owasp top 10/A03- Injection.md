@@ -1,6 +1,10 @@
-**Injection** happens when untrusted user input is sent into an interpreter without proper validation/sanitization.
+- **Injection** happens when untrusted user input is sent into an interpreter without proper validation/sanitization.
 
-**“Injection occurs when user input is treated as code/command instead of data.”**
+- **“==Injection occurs when user input is treated as code/command instead of data.==”**
+
+- Injection occurs when an attacker sends untrusted/malicious data to an interpreter as part of a command or query. The application fails to validate, filter, or sanitize user input, causing the interpreter to execute unintended commands or access unauthorized data.
+
+- You type something malicious in an input field (login, search, URL), and the server treats it as a command instead of normal text.
 
 **This allows an attacker to execute:**
 - database queries
