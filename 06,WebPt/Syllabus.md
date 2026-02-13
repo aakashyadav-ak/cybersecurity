@@ -116,20 +116,20 @@ Secure settings are missing or misconfigured."
 - [ ] App crashes on invalid input
 - [ ] 500 errors leaking sensitive details
 ---
-## 🔴 Must Know Well
+## Must Know Well
 - A01 Broken Access Control  
 - A04 Cryptographic Failures  
 - A05 Injection  
 - A07 Authentication Failures  
 - A02 Security Misconfiguration  
 
-## 🟠 Good to Know (Very Useful)
+## Good to Know (Very Useful)
 - A06 Insecure Design  
 - A03 Supply Chain Failures  
 - A08 Integrity Failures  
 - A10 Exceptional Conditions  
 
-## 🟡 Mostly Theory (But Mentionable)
+## Mostly Theory (But Mentionable)
 - A09 Logging and Alerting Failures  
 
 ---
