@@ -106,3 +106,25 @@ Step 4: Check response for error details
 
 ## 2- Directory Listing Enabled
 When you visit a folder on a website and the server shows you ALL files inside that folder — like opening someone's file cabinet.
+
+**example:**
+```
+Browser: http://target.com/uploads/
+
+┌──────────────────────────────────────────────┐
+│  Index of /uploads/                           │
+│                                               │
+│  [ICO] Name                 Size    Modified  │
+│  ──────────────────────────────────────────── │
+│  [DIR] Parent Directory      -                │
+│  [   ] backup_db.sql        25MB   2024-01-15 │  ← Full database! 😱
+│  [   ] config.php.bak       4KB    2024-02-20 │  ← Config with passwords!
+│  [   ] employee_data.xlsx   12MB   2024-03-10 │  ← Personal data!
+│  [   ] id_rsa               2KB    2024-04-05 │  ← SSH private key!
+│  [   ] passwords.txt        1KB    2024-05-12 │  ← Passwords!
+│  [   ] creditcards.csv      8MB    2024-06-01 │  ← Credit card data! 😱
+│  [IMG] admin_screenshot.png 500KB  2024-07-20 │  ← Internal screenshots
+└──────────────────────────────────────────────┘
+
+Attacker can DOWNLOAD all these files just by clicking!
+```
