@@ -32,7 +32,7 @@
 | 6   | XPath Injection                   | XML-based apps                          | Data extraction, auth bypass            |
 | 7   | ✅XXE (XML External Entity)        | XML parsers                             | File read, SSRF                         |
 | 8   | SSTI (Template Injection)         | Jinja2, Twig, Freemarker                | RCE                                     |
-| 9   | Header Injection                  | HTTP headers, redirects                 | Response splitting, cache poisoning     |
+| 9   | Host Header Injection             | HTTP headers, redirects                 | Response splitting, cache poisoning     |
 | 10  | CRLF Injection                    | URLs/headers                            | Cookie injection, redirect manipulation |
 
 
