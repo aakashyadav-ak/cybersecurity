@@ -66,3 +66,43 @@ What attacker learned:
 → Server: Apache on Ubuntu
 → Code structure: login.php → auth.php → db.php
 ```
+
+### Testing
+#### Method 1: Trigger Errors Manually
+```
+Step 1: Go to login page
+Step 2: Type ' (single quote) in username
+Step 3: Type random password
+Step 4: Click Login
+Step 5: See the response
+
+If you see → "Something went wrong"     → ✅ Safe
+If you see → Stack trace, file paths     → 🚨 Vulnerable!
+```
+
+#### Method 2: Access Non-Existent Pages
+```
+Try these URLs in browser:
+
+http://target.com/pagenotexist123
+http://target.com/admin/../../../etc/passwd
+http://target.com/test.php
+
+If you see → Nice custom "404 Page Not Found"    → ✅ Safe
+If you see → Detailed error with server info      → 🚨 Vulnerable!
+```
+#### Method 3: Using Burp Suite
+```
+Step 1: Open Burp Suite → Proxy → Intercept
+Step 2: Capture any request
+Step 3: Modify the request:
+        → Change Content-Type to something wrong
+        → Remove required parameters
+        → Send empty body
+        → Add special characters
+Step 4: Check response for error details
+```
+
+
+## 2- Directory Listing Enabled
+When you visit a folder on a website and the server shows you ALL files inside that folder — like opening someone's file cabinet.
