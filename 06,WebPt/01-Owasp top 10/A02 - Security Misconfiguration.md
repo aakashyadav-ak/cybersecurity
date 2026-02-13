@@ -128,3 +128,30 @@ Browser: http://target.com/uploads/
 
 Attacker can DOWNLOAD all these files just by clicking!
 ```
+
+## Testing
+
+#### Using Tools
+```
+# dirb — Simple directory scanner
+dirb http://target.com
+
+# gobuster — Faster scanner
+gobuster dir -u http://target.com -w /usr/share/wordlists/dirb/common.txt
+
+# dirsearch — Python based
+dirsearch -u http://target.com
+
+# Nikto — Web server scanner (also checks directory listing)
+nikto -h http://target.com
+```
+
+####  Using Burp Suite
+```
+Step 1: Open Burp Suite
+Step 2: Browse the website through Burp Proxy
+Step 3: Go to Target → Site Map
+Step 4: Look at all discovered directories
+Step 5: Right-click → Open in Browser
+Step 6: Check if directory listing is shown
+```
