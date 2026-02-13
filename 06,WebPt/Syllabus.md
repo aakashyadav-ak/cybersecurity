@@ -1,166 +1,135 @@
-# ✅ OWASP Top 10 (Interview Notes for VAPT Fresher)
+#  OWASP Top 10:2025
+---
 
-## A01: Broken Access Control
-**Meaning:** Users can access things they should not.
-**Interview line:** "Access control is not properly enforced on server-side."
+## A01:2025 — Broken Access Control 
+**Meaning:** Users can access data/actions they should not.  
+ "Authorization is not enforced properly on server-side."
 
 ### Common Examples
-- [x] IDOR (Insecure Direct Object Reference)
-- [x] Accessing other users’ data by changing `id=1001 → 1002`
-- [x] Missing authorization on APIs
-- [x] Admin pages accessible to normal users
-
-### How to Test (Basic)
-- [x] Change user IDs / object IDs
-- [x] Test role-based access (user vs admin)
-- [x] Directly call API endpoints without permission
+- [x] IDOR (change `id=1001 → 1002`)
+- [x] Missing function-level access control
+- [x] Forced browsing to admin endpoints
+- [x] Privilege escalation (User → Admin)
 
 ---
 
-## A02: Cryptographic Failures
-**Meaning:** Sensitive data is not properly protected.
-**Interview line:** "Weak encryption, missing HTTPS, or improper storage of secrets."
+## A02:2025 — Security Misconfiguration 
+**Meaning:** Wrong/default configurations expose the system.  
+Secure settings are missing or misconfigured."
+
+### Common Examples
+- [ ] Debug mode enabled / verbose errors
+- [ ] Directory listing enabled
+- [ ] Default credentials
+- [ ] Missing security headers
+- [ ] Exposed admin panels
+
+
+---
+
+## A03:2025 — Software Supply Chain Failures 
+**Meaning:** Risk from third-party libraries, build pipeline, dependencies.  
+"Application depends on components that may be compromised."
+
+### Common Examples
+- [ ] Dependency poisoning
+- [ ] Compromised NPM/PyPI packages
+- [ ] CI/CD secrets leaked
+- [ ] Untrusted third-party scripts
+---
+
+## A04:2025 — Cryptographic Failures 
+**Meaning:** Sensitive data is not properly protected.  
+"Weak crypto, missing TLS, or insecure storage of secrets."
 
 ### Common Examples
 - [x] HTTP instead of HTTPS
-- [x] Weak hashing like MD5/SHA1 for passwords
-- [x] Sensitive data in URL
-- [x] No encryption for PII
-
-### How to Test
-- [ ] Check TLS/SSL config
-- [x] Look for sensitive data in responses
-- [x] Check password storage method (if possible)
-
+- [x] Weak password hashing (MD5/SHA1)
+- [x] Sensitive data in URL/logs
+- [x] No encryption for PII/secrets
 ---
 
-## A03: Injection
-**Meaning:** Attacker sends input that gets executed by backend.
-**Interview line:** "Untrusted input is interpreted as command/query."
+## A05:2025 — Injection 
+**Meaning:** Attacker input is executed by backend.  
+"Untrusted input is interpreted as code/query."
 
 ### Common Examples
 - [x] SQL Injection
 - [x] Command Injection
-- [ ] LDAP Injection
-- [ ] NoSQL Injection
-
-### How to Test
-- [x] `' OR 1=1--`
-- [x] `; whoami`
-- [x] Use Burp + payloads
-- [x] Look for errors or abnormal responses
-
+- [x] NoSQL Injection
+- [x] LDAP Injection
 ---
 
-## A04: Insecure Design
-**Meaning:** Application design itself is weak.
-**Interview line:** "Security was not considered in design stage."
+## A06:2025 — Insecure Design 
+**Meaning:** Security was not considered in the app design.  
+"The design allows abuse even if code has no bugs."
 
 ### Common Examples
 - [ ] No rate limiting (bruteforce possible)
-- [ ] No account lockout
-- [ ] Weak password reset design
+- [ ] Weak password reset flow
+- [ ] OTP reuse / unlimited attempts
 - [ ] Business logic flaws
 
-### How to Test
-- [ ] Try abuse scenarios (logic testing)
-- [ ] Check password reset flow
-- [ ] Check OTP reuse / unlimited attempts
+
 
 ---
 
-## A05: Security Misconfiguration
-**Meaning:** Wrong configurations expose the app.
-**Interview line:** "Default settings or misconfigured services cause exposure."
-
-### Common Examples
-- [ ] Directory listing enabled
-- [ ] Debug mode enabled
-- [ ] Default credentials
-- [ ] Exposed admin panels
-- [ ] Verbose error messages
-
-### How to Test
-- [ ] Check headers, errors, exposed endpoints
-- [ ] Look for default login pages
-- [ ] Scan with Nmap/Nikto
-
----
-
-## A06: Vulnerable and Outdated Components
-**Meaning:** Old libraries/frameworks have known vulnerabilities.
-**Interview line:** "Using outdated dependencies leads to known CVEs."
-
-### Common Examples
-- [ ] Old WordPress plugins
-- [ ] Vulnerable jQuery / Log4j / Struts
-- [ ] Unpatched CMS
-
-### How to Test
-- [ ] Identify versions from headers/source
-- [ ] Use CVE search / scanners
-- [ ] Use Nuclei templates
-
----
-
-## A07: Identification and Authentication Failures
-**Meaning:** Login/auth is weak.
-**Interview line:** "Weak authentication allows account takeover."
+## A07:2025 — Authentication Failures
+**Meaning:** Login/session handling is weak.  
+"Weak authentication allows account takeover."
 
 ### Common Examples
 - [ ] Weak password policy
-- [ ] No MFA
+- [ ] No MFA (where required)
+- [ ] Session not invalidated after logout
 - [ ] Session fixation
-- [ ] Credential stuffing possible
-
-### How to Test
-- [ ] Try brute force (only in scope)
-- [ ] Check session cookie behavior
-- [ ] Test logout invalidation
-
 ---
 
-## A08: Software and Data Integrity Failures
-**Meaning:** App trusts untrusted updates/code.
-**Interview line:** "Integrity of code/data is not verified."
+## A08:2025 — Software or Data Integrity Failures
+**Meaning:** App trusts data/code without integrity checks.  
+ "Updates/data are accepted without validation."
 
 ### Common Examples
-- [ ] Insecure CI/CD pipeline
-- [ ] Dependency poisoning
 - [ ] Unsigned updates
-- [ ] Deserialization issues (sometimes linked)
-
-### How to Test (Fresher level)
-- [ ] Look for insecure update mechanisms
-- [ ] Check if app loads scripts from untrusted sources
-
+- [ ] Insecure deserialization
+- [ ] CDN scripts without integrity checking
+- [ ] Tampering of important client-side data
 ---
 
-## A09: Security Logging and Monitoring Failures
-**Meaning:** Attacks are not detected or logged.
-**Interview line:** "Lack of logging makes incident response difficult."
+## A09:2025 — Security Logging and Alerting Failures 
+**Meaning:** Attacks happen but no logs/alerts exist.  
+"Without logging, detection and incident response fails."
 
 ### Common Examples
 - [ ] No logs for login failures
-- [ ] No alerting on brute force
+- [ ] No alerts on brute force
 - [ ] No monitoring for privilege changes
-
-### How to Test
-- [ ] Attempt failed logins and ask if logs exist (in VAPT report)
-- [ ] Check if suspicious actions are tracked
-
 ---
 
-## A10: Server-Side Request Forgery (SSRF)
-**Meaning:** Attacker forces server to make internal requests.
-**Interview line:** "Server fetches URLs based on user input."
+## A10:2025 — Mishandling of Exceptional Conditions
+**Meaning:** Errors/exceptions leak info or break security.  
+"Improper exception handling exposes internals or bypasses controls."
 
 ### Common Examples
-- [ ] URL fetch feature (image fetch, PDF fetch)
-- [ ] Cloud metadata access (`169.254.169.254`)
-- [ ] Internal port scanning
+- [ ] Stack traces showing file paths/code
+- [ ] SQL errors revealing queries
+- [ ] App crashes on invalid input
+- [ ] 500 errors leaking sensitive details
+---
+## 🔴 Must Know Well
+- A01 Broken Access Control  
+- A04 Cryptographic Failures  
+- A05 Injection  
+- A07 Authentication Failures  
+- A02 Security Misconfiguration  
 
-### How to Test
-- [ ] Try internal URLs (localhost, 127.0.0.1)
-- [ ] Try metadata IP
-- [ ] Observe response timing / errors
+## 🟠 Good to Know (Very Useful)
+- A06 Insecure Design  
+- A03 Supply Chain Failures  
+- A08 Integrity Failures  
+- A10 Exceptional Conditions  
+
+## 🟡 Mostly Theory (But Mentionable)
+- A09 Logging and Alerting Failures  
+
+---
