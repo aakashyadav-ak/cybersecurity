@@ -266,6 +266,12 @@ wc -m file.txt                  # Characters only
 ln -s file1.txt softlink.txt
 ```
 
+#### Key points
+
+- It stores the path of the original file
+- If the original file is deleted → the symlink becomes broken
+- Works for files and directories
+
 ___ 
 
 
