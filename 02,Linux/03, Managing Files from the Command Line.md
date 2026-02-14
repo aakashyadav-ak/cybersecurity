@@ -294,8 +294,6 @@ ln file1.txt hardlink.txt
 
 ___ 
 
-
-
 # The find Command
 Powerful command for searching files.
 
