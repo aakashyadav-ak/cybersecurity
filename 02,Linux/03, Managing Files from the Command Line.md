@@ -254,39 +254,6 @@ wc -m file.txt                  # Characters only
 ___ 
 
 
-#  Match File Names with Shell Expansions
-
-## Wildcards (Globbing)
-Shell expansions allow matching multiple files with patterns.
-
-
-#### Asterisk (*) - Matches Any Characters
-```
-ls *.txt                        # All .txt files
-ls file*                        # Files starting with "file"
-ls *log*                        # Files containing "log"
-rm *.tmp                        # Remove all .tmp files
-```
-
-
-#### Question Mark (?) - Matches Single Character
-```
-ls file?.txt                    # file1.txt, fileA.txt, etc.
-ls ???.txt                      # Any 3-character name .txt
-ls file??.log                   # file01.log, fileAB.log
-```
-
-
-#### Square Brackets ([]) - Matches Character Sets
-```
-ls file[123].txt                # file1.txt, file2.txt, file3.txt
-ls file[a-z].txt                # filea.txt through filez.txt
-ls file[0-9].txt                # file0.txt through file9.txt
-ls file[!0-9].txt               # NOT file0.txt through file9.txt
-ls file[^0-9].txt               # Same as above (^ = !)
-```
-
-
 
 # The find Command
 Powerful command for searching files.
