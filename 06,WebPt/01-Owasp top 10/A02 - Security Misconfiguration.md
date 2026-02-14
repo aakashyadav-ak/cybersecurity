@@ -184,3 +184,118 @@ Tools:
 - Use multi-factor authentication (MFA)
 
 ## 4-Unnecessary Services/Ports/Features
+Running services, ports, or features that are not needed — increasing attack surface.
+
+### testing
+```bash
+# Port Scanning
+nmap -sV -p- target.com
+
+# Common unnecessary ports found:
+21    FTP          → Often anonymous login allowed
+22    SSH          → Should be restricted by IP
+23    Telnet       → Unencrypted! Should never be open
+25    SMTP         → Open relay?
+445   SMB          → EternalBlue, WannaCry
+3306  MySQL        → Should not be public
+5432  PostgreSQL   → Should not be public
+6379  Redis        → Often no authentication!
+8080  Tomcat       → Manager panel exposed?
+9200  Elasticsearch→ Often no authentication!
+27017 MongoDB      → Often no authentication!
+```
+
+**Unnecessary Features:**
+→ Sample/test applications installed
+→ Unused API endpoints active
+→ Admin consoles accessible publicly
+→ Unused HTTP methods enabled (PUT, DELETE, TRACE)
+→ Unused plugins/modules loaded
+→ FTP running when not needed
+→ SNMP with default community strings
+
+### mitigation
+```
+# Disable unnecessary services
+sudo systemctl disable telnet
+sudo systemctl disable ftp
+sudo systemctl disable cups
+
+# Close unnecessary ports (firewall)
+sudo ufw default deny incoming
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow from TRUSTED_IP to any port 22
+sudo ufw enable
+
+# Remove sample applications
+rm -rf /var/www/html/examples/
+rm -rf /opt/tomcat/webapps/examples/
+rm -rf /opt/tomcat/webapps/docs/
+
+# Principle of Least Functionality
+# Only install what you NEED
+# Only enable what you USE
+```
+
+
+## 5-Missing Security Headers
+HTTP response headers that protect against attacks but are not configured.
+
+### Testing
+```bash
+# Quick check
+curl -I https://target.com
+
+# Online tools
+→ https://securityheaders.com
+→ https://observatory.mozilla.org
+```
+
+
+Security Headers Checklist:
+```
+╔════════════════════════════════════════════════════════════════════╗
+║ Header                          │ Purpose            │ Status     ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Strict-Transport-Security       │ Force HTTPS        │ ❌ Missing ║
+║ Content-Security-Policy         │ Prevent XSS        │ ❌ Missing ║
+║ X-Content-Type-Options          │ Prevent MIME sniff  │ ❌ Missing ║
+║ X-Frame-Options                 │ Prevent Clickjack  │ ❌ Missing ║
+║ X-XSS-Protection                │ XSS filter         │ ❌ Missing ║
+║ Referrer-Policy                 │ Control referrer    │ ❌ Missing ║
+║ Permissions-Policy              │ Control features    │ ❌ Missing ║
+║ Cache-Control                   │ Prevent caching     │ ❌ Missing ║
+╚════════════════════════════════════════════════════════════════════╝
+```
+
+### Mitigation 
+```
+# ✅ Apache (.htaccess or httpd.conf)
+
+# Force HTTPS
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Prevent XSS
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self'"
+
+# Prevent MIME sniffing
+Header always set X-Content-Type-Options "nosniff"
+
+# Prevent Clickjacking
+Header always set X-Frame-Options "DENY"
+
+# XSS Filter
+Header always set X-XSS-Protection "1; mode=block"
+
+# Referrer Policy
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Permissions Policy
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+# Remove Server version
+ServerTokens Prod
+Header unset Server
+Header unset X-Powered-By
+```
