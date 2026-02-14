@@ -100,7 +100,9 @@ ls -la      # Long listing with hidden files
 | `~/.ssh/known_hosts`     | Known SSH servers              |
 | `~/.gnupg/`              | GPG keys                       |
 | `~/.config/`             | Application configs            |
-
+```bash
+ cat ~/.bash_history
+```
 
 # Manage Files with Command-line Tools
 
@@ -123,16 +125,16 @@ ls -ld /etc         # Directory info only
 -rw-r--r--. 1 root root 2388 Jan 15 10:30 passwd
 ```
 
-| Field | Meaning |
-| :--- | :--- |
-| `-rw-r--r--` | Permissions (Type + Access) |
-| `.` | SELinux context indicator |
-| `1` | Number of hard links |
-| `root` | Owner (User) |
-| `root` | Group |
-| `2388` | Size in bytes |
-| `Jan 15 10:30` | Last modification time |
-| `passwd` | File name |
+| Field          | Meaning                     |
+| :------------- | :-------------------------- |
+| `-rw-r--r--`   | Permissions (Type + Access) |
+| `.`            | SELinux context indicator   |
+| `1`            | Number of hard links        |
+| `root`         | Owner (User)                |
+| `root`         | Group                       |
+| `2388`         | Size in bytes               |
+| `Jan 15 10:30` | Last modification time      |
+| `passwd`       | File name                   |
 
 ## Creating Directories - mkdir Command
 
