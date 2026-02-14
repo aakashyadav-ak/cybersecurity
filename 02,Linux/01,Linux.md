@@ -73,7 +73,7 @@ echo $0
 ├── /bin           # Essential user binaries
 ├── /boot          # Boot loader files
 ├── /dev           # Device files
-├── /etc           # System configuration ⚠️ VAPT Gold Mine
+├── /etc           # System configuration file ⚠️ 
 ├── /home          # User home directories
 ├── /lib           # Essential libraries
 ├── /media         # Removable media mount points
