@@ -257,6 +257,15 @@ wc -m file.txt                  # Characters only
 
 # Make Links Between Files
 
+## 1) Symbolic Link (Soft Link)
+
+**A symbolic link is like a shortcut.**
+
+**example:**
+```
+ln -s file1.txt softlink.txt
+```
+
 ___ 
 
 
