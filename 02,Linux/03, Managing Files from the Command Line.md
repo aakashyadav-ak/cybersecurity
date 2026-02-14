@@ -39,7 +39,7 @@ Linux uses a hierarchical (tree) structure starting from the root directory /. U
 | `/usr`     | User programs and data        | Applications, libraries            |
 | `/var/log` | Log files                     | Attack evidence, troubleshooting   |
 | `/var/www` | Web server files              | Web application files              |
-
+==/usr/bin = main location of installed command-line tools==
 ### Absolute vs Relative Paths
 #### Absolute Path
 - Starts from root /
