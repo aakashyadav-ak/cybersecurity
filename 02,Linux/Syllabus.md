@@ -1,11 +1,11 @@
 # ✅ Linux Checklist for VAPT (Fresher)
 
 ##  Linux Basics
-- [ ] Linux directory structure (`/etc`, `/var`, `/home`, `/opt`, `/tmp`, `/root`)
-- [ ] Difference: root user vs normal user
-- [ ] File permissions basics (rwx)
-- [ ] Ownership concepts (user/group/others)
-- [ ] Hidden files (`.` prefix)
+- [x] Linux directory structure (`/etc`, `/var`, `/home`, `/opt`, `/tmp`, `/root`)
+- [x] Difference: root user vs normal user
+- [x] File permissions basics (rwx)
+- [x] Ownership concepts (user/group/others)
+- [x] Hidden files (`.` prefix)
 
 ---
 

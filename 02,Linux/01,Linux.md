@@ -160,3 +160,7 @@ Files starting with . are hidden.
 Example:
 `.bashrc`
 `.ssh/`
+
+```bash
+ls -la
+```
