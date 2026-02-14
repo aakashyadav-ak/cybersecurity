@@ -155,3 +155,32 @@ Step 4: Look at all discovered directories
 Step 5: Right-click → Open in Browser
 Step 6: Check if directory listing is shown
 ```
+
+## 3- Default Credentials
+Applications, devices, databases, admin panels shipped with default usernames and passwords that are never changed.
+
+ Admin panel uses default username/password.
+**Examples**
+- `admin:admin`
+- `root:toor`
+- `test:test`
+
+### Testing:
+Step 1: Identify application/service (Wappalyzer, Nmap)
+Step 2: Google: "APPLICATION_NAME default credentials"
+Step 3: Try default creds on login page
+Step 4: Check: `https://creds.fish/` or `https://default-password.info/`
+
+Tools:
+→ Hydra (brute force default creds)
+→ Metasploit (auxiliary/scanner modules)
+→ Nmap scripts (--script=http-default-accounts)
+
+
+### Mitigation
+- Change ALL default credentials before deployment
+- Force password change on first login
+- Use strong, unique passwords
+- Use multi-factor authentication (MFA)
+
+## 4-Unnecessary Services/Ports/Features
