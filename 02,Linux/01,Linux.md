@@ -151,3 +151,12 @@ Linux Distributions Family Tree
 
 **Package manager:**
 Debian/Ubuntu= apt (file extension .deb)
+
+
+
+## Hidden Files
+
+Files starting with . are hidden.
+Example:
+`.bashrc`
+`.ssh/`
