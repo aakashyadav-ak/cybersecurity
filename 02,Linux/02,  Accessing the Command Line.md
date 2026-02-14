@@ -23,11 +23,27 @@ The command line (also called terminal, console, or shell) is a text-based inter
 - Ctrl + Alt + F1 to F6 for text consoles
 - Ctrl + Alt + F1 or F2 usually returns to GUI (if installed)
 
+**TTY originally means Teletypewriter (old physical terminals).**
+
+**TTY usually refers to:**
+- physical console
+- virtual console like Ctrl+Alt+F1
+
+**Examples:**
+- /dev/tty1
+- /dev/tty2
 ### 3. Terminal Emulator (GUI)
 - Application within desktop environment
 - GNOME Terminal is default in RHEL
 - Access via Applications menu or right-click desktop
 
+
+**PTY (Pseudo Terminal)**
+Used when you open terminals inside GUI or SSH sessions.
+
+**Examples:**
+/dev/pts/0
+/dev/pts/1
 ### 4. Remote Access (SSH)
 - Secure Shell protocol
 - Access from another machine over network
