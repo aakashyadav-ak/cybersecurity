@@ -100,10 +100,16 @@ ls -la      # Long listing with hidden files
 | `~/.ssh/known_hosts`     | Known SSH servers              |
 | `~/.gnupg/`              | GPG keys                       |
 | `~/.config/`             | Application configs            |
+
+**View file:**
 ```bash
  cat ~/.bash_history
 ```
 
+**Edit file:**
+```Bash
+nano ~/.bashrc
+```
 # Manage Files with Command-line Tools
 
 ## Listing Files - ls Command
