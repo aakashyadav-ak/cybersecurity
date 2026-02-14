@@ -75,7 +75,7 @@ documents/report.txt      # From /home/john
 - Case-sensitive (File.txt ≠ file.txt)
 - Can contain letters, numbers, dots, underscores, hyphens
 - Avoid spaces (use quotes or escape if needed)
-- Hidden files start with .
+- **Hidden files start with .**
 - No length limit practically (255 characters max)
 - Avoid special characters (/ \ * ? " < > |)
 
