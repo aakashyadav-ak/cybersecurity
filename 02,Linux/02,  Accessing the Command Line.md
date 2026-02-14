@@ -87,11 +87,11 @@ Bash (Bourne Again Shell) is the default shell in RHEL.
 command [options] [arguments]
 ```
 
-| Component | Description | Example |
-| :--- | :--- | :--- |
-| **Command** | The program to run | `ls` |
-| **Options** | Modify behavior (start with `-` or `--`) | `-l`, `--help` |
-| **Arguments** | What the command acts on | `/etc` |
+| Component     | Description                              | Example        |
+| :------------ | :--------------------------------------- | :------------- |
+| **Command**   | The program to run                       | `ls`           |
+| **Options**   | Modify behavior (start with `-` or `--`) | `-l`, `--help` |
+| **Arguments** | What the command acts on                 | `/etc`         |
 
 ```
 ls                      # Command only
