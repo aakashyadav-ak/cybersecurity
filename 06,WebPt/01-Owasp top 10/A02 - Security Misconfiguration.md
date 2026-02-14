@@ -299,3 +299,23 @@ ServerTokens Prod
 Header unset Server
 Header unset X-Powered-By
 ```
+
+
+
+## SECURITY MISCONFIGURATION
+```
+Top Issues:
+1. Default passwords       → CHANGE THEM
+2. Directory listing       → DISABLE IT
+3. Verbose errors          → HIDE THEM
+4. Debug mode              → TURN IT OFF
+5. Missing headers         → ADD THEM
+6. Open ports              → CLOSE THEM
+7. Exposed files           → REMOVE/BLOCK THEM
+8. Weak TLS                → UPDATE CONFIG
+9. Cloud public access     → RESTRICT IT
+10. Insecure cookies       → ADD FLAGS
+
+Golden Rule:
+"SECURE BY DEFAULT → MINIMAL FEATURES → REGULAR AUDITS"
+```
