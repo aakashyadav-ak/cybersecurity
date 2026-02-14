@@ -259,18 +259,38 @@ wc -m file.txt                  # Characters only
 
 ## 1) Symbolic Link (Soft Link)
 
-**A symbolic link is like a shortcut.**
+A symbolic link is like a shortcut.
 
 **example:**
 ```
 ln -s file1.txt softlink.txt
 ```
 
+**Check:**
+```
+ls -l
+```
 #### Key points
 
 - It stores the path of the original file
 - If the original file is deleted → the symlink becomes broken
 - Works for files and directories
+
+## 2) Hard Link
+
+A hard link is like giving the same file another name.
+
+**Example:**
+```
+ln file1.txt hardlink.txt
+```
+
+**Key points:**
+**Both filenames point to the same inode (same data)**
+**If you delete the original file → hard link still works**
+**Usually used only for files (not directories)**
+
+
 
 ___ 
 
