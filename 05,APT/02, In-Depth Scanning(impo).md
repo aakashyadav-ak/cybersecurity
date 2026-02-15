@@ -100,6 +100,22 @@ nmap -p 21,22,80,443,445 192.168.1.1
 nmap -A 192.168.1.1
 ```
 
+## NMAP Output Formats
+```bash
+# Normal output
+nmap -oN scan.txt 192.168.1.1
+
+# XML output (for tools like Metasploit)
+nmap -oX scan.xml 192.168.1.1
+
+# Grepable output
+nmap -oG scan.gnmap 192.168.1.1
+
+# All formats at once ⭐ RECOMMENDED
+nmap -oA scan_results 192.168.1.1
+```
+
+
 ## NMAP Timing Templates
 
 | Template | Name | Use Case |
@@ -177,3 +193,14 @@ masscan 192.168.1.0/24 -p 0-65535 --rate 10000
 # Output to file
 masscan 192.168.1.0/24 -p 80,443 -oL output.txt
 ```
+
+
+## Port States
+| State | Meaning |
+| :--- | :--- |
+| `open` | Port is accepting connections |
+| `closed` | Port is accessible but no service |
+| `filtered` | Firewall blocking, can't determine |
+| `unfiltered` | Accessible, but can't determine open/closed |
+| `open\|filtered` | Can't determine if open or filtered |
+| `closed\|filtered` | Can't determine if closed or filtered |
