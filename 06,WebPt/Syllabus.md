@@ -18,11 +18,11 @@
 Secure settings are missing or misconfigured."
 
 ### Common Examples
-- [ ] Debug mode enabled / verbose errors
-- [ ] Directory listing enabled
-- [ ] Default credentials
-- [ ] Missing security headers
-- [ ] Exposed admin panels
+- [x] Debug mode enabled / verbose errors
+- [x] Directory listing enabled
+- [x] Default credentials
+- [x] Missing security headers
+- [x] Exposed admin panels
 
 
 ---
