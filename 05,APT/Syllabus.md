@@ -16,7 +16,7 @@
 ---
 
 ## Module 03: Exploitation 🔴
-- [ ] Lesson 01: Basics of Exploitations
+- [x] Lesson 01: Basics of Exploitations
 
 > **Note:** Core VAPT skill - fundamental knowledge required
 
