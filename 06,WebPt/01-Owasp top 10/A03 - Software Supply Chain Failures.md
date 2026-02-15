@@ -45,3 +45,23 @@ A developer types the wrong name by mistake
 **Real world:** This happens on NPM (JavaScript) and PyPI (Python) constantly.
 
 ### 2. Hijacked Packages
+```
+Popular library with 8 million users
+  ↓
+Attacker steals the maintainer's password
+  ↓
+Publishes a new "update" with hidden malware
+  ↓
+Millions of apps auto-update
+  ↓
+All compromised silently 💀
+```
+
+
+### 3. Build Pipeline Attacks (CI/CD)
+
+Your build pipeline is the system that takes your code and turns it into a running app.
+
+```
+
+```
