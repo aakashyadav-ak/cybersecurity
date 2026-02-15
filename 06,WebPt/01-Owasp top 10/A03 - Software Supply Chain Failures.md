@@ -15,5 +15,33 @@ Your Application
           └── ← attacker compromises HERE
 ```
 
+```
+Your App
+  ├── Someone else's login library
+  ├── Someone else's database tool
+  ├── Someone else's image uploader
+  ├── Someone else's payment code
+  └── Someone else's build tools
 
+You didn't write 90% of your app.
+You TRUST that other people's code is safe.
+```
+
+**Supply chain attack** = someone poisons one of those suppliers.
 ## Attack Vectors 
+### 1. Dependency Poisoning (Fake Packages)
+```
+You need a library called:  "flask"
+
+Attacker creates:           "flaask"  (typo)
+                            "fl4sk"   (looks similar)
+                            "python-flask" (sounds official)
+
+A developer types the wrong name by mistake
+  → installs the ATTACKER's code
+  → malicious code runs on their machine
+```
+
+**Real world:** This happens on NPM (JavaScript) and PyPI (Python) constantly.
+
+### 2. Hijacked Packages
