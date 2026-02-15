@@ -82,3 +82,79 @@ After Clicking logout:
 - Delete session cookie from browser
 - Mark session as invalid in database
  - Any use of old session token = rejected
+
+### 4. Session Fixation
+
+**The Problem:**
+```
+Normal flow:
+  1. User logs in
+  2. Server creates NEW session ID
+  3. User gets that session ID
+
+Vulnerable flow:
+  1. Server gives session ID BEFORE login
+  2. User logs in
+  3. Server keeps THE SAME session ID
+  
+Attacker can SET the session ID before you log in.
+```
+
+**The Attack:**
+```
+Step 1: Attacker gets a session ID from the site
+  → Session ID: ABC123
+
+Step 2: Attacker tricks YOU into using that session
+  → Sends link: example.com?sessionid=ABC123
+  → Or sets cookie on shared computer
+
+Step 3: YOU log in with that session ID
+  → Server authenticates you
+  → But keeps session ID: ABC123
+
+Step 4: Attacker uses ABC123
+  → They're logged in as YOU
+  → You did the authentication for them
+```
+
+**Mitigation:**
+- Generate NEW session ID after successful login
+- Invalidate old session ID completely
+- Never accept session IDs from URL parameters
+- Regenerate session on privilege changes
+
+### 5. Predictable Session IDs
+### 6. No Account Lockout
+```
+Attacker tries passwords:
+  attempt 1:  password     ✗
+  attempt 2:  123456       ✗
+  attempt 3:  admin        ✗
+  attempt 100: qwerty      ✗
+  attempt 1000: password1  ✓ SUCCESS
+
+No limit on attempts = attacker has INFINITE tries
+```
+
+### 7. Exposing Session IDs in URLs
+### 8. Long Session Timeouts
+```
+Bank session active for: 5 minutes    ✅
+Email session active for: 2 weeks     ⚠️
+Shopping session for: Never expires   ❌
+
+Longer session = longer window for theft
+```
+
+
+### 9. No Rate Limiting on Login
+```
+Without rate limiting:
+  Attacker makes 10,000 login attempts per second
+  Tests millions of passwords quickly
+
+With rate limiting:
+  After 5 failed attempts → wait 1 minute
+  Makes brute force impractical
+```
