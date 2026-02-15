@@ -148,7 +148,7 @@ Longer session = longer window for theft
 ```
 
 
-### 9. No Rate Limiting on Login
+### 9. No Rate Limiting on Login / Brute Force 
 ```
 Without rate limiting:
   Attacker makes 10,000 login attempts per second
@@ -158,3 +158,52 @@ With rate limiting:
   After 5 failed attempts → wait 1 minute
   Makes brute force impractical
 ```
+
+### 10. Missing Secure Cookie Flags
+- Missing `HttpOnly`
+- Missing `Secure`
+ - Missing `SameSite`
+
+**Outcome:** Cookie theft / CSRF easier.
+
+###  Weak Password Reset / OTP Flow
+- OTP reuse allowed
+- Unlimited OTP attempts
+- Weak reset tokens
+- Reset link does not expire
+
+**Outcome:** Account takeover without password.
+
+
+## Testing
+- [ ] Try multiple wrong logins → check rate limiting/lockout
+- [ ] Check if session cookie changes after login
+- [ ] Logout → try using old cookie again
+- [ ] Check cookie flags in Burp:
+  - Secure
+  - HttpOnly
+  - SameSite
+- [ ] Test password reset:
+  - token reuse?
+  - OTP brute force?
+  - expiry?
+- [ ] Try session fixation:
+  - set cookie before login
+  - login
+  - see if session stays same
+
+
+## Impact
+- Account takeover (ATO)
+- Unauthorized access
+- Privilege escalation (if admin targeted)
+- Data breach
+
+## Mitigations (Interview Line)
+- Strong password policy + block common passwords
+- MFA for admin and sensitive accounts
+- Rate limiting + lockout + CAPTCHA
+- Secure session management (rotate session after login)
+- Invalidate session on logout
+- Secure cookies (HttpOnly, Secure, SameSite)
+- Secure reset flow (short expiry, single use, strong tokens)
