@@ -55,11 +55,11 @@
 ---
 
 ## Module 08: Active Information Gathering 🔴(impo)
-- [ ] Lesson 01: Domain Name System (DNS) Enumerations
-- [ ] Lesson 02: Automating Lookups
-- [ ] Lesson 03: Domain Name System (DNS) Zone Transfers
-- [ ] Lesson 04: NMAP and Masscan
-- [ ] Lesson 05: Port Enumeration
+- [x] Lesson 01: Domain Name System (DNS) Enumerations
+- [x] Lesson 02: Automating Lookups
+- [x] Lesson 03: Domain Name System (DNS) Zone Transfers
+- [x] Lesson 04: NMAP and Masscan
+- [x] Lesson 05: Port Enumeration
 
 > **Note:** MOST CRITICAL MODULE - 60% of VAPT is enumeration
 
