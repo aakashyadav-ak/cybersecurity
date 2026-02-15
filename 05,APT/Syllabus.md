@@ -66,9 +66,9 @@
 ---
 
 ## Module 09: Passive Information Gathering 🔴(impo)
-- [ ] Lesson 01: Website Recon
-- [ ] Lesson 02: Netcraft, Shodan, Email Harvesting
-- [ ] Lesson 03: Open Source Intelligence (OSINT) Framework
+- [x] Lesson 01: Website Recon
+- [x] Lesson 02: Netcraft, Shodan, Email Harvesting
+- [x] Lesson 03: Open Source Intelligence (OSINT) Framework
 
 > **Note:** Essential for external penetration tests
 
