@@ -23,15 +23,15 @@
 ---
 
 ## Module 04: Command Line Fun 🔴
-- [ ] Lesson 01: Basic of Linux Commands
-- [ ] Lesson 02: Permission Commands
+- [x] Lesson 01: Basic of Linux Commands
+- [x] Lesson 02: Permission Commands
 
 > **Note:** You CANNOT do VAPT without strong Linux CLI skills
 
 ---
 
 ## Module 05: Getting Comfortable with Kali Linux 🟠
-- [ ] Lesson 01: Introduction to Kali Linux
+- [x] Lesson 01: Introduction to Kali Linux
 
 > **Note:** Important if new to Kali, otherwise quick review
 
