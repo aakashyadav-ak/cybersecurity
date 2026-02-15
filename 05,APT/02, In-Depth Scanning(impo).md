@@ -99,3 +99,81 @@ nmap -p 21,22,80,443,445 192.168.1.1
 ```
 nmap -A 192.168.1.1
 ```
+
+## NMAP Timing Templates
+
+| Template | Name | Use Case |
+| :--- | :--- | :--- |
+| `-T0` | Paranoid | IDS evasion (very slow) |
+| `-T1` | Sneaky | IDS evasion |
+| `-T2` | Polite | Reduced bandwidth |
+| `-T3` | Normal | Default |
+| `-T4` | Aggressive | Fast scan ⭐ Commonly Used |
+| `-T5` | Insane | Very fast (may miss ports) |
+
+
+## NMAP Scripting Engine (NSE)
+
+**Location of Scripts:**
+```
+ls /usr/share/nmap/scripts/
+```
+
+**Script Categories:**
+```
+auth     - Authentication related
+broadcast - Network broadcast
+brute    - Brute force attacks
+default  - Default scripts (-sC)
+discovery - Service discovery
+dos      - Denial of service
+exploit  - Exploitation
+external - External resources
+fuzzer   - Fuzzing
+intrusive - Intrusive scripts
+malware  - Malware detection
+safe     - Safe scripts
+version  - Version detection
+vuln     - Vulnerability detection ⭐
+```
+
+**Common NSE Commands:**
+```
+# Run default scripts
+nmap -sC 192.168.1.1
+
+# Run vulnerability scripts
+nmap --script vuln 192.168.1.1
+
+# Run specific script
+nmap --script=http-title 192.168.1.1
+
+# Run multiple scripts
+nmap --script=http-title,http-headers 192.168.1.1
+
+# Run script category
+nmap --script=safe 192.168.1.1
+
+# SMB vulnerability check
+nmap --script=smb-vuln* 192.168.1.1
+
+# FTP anonymous login check
+nmap --script=ftp-anon 192.168.1.1
+```
+
+
+
+#  Masscan - Fast Port Scanner
+alternative to Nmap
+
+
+```bash
+# Scan top ports
+masscan 192.168.1.0/24 -p 21,22,80,443,445
+
+# Scan all ports (VERY FAST)
+masscan 192.168.1.0/24 -p 0-65535 --rate 10000
+
+# Output to file
+masscan 192.168.1.0/24 -p 80,443 -oL output.txt
+```
