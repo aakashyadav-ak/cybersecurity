@@ -104,6 +104,15 @@ nmap -A 192.168.1.1
 ```bash
 nmap --script vuln 192.168.1.1
 ```
+
+**Host Discovery**
+```
+nmap -sn 192.168.1.0/24
+```
+This runs an Nmap Host Discovery scan on the entire subnet 192.168.1.0 – 192.168.1.255 and tells you:
+- Which IPs are alive/up
+- Which IPs are down/not responding
+
 ## NMAP Output Formats
 ```bash
 # Normal output

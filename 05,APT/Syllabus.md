@@ -1,15 +1,15 @@
 # APT
 ## Module 01: Introduction to Penetration Testing 🟡
-- [ ] Lesson 01: What is Advanced Penetration Testing (APT)
-- [ ] Lesson 02: Types of Penetration Testing & Areas
-- [ ] Lesson 03: Demo Report Understanding
+- [x] Lesson 01: What is Advanced Penetration Testing (APT)
+- [x] Lesson 02: Types of Penetration Testing & Areas
+- [x] Lesson 03: Demo Report Understanding
 
 > **Note:** Basic theory - skim through if you have prior knowledge
 
 ---
 
 ## Module 02: In-Depth Scanning 🔴
-- [ ] Lesson 01: Scan All Top 20 Ports
+- [x] Lesson 01: Scan All Top 20 Ports
 
 > **Note:** Essential skill - master this completely
 
