@@ -83,13 +83,6 @@
 
 ---
 
-## Module 11: Buffer Overflows 🟡
-- [ ] Lesson 01: Capture the Flag (CTF) on Buffer Over Flow (BOF)
-
-> **Note:** Skip if not preparing for OSCP; rarely used in corporate VAPT
-
----
-
 ## Module 12: Fixing Exploits 🟠
 - [ ] Lesson 01: Capture the Flag (CTF) on Fixing Exploits
 
@@ -197,13 +190,3 @@
 - [ ] Lesson 03: Technical Report For IT and security Department
 
 > **Note:** Your report is the final deliverable - MUST master
-
----
-
-## ⏭️ What to SKIP (Time-Constrained)
-
-If you have limited time, these can be skipped or briefly reviewed:
-
-- [ ] Module 01 - Just read if you're already familiar
-- [ ] Module 10 & 11 - Buffer Overflow (unless preparing for OSCP)
-- [ ] Module 21 - Empire (learn later if needed)
