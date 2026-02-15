@@ -21,6 +21,18 @@ Actively interact with the target to discover:
 - CNAME (aliases)
 - SOA (DNS authority)
 
+| Record | Purpose | Example | Pentesting Value |
+| :--- | :--- | :--- | :--- |
+| `A` | IPv4 address | example.com → 192.168.1.10 | Target identification |
+| `AAAA` | IPv6 address | example.com → 2001:db8::1 | IPv6 targets |
+| `CNAME` | Canonical name (alias) | www → example.com | Find relationships |
+| `MX` | Mail servers | mail.example.com | Email infrastructure |
+| `NS` | Name servers | ns1.example.com | DNS servers |
+| `TXT` | Text records | SPF, DKIM, verification | Info disclosure |
+| `SOA` | Start of Authority | Primary DNS, admin email | DNS admin info |
+| `PTR` | Reverse DNS | 192.168.1.10 → server.example.com | Hostname discovery |
+| `SRV` | Service records | _ldap._tcp.dc | Service discovery |
+
 ### 🛠 Tools / Commands
 ```bash
 nslookup example.com
