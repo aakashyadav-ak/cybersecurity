@@ -176,4 +176,96 @@ Supply chain attacks are QUIET:
 
   Average detection time: 250+ days
 ```
-### 
+
+
+
+## Mitigation
+
+# 1) Dependency Management Controls (Most Important)
+
+##  Use trusted sources only
+- Use official package registries:
+  - npmjs.com
+  - pypi.org
+  - Maven Central
+- Avoid random GitHub ZIP downloads.
+
+## Pin dependency versions
+- Lock versions using:
+  - `package-lock.json`
+  - `yarn.lock`
+  - `poetry.lock`
+  - `requirements.txt` with exact versions
+
+**Why:** prevents auto-installing malicious updates.
+
+---
+
+#  2) Dependency Scanning (SCA)
+
+##  Perform Software Composition Analysis (SCA)
+Tools:
+- OWASP Dependency-Check
+- Snyk
+- GitHub Dependabot
+- Trivy
+- npm audit / pip-audit
+
+**What it finds:**
+- vulnerable packages
+- known CVEs
+- outdated versions
+
+##  Patch regularly
+- Create patch cycles:
+  - monthly for normal
+  - immediate for critical CVEs
+
+---
+
+# 4) Secure CI/CD Pipeline (Super Critical)
+
+##  Protect CI/CD access
+- Strong authentication
+- MFA for DevOps accounts
+- Limit who can modify pipelines
+
+##  Use least privilege
+- CI runner should have minimum permissions.
+- Build system should not have admin access.
+
+##  Separate environments
+- Build server ≠ production server
+- CI should not have direct production SSH access
+
+##  Protect pipeline configs
+- Restrict modification of:
+  - `.github/workflows/`
+  - Jenkinsfiles
+  - GitLab pipelines
+
+---
+
+#  5) Secrets Management 
+
+##  Never store secrets in code
+Do NOT hardcode:
+- API keys
+- DB passwords
+- AWS access keys
+- JWT secrets
+
+##  Use secret managers
+- HashiCorp Vault
+- AWS Secrets Manager
+- Azure Key Vault
+- GCP Secret Manager
+
+##  Rotate secrets frequently
+- Especially if leaked once.
+
+##  Enable secret scanning
+Tools:
+- GitHub secret scanning
+- TruffleHog
+- Gitleaks
