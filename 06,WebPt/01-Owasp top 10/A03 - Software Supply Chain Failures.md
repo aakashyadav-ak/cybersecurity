@@ -113,3 +113,67 @@ This becomes a *trusted* backdoor shipped to all users.
 **Example:**
 ```html
 <script src="http://randomcdn.com/lib.js"></script>
+```
+
+## Impacts
+```
+A supply chain attack doesn't hit ONE app.
+It hits EVERYONE who uses that compromised piece.
+
+  One poisoned library
+      ↓
+  Downloaded by 10,000 companies
+      ↓
+  Running on millions of machines
+      ↓
+  ALL compromised at once
+```
+
+
+### Data Theft
+```
+What attackers steal through supply chain attacks:
+
+  ├── Customer personal data (names, emails, addresses)
+  ├── Credit card numbers
+  ├── Login passwords
+  ├── API keys and secrets
+  ├── Internal business documents
+  ├── Database contents
+  └── Encryption keys
+
+All done SILENTLY through code you trusted.
+```
+### Complete System Takeover
+```
+When you install a library, it runs with YOUR permissions.
+
+  Your app can read the database?
+      → The malicious library can too.
+
+  Your app can access user data?
+      → The malicious library can too.
+
+  Your build server has deployment keys?
+      → The malicious library can steal them.
+
+There is NO sandbox. NO restriction.
+It has the SAME power as your own code.
+```
+### Silent and Long-Lasting Access
+```
+Most attacks are LOUD:
+  - Website goes down
+  - Data gets deleted
+  - You KNOW something is wrong
+
+Supply chain attacks are QUIET:
+
+  Day 1:    Malicious update installed       ← looks normal
+  Day 30:   Attacker exploring your systems  ← you don't know
+  Day 90:   Attacker stealing data slowly    ← still no clue
+  Day 180:  Someone finally notices          ← 6 months too late
+
+  Average detection time: 250+ days
+```
+### 
