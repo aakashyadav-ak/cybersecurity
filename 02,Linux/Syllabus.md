@@ -180,3 +180,13 @@
 - [ ] `tar` and gzip (`tar -xvf`, `tar -czvf`)
 - [ ] `zip` / `unzip`
 - [ ] Basic bash scripting
+
+
+
+df - Disk Space
+du - Directory/File Size
+free - Memory Usage
+ps - Process Status
+top/htop - Real-time Process Monitor
+kill - Terminate Process
+bg/fg - Background/Foreground Jobs
