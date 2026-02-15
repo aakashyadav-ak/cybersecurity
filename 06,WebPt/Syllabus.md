@@ -32,10 +32,10 @@ Secure settings are missing or misconfigured."
 "Application depends on components that may be compromised."
 
 ### Common Examples
-- [ ] Dependency poisoning
-- [ ] Compromised NPM/PyPI packages
-- [ ] CI/CD secrets leaked
-- [ ] Untrusted third-party scripts
+- [x] Dependency poisoning
+- [x] Compromised NPM/PyPI packages
+- [x] CI/CD secrets leaked
+- [x] Untrusted third-party scripts
 ---
 
 ## A04:2025 — Cryptographic Failures 

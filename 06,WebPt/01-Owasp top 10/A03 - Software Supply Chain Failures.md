@@ -115,6 +115,23 @@ This becomes a *trusted* backdoor shipped to all users.
 <script src="http://randomcdn.com/lib.js"></script>
 ```
 
+
+
+## Testing
+
+ 1. Identify libraries/framework versions (headers/source)
+	 **Check for CVEs using:**
+	  - searchsploit / CVE search
+	  - nuclei templates
+2. Check JS libraries in page source
+3. Look for exposed:
+	  - `.git/`
+	  - CI config files
+	  - build scripts
+4. Check if external scripts are loaded from unknown domains
+
+
+
 ## Impacts
 ```
 A supply chain attack doesn't hit ONE app.
