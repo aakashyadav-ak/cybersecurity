@@ -91,15 +91,19 @@ nmap -p 21,22,80,443,445 192.168.1.1
 ```
 
  **Port Range**
-```
+```bash
  nmap -p 1-1000 192.168.1.1
 ```
 
 **Aggressive Scan (OS + Version + Scripts + Traceroute)**
-```
+```bash
 nmap -A 192.168.1.1
 ```
 
+**Vulnerability Scan**
+```bash
+nmap --script vuln 192.168.1.1
+```
 ## NMAP Output Formats
 ```bash
 # Normal output
