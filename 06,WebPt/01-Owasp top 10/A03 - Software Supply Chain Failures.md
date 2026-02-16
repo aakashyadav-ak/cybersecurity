@@ -29,9 +29,6 @@ You TRUST that other people's code is safe.
 
 **Supply chain attack** = someone poisons one of those suppliers.
 
-
-
-
 ## Attack Vectors
 
 ### 1) Vulnerable / Outdated Dependencies (Most common)
