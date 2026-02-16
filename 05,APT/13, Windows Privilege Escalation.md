@@ -10,3 +10,10 @@
 - SYSTEM = highest privileges on Windows
 
 # 01: Service Exploits - Insecure Service Permissions
+
+==**What are Windows Services?**==
+- Programs that run in the background
+- Start automatically when Windows boots
+- Run with specific privileges (often SYSTEM)
+
+==If YOU can modify/restart a service that runs as SYSTEM, you can run YOUR code as SYSTEM!==
