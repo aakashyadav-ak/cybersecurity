@@ -84,15 +84,15 @@
 ---
 
 ## Module 12: Fixing Exploits 🟠
-- [ ] Lesson 01: Capture the Flag (CTF) on Fixing Exploits
+- [x] Lesson 01: Capture the Flag (CTF) on Fixing Exploits
 
 > **Note:** Useful for modifying public exploits
 
 ---
 
 ## Module 13: Locating Public Exploits 🔴
-- [ ] Lesson 01: Find Exploits on Google Hacking Database
-- [ ] Lesson 02: Find Exploits on GitHub
+- [x] Lesson 01: Find Exploits on Google Hacking Database
+- [x] Lesson 02: Find Exploits on GitHub
 
 > **Note:** Daily task in real VAPT work
 
