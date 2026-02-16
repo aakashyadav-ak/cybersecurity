@@ -108,7 +108,7 @@
 ---
 
 ## Module 15: File Transfers 🔴
-- [ ] Lesson 01: File Transfers Using FTP, Telnet, SSH, PHP, Python
+- [x] Lesson 01: File Transfers Using FTP, Telnet, SSH, PHP, Python
 
 > **Note:** You'll need this in every engagement
 

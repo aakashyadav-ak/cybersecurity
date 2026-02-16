@@ -135,3 +135,26 @@ ___
 Computer A (Listener)  ←→  Computer B (Sender)
      nc -lvnp 4444            nc IP 4444
 ```
+
+| Flag / Symbol | Meaning | Purpose |
+|---|---|---|
+| `-l` | Listen | Act as receiver |
+| `-v` | Verbose | Show details |
+| `-n` | No DNS | Use IP directly (faster) |
+| `-p` | Port | Specify port number |
+| `<` | Input redirection | Send file |
+| `>` | Output redirection | Receive file |
+
+#### STEP 1 - Receiver (Computer B) starts listening:
+```
+nc -lvnp 4444 > received_file.txt
+```
+
+ "Listen on port 4444, save incoming data to received_file.txt"
+
+#### STEP 2 - Sender (Computer A) connects and sends:
+```
+nc 192.168.1.100 4444 < file_to_send.txt
+```
+
+ "Connect to 192.168.1.100 on port 4444, send file_to_send.txt"
