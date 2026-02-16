@@ -147,3 +147,8 @@ Example:
 ```
 C:\Program Files\My Service\service.exe
 ```
+
+**Windows tries these paths in order:**
+C:\Program.exe ❌
+C:\Program Files\My.exe ❌
+C:\Program Files\My Service\service.exe ✅
