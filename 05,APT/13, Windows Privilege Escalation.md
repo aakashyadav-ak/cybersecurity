@@ -276,3 +276,41 @@ HKLM\System\CurrentControlSet\Services\<ServiceName>
 **The Problem:**
 If you can modify the registry key for a service, you can change what executable it runs!
 
+## Understanding the Registry
+### Registry Structure for Services
+```
+HKLM\System\CurrentControlSet\Services\
+├── ServiceName
+│   ├── ImagePath          ← Path to executable (TARGET!)
+│   ├── ObjectName         ← Account it runs as
+│   ├── Start              ← Startup type
+│   └── Type               ← Service type
+```
+
+**Key Values:**
+
+**ImagePath:** What program runs when service starts
+**ObjectName:** Which user account runs it (LocalSystem = SYSTEM)
+
+
+## Finding Vulnerable Registry Keys
+#### Method 1: Using AccessChk
+```
+# Check registry permissions for all users
+accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services
+
+# Check specific service
+accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\regsvc
+```
+
+**Look for:**
+```
+KEY_ALL_ACCESS          ← Full control! 🚨
+KEY_WRITE               ← Can modify! 🚨
+```
+
+#### Method 2: PowerUp
+```
+. .\PowerUp.ps1
+Get-ModifiableServiceRegistry
+```
