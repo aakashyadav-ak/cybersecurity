@@ -36,9 +36,9 @@
 | 10  | CRLF Injection                    | URLs/headers                            | Cookie injection, redirect manipulation |
 
 
-# [[09. SQL Injection]]
+# [[09. SQL Injection (A05 Injection)]]
 
-# [[20.OS Command Injection]]
+# [[20.OS Command Injection (A05 Injection)]]
 
 # [[03.XSS (Cross site scripting)(A05 Injection)(A01 Broken Access Control or A07 Auth Failures)]]
 

@@ -211,7 +211,7 @@ Response (200 OK):
 ```
 
 
-## JWT/Token Manipulation ([[08.JWT]])
+## JWT/Token Manipulation ([[08.JWT (A07 Authentication Failures + A04 Cryptographic Failures)]])
 ```
 Modifying JSON Web Tokens to escalate privileges
 
