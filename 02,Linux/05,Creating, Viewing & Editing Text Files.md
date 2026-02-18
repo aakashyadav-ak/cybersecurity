@@ -168,10 +168,63 @@ AWK is mainly used to extract and process columns (fields) from text.
 - filtering based on conditions
 - counting / summing
 - parsing logs, /etc/passwd, command output
-### sed (Stream Editor)
-**Purpose:** Search and replace text quickly.
 
-Basic Syntax
+**How AWK sees data**
+By default, AWK splits each line by spaces/tabs into fields:
+- $1 = first column
+- $2 = second column
+- $NF = last column
+- NR = line number
+
+**Example:**
+```bash
+echo "root:x:0:0:root:/root:/bin/bash" | awk -F: '{print $1, $7}'
+```
+
+**Output:**
+```bash
+root /bin/bash
+```
+
+#### AWK basic format
+```bash
+awk 'pattern { action }' file
+```
+
+**example:**
+```bash
+awk '$3 > 1000 {print $1, $3}' /etc/passwd
+```
+**Meaning:**
+- if column 3 (UID) > 1000
+- print username + UID
+
+
+### sed (Stream Editor) (search/replace + line editing)
+
+**Purpose:** Find/replace + delete/insert for text streams
+
+**SED is best for:**
+- replacing text
+- deleting lines
+- printing specific lines
+- quick cleanup (spaces, blank lines)
+- editing in pipelines
+
+#### Sed basic format
+```bash
+sed 'command' file
+```
+
+**example:**
+```
+echo "hello root" | sed 's/root/admin/'
+```
+
+**output:**
+```bash
+hello admin
+```
 
 ---
 
