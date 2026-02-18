@@ -113,10 +113,87 @@ echo $0
 ```
 
 ### 3. File System
+A filesystem is how Linux stores and organizes data on disk (SSD/HDD/USB).
+
+**It controls:**
+- folders + files structure
+- file permissions (read/write/execute)
+- where system files live
+- how devices get mounted
+
+#### **/ (root)**
+The top of everything. Every folder starts from here.
+
 - Hierarchical structure starting from / (root)
 - Everything in Linux is treated as a file
 - Directories, devices, sockets, processes are all files
 - Case-sensitive naming
+
+#### **/home**
+Where user files live.
+
+**Example:**
+- /home/username/Documents
+- /home/username/Downloads
+
+#### **/root**
+Home folder for the root user (admin).
+
+#### /etc
+System configuration files.
+
+**Examples:**
+- /etc/passwd
+- /etc/ssh/sshd_config
+- /etc/hosts
+
+#### /bin and /usr/bin
+Essential commands and programs./ Essential user binaries
+
+**Examples:**
+- ls
+- cat
+- bash
+- python3
+
+#### /sbin and /usr/sbin
+Admin/system commands.
+
+**Examples:**
+- iptables
+- ifconfig (sometimes)
+- system tools
+
+#### /var
+“Variable” data (logs, cache, changing stuff)
+
+**Examples:**
+- /var/log/auth.log
+- /var/log/syslog
+
+#### /tmp
+Temporary files (often cleared on reboot)/Often writable
+==every user can work in this directory==
+
+#### /dev
+Devices treated like files./Device files
+
+**Examples:**
+- /dev/sda (disk)
+- /dev/null
+- /dev/tty
+
+#### /mnt and /media
+Where drives get mounted (USB, external disks)
+
+
+#### /proc
+Virtual filesystem showing running system info.
+
+**Examples:**
+- /proc/cpuinfo
+- /proc/meminfo
+
 
 ```bash
 /                   # Root directory
