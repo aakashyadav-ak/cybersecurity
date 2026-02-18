@@ -78,3 +78,8 @@ Insecure Design ≠ Insecure Implementation
 4. Modify request values (price, role, quantity)
 5. Try workflow bypass (skip steps)
 
+## Impact
+- Account takeover
+- Fraud / financial loss
+- Privilege escalation
+- Data manipulation
