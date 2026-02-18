@@ -165,7 +165,7 @@ WHY?
 │  Directory brute-force  │  /admin, /manager, etc  │
 └──────────────────────────────────────────────────┘
 ```
-# [[15.Forced Browsing (server side)]]
+# [[15.Forced Browsing (server side) (A01 Broken Access Control)]]
 
 ## Missing Authorization 
 ### Missing Authorization Checks on APIs  (Server does not validate role/ownership)
