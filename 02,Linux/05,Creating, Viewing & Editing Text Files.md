@@ -153,6 +153,18 @@ EOF
 ```
 
 
+## Stream Editors (sed & awk)
+
+**Difference from nano/vim:**
+- nano/vim: Open file, edit interactively, save
+- sed/awk: Edit text in one command (non-interactive)
+
+
+### sed (Stream Editor)
+**Purpose:** Search and replace text quickly.
+
+Basic Syntax
+
 ---
 
 # Change the Shell Environment
