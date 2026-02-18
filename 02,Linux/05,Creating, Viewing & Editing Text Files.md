@@ -226,6 +226,12 @@ echo "hello root" | sed 's/root/admin/'
 hello admin
 ```
 
+**example:**
+```bash
+# Replace all "http" with "https"
+sed 's/http/https/g' urls.txt
+```
+
 ---
 
 # Change the Shell Environment
