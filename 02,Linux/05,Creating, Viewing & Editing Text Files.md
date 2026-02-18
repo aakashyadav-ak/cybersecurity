@@ -160,6 +160,14 @@ EOF
 - sed/awk: Edit text in one command (non-interactive)
 
 
+### awk (Pattern Scanning & Processing)
+AWK is mainly used to extract and process columns (fields) from text.
+
+**AWK is best for:**
+- printing specific columns
+- filtering based on conditions
+- counting / summing
+- parsing logs, /etc/passwd, command output
 ### sed (Stream Editor)
 **Purpose:** Search and replace text quickly.
 
