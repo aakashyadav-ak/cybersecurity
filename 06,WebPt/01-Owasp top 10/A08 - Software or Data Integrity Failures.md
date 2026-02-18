@@ -162,3 +162,29 @@ Signs:
 - desktop apps
 - IoT portals
 - plugin upload features
+
+## Mitigations
+#### 1) Use Integrity Verification
+
+- verify hashes
+- verify signatures
+- use trusted sources only
+
+#### 2) Prevent Deserialization Attacks
+
+- avoid unsafe deserialization
+- use safe formats like JSON
+- allowlist classes if required
+- validate input strongly
+
+#### 3) Protect CDN Script Loading
+
+- use SRI
+- use CSP
+- self-host critical JS files
+
+#### 4) Enforce Server-Side Validation
+
+- never trust client-side values
+- validate business rules on backend
+- use authorization checks for role changes
