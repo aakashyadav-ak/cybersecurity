@@ -83,3 +83,12 @@ Insecure Design ≠ Insecure Implementation
 - Fraud / financial loss
 - Privilege escalation
 - Data manipulation
+
+## Mitigation
+| Issue               | Mitigation                                      |
+| ------------------- | ----------------------------------------------- |
+| No rate limiting    | Add request throttling + account lockout        |
+| Weak password reset | Use random tokens + short expiry + single-use   |
+| OTP flaws           | 6+ digits + max 3 attempts + expire in 5 min    |
+| Business logic      | Validate all logic server-side, never trust client |
+| No threat model     | Write abuse stories before coding               |

@@ -65,10 +65,10 @@ Secure settings are missing or misconfigured."
 "The design allows abuse even if code has no bugs."
 
 ### Common Examples
-- [ ] No rate limiting (bruteforce possible)
-- [ ] Weak password reset flow
-- [ ] OTP reuse / unlimited attempts
-- [ ] Business logic flaws
+- [x] No rate limiting (bruteforce possible)
+- [x] Weak password reset flow
+- [x] OTP reuse / unlimited attempts
+- [x] Business logic flaws
 
 
 
@@ -79,10 +79,10 @@ Secure settings are missing or misconfigured."
 "Weak authentication allows account takeover."
 
 ### Common Examples
-- [ ] Weak password policy
-- [ ] No MFA (where required)
-- [ ] Session not invalidated after logout
-- [ ] Session fixation
+- [x] Weak password policy
+- [x] No MFA (where required)
+- [x] Session not invalidated after logout
+- [x] Session fixation
 ---
 
 ## A08:2025 — Software or Data Integrity Failures
