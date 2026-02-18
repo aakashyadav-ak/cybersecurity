@@ -73,6 +73,17 @@ uname -a                    # All system info
 ```
 
 ### 2. Shell
+A shell is the program that lets you talk to the operating system using commands.
+
+**It’s basically a command interpreter:**
+```bash
+ls
+```
+The shell understands it, and tells the OS:
+- “Hey, list the files in this folder.”
+- Then it prints the result back to you.
+
+**Uses:**
 - Command-line interface for interacting with the system
 - Interprets and executes user commands
 - Bash (Bourne Again Shell) is the default in RHEL
