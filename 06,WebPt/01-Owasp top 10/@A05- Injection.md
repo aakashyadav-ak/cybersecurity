@@ -40,6 +40,6 @@
 
 # [[20.OS Command Injection]]
 
-# [[03.XSS (Cross site scripting)]]
+# [[03.XSS (Cross site scripting)(A05 Injection)(A01 Broken Access Control or A07 Auth Failures)]]
 
 # [[21.XXE — XML External Entity Injection]]
