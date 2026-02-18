@@ -90,10 +90,10 @@ Secure settings are missing or misconfigured."
  "Updates/data are accepted without validation."
 
 ### Common Examples
-- [ ] Unsigned updates
-- [ ] Insecure deserialization
-- [ ] CDN scripts without integrity checking
-- [ ] Tampering of important client-side data
+- [x] Unsigned updates
+- [x] Insecure deserialization
+- [x] CDN scripts without integrity checking
+- [x] Tampering of important client-side data
 ---
 
 ## A09:2025 — Security Logging and Alerting Failures 
