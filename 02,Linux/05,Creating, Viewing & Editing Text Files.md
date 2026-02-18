@@ -9,7 +9,11 @@ Output appears on your screen.
 
 ## Two Types of Output
 
-
+Type	                   Name	                           File Descriptor	                Description
+___
+stdout	                   Standard Output	             1	                                Normal output/results
+_________________________________________
+stderr	                   Standard Error	                 2	                                Error messages
 
 
 
