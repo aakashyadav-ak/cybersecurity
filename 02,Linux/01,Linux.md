@@ -18,6 +18,45 @@ Linux is a **free and open-source operating system** based on Unix. It was creat
 │           Hardware                  │  Layer 0
 └─────────────────────────────────────┘
 ```
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  User Applications (Layer 4)                             │
+│  Examples:                                               │
+│   • Firefox, Chrome                                      │
+│   • VS Code                                              │
+│   • Nmap, Wireshark                                      │
+│   • Python apps, Docker, PostgreSQL                      │
+├──────────────────────────────────────────────────────────┤
+│  Shell / CLI (Layer 3)                                   │
+│  Examples:                                               │
+│   • bash, zsh, fish                                      │
+│   • Commands: ls, cd, grep, chmod, ssh, curl             │
+│   • Scripts: .sh files                                   │
+├──────────────────────────────────────────────────────────┤
+│  System Libraries (Layer 2)                              │
+│  Examples:                                               │
+│   • glibc (GNU C library)                                │
+│   • OpenSSL (crypto/TLS)                                 │
+│   • libpthread (threads)                                 │
+│   • libpcap (packet capture)                             │
+├──────────────────────────────────────────────────────────┤
+│  Linux Kernel (Layer 1)                                  │
+│  Examples:                                               │
+│   • Process scheduling (runs programs)                   │
+│   • Memory management (RAM, paging)                      │
+│   • Networking stack (TCP/IP)                            │
+│   • Filesystems (ext4, btrfs)                            │
+│   • Drivers (Wi-Fi, GPU, USB)                            │
+├──────────────────────────────────────────────────────────┤
+│  Hardware (Layer 0)                                      │
+│  Examples:                                               │
+│   • CPU, RAM, SSD/HDD                                    │
+│   • Network card (NIC)                                   │
+│   • GPU, keyboard, mouse                                 │
+└──────────────────────────────────────────────────────────┘
+
+```
 ### 1. Kernel
 **The kernel manages:**
 
