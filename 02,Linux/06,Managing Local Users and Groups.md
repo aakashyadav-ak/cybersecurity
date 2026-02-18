@@ -10,11 +10,11 @@ A user is an account that can log into the system.
 
 #### Types of Users
 
-| Type | UID Range | Purpose | Example |
-| :--- | :--- | :--- | :--- |
-| **Root** | `0` | Super admin, full power | `root` |
-| **System users** | `1-999` | Run services, no login | `apache`, `mysql` |
-| **Regular users** | `1000+` | Normal people | `john`, `sarah` |
+| Type              | UID Range | Purpose                 | Example           |
+| :---------------- | :-------- | :---------------------- | :---------------- |
+| **Root**          | `0`       | Super admin, full power | `root`            |
+| **System users**  | `1-999`   | Run services, no login  | `apache`, `mysql` |
+| **Regular users** | `1000+`   | Normal people           | `john`, `sarah`   |
 
 
 ## Group?
