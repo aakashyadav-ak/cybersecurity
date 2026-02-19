@@ -153,7 +153,7 @@ ___
 
 **The Problem:**
 Windows doesn't know where a file path with spaces ends if it's not in quotes!
-
+==If a service path has spaces and it is NOT inside quotes, Windows gets confused and may break it early.==
 Example:
 ```
 C:\Program Files\My Service\service.exe
