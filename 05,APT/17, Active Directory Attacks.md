@@ -31,39 +31,7 @@ Single sign-on (SSO)
 Easy centralized management
 ```
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    ACTIVE DIRECTORY OVERVIEW                    │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                     (Enterprise)                        │   │
-│   │  ┌─────────────────────────────────────────────────┐    │   │
-│   │  │              DOMAIN: corp.local                 │    │   │
-│   │  │                                                 │    │   │
-│   │  │   ┌─────────┐  ┌─────────┐  ┌─────────┐         │    │   │
-│   │  │   │   DC01  │  │   DC02  │  │  Backup │         │    │   │
-│   │  │   │ (PDC)   │◄─┤(Replica)│  │   DC    │         │    │   │
-│   │  │   └────┬────┘  └────┬────┘  └─────────┘         │    │   │
-│   │  │        │            │                           │    │   │
-│   │  │   ┌────┴────────────┴────┐                      │    │   │
-│   │  │   │    LDAP/Kerberos     │                      │    │   │
-│   │  │   └──────────┬───────────┘                      │    │   │
-│   │  │              │                                  │    │   │
-│   │  │   ┌──────────┴───────────┐                      │    │   │
-│   │  │   │                      │                      │    │   │
-│   │  │ ┌─┴──┐ ┌────┐ ┌────┐ ┌──┴─┐                     │    │   │
-│   │  │ │User│ │User│ │Srv │ │Wks │  ...                │    │   │
-│   │  │ └────┘ └────┘ └────┘ └────┘                     │    │   │
-│   │  └─────────────────────────────────────────────---─┘    │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│   Key Features:                                                 │
-│   • Centralized Authentication    • Group Policy Management     │
-│   • Single Sign-On (SSO)          • DNS Integration             │
-│   • Resource Access Control       • Certificate Services        │
-└─────────────────────────────────────────────────────────────────┘
-```
+
 
 
 ### What AD Manages
@@ -178,4 +146,73 @@ Examples:
 - firewall settings
 - software deployment
 
----
+#### 7) Forest
+Collection of one or more domains sharing a common schema
+
+**example:**
+```
+Forest: company.com
+├── Domain: sales.company.com
+├── Domain: marketing.company.com
+└── Domain: it.company.com
+```
+
+#### 8) Organizational Unit (OU)
+Container for organizing users, groups, computers
+
+**exapmle:**
+```
+company.local
+├── OU=IT
+├── OU=HR
+└── OU=Servers
+```
+
+___ 
+
+## Architecture
+```
+Active Directory Structure:
+├── Forest (Highest level)
+│   └── Tree (Collection of domains)
+│       └── Domain (company.local)
+│           ├── Organizational Units (OUs)
+│           │   ├── Users
+│           │   ├── Computers
+│           │   └── Groups
+│           └── Objects (User accounts, computers, etc.)
+```
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ACTIVE DIRECTORY OVERVIEW                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌─────────────────────────────────────────────────────────┐   │
+│   │                 Forest (Enterprise)                     │   │
+│   │  ┌─────────────────────────────────────────────────┐    │   │
+│   │  │              DOMAIN: corp.local                 │    │   │
+│   │  │                                                 │    │   │
+│   │  │   ┌─────────┐  ┌─────────┐  ┌─────────┐         │    │   │
+│   │  │   │   DC01  │  │   DC02  │  │  Backup │         │    │   │
+│   │  │   │ (PDC)   │◄─┤(Replica)│  │   DC    │         │    │   │
+│   │  │   └────┬────┘  └────┬────┘  └─────────┘         │    │   │
+│   │  │        │            │                           │    │   │
+│   │  │   ┌────┴────────────┴────┐                      │    │   │
+│   │  │   │    LDAP/Kerberos     │                      │    │   │
+│   │  │   └──────────┬───────────┘                      │    │   │
+│   │  │              │                                  │    │   │
+│   │  │   ┌──────────┴───────────┐                      │    │   │
+│   │  │   │                      │                      │    │   │
+│   │  │ ┌─┴──┐ ┌────┐ ┌────┐ ┌──┴─┐                     │    │   │
+│   │  │ │User│ │User│ │Srv │ │Wks │  ...                │    │   │
+│   │  │ └────┘ └────┘ └────┘ └────┘                     │    │   │
+│   │  └─────────────────────────────────────────────---─┘    │   │
+│   └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│   Key Features:                                                 │
+│   • Centralized Authentication    • Group Policy Management     │
+│   • Single Sign-On (SSO)          • DNS Integration             │
+│   • Resource Access Control       • Certificate Services        │
+└─────────────────────────────────────────────────────────────────┘
+```
