@@ -113,3 +113,15 @@ mv chisel_1.9.1_linux_amd64 chisel
 sudo apt update
 sudo apt install chisel -y
 ```
+
+## Transfer Chisel to Target
+
+**Because Chisel works like a tunnel bridge:**
+
+1) Chisel Server (runs on Kali)
+- waits for a connection
+- creates the tunnel endpoint on attacker side
+
+1) Chisel Client (runs on Windows)
+- connects back to Kali
+- forwards internal ports through itself
