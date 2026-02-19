@@ -64,3 +64,68 @@ Easy centralized management
 │   • Resource Access Control       • Certificate Services        │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+
+### What AD Manages
+| Resource       | Description           | Example                           |
+| -------------- | --------------------- | --------------------------------- |
+| Users          | Employee accounts     | john.doe, admin, service accounts |
+| Computers      | Workstations, servers | DESKTOP-01, WEB-SERVER            |
+| Groups         | Collections of users  | IT Team, Finance, Admins          |
+| Printers       | Network printers      | Floor2-Printer, HR-Printer        |
+| Shared Folders | File shares           | \\server\documents                |
+| Policies       | Rules and settings    | Password policy, login hours      |
+### AD Environment
+```
+Company Network (domain.local)
+├── Domain Controller (DC)
+│   └── Stores all AD data
+│
+├── Users
+│   ├── john.doe (Marketing)
+│   ├── admin (IT Admin)
+│   └── service_sql (SQL Service)
+│
+├── Computers
+│   ├── DESKTOP-JOHN (John's PC)
+│   ├── WEB-SERVER (Web Server)
+│   └── DC01 (Domain Controller)
+│
+└── Organizational Units (OUs)
+    ├── Marketing OU
+    ├── IT OU
+    └── Servers OU
+```
+
+### Why attacker target AD
+```
+Compromise AD = Compromise Entire Network
+
+If you control AD, you control:
+├── ALL user accounts
+├── ALL computers
+├── ALL permissions
+├── ALL resources
+└── ENTIRE domain
+```
+
+### common Attacking phase
+1. Gain initial foothold (phishing, exploit)
+        ↓
+2. Enumerate Active Directory
+        ↓
+3. Escalate privileges (become admin)
+        ↓
+4. Move laterally (access other systems)
+        ↓
+5. Compromise Domain Controller
+        ↓
+6. GAME OVER - Full domain control
+
+## ==Common AD attack==
+
+- Kerberoasting - 30% of breaches
+- Pass-the-Hash - 25% of breaches
+- Golden Ticket - 15% of breaches
+- DCSync - 10% of breaches
+- Credential Dumping - 20% of breaches
