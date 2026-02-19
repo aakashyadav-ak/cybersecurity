@@ -31,12 +31,13 @@ Using a compromised machine as a "bridge" to attack deeper internal machines.
 
 ## Chisel
 Chisel is a fast TCP/HTTP tunneling tool.
+Chisel is used for tunneling + pivoting
 
-It creates a tunnel between:
+**It creates a tunnel between:**
 - Attacker (Kali)
 - Victim (compromised machine)
 
-So you can access internal network services like:
+**So you can access internal network services like:**
 - RDP (3389)
 - SMB (445)
 - WinRM (5985)
