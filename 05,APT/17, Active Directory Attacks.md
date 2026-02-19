@@ -384,3 +384,45 @@ Goal: Discover
 | PowerShell       | PowerView, ADModule               | Powerful scripting         |
 | Linux            | ldapsearch, enum4linux, rpcclient | From Kali/attacker machine |
 | Automated        | BloodHound, SharpHound            | Visual attack paths        |
+
+
+##  Windows Built-in Commands
+#### 1. NET Commands
+
+**Enumerate Users:**
+```
+# List all domain users
+net user /domain
+
+# Get specific user info
+net user john.doe /domain
+
+# Find all user accounts
+net user /domain | findstr /i "user"
+```
+
+**Enumerate Groups:**
+```
+# List all domain groups
+net group /domain
+
+# List members of Domain Admins
+net group "Domain Admins" /domain
+
+# List all local administrators
+net localgroup administrators
+```
+
+
+**Enumerate Computers:**
+```
+# List domain controllers
+net group "Domain Controllers" /domain
+
+# List all computers
+net group "Domain Computers" /domain
+```
+
+
+
+##  Linux-Based Enumeration
