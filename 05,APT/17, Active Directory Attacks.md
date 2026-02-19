@@ -236,3 +236,102 @@ Groups: Domain Users, IT Team
 Password: [Encrypted]
 Login Script: login.bat
 ```
+
+#### 2. Computers
+What: Workstations and servers joined to domain
+
+**Examples:**
+```
+DESKTOP-JOHN$     (John's workstation)
+WEB-SERVER01$     (Web server)
+DC01$             (Domain Controller)
+```
+**Note:** Computer accounts end with $ symbol
+
+#### 3. Groups
+What: Collections of users for easier permission management
+
+**Types:**
+
+| Type                | Scope              | Use Case                           |
+| ------------------- | ------------------ | ---------------------------------- |
+| Security Groups     | Assign permissions | "IT Admins can access servers"     |
+| Distribution Groups | Email lists        | "All employees receive newsletter" |
+
+**Common Built-in Groups:**
+- Domain Admins - Full control over domain
+- Enterprise Admins - Full control over forest
+- Domain Users - All regular users
+- Domain Computers - All domain computers
+
+
+#### 4. Organizational Units (OUs)
+What: Containers to organize AD objects
+
+**Purpose:**
+- Apply Group Policies
+- Delegate administrative control
+- Logical organization
+
+**Example Structure:**
+```
+company.local
+├── OU=Employees
+│   ├── OU=IT
+│   ├── OU=HR
+│   └── OU=Finance
+├── OU=Computers
+│   ├── OU=Workstations
+│   └── OU=Servers
+└── OU=Service Accounts
+```
+
+___
+## Authentication Protocols
+
+### 1. Kerberos (Primary)
+Ticket-based authentication protocol
+
+**How it Works:**
+```
+Step 1: User logs in
+    ↓
+Step 2: Request Ticket Granting Ticket (TGT) from DC
+    ↓
+Step 3: DC verifies credentials and issues TGT
+    ↓
+Step 4: User requests Service Ticket using TGT
+    ↓
+Step 5: Access resource with Service Ticket
+```
+
+**Key Concepts:**
+
+- TGT (Ticket Granting Ticket) - Proves you're authenticated
+- Service Ticket - Access to specific service
+- KDC (Key Distribution Center) - Issues tickets (runs on DC)
+- Default Port: 88
+
+### 2. NTLM (Legacy)
+Challenge-response authentication protocol
+
+**Used When:**
+- Kerberos unavailable
+- IP address used instead of hostname
+- Legacy systems
+
+**Security:** Weaker than Kerberos, vulnerable to Pass-the-Hash
+
+
+### 3. LDAP (Lightweight Directory Access Protocol)
+Protocol for querying and modifying AD
+
+**Uses:**
+- Search for users/computers
+- Read object attributes
+- Modify AD objects
+
+**Default Ports:**
+389 - LDAP
+636 - LDAPS (Secure)
+3268 - Global Catalog
