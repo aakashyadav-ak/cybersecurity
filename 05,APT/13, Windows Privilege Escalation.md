@@ -165,6 +165,7 @@ C:\Program Files\My.exe ❌
 C:\Program Files\My Service\service.exe ✅
 
 **If you can write to any of those locations, you can hijack the service!**
+==For Writing you must have write permission.==
 
 ```
 Quoted Path (Secure):
@@ -224,7 +225,7 @@ START_TYPE         : 2 AUTO_START
 - C:\Program Files\Unquoted Path Service\Common.exe
 
 ### Step-by-Step Exploitation
-#### Step 1: Check write permissions
+#### ==Step 1: Check write permissions==
 ```
 # Check if you can write to C:\Program Files\
 accesschk.exe /accepteula -uwdq "C:\Program Files\"
