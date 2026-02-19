@@ -138,7 +138,7 @@
 ---
 
 ## Module 18: Password Attacks 🔴
-- [ ] Lesson 01: Password Spraying and Dictionary Attack
+- [x] Lesson 01: Password Spraying and Dictionary Attack
 
 > **Note:** Common attack vector - must know
 
