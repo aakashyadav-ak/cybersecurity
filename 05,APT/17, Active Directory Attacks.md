@@ -335,3 +335,52 @@ Protocol for querying and modifying AD
 389 - LDAP
 636 - LDAPS (Secure)
 3268 - Global Catalog
+
+
+___
+
+## Group Policy (GPO)
+Set of rules controlling user and computer settings
+
+**Common Policies:**
+- Password requirements
+- Software installation
+- Desktop wallpaper
+- Security settings
+- Login scripts
+
+
+**Example GPO:**
+```
+Policy: "Strong Password Policy"
+├── Minimum length: 12 characters
+├── Complexity: Required
+├── Maximum age: 90 days
+├── History: Remember 10 passwords
+└── Lockout: 5 failed attempts
+```
+
+
+___
+
+# 03: Enumeration of Active Directory (AD)
+AD Enumeration = Process of gathering information about Active Directory environment
+```
+Goal: Discover
+├── Users (Who exists?)
+├── Computers (What systems?)
+├── Groups (Who has permissions?)
+├── Permissions (Who can do what?)
+├── Trusts (What domains are connected?)
+└── Vulnerabilities (Where to attack?)
+```
+
+### Enumeration Tools
+
+| Category         | Tools                             | Use Case                   |
+| ---------------- | --------------------------------- | -------------------------- |
+| Windows Built-in | net, dsquery, PowerShell          | Stealthy, always available |
+| Sysinternals     | AdExplorer, AdInsight             | GUI-based enumeration      |
+| PowerShell       | PowerView, ADModule               | Powerful scripting         |
+| Linux            | ldapsearch, enum4linux, rpcclient | From Kali/attacker machine |
+| Automated        | BloodHound, SharpHound            | Visual attack paths        |
