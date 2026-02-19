@@ -129,3 +129,53 @@ If you control AD, you control:
 - Golden Ticket - 15% of breaches
 - DCSync - 10% of breaches
 - Credential Dumping - 20% of breaches
+
+
+___ 
+
+# 02: Basics of Active Directory (AD)
+
+#### 1) Domain
+A network of users + computers managed centrally.
+
+Example:
+- `company.local`
+
+#### 2) Domain Controller (DC)
+The main server that controls authentication.
+
+- Stores AD database
+- Handles logins
+
+#### 3) Users
+Employee accounts.
+
+Example:
+- `ak`
+- `hr01`
+- `itadmin`
+
+#### 4) Computers
+Machines joined to the domain.
+
+Example:
+- `WIN10-01`
+- `HR-PC`
+
+#### 5) Groups
+Collection of users.
+
+Examples:
+- Domain Admins (highest)
+- IT Support
+- HR Team
+
+#### 6) Group Policy (GPO)
+Rules applied across domain.
+
+Examples:
+- password policy
+- firewall settings
+- software deployment
+
+---
