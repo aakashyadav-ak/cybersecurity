@@ -1,4 +1,5 @@
 ## Privilege Escalation
+Privilege escalation is gaining higher-level permissions than initially granted. In Windows, this typically means going from a normal user account to SYSTEM or Administrator. Common methods include exploiting misconfigured services, weak file permissions, or registry settings.
 
 - You have low-level access (normal user)
 - You want high-level access (administrator/SYSTEM)
@@ -11,6 +12,7 @@
 - Administrator = lower then SYSTEM but higher then an user
 
 # 01: Service Exploits - Insecure Service Permissions
+Modify a service that runs as SYSTEM
 
 ==**What are Windows Services?**==
 - Programs that run in the background
@@ -30,6 +32,15 @@ Vulnerable Setup (Insecure):
     └── Regular users can modify it ❌ EXPLOITABLE!
 ```
 
+```
+Service runs as SYSTEM
+    ↓
+You can modify service configuration
+    ↓
+Change service to run YOUR malicious code
+    ↓
+YOUR code runs as SYSTEM! 🎉
+```
 ### Step 2: Finding Vulnerable Services
 #### ==Tool 1: AccessChk (Sysinternals)==
 (AccessChk = Permission Checker Tool
