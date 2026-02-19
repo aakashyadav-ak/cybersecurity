@@ -145,7 +145,7 @@
 ---
 
 ## Module 19: Port Redirection and Tunneling 🟠
-- [ ] Lesson 01: Port Redirection and Tunneling Using Chisel
+- [x] Lesson 01: Port Redirection and Tunneling Using Chisel
 
 > **Note:** Important for pivoting in internal networks
 
