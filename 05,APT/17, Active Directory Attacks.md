@@ -423,6 +423,111 @@ net group "Domain Controllers" /domain
 net group "Domain Computers" /domain
 ```
 
+#### 2. PowerView (PowerSploit)
+**Domain:**
+```
+# Get current domain
+Get-Domain
+
+# Get domain SID
+Get-DomainSID
+
+# Get domain policy
+Get-DomainPolicy
+
+# Get domain controllers
+Get-DomainController
+```
+
+**User Enumeration:**
+```
+# Get all users
+Get-DomainUser
+
+# Get specific user
+Get-DomainUser -Identity john.doe
+
+# Get user properties
+Get-DomainUser -Properties samaccountname, memberof
+
+# Find admin users
+Get-DomainUser -AdminCount
+
+# Find users with SPN (Kerberoastable)
+Get-DomainUser -SPN
+```
 
 
 ##  Linux-Based Enumeration
+#### 1. ldapsearch
+```bash
+# Anonymous bind (if allowed)
+ldapsearch -x -H ldap://10.10.10.10 -b "DC=company,DC=local"
+
+# With credentials
+ldapsearch -x -H ldap://10.10.10.10 -D "CN=john.doe,CN=Users,DC=company,DC=local" -w 'password' -b "DC=company,DC=local"
+
+# Get all users
+ldapsearch -x -H ldap://10.10.10.10 -D "user@company.local" -w 'password' -b "DC=company,DC=local" "(objectClass=user)"
+
+# Get all computers
+ldapsearch -x -H ldap://10.10.10.10 -D "user@company.local" -w 'password' -b "DC=company,DC=local" "(objectClass=computer)"
+
+# Get specific attributes
+ldapsearch -x -H ldap://10.10.10.10 -D "user@company.local" -w 'password' -b "DC=company,DC=local" "(objectClass=user)" sAMAccountName userPrincipalName
+
+# Find users with SPN
+ldapsearch -x -H ldap://10.10.10.10 -D "user@company.local" -w 'password' -b "DC=company,DC=local" "(&(objectClass=user)(servicePrincipalName=*))" servicePrincipalName
+```
+
+#### 2. enum4linux
+Basic Usage:
+
+```bash
+# Full enumeration
+enum4linux -a 10.10.10.10
+
+# User enumeration
+enum4linux -U 10.10.10.10
+
+# Group enumeration
+enum4linux -G 10.10.10.10
+
+# Share enumeration
+enum4linux -S 10.10.10.10
+
+# Password policy
+enum4linux -P 10.10.10.10
+
+# With credentials
+enum4linux -u "user" -p "password" -a 10.10.10.10
+```
+
+## BloodHound - Visual AD Enumeration
+BloodHound = Tool that visualizes attack paths in Active Directory
+
+```
+Purpose:
+├── Maps relationships between AD objects
+├── Finds shortest path to Domain Admin
+├── Identifies misconfigurations
+└── Visual graph of attack paths
+```
+
+```bash
+# Install Neo4j (graph database)
+sudo apt install neo4j
+
+# Install BloodHound
+sudo apt install bloodhound
+
+# Start Neo4j
+sudo neo4j console
+
+# Access Neo4j browser
+http://localhost:7474
+# Default creds: neo4j/neo4j (change on first login)
+
+# Start BloodHound
+bloodhound
+```
