@@ -216,3 +216,23 @@ Active Directory Structure:
 │   • Resource Access Control       • Certificate Services        │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+
+## AD Objects
+#### 1. Users
+What: Accounts representing people or services
+
+**Types:**
+**Regular Users - Employees (john.doe, jane.smith)**
+**Service Accounts - Used by applications (sql_service, web_app)**
+**Admin Accounts - Privileged users (administrator, domain_admin)**
+
+**Attributes:**
+```
+Username: john.doe
+Display Name: John Doe
+Email: john.doe@company.com
+Groups: Domain Users, IT Team
+Password: [Encrypted]
+Login Script: login.bat
+```
