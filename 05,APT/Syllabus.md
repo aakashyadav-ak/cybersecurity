@@ -115,11 +115,11 @@
 ---
 
 ## Module 16: Windows Privilege Escalation 🔴
-- [ ] Lesson 01: Service Exploits - Insecure Service Permissions
-- [ ] Lesson 02: Service Exploits - Unquoted Service Path
-- [ ] Lesson 03: Service Exploits - Weak Registry Permissions
-- [ ] Lesson 04: Service Exploits - Insecure Service Executables
-- [ ] Lesson 05: Registry – Auto Runs, etc.
+- [x] Lesson 01: Service Exploits - Insecure Service Permissions
+- [x] Lesson 02: Service Exploits - Unquoted Service Path
+- [x] Lesson 03: Service Exploits - Weak Registry Permissions
+- [x] Lesson 04: Service Exploits - Insecure Service Executables
+- [x] Lesson 05: Registry – Auto Runs, etc.
 
 > **Note:** CRITICAL - Most corporate environments are Windows
 
