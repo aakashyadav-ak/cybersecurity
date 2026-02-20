@@ -96,3 +96,31 @@ Think of it as a workflow/checklist that ensures no alert is missed and every in
 ```
 📍 ALERT → 🔍 TRIAGE → 🕵️ INVESTIGATE → ⚡ ACTION → 📝 DOCUMENT → ✅ CLOSE
 ```
+
+#### Stage 1: ALERT (Detection)
+- A security tool (SIEM, EDR, Firewall, IDS/IPS) detects suspicious activity
+- Alert appears in your dashboard/queue
+
+- Example Alerts:
+- "Multiple failed login attempts detected"
+- "Malware detected: LAPTOP-FIN-12"
+- "Outbound connection to known malicious IP"
+- "Privilege escalation attempt on server"
+
+**Your first action:**
+✅ Acknowledge the alert (so other analysts know you're handling it)
+
+#### Stage 2: TRIAGE (Initial Assessment)
+Quickly determine if the alert is real and how urgent it is.
+
+**Key Questions to Ask:**
+❓ Is this a True Positive or False Positive?
+❓ What is the severity? (Critical/High/Medium/Low)
+❓ Is this a known issue (e.g., recurring false positive)?
+❓ Is the affected system critical? (e.g., domain controller, database server)
+
+**Quick Checks:**
+✅ Check recent tickets – Has this happened before?
+✅ Check whitelists/blacklists – Is the IP/domain known?
+✅ Check user context – Is the user traveling? Working odd hours?
+✅ Check asset criticality – Server vs employee laptop?
