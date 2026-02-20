@@ -124,3 +124,17 @@ Quickly determine if the alert is real and how urgent it is.
 ✅ Check whitelists/blacklists – Is the IP/domain known?
 ✅ Check user context – Is the user traveling? Working odd hours?
 ✅ Check asset criticality – Server vs employee laptop?
+
+**Example Triage:**
+
+| Alert | Quick Check | Decision |
+| :--- | :--- | :--- |
+| "Antivirus blocked file" | File already quarantined, no execution | Low priority, monitor |
+| "Failed logins from China" | User is in US, never travels | **HIGH PRIORITY** → Investigate |
+| "Port scan detected" | From vulnerability scanner IP (internal tool) | False Positive → Close |
+
+**Outcome of Triage:**
+✅ Proceed to Investigation (if suspicious)
+✅ Close as False Positive (if benign)
+✅ Escalate immediately (if critical and beyond L1 scope)
+
