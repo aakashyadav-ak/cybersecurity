@@ -138,3 +138,31 @@ Quickly determine if the alert is real and how urgent it is.
 ✅ Close as False Positive (if benign)
 ✅ Escalate immediately (if critical and beyond L1 scope)
 
+#### Stage 3: INVESTIGATE (Deep Dive)
+Gather evidence to understand what happened, when, and why.
+
+**Investigation Checklist:**
+##### A) Timeline Analysis
+
+🕐 When did it start?
+🕐 Is it still ongoing?
+🕐 What happened before/after?
+
+##### B) User/Entity Analysis
+
+👤 Who is the user? (Check AD, HR records)
+💼 What is their role? (Finance, HR = higher risk)
+📞 Contact user/manager to verify activity.
+
+##### C) Log Analysis (Most important!)
+
+🖥️ Windows Event Logs (Login events, process creation)
+🌐 Firewall logs (Incoming/outgoing connections)
+🔐 Proxy logs (Websites visited)
+📧 Email gateway logs (Phishing attempts?)
+
+##### D) Threat Intelligence
+
+🔗 Check IP/domain reputation (VirusTotal, AbuseIPDB)
+🔗 Check file hash (VirusTotal, Hybrid Analysis)
+🔗 Search for IOCs (Indicators of Compromise)
