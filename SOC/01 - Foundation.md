@@ -68,3 +68,31 @@ Key Responsibilities:
 | **Decision Making** | Follow playbooks | Some autonomy | Full authority |
 | **Escalation** | Escalates to L2 | Escalates to L3 | Final decision maker |
 | **Experience** | 0-1 year | 1-3 years | 3+ years |
+
+### Example
+**Scenario:** You receive an alert:
+"Antivirus detected: Trojan.Generic.12345 on LAPTOP-HR-05"
+
+As L1, what would you do?
+- Check if file is quarantined
+- Look up file hash on VirusTotal
+- Check user's recent activity (any suspicious downloads?)
+- Verify with user if they downloaded anything unusual
+- If confirmed malicious → Escalate to L2 + isolate machine
+- If false positive → Document and close ticket
+
+
+____
+
+
+# 2: Alert Lifecycle (Alert → Triage → Investigate → Action → Document → Close)
+
+## Alert Lifecycle
+The alert lifecycle is the step-by-step process a SOC analyst follows from the moment an alert fires until it's resolved.
+
+Think of it as a workflow/checklist that ensures no alert is missed and every incident is handled properly.
+
+### The 6 Stages of Alert Lifecycle
+```
+📍 ALERT → 🔍 TRIAGE → 🕵️ INVESTIGATE → ⚡ ACTION → 📝 DOCUMENT → ✅ CLOSE
+```
