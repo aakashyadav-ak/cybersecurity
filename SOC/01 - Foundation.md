@@ -59,3 +59,12 @@ Key Responsibilities:
 ✅ Develop detection rules and playbooks
 ✅ Threat intelligence integration
 ✅ Coordinate with management and external teams (legal, law enforcement)
+
+
+| Aspect | L1 | L2 | L3 |
+| :--- | :--- | :--- | :--- |
+| **Focus** | Monitoring & Triage | Investigation & Analysis | Incident Response & Forensics |
+| **Alert Handling** | First look, quick checks | Deep analysis | Critical incidents only |
+| **Decision Making** | Follow playbooks | Some autonomy | Full authority |
+| **Escalation** | Escalates to L2 | Escalates to L3 | Final decision maker |
+| **Experience** | 0-1 year | 1-3 years | 3+ years |
