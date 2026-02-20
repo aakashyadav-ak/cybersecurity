@@ -166,3 +166,35 @@ Gather evidence to understand what happened, when, and why.
 🔗 Check IP/domain reputation (VirusTotal, AbuseIPDB)
 🔗 Check file hash (VirusTotal, Hybrid Analysis)
 🔗 Search for IOCs (Indicators of Compromise)
+
+###### Example Investigation:
+**Alert:** "Suspicious PowerShell execution on LAPTOP-HR-08"
+
+**Investigation Steps:**
+
+1. Check what PowerShell command was run.
+```
+powershell.exe -enc <base64_encoded_command>
+```
+
+(Encoded commands = red flag! 🚩)
+
+2. Decode the command (use CyberChef)
+
+- If it downloads malware → True Positive
+- If it's a legitimate admin script → Check with IT team
+
+3. Check process tree (parent-child processes)
+
+- Was it launched by winword.exe (Word)? → Likely macro malware
+- Was it launched by explorer.exe? → User clicked something
+
+4. Check network connections (Did it connect to external IP?)
+
+5. Check user activity (Any other suspicious actions?)
+
+**Outcome:**
+
+✅ Confirmed malicious → Move to Action
+✅ Confirmed benign → Move to Document & Close
+✅ Need expert help → Escalate to L2
