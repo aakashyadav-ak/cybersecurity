@@ -677,4 +677,11 @@ Higher Severity = Faster Response Required
 ```
 
 
-#### 4 Priority Levels
+## 4 Priority Levels
+P1 - CRITICAL         🔴  Minutes to respond 
+P2 - HIGH               🟠  Hours to respond
+P3 - MEDIUM         🟡  Days to respond   
+P4 - LOW                🟢  Weeks to respond   
+
+
+### P1 - CRITICAL (Emergency)
