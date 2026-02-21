@@ -201,3 +201,91 @@ powershell.exe -enc <base64_encoded_command>
 
 
 #### Stage 4: ACTION (Containment & Remediation)
+**Goal:** Stop the threat and prevent damage.
+
+#### Common Actions (L1 Level):
+
+| Threat Type | Action |
+| :--- | :--- |
+| Malware detected | Isolate machine from network, run full scan |
+| Compromised account | Disable account, force password reset |
+| Malicious IP connection | Block IP at firewall, check other systems |
+| Phishing email | Delete email from all inboxes, block sender |
+| Insider threat | Escalate to L2 + notify management |
+
+**Important Notes:**
+- ⚠️ Always follow your playbook – Don't improvise on critical systems
+- ⚠️ Get approval for major actions – Blocking a server can disrupt business
+- ⚠️ Preserve evidence – Don't delete logs/files (needed for forensics)
+
+**Example Action:**
+- Scenario: Confirmed ransomware on LAPTOP-FIN-12
+- **Your action:**
+	1. Immeiately isolate the laptop (disconnect network)
+	2. Notify L2/Incident Response team
+	3. Check backups (with IT team)
+	4. Scan network for lateral movement
+
+
+
+#### Stage 5: 📝 DOCUMENT (Record Everything)
+**Goal:** Create a clear record for future reference and compliance.
+
+**What to Document:**
+✅ Alert Details
+Alert name, timestamp, source system
+
+✅ Investigation Summary
+What you checked, what you found
+
+✅ Evidence
+Screenshots, log excerpts, file hashes, IPs
+
+✅ Actions Taken
+What you did to contain/remediate
+
+✅ Outcome
+True Positive / False Positive
+Resolved / Escalated
+
+**Example Ticket Documentation:**
+```
+TICKET #12345: Malware Detection - LAPTOP-HR-08
+
+SUMMARY:
+Antivirus detected Trojan.Generic on LAPTOP-HR-08 at 14:35 UTC.
+
+INVESTIGATION:
+- File: invoice.exe (downloaded from suspicious email)
+- Hash: 5d41402abc4b2a76b9719d911017c592
+- VirusTotal: 45/70 vendors flagged as malicious
+- User confirmed clicking email attachment
+
+ACTIONS TAKEN:
+- Isolated machine from network
+- Ran full antivirus scan (3 additional files quarantined)
+- Reset user password
+- Blocked sender domain at email gateway
+
+OUTCOME:
+TRUE POSITIVE - Malware removed, system cleaned.
+
+STATUS: CLOSED
+```
+
+
+#### Stage 6: ✅ CLOSE (Resolution)
+**Goal:** Officially close the ticket after confirming the issue is resolved.
+
+**Before Closing, Verify:**
+- ✅ Threat is fully contained/removed
+- ✅ System is back to normal operation
+- ✅ User notified (if applicable)
+- ✅ Documentation is complete
+- ✅ Follow-up actions assigned (if any)
+
+**Closure Categories:**
+- ✅ True Positive - Resolved
+- ✅ False Positive - No Action Needed
+- ✅ Escalated to L2/L3
+- ✅ Pending (waiting for user/IT team)
