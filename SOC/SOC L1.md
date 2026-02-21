@@ -18,9 +18,9 @@
 - [x] Explain MITRE ATT&CK (Tactic vs Technique)
 - [x] **Map these 4 Attacks:**
   - [x] Brute Force → T1110
-  - [ ] Phishing → T1566
-  - [ ] PowerShell → T1059.001
-  - [ ] Credential Dumping → T1003
+  - [x] Phishing → T1566
+  - [x] PowerShell → T1059.001
+  - [x] Credential Dumping → T1003
 - [ ] Explain Cyber Kill Chain stages
 - [ ] Explain Pyramid of Pain (Hash vs TTP)
 - [ ] Memorize NIST IR lifecycle (PICERL)
