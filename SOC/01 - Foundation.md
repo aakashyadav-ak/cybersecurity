@@ -770,3 +770,75 @@ Security concern that requires attention but poses moderate risk. No immediate t
 
 
 #### Examples of P3 Incidents:
+
+| Incident | Why P3? |
+| :--- | :--- |
+| Phishing email received (not clicked) | Potential threat, no compromise |
+| Failed login attempts (no breach) | Suspicious but blocked |
+| Antivirus quarantined file (no execution) | Threat contained automatically |
+| Policy violation (user visited restricted site) | Security awareness issue, not breach |
+| Outdated software detected | Vulnerability exists but low exploitability |
+| Suspicious file uploaded to cloud | Needs investigation, no confirmed threat |
+| Minor configuration issue | Security gap but low immediate risk |
+
+**Your Actions on P3:**
+```
+🟡 MEDIUM PRIORITY ACTIONS:
+
+1. ✅ Acknowledge within SLA
+2. ✅ Investigate during normal workflow
+3. ✅ Document findings
+4. ✅ Take standard remediation steps
+5. ✅ Close or escalate based on findings
+6. ✅ Update ticket regularly
+```
+
+## P4 - LOW (Informational)
+Minimal security concern or informational alerts. No immediate action required.
+
+**Characteristics:**
+✅ Informational only
+✅ Very low risk
+✅ No business impact
+✅ Can be scheduled for later
+✅ Documentation/compliance related
+
+#### Examples of P4 Incidents:
+
+| Incident | Why P4? |
+| :--- | :--- |
+| Security scan completed | Informational, scheduled activity |
+| Firewall rule change logged | Audit trail, approved change |
+| Certificate expiring in 90 days | Plenty of time to renew |
+| User requested security awareness training | Proactive, not incident-related |
+| False positive (recurring, known issue) | Document for tuning purposes |
+| General inquiry | "How do I reset my password?" |
+
+**Your Actions on P4:**
+```
+🟢 LOW PRIORITY ACTIONS:
+
+1. ✅ Review when time permits
+2. ✅ Document for records
+3. ✅ Handle during low-activity periods
+4. ✅ Close with minimal investigation
+5. ✅ May batch process multiple P4s together
+```
+
+
+____
+
+# SLA (Service Level Agreement)
+
+**SLA** = A commitment to respond/resolve incidents within a defined timeframe.
+
+**Think of it as a promise to your customers (internal/external):**
+- "We will acknowledge your P1 incident within 15 minutes"
+- "We will resolve P2 incidents within 24 hours"
+
+**Why SLAs Matter:**
+- ✅ Sets expectations – Everyone knows response times
+- ✅ Ensures prioritization – Critical issues get urgent attention
+- ✅ Measures performance – Are we meeting our commitments?
+- ✅ Contractual obligations – Penalties for SLA violations
+- ✅ Customer satisfaction – Timely response = happy stakeholders
