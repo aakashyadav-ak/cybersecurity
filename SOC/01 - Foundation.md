@@ -653,3 +653,28 @@ In simple terms: Everything is working correctly – normal business activity!
 
 You'll never see True Negatives in your queue (because no alert fired), but they represent the majority of activity in your network!
 
+
+___ 
+
+# 5: Severity Levels (P1–P4) & SLA
+
+Not all security incidents are equal! A phishing email is different from active ransomware.
+
+**As an L1 analyst, you need to:**
+- Prioritize which alerts to handle first
+- Meet SLA requirements (Service Level Agreements)
+- Escalate appropriately based on severity
+- Communicate urgency to stakeholders
+
+
+### Severity/Priority
+**Severity** = How serious is the security impact?
+**Priority** = How quickly must we respond?
+
+In most SOCs, these are combined into Priority levels (P1-P4)
+```
+Higher Severity = Faster Response Required
+```
+
+
+#### 4 Priority Levels
