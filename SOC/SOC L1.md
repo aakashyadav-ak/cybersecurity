@@ -9,7 +9,7 @@
 - [x] Understand alert lifecycle (Alert → Triage → Investigate → Action → Document → Close)
 - [x] Know when to Escalate vs Close
 - [x] Understand True Positive / False Positive / False Negative
-- [ ] Understand Severity levels (P1–P4) & SLA
+- [x] Understand Severity levels (P1–P4) & SLA
 - [ ] Write proper incident ticket (Summary, Evidence, Action, Recommendation)
 
 ---

@@ -842,3 +842,29 @@ ____
 - ✅ Measures performance – Are we meeting our commitments?
 - ✅ Contractual obligations – Penalties for SLA violations
 - ✅ Customer satisfaction – Timely response = happy stakeholders
+
+
+### Typical SOC SLA Metrics:
+#### 1. Time to Acknowledge (TTA)
+"How quickly did we acknowledge the alert exists?"
+#### 2. Time to Respond (TTR)
+"How quickly did we start investigating?"
+#### 3. Time to Resolve (TTRes)
+"How quickly did we fully resolve the incident?"
+
+
+### Priority Decision Matrix
+```
+Is it ACTIVELY causing damage RIGHT NOW?
+├─ YES → Is it critical system/data?
+│         ├─ YES → 🔴 P1
+│         └─ NO → 🟠 P2
+│
+└─ NO → Is it a confirmed security incident?
+          ├─ YES → Is it high-value target?
+          │         ├─ YES → 🟠 P2
+          │         └─ NO → 🟡 P3
+          │
+          └─ NO → Is it informational/low risk?
+                    └─ YES → 🟢 P4
+```
