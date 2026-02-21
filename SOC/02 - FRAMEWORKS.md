@@ -93,3 +93,91 @@ One tactic can have MANY techniques.
 **Tactic Goal:** Get into the network
 
 **Different Techniques to achieve this:**
+
+| Technique ID | Technique Name                         | How it Works                     |
+|-------------|----------------------------------------|----------------------------------|
+| T1566      | Phishing                                | Send malicious email             |
+| T1190      | Exploit Public-Facing Application       | Hack vulnerable web server       |
+| T1133      | External Remote Services                | Brute force VPN login            |
+| T1078      | Valid Accounts                          | Use stolen credentials           |
+| T1091      | Replication Through Removable Media     | USB drive with malware           |
+
+Same goal (Initial Access), but 5+ different methods!
+
+## SUB-TECHNIQUES - The "HOW" (Variations)
+Sub-Techniques = Specific variations of a technique.
+
+#### Example: Phishing (T1566)
+**Main Technique:** Phishing
+
+Sub-Techniques (different types of phishing):
+
+| Sub-Technique ID | Name                         | Description                                      |
+|------------------|------------------------------|--------------------------------------------------|
+| T1566.001        | Spearphishing Attachment     | Email with malicious file (e.g., invoice.exe)    |
+| T1566.002        | Spearphishing Link           | Email with malicious link                        |
+| T1566.003        | Spearphishing via Service    | Phishing via LinkedIn, Teams, etc.               |
+| T1566.004        | Spearphishing Voice          | Vishing (voice phishing)                         |
+
+
+
+### Tactic vs Technique vs Sub-Technique (Visual)
+```
+TACTIC: Initial Access
+   ↓
+   TECHNIQUE: T1566 - Phishing
+      ↓
+      SUB-TECHNIQUE: T1566.001 - Spearphishing Attachment
+         ↓
+         PROCEDURE: Attacker sends "Invoice.pdf.exe" to victim
+```
+
+
+
+
+## How SOC Analysts Use ATT&CK
+
+
+### 1. Alert Mapping
+When you see an alert, map it to ATT&CK:
+```
+Alert: "Suspicious PowerShell execution detected"
+
+Map to ATT&CK:
+- TACTIC: Execution
+- TECHNIQUE: T1059 - Command and Scripting Interpreter
+- SUB-TECHNIQUE: T1059.001 - PowerShell
+```
+
+### 2. Threat Hunting
+Search for specific TTPs in your environment:
+```
+"Let me hunt for Credential Dumping (T1003) 
+in our environment to see if attackers are 
+stealing passwords"
+```
+
+
+### 3. Incident Investigation
+Map the full attack chain:
+```
+Incident: Ransomware Attack
+
+ATT&CK Mapping:
+1. Initial Access: T1566.001 (Phishing email)
+2. Execution: T1204.002 (User opened attachment)
+3. Persistence: T1053.005 (Scheduled task created)
+4. Credential Access: T1003.001 (LSASS memory dump)
+5. Lateral Movement: T1021.001 (RDP to other systems)
+6. Impact: T1486 (Data encrypted for ransom)
+```
+
+### 4. Detection Engineering
+Create detection rules based on techniques:
+```
+"We need detection for T1003 (Credential Dumping)
+Let's create a SIEM rule that alerts when:
+- lsass.exe is accessed by unusual processes
+- Mimikatz command line patterns detected
+- Windows Event ID 4656 (LSASS access)
+```
