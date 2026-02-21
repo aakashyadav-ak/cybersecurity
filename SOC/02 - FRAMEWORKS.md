@@ -88,3 +88,5 @@ Each step = A different TACTIC
 Techniques = Specific methods used to achieve a tactic.
 
 One tactic can have MANY techniques.
+
+#### Example: Initial Access Tactic
