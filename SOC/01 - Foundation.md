@@ -521,3 +521,135 @@ An alert fired AND there is a real security threat.
 - ✅ Indicators of Compromise (IOCs) match known threats
 - ✅ Behavioral analysis confirms attack pattern
 - ✅ Impact is visible (files encrypted, data stolen, system compromised)
+
+**Your Action on True Positive:**
+Immediate Actions:
+- ⚡ Contain the threat (isolate system, disable account)
+- ⚡ Escalate to L2 (if beyond your scope)
+- ⚡ Notify stakeholders (management, user's manager)
+- ⚡ Document thoroughly (this is a real incident!)
+
+## 2) FALSE POSITIVE (FP)
+An alert fired BUT there is NO actual threat.
+
+**In simple terms:** The security tool made a mistake – it's a false alarm!
+
+**Examples of False Positives:**
+
+| Alert | Investigation | Why It's FP |
+| :--- | :--- | :--- |
+| "Port scan detected from 10.10.1.50" | Internal vulnerability scanner (authorized tool) | Legitimate activity ❌ |
+| "Malware detected: hacktools.exe" | Penetration testing tool used by security team | Authorized security tool ❌ |
+| "User accessed hacking website" | IT admin visited vendor documentation site | Misclassified URL ❌ |
+| "Unusual login time detected" | User working night shift (approved overtime) | Normal business activity ❌ |
+| "Suspicious PowerShell execution" | IT automation script (scheduled task) | Legitimate admin work ❌ |
+
+#### Common Causes of False Positives:
+1. **Overly Sensitive Rules**
+```
+Rule: "Alert on ANY PowerShell execution"
+Problem: PowerShell is used legitimately by admins daily
+Result: 500 FP alerts per day 😫
+```
+
+2. Lack of Context
+```
+Alert: "File downloaded from file-sharing site"
+Missing context: User is in Marketing, downloading campaign assets
+Result: False Positive   
+```
+
+3. Outdated Threat Intelligence
+```
+Alert: "Connection to malicious IP 8.8.8.8"
+Reality: This is Google DNS (was incorrectly listed years ago)
+Result: False Positive
+```
+
+**How to Confirm False Positive:**
+- ✅ No malicious intent found
+- ✅ Activity is authorized/legitimate
+- ✅ Matches known FP patterns (in your FP database)
+- ✅ User/IT confirms legitimate business need
+- ✅ No IOCs match real threats
+
+**Your Action on False Positive:**
+Immediate Actions:
+- ✅ Document why it's FP (for future reference)
+- ✅ Add to whitelist (if recurring)
+- ✅ Tune the rule (request SIEM team to adjust)
+- ✅ Close the ticket
+
+
+## FALSE NEGATIVE (FN)
+NO alert fired but a real threat exists.
+
+In simple terms: The security tool MISSED an actual attack! (This is the most dangerous!)
+
+**Examples of False Negatives:**
+
+| Real Threat | Why Alert Didn't Fire | Impact |
+| :--- | :--- | :--- |
+| Attacker used zero-day exploit | Signature not in antivirus database | System compromised 🔴 |
+| Insider slowly exfiltrated data | Stayed below detection threshold | Data breach 🔴 |
+| Fileless malware (lives in memory) | Antivirus only scans files on disk | Persistent backdoor 🔴 |
+| Encrypted C2 traffic | Firewall couldn't inspect SSL traffic | Ongoing data theft 🔴 |
+| Attacker used whitelisted tools | Abused legitimate Windows tools (LOLBins) | No detection 🔴 |
+#### Why False Negatives Happen:
+1. Evasion Techniques
+```
+Attacker uses obfuscation:
+- Encoded commands
+- Encryption
+- Polymorphic malware (changes signature)
+
+Your tools: Can't detect what they don't recognize   
+```
+
+2. Detection Gaps
+```
+Scenario: No EDR on Linux servers
+Result: Malware on Linux server goes undetected
+```
+
+3. Misconfigured Rules
+```
+SIEM Rule: "Alert if >1000 failed logins in 1 hour"
+Attacker: Does 999 failed logins per hour
+Result: No alert fired
+```
+
+4. Zero-Day Exploits
+```
+Brand new vulnerability, no signatures exist yet
+Result: No detection until it's too late
+```
+
+**How Do You Discover False Negatives?**
+
+Since no alert fired, you usually find FNs through:
+- ✅ Threat Hunting – Proactively searching for threats
+- ✅ User Reports – "My computer is acting weird..."
+- ✅ Incident Investigation – Finding related compromises
+- ✅ Forensic Analysis – Post-breach investigation
+- ✅ Threat Intel – "This malware was active in our environment but we didn't detect it"
+
+
+## 4) TRUE NEGATIVE (TN)
+NO alert fired and there is NO threat.
+
+In simple terms: Everything is working correctly – normal business activity!
+
+#### Examples:
+- User logs in during normal work hours → No alert (correct!)
+- User accesses approved work website → No alert (correct!)
+- Scheduled backup runs → No alert (correct!)
+- Normal network traffic → No alert (correct!)
+
+**True Negatives are GOOD! They mean:**
+- ✅ Your security tools aren't over-alerting
+- ✅ Business operations run smoothly
+- ✅ No unnecessary investigation needed
+
+You'll never see True Negatives in your queue (because no alert fired), but they represent the majority of activity in your network!
+
