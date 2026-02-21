@@ -5,9 +5,9 @@
 ---
 
 ## 1) SOC OPERATIONS (Foundation)
-- [ ] Understand L1 vs L2 vs L3 responsibilities
-- [ ] Understand alert lifecycle (Alert → Triage → Investigate → Action → Document → Close)
-- [ ] Know when to Escalate vs Close
+- [x] Understand L1 vs L2 vs L3 responsibilities
+- [x] Understand alert lifecycle (Alert → Triage → Investigate → Action → Document → Close)
+- [x] Know when to Escalate vs Close
 - [ ] Understand True Positive / False Positive / False Negative
 - [ ] Understand Severity levels (P1–P4) & SLA
 - [ ] Write proper incident ticket (Summary, Evidence, Action, Recommendation)

