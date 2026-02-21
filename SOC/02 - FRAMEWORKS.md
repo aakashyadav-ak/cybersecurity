@@ -90,3 +90,6 @@ Techniques = Specific methods used to achieve a tactic.
 One tactic can have MANY techniques.
 
 #### Example: Initial Access Tactic
+**Tactic Goal:** Get into the network
+
+**Different Techniques to achieve this:**
