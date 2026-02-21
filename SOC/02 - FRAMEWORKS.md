@@ -434,3 +434,40 @@ T1059.001 = PowerShell (Execution)
 T1003 = Credential Dumping (Credential Access)
   └─ Stealing passwords from memory
 ```
+
+
+
+
+_______
+
+
+
+# 3: ==Cyber Kill Chain Stages==
+The Cyber Kill Chain is one of the oldest and most famous cybersecurity frameworks.
+
+
+**Created by:** Lockheed Martin (2011)
+**Purpose:** Model the stages of a cyber attack from reconnaissance to final objective
+
+**Think of it as:** A step-by-step roadmap that attackers follow
+
+
+**key concept:**
+If you can break the chain at ANY stage, you stop the attack!
+
+####  7 Stages of the Cyber Kill Chain
+```
+1. RECONNAISSANCE      🔍 (Research the target)
+         ↓
+2. WEAPONIZATION       🔨 (Create the attack tool)
+         ↓
+3. DELIVERY            📦 (Send the weapon to target)
+         ↓
+4. EXPLOITATION        💥 (Weapon executes, exploits vulnerability)
+         ↓
+5. INSTALLATION        🔧 (Malware installs on system)
+         ↓
+6. COMMAND & CONTROL   📡 (Establish communication channel)
+         ↓
+7. ACTIONS ON OBJECTIVE 🎯 (Achieve the goal: steal data, encrypt files, etc.)
+```
