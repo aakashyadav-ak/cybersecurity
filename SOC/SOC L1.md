@@ -151,32 +151,32 @@
 
 ---
 
-## 12) AUTOMATION (YOUR EDGE)
-- [ ] Write Python script for IP reputation lookup
-- [ ] Parse Windows logs using Python
-- [ ] Understand SOAR playbooks
-- [ ] Understand automated IP blocking workflow
+## ~~12) AUTOMATION (YOUR EDGE)~~
+- [ ] ~~Write Python script for IP reputation lookup~~
+- [ ] ~~Parse Windows logs using Python~~
+- [ ] ~~Understand SOAR playbooks~~
+- [ ] ~~Understand automated IP blocking workflow~~
 
 ---
 
-## 13) PORTFOLIO (THE HIRED MAKER)
-- [ ] 1 Brute Force investigation write-up
-- [ ] 1 Phishing investigation write-up
-- [ ] 1 SIEM dashboard project
-- [ ] GitHub repo with scripts
-- [ ] LinkedIn post explaining a detection concept
+## ~~13) PORTFOLIO (THE HIRED MAKER)~~
+- [ ] ~~1 Brute Force investigation write-up~~
+- [ ] ~~1 Phishing investigation write-up~~
+- [ ] ~~1 SIEM dashboard project~~
+- [ ] ~~GitHub repo with scripts~~
+- [ ] ~~LinkedIn post explaining a detection concept~~
 
 ---
 
-## 🏆 FINAL SELF-TEST
-- [ ] I can confidently answer scenario-based questions
-- [ ] I can investigate an alert end-to-end
-- [ ] I can write a professional incident report
-- [ ] I can explain everything in simple language
-- [ ] I am comfortable working in a 24/7 SOC shift
+## 🏆 F~~INAL SELF-TEST~~
+- [ ] ~~I can confidently answer scenario-based questions~~
+- [ ] ~~I can investigate an alert end-to-end~~
+- [ ] ~~I can write a professional incident report~~
+- [ ] ~~I can explain everything in simple language~~
+- [ ] ~~I am comfortable working in a 24/7 SOC shift~~
 
 ____
-🧠 1️⃣ MUST MEMORIZE (Non-Negotiable)
+ MUST MEMORIZE (Non-Negotiable)
 
 These are rapid-fire interview questions.
 
@@ -184,27 +184,26 @@ These are rapid-fire interview questions.
 
 Memorize:
 
-MITRE ATT&CK definition (Tactic vs Technique)
+==**MITRE ATT&CK definition (Tactic vs Technique)**==
 
 These mappings:
 
-Brute Force → T1110
+==**Brute Force → T1110**==
 
-Phishing → T1566
+==**Phishing → T1566**==
 
-PowerShell → T1059.001
+==**PowerShell → T1059.001**==
 
-Credential Dumping → T1003
+==**Credential Dumping → T1003**==
 
-NIST IR lifecycle (PICERL)
+==**NIST IR lifecycle (PICERL)**==
 
-CIA Triad (with examples)
+==**CIA Triad (with examples)**==
 
-Cyber Kill Chain stages
+==**Cyber Kill Chain stages**==
 
-Pyramid of Pain concept
+==**Pyramid of Pain concept**==
 
-👉 These are “Tell me in 30 seconds” questions.
 
 🔹 Critical Windows Event IDs (Section 3)
 
