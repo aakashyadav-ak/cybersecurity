@@ -319,3 +319,85 @@ User re-enabled after security training
 
 **Close:**
 Status: Resolved
+
+
+___
+
+# 3: When to Escalate vs When to Close
+
+**As an L1 analyst, one of your most critical skills is knowing:**
+
+✅ When you can handle and close an alert yourself
+✅ When you need to escalate to L2/L3
+
+**Making the wrong decision can:**
+❌ Delay incident response (if you don't escalate when needed)
+❌ Waste L2's time (if you escalate unnecessarily)
+❌ Miss a real threat (if you close a True Positive as False Positive)
+
+####  Decision Framework: Close vs Escalate
+```
+┌─────────────────────────────────────┐
+│   RECEIVE ALERT                     │
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│   TRIAGE & INITIAL INVESTIGATION    │
+└──────────┬──────────────────────────┘
+           │
+           ▼
+    ┌──────┴──────┐
+    │             │
+    ▼             ▼
+┌────────┐    ┌──────────┐
+│ CLOSE  │    │ ESCALATE │
+└────────┘    └──────────┘
+```
+
+
+##  WHEN TO CLOSE an Alert (You Can Handle It)
+#### Scenario 1: Confirmed False Positive
+**Definition:** The alert fired, but there's no actual threat.
+
+**Examples:**
+
+| Alert | Why It's False Positive | Action |
+| :--- | :--- | :--- |
+| Port scan detected from 192.168.1.50 | Internal vulnerability scanner (scheduled scan) | Close - Add to whitelist |
+| User accessed "hacking tools website" | Security researcher visiting VirusTotal | Close - Document legitimate use |
+| Antivirus alert on server | Known false positive (check AV vendor database) | Close - Submit exclusion request |
+| Failed login attempts | User forgot password, locked themselves out | Close - Reset password |
+
+**How to Verify It's False Positive:**
+- ✅ Check known false positive list (your SOC should maintain one)
+- ✅ Cross-reference with whitelisted IPs/domains
+- ✅ Verify with user/IT team
+- ✅ Check vendor documentation (for tool-related alerts)
+
+
+####  Scenario 2: Low-Severity, Resolved Issue
+**You can close if:**
+- ✅ Threat was automatically contained (e.g., email blocked, file quarantined)
+- ✅ No evidence of compromise or lateral movement
+- ✅ Standard remediation successfully applied
+
+**Examples:**
+
+| Alert | Investigation Result | Action |
+| :--- | :--- | :--- |
+| Malicious email received | Email blocked by gateway, never reached inbox | Close - No user interaction |
+| Malware download blocked | EDR prevented execution, file quarantined | Close - Monitor user for 24hrs |
+| User visited phishing site | User didn't enter credentials (checked with user) | Close - Send security awareness reminder |
+| Brute force on disabled account | Account already disabled, no access granted | Close - Document attempt |
+
+#### Scenario 3: Informational Alerts (No Action Needed)
+Some alerts are just "FYI" – they require documentation but no action.
+
+**Examples:**
+- Software update applied successfully
+- Security policy change logged
+- Firewall rule modified (approved change)
+- Scheduled maintenance activity
+
+**Action:** Document and close
