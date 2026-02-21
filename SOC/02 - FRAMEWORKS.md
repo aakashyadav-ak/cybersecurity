@@ -21,3 +21,23 @@ It is a knowledge base of:
 - To understand attacker behavior
 - To map alerts to known techniques
 - To improve detection coverage
+
+
+## ATT&CK Structure: Tactics → Techniques → Sub-Techniques
+
+```
+┌─────────────────────────────────────────────┐
+│  TACTICS (The "WHY")                        │
+│  "What is the attacker's goal?"             │
+│                                             │
+│  ↓                                          │
+│                                             │
+│  TECHNIQUES (The "WHAT")                    │
+│  "What method are they using?"              │
+│                                             │
+│  ↓                                          │
+│                                             │
+│  SUB-TECHNIQUES (The "HOW")                 │
+│  "Specific variation of the technique"      │
+└─────────────────────────────────────────────┘
+```
