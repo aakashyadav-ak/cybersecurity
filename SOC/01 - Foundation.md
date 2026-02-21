@@ -685,3 +685,88 @@ P4 - LOW                🟢  Weeks to respond
 
 
 ### P1 - CRITICAL (Emergency)
+- Immediate threat to business operations, data, or critical systems.
+- Active attack in progress or imminent danger.
+
+**Characteristics:**
+- ✅ Active breach/compromise
+- ✅ Critical systems affected (Domain Controller, production servers)
+- ✅ Data exfiltration in progress
+- ✅ Widespread impact (multiple systems/users)
+- ✅ Ransomware/destructive malware
+- ✅ Public-facing systems compromised
+
+#### Examples
+
+| Incident | Why P1? |
+| :--- | :--- |
+| Ransomware encrypting files | Active data destruction, business stoppage |
+| Domain Controller compromised | Attacker has full network control |
+| Active data breach | Customer data being exfiltrated RIGHT NOW |
+| DDoS attack on public website | Business revenue impacted, reputation damage |
+| Backdoor on production server | Attacker has persistent access to critical asset |
+| Zero-day exploit being used | No patch available, active exploitation |
+| Insider deleting critical data | Immediate data loss, potential sabotage |
+
+L1 Action on P1 
+```
+🚨 IMMEDIATE ACTIONS:
+
+1. ⚡ STOP what you're doing - this takes priority
+2. ⚡ NOTIFY your supervisor/shift lead IMMEDIATELY
+3. ⚡ ESCALATE to L2/Incident Response team
+4. ⚡ CONTAIN if possible (isolate system, disable account)
+5. ⚡ DOCUMENT timeline (every minute matters)
+6. ⚡ STAY AVAILABLE (you may need to assist L2)
+```
+
+
+
+
+## P2 - HIGH (Urgent)
+Serious security threat that requires prompt attention but is not actively causing immediate damage.
+
+**Characteristics:**
+✅ Confirmed security incident (not actively spreading)
+✅ High-value target affected (Executive, sensitive system)
+✅ Potential for escalation to P1
+✅ Significant risk if not addressed quickly
+✅ Multiple users/systems at risk
+
+#### Examples of P2 Incidents:
+
+| Incident | Why P2? |
+| :--- | :--- |
+| CEO account compromised | High-value target, but contained |
+| Malware on workstation (contained) | Threat isolated, no spread detected |
+| Successful phishing attack | User entered credentials, account needs securing |
+| Unauthorized access attempt (blocked) | Attack prevented but shows targeting |
+| Vulnerable server (critical exploit) | Not yet exploited, but high risk |
+| Data leak found online | Data already exposed, damage control needed |
+| Privilege escalation detected (stopped) | Attack contained but serious attempt |
+
+
+**Your/L1 Actions on P2:**
+```
+🟠 HIGH PRIORITY ACTIONS:
+
+1. ⚡ Acknowledge alert immediately
+2. ⚡ Begin investigation within SLA
+3. ⚡ Contain the threat (isolate, disable, block)
+4. ⚡ Gather evidence thoroughly
+5. ⚡ Escalate to L2 if beyond your scope
+6. ⚡ Keep stakeholders updated (hourly updates)
+```
+
+## P3 - MEDIUM (Normal)
+Security concern that requires attention but poses moderate risk. No immediate threat to operations.
+
+**Characteristics:**
+✅ Potential security issue (needs verification)
+✅ Single user/system affected
+✅ Limited impact to business
+✅ Not actively exploited
+✅ Workarounds available
+
+
+#### Examples of P3 Incidents:
