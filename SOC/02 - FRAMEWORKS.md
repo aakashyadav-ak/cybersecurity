@@ -181,3 +181,8 @@ Let's create a SIEM rule that alerts when:
 - Mimikatz command line patterns detected
 - Windows Event ID 4656 (LSASS access)
 ```
+
+
+____
+
+# 2: Mapping 4 Common Attacks to MITRE ATT&CK
