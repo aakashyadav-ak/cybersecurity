@@ -200,3 +200,211 @@ Attackers try many passwords until they find the correct one
 - Technique ID: T1110
 - Technique Name: Brute Force
 - Tactic: Credential Access (TA0006)
+
+#### examples
+ - 1: SSH Brute Force
+ - 2: Password Spraying
+
+#### How to Detect T1110:
+- **Detection Methods:**
+- Multiple failed login attempts
+- Account lockouts
+- Unusual login patterns
+- SIEM Rules:
+```
+IF failed_logins > 20 within 10 minutes
+FROM same source_ip
+THEN ALERT "Possible Brute Force (T1110)"
+```
+
+
+
+#### SOC Response to T1110:
+**When you see brute force alert:**
+
+1. ✅ Identify the target (Which account/system?)
+2. ✅ Check if successful (Any successful logins mixed in?)
+3. ✅ Block source IP (at firewall)
+4. ✅ Lock account (if compromised)
+5. ✅ Force password reset (if needed)
+6. ✅ Enable MFA (prevent future attempts)
+
+
+### 2) PHISHING → T1566
+- Attackers send deceptive messages to trick users into clicking links, opening files, or revealing credentials.
+- Tricking people via email/messages
+
+- Technique ID: T1566
+- Technique Name: Phishing
+- Tactic: Initial Access (TA0001)
+
+
+#### How to Detect T1566:
+ **SIEM Detection:**
+```
+ RULE: Email with attachment + external sender + 
+      suspicious keywords ("invoice", "urgent", "password")
+→ ALERT for review
+```
+
+
+### SOC Response to T1566:
+**When phishing email detected:**
+
+- ✅ Quarantine the email (remove from all inboxes)
+- ✅ Check who clicked (review proxy/email logs)
+- ✅ If clicked - investigate:
+	- Did user download file?
+	- Did user enter credentials?
+	- Scan user's system for malware
+- ✅ Block sender domain (email gateway)
+- ✅ Block malicious URLs (web proxy)
+- ✅ Security awareness (educate users)
+- ✅ Submit to threat intel (PhishTank, etc.)
+
+
+
+### 3) POWERSHELL → T1059.001
+Attackers use PowerShell (Windows built-in tool) to execute malicious commands.
+
+- Technique ID: T1059.001
+- Parent Technique: T1059 - Command and Scripting Interpreter
+- Sub-Technique: PowerShell
+- Tactic: Execution (TA0002)
+
+Why Powershell
+- Pre-installed on Windows (no need to upload tools)
+- Powerful capabilities (access to .NET, WMI, registry)
+- Often whitelisted (security tools trust it)
+- Can run in memory (fileless attacks)
+- Easy to obfuscate (encode/encrypt commands)
+
+
+
+#### How to Detect T1059.001:
+**Detection Methods:**
+1. PowerShell Logging (Enable These!):
+```
+Windows Event IDs:
+- 4103: Module logging
+- 4104: Script block logging (captures full commands!)
+- 4105: Script block logging start
+- 4106: Script block logging stop
+```
+
+2. SIEM Rules:
+```
+2. RULE: PowerShell executed with:
+  - Encoded commands (-enc)
+  - AND Network activity (DownloadString)
+  - AND Hidden window (-w hidden)
+  
+→ ALERT: Suspicious PowerShell (T1059.001)
+```
+
+#### SOC Response to T1059.001:
+When suspicious PowerShell detected:
+
+- ✅ Capture the command (from Event ID 4104)
+- ✅ Decode if obfuscated (use CyberChef, PowerShell decoder)
+- ✅ Analyze what it does:
+	- Downloads file? → Get URL, analyze
+	- Connects to IP? → Check IP reputation
+	- Accesses LSASS? → Credential theft!
+- ✅ Check parent process (what launched PowerShell?)
+	- Word.exe → Macro attack
+	- cmd.exe → Possible script
+- ✅ Isolate system (if malicious)
+- ✅ Hunt for similar activity (other systems affected?)
+
+
+
+###  CREDENTIAL DUMPING → T1003
+Attackers steal passwords/hashes from operating system memory, files, or databases.
+
+- Technique ID: T1003
+- Technique Name: OS Credential Dumping
+- Tactic: Credential Access (TA0006)
+
+**example:**
+**Mimikatz LSASS Dump (T1003.001)**
+```
+ATTACK FLOW:
+1. Attacker gains admin rights on workstation
+2. Runs Mimikatz (credential dumping tool)
+3. Command: sekurlsa::logonpasswords
+
+Output:
+Authentication Id : 0 ; 123456
+Session           : Interactive from 1
+User Name         : john.doe
+Domain            : COMPANY
+SID               : S-1-5-21-...
+        msv :
+         [00000003] Primary
+         * Username : john.doe
+         * Domain   : COMPANY
+         * NTLM     : 8846f7eaee8fb117ad06bdd830b7586c
+         * SHA1     : a3d5c...
+
+4. Attacker now has:
+   - Plaintext password (if available)
+   - NTLM hash (can be used for Pass-the-Hash)
+
+5. Uses stolen credentials to access other systems
+
+ATT&CK Mapping:
+- TACTIC: Credential Access
+- TECHNIQUE: T1003 - OS Credential Dumping
+- SUB-TECHNIQUE: T1003.001 - LSASS Memory
+```
+
+#### How to Detect T1003:
+
+1. Process Monitoring:
+```
+⚠️ Suspicious processes accessing LSASS:
+   - mimikatz.exe
+   - procdump.exe (targeting lsass)
+   - taskmgr.exe creating lsass dump
+   - Non-system processes reading lsass.exe memory
+
+Windows Event ID: 4656 (Object access)
+- Object Name: lsass.exe
+- Process Name: [suspicious tool]
+```
+
+2. SIEM Rules:
+```
+RULE 1: LSASS Memory Access
+IF process_name != (wininit.exe, csrss.exe, svchost.exe)
+AND target_process == "lsass.exe"
+AND access_rights == PROCESS_VM_READ
+THEN ALERT "Credential Dumping Attempt (T1003.001)"
+
+RULE 2: Known Tool Detection
+IF process_name in (mimikatz.exe, procdump.exe, pwdump.exe)
+THEN ALERT "Credential Dumping Tool (T1003)"
+```
+
+
+#### SOC Response to T1003:
+
+**When credential dumping detected:**
+- ✅ ISOLATE affected system immediately
+- ✅ Assume credentials compromised:
+	- Force password reset for all users who logged into that system
+	- Revoke all active sessions
+	- Reset service account passwords
+- ✅ Check for lateral movement:
+	- Did attacker use stolen creds elsewhere?
+	- Search for logins from affected accounts
+- ✅ Hunt for persistence:
+	- New user accounts created?
+	- Scheduled tasks?
+	- Backdoors?
+- ✅ Forensic preservation:
+	- Capture memory image
+	- Preserve logs
+	- Document timeline
+- ✅ Escalate to Incident Response team
