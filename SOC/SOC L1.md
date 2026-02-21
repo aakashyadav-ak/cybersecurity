@@ -15,9 +15,9 @@
 ---
 
 ## 2) FRAMEWORKS (Interview Mandatory)
-- [ ] Explain MITRE ATT&CK (Tactic vs Technique)
-- [ ] **Map these 4 Attacks:**
-  - [ ] Brute Force → T1110
+- [x] Explain MITRE ATT&CK (Tactic vs Technique)
+- [x] **Map these 4 Attacks:**
+  - [x] Brute Force → T1110
   - [ ] Phishing → T1566
   - [ ] PowerShell → T1059.001
   - [ ] Credential Dumping → T1003
