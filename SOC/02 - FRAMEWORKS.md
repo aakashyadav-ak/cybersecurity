@@ -186,3 +186,17 @@ Let's create a SIEM rule that alerts when:
 ____
 
 # 2: Mapping 4 Common Attacks to MITRE ATT&CK
+
+## The 4 Must-Know Techniques
+
+1. T1110 - Brute Force
+2. T1566 - Phishing  
+3. T1059.001 - PowerShell
+4. T1003 - Credential Dumping
+
+### 1) BRUTE FORCE → T1110
+Attackers try many passwords until they find the correct one
+
+- Technique ID: T1110
+- Technique Name: Brute Force
+- Tactic: Credential Access (TA0006)
