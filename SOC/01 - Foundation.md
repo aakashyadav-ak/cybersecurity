@@ -289,3 +289,33 @@ STATUS: CLOSED
 - ✅ False Positive - No Action Needed
 - ✅ Escalated to L2/L3
 - ✅ Pending (waiting for user/IT team)
+
+
+### Complete example
+#### Alert:
+"User 'jdoe' logged in from Russia (unusual location)"
+
+#### Triage:
+User is based in New York, never traveled to Russia → Suspicious!
+
+#### Investigate:
+- Check login times: 3 AM EST (user unlikely to be working)
+- Check login method: VPN (company doesn't have Russia office)
+- Contact user: "I didn't log in!"
+
+#### Action:
+- Disable account immediately
+- Force password reset
+- Check email for forwarding rules (attacker may have set up)
+- Block Russia IP at firewall
+
+#### Document:
+```
+TRUE POSITIVE: Account compromise
+Attacker accessed via stolen credentials
+Actions: Account disabled, password reset, IP blocked
+User re-enabled after security training
+```
+
+**Close:**
+Status: Resolved
