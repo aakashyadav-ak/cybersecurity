@@ -198,3 +198,6 @@ powershell.exe -enc <base64_encoded_command>
 ✅ Confirmed malicious → Move to Action
 ✅ Confirmed benign → Move to Document & Close
 ✅ Need expert help → Escalate to L2
+
+
+#### Stage 4: ACTION (Containment & Remediation)
