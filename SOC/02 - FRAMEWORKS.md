@@ -865,3 +865,7 @@ The Pyramid of Pain explains which defensive actions hurt attackers the most.
 | 4️⃣   | Artifacts (Code patterns)| 😟 Annoying      | Days–Weeks    | $1,000+       | ⭐⭐⭐ Medium-High|
 | 5️⃣   | Tools (Malware/exploits)| 😫 Challenging    | Months        | $50,000+      | ⭐⭐⭐⭐ High      |
 | 6️⃣   | TTPs (Attack methodology)| 🔥 Tough         | 6–12 months   | $100,000+     | ⭐⭐⭐⭐⭐ HIGHEST  |
+
+
+____
+
