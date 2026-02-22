@@ -856,11 +856,12 @@ The Pyramid of Pain explains which defensive actions hurt attackers the most.
 /________________________________________ \  ← 😊 TRIVIAL (Easy for attacker)
 ```
 
-| Level                    | What It Is                      | Pain Level  | Why?                          |
-| :----------------------- | :------------------------------ | :---------- | :---------------------------- |
-| 1.Hash Values            | File hash (MD5/SHA256)          | Trivial     | Change 1 byte → new hash      |
-| 2.IP Addresses           | Attacker's IP                   | Easy        | Just change server/VPN        |
-| 3.Domain Names           | Malicious domains               | Simple      | Register new domain ($10)     |
-| 4.Network/Host Artifacts | C2 patterns, registry keys      | Annoying    | Requires code changes         |
-| 5.Tools                  | Malware, exploits               | Challenging | Need to rewrite/acquire tools |
-| 6.TTPs                   | Tactics, Techniques, Procedures | Tough       | Entire attack methodology     |
+
+| Level | What It Is              | Pain to Attacker | Time to Change | Cost to Change | Detection Value |
+|-------|--------------------------|------------------|---------------|---------------|----------------|
+| 1️⃣   | Hash (File fingerprint) | 😊 Trivial        | Seconds       | $0            | ⭐ Low          |
+| 2️⃣   | IP (Server address)     | 🙂 Easy           | Minutes       | $5            | ⭐⭐ Low-Medium  |
+| 3️⃣   | Domain (Website name)   | 😐 Simple         | Minutes       | $10–15        | ⭐⭐ Medium      |
+| 4️⃣   | Artifacts (Code patterns)| 😟 Annoying      | Days–Weeks    | $1,000+       | ⭐⭐⭐ Medium-High|
+| 5️⃣   | Tools (Malware/exploits)| 😫 Challenging    | Months        | $50,000+      | ⭐⭐⭐⭐ High      |
+| 6️⃣   | TTPs (Attack methodology)| 🔥 Tough         | 6–12 months   | $100,000+     | ⭐⭐⭐⭐⭐ HIGHEST  |
