@@ -40,3 +40,78 @@ DMARC → What to DO if SPF/DKIM fails?
 ```
 
 
+### SPF (Sender Policy Framework)
+
+```
+PURPOSE: Verify sender IP is authorized
+
+HOW IT WORKS:
+1. Email claims to be from: company.com
+2. Receiver checks: company.com's SPF record
+3. SPF record says: "Only these IPs can send for us"
+4. If sender IP matches → PASS ✅
+5. If sender IP doesn't match → FAIL ❌
+```
+
+**SPF Results:**
+
+## SPF (Sender Policy Framework) Results Explained
+
+| Result        | Meaning                    | Action                |
+|--------------|----------------------------|-----------------------|
+| spf=pass     | Authorized sender ✅       | Likely legitimate     |
+| spf=fail     | Unauthorized sender ❌     | Likely spoofed        |
+| spf=softfail | Probably unauthorized      | Suspicious            |
+| spf=neutral  | No explicit allow/deny     | Cannot verify         |
+| spf=none     | No SPF record found        | Cannot verify         |
+
+### DKIM (DomainKeys Identified Mail)
+
+```
+PURPOSE: Verify email wasn't modified in transit
+
+HOW IT WORKS:
+1. Sending server signs email with private key
+2. Signature added to header
+3. Receiver gets public key from DNS
+4. Receiver verifies signature
+5. If signature valid → PASS ✅
+6. If signature invalid → FAIL ❌
+```
+
+**DKIM Results:**
+
+| Result     | Meaning                                   |
+|------------|--------------------------------------------|
+| dkim=pass  | Email authentic, not modified ✅           |
+| dkim=fail  | Email modified or forged ❌                |
+| dkim=none  | No DKIM signature present                 |
+
+
+### DMARC (Domain-based Message Authentication)
+```
+PURPOSE: Tell receivers what to do if SPF/DKIM fail
+
+HOW IT WORKS:
+1. Domain publishes DMARC policy
+2. Policy says: "If SPF/DKIM fail, do X"
+3. X can be: none, quarantine, or reject
+```
+
+**DMARC Policies:**
+
+| Policy        | Action                          |
+|--------------|----------------------------------|
+| p=none       | Monitor only, no action          |
+| p=quarantine | Send to spam folder              |
+| p=reject     | Block the email completely       |
+
+**DMARC Results:**
+Result	                             Meaning
+dmarc=pass                  	Email passed authentication ✅
+dmarc=fail                    	Email failed authentication ❌
+
+
+____
+
+# 3: Extract Sender IP & Identify Spoofing
