@@ -21,8 +21,8 @@
   - [x] Phishing → T1566
   - [x] PowerShell → T1059.001
   - [x] Credential Dumping → T1003
-- [ ] Explain Cyber Kill Chain stages
-- [ ] Explain Pyramid of Pain (Hash vs TTP)
+- [x] Explain Cyber Kill Chain stages
+- [x] Explain Pyramid of Pain (Hash vs TTP)
 - [ ] Memorize NIST IR lifecycle (PICERL)
 - [ ] Explain CIA Triad with real examples
 
