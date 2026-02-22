@@ -226,3 +226,20 @@ AFTER ISOLATION:
 - Domain controller (major impact)
 - Evidence preservation needed
 ```
+
+### What Isolation Does:
+```
+BLOCKED:
+❌ All network traffic
+❌ File share access
+❌ Internet access
+❌ Lateral movement
+❌ C2 communication
+
+MAINTAINED:
+✅ EDR agent connection
+✅ Remote investigation
+✅ Memory collection
+✅ Forensic analysis
+✅ Remediation commands
+```

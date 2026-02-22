@@ -84,9 +84,9 @@
 - [x] Analyze process tree
 - [x] Identify suspicious parent-child (`Word` → `PowerShell`)
 - [x] Identify process running from `Temp` or `AppData`
-- [ ] Detect LOLBins:
-  - [ ] `powershell.exe -enc`
-  - [ ] `certutil.exe -urlcache`
+- [x] Detect LOLBins:
+  - [x] `powershell.exe -enc`
+  - [x] `certutil.exe -urlcache`
   - [ ] `mshta.exe`
   - [ ] `rundll32.exe`
 - [ ] Understand "Isolate Host" action
