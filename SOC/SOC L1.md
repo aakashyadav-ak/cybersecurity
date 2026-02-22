@@ -30,22 +30,22 @@
 
 ## 3) WINDOWS DETECTION (MOST IMPORTANT)
 ### Critical Event IDs
-- [ ] `4624` – Successful Logon
-- [ ] `4625` – Failed Logon
-- [ ] `4688` – Process Creation (Command Line)
-- [ ] `4720` – User Created
-- [ ] `4732` – Added to Admin Group
-- [ ] `4769` – Kerberos Service Ticket
-- [ ] `7045` – Service Created
-- [ ] `1102` – Log Cleared
-- [ ] `4104` – PowerShell Script Block
+- [x] `4624` – Successful Logon
+- [x] `4625` – Failed Logon
+- [x] `4688` – Process Creation (Command Line)
+- [x] `4720` – User Created
+- [x] `4732` – Added to Admin Group
+- [x] `4769` – Kerberos Service Ticket
+- [x] `7045` – Service Created
+- [x] `1102` – Log Cleared
+- [x] `4104` – PowerShell Script Block
 
 ### Must Detect
-- [ ] Brute force (multiple 4625 + 1 success)
-- [ ] Password spraying pattern
-- [ ] Suspicious PowerShell (`-enc`, `IEX`, `DownloadString`)
-- [ ] New admin account creation
-- [ ] Log clearing attempt
+- [x] Brute force (multiple 4625 + 1 success)
+- [x] Password spraying pattern
+- [x] Suspicious PowerShell (`-enc`, `IEX`, `DownloadString`)
+- [x] New admin account creation
+- [x] Log clearing attempt
 
 ---
 
