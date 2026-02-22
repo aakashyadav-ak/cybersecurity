@@ -869,3 +869,57 @@ The Pyramid of Pain explains which defensive actions hurt attackers the most.
 
 ____
 
+# 5: NIST Incident Response Lifecycle (PICERL)
+
+The NIST IR Lifecycle is the industry standard for handling security incidents.
+
+
+## NIST IR Lifecycle
+**Created by:** NIST (National Institute of Standards and Technology)
+**Document:** NIST SP 800-61 Rev 2 (Computer Security Incident Handling Guide)
+**Purpose:** Standardized framework for responding to security incidents
+
+### The NIST IR Lifecycle (PICERL)
+```
+         ┌─────────────────────────┐
+         │    1. PREPARATION       │ ← Continuous
+         └───────────┬─────────────┘
+                     │
+         ┌───────────▼─────────────┐
+         │ 2. IDENTIFICATION       │
+         │  (Detection & Analysis) │
+         └───────────┬─────────────┘
+                     │
+         ┌───────────▼─────────────┐
+         │   3. CONTAINMENT        │
+         │   (Short & Long-term)   │
+         └───────────┬─────────────┘
+                     │
+         ┌───────────▼─────────────┐
+         │   4. ERADICATION        │
+         └───────────┬─────────────┘
+                     │
+         ┌───────────▼─────────────┐
+         │     5. RECOVERY         │
+         └───────────┬─────────────┘
+                     │
+         ┌───────────▼─────────────┐
+         │  6. LESSONS LEARNED     │
+         │   (Post-Incident)       │
+         └───────────┬─────────────┘
+                     │
+                     └──────────┐
+                                │
+                    ┌───────────▼─────────────┐
+                    │  Back to PREPARATION    │ ← Cycle repeats
+                    │  (Continuous Improvement)│
+                    └─────────────────────────┘
+```
+
+
+1. P - Preparation
+2. I - Identification (Detection & Analysis)
+3. C - Containment
+4. E - Eradication
+5. R - Recovery
+6. L - Lessons Learned (Post-Incident Activity)
