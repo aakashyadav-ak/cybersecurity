@@ -44,7 +44,7 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### type()
+### ==type()==
 We have a type() function to check their data types of a variable
 
 ```python
