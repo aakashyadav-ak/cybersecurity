@@ -113,15 +113,15 @@
 - [x] Adding & Modifying Items
 
 ## Module 15: Sets
-- [ ] Set Definition
-- [ ] Characteristics of Sets
-- [ ] Adding & Removing Elements
-- [ ] Set Methods
-- [ ] Set Operations
-  - [ ] union
-  - [ ] intersection
-  - [ ] difference
-  - [ ] symmetric difference
+- [x] Set Definition
+- [x] Characteristics of Sets
+- [x] Adding & Removing Elements
+- [x] Set Methods
+- [x] Set Operations
+  - [x] union
+  - [x] intersection
+  - [x] difference
+  - [x] symmetric difference
 
 ## Module 16: User Input
 - [ ] String Input
