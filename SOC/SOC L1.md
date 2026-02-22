@@ -53,9 +53,9 @@
 - [x] Analyze `/var/log/auth.log` or `/var/log/secure`
 - [x] Detect SSH brute force
 - [x] Detect sudo abuse
-- [ ] Detect cron persistence
-- [ ] Detect reverse shell patterns
-- [ ] Detect web shell in web directory
+- [x] Detect cron persistence
+- [x] Detect reverse shell patterns
+- [x] Detect web shell in web directory
 
 ---
 
