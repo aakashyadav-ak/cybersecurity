@@ -16,3 +16,27 @@ Headers are read BOTTOM to TOP (oldest → newest)
 └─────────────────────────────────────────┘
 ```
 
+
+
+#### Key Headers to Analyze
+
+| Header                   | What It Shows            | Why Important                          |
+|--------------------------|--------------------------|----------------------------------------|
+| From                     | Claimed sender           | Can be spoofed                         |
+| Reply-To                 | Where replies go         | Often different in phishing            |
+| Return-Path              | Bounce address           | Helps identify real sending domain     |
+| Received                 | Mail server path         | Used to trace email origin             |
+| X-Originating-IP         | Sender's real IP         | Helps identify attacker infrastructure |
+| Authentication-Results   | SPF/DKIM/DMARC status    | Verifies sender legitimacy             |
+
+____
+
+# 2: SPF / DKIM / DMARC
+## The Email Authentication Trinity
+```
+SPF  → Who can SEND for this domain?
+DKIM → Is the email AUTHENTIC (not modified)?
+DMARC → What to DO if SPF/DKIM fails?
+```
+
+
