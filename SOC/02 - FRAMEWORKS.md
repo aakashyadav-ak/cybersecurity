@@ -820,3 +820,38 @@ Attacker achieves their final goal (data theft, ransomware, destruction).
 | **Limitation** | Assumes linear progression | Complex but comprehensive |
 
 ==Both are valid! Kill Chain is simpler, ATT&CK is more detailed.==
+
+
+___
+
+# 4: Pyramid of Pain (Hash vs TTP)
+The Pyramid of Pain explains which defensive actions hurt attackers the most.
+
+## The Pyramid of Pain
+**Created by:** David Bianco (2013)
+**Purpose:** Show which Indicators of Compromise (IOCs) are most valuable to defenders
+
+"The higher you go on the pyramid, the MORE PAIN it causes attackers when you detect/block them"
+```
+                    /\
+                   /  \
+                  /    \
+                 / TTPs \  ← 🔥 MOST PAIN (Hardest for attacker)
+                /________\
+               /          \
+              /   Tools    \
+             /______________\
+            /                \
+           / Network/Host     \
+          /     Artifacts      \
+         /______________________\
+        /                        \
+       /    Domain Names          \
+      /____________________________\
+     /                              \
+    /         IP Addresses           \
+   /__________________________________\
+  /                                    \
+ /            Hash Values               \
+/________________________________________ \  ← 😊 TRIVIAL (Easy for attacker)
+```
