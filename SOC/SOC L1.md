@@ -94,8 +94,8 @@
 ---
 
 ## 7) EMAIL & PHISHING (DAILY TASK)
-- [ ] Analyze email headers (SPF/DKIM/DMARC)
-- [ ] Extract sender IP from `Received` headers
+- [x] Analyze email headers (SPF/DKIM/DMARC)
+- [x] Extract sender IP from `Received` headers
 - [ ] Identify spoofed domain
 - [ ] Check attachment hash in VirusTotal
 - [ ] Analyze URL safely (**URLScan.io**)
