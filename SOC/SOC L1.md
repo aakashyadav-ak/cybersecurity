@@ -50,9 +50,9 @@
 ---
 
 ## 4) LINUX DETECTION
-- [ ] Analyze `/var/log/auth.log` or `/var/log/secure`
-- [ ] Detect SSH brute force
-- [ ] Detect sudo abuse
+- [x] Analyze `/var/log/auth.log` or `/var/log/secure`
+- [x] Detect SSH brute force
+- [x] Detect sudo abuse
 - [ ] Detect cron persistence
 - [ ] Detect reverse shell patterns
 - [ ] Detect web shell in web directory
