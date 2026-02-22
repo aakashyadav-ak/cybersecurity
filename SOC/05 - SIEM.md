@@ -141,3 +141,51 @@ ____
 ____
 
 # 4: Detection Queries
+## Brute Force Detection
+
+**Splunk:**
+```
+index=windows EventID=4625
+| stats count by src_ip
+| where count > 50
+| sort -count
+```
+
+##  Password Spraying Detection
+**Splunk:**
+```
+index=windows EventID=4625
+| stats dc(user) as unique_users, count by src_ip
+| where unique_users > 10
+```
+
+## Successful Login After Failures
+**Splunk:**
+```
+index=windows (EventID=4625 OR EventID=4624)
+| stats count(eval(EventID=4625)) as failures, count(eval(EventID=4624)) as successes by src_ip
+| where failures > 10 AND successes > 0
+```
+
+## Suspicious PowerShell Detection
+**Splunk:**
+```
+index=windows EventID=4104
+| search ScriptBlockText="*DownloadString*" OR ScriptBlockText="*-enc*" OR ScriptBlockText="*IEX*"
+| table _time, ComputerName, ScriptBlockText
+```
+
+##  New Admin Account Created
+**Splunk:**
+```
+index=windows EventID=4720
+| join user [search index=windows EventID=4732 group_name="Administrators"]
+| table _time, user, src_user
+```
+
+##  Log Clearing Detection
+**Splunk:**
+```
+index=windows EventID=1102
+| table _time, user, ComputerName
+```

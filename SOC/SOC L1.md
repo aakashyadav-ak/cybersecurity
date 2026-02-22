@@ -61,15 +61,15 @@
 
 ## 5) SIEM SKILLS (CORE HIRING FILTER)
 ### Concepts
-- [ ] Log collection → Normalization → Correlation → Alerting
+- [x] Log collection → Normalization → Correlation → Alerting
 
 ### Splunk (Minimum)
-- [ ] Write search query
-- [ ] `stats count by`
-- [ ] `table`
-- [ ] `dedup`
-- [ ] `timechart`
-- [ ] Create threshold alert
+- [x] Write search query
+- [x] `stats count by`
+- [x] `table`
+- [x] `dedup`
+- [x] `timechart`
+- [x] Create threshold alert
 
 ### KQL (Cloud SOC Standard - 2026 Critical)
 - [ ] Filter EventID: `SecurityEvent | where EventID == 4625`
