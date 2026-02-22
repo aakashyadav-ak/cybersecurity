@@ -80,10 +80,10 @@
 ---
 
 ## 6) EDR / XDR INVESTIGATION
-- [ ] Understand EDR vs XDR
-- [ ] Analyze process tree
-- [ ] Identify suspicious parent-child (`Word` → `PowerShell`)
-- [ ] Identify process running from `Temp` or `AppData`
+- [x] Understand EDR vs XDR
+- [x] Analyze process tree
+- [x] Identify suspicious parent-child (`Word` → `PowerShell`)
+- [x] Identify process running from `Temp` or `AppData`
 - [ ] Detect LOLBins:
   - [ ] `powershell.exe -enc`
   - [ ] `certutil.exe -urlcache`
