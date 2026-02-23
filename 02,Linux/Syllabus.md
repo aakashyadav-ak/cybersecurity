@@ -10,36 +10,36 @@
 ---
 
 ## File & Directory Commands
-- [ ] `ls` (with `-la`)
-- [ ] `cd`
-- [ ] `pwd`
-- [ ] `mkdir`
-- [ ] `touch`
-- [ ] `cp`
-- [ ] `mv`
-- [ ] `rm` (`-r`, `-f`)
-- [ ] `cat`
-- [ ] `less`
-- [ ] `head`
-- [ ] `tail`
-- [ ] `find`
-- [ ] `locate`
-- [ ] `which`
+- [x] `ls` (with `-la`)
+- [x] `cd`
+- [x] `pwd`
+- [x] `mkdir`
+- [x] `touch`
+- [x] `cp`
+- [x] `mv`
+- [x] `rm` (`-r`, `-f`)
+- [x] `cat`
+- [x] `less`
+- [x] `head`
+- [x] `tail`
+- [x] `find`
+- [x] `locate`
+- [x] `which`
 - [ ] `whereis`
 
 ---
 
 ##  Text Processing (Super Important for VAPT)
-- [ ] `grep` (`-i`, `-r`, `-n`)
-- [ ] `cut`
-- [ ] `awk` (basic)
-- [ ] `sed` (basic)
+- [x] `grep` (`-i`, `-r`, `-n`)
+- [x] `cut`
+- [x] `awk` (basic)
+- [x] `sed` (basic)
 - [ ] `sort`
 - [ ] `uniq`
-- [ ] `wc`
-- [ ] `tr`
-- [ ] pipes `|`
-- [ ] redirection `>`, `>>`, `<`
+- [x] `wc`
+- [x] `tr`
+- [x] pipes `|`
+- [x] redirection `>`, `>>`, `<`
 - [ ] stderr redirection `2>/dev/null`
 
 ---
