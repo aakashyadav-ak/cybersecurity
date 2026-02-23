@@ -139,9 +139,21 @@ Where user files live.
 #### **/root**
 Home folder for the root user (admin).
 
-#### /etc
+#### ==/etc==
 System configuration files.
+**/etc** is the folder where Linux keeps its settings and rules.
 
+**It stores configuration files that tell the system:**
+
+- Who can log in
+- What password rules to use
+- How network works
+- Which services should start
+- Who has admin (sudo) access
+
+**So basically:**
+ /etc = Linux control center for system settings
+ 
 **Examples:**
 - /etc/passwd
 - /etc/ssh/sshd_config
@@ -150,30 +162,82 @@ System configuration files.
 #### /bin and /usr/bin
 Essential commands and programs./ Essential user binaries
 
+==**/bin**== → Contains basic system commands needed for Linux to run.
 **Examples:**
 - ls
 - cat
 - bash
 - python3
 
+==**/usr/bin**== → Contains most of the user-level programs and applications.
+
+**Examples:**
+- nmap
+- curl
+- wget
+- python
+
 #### /sbin and /usr/sbin
 Admin/system commands.
 
-**Examples:**
-- iptables
-- ifconfig (sometimes)
-- system tools
+==**/sbin**== → Contains important system administration commands.
+Contains essential system management commands needed for booting and repairing the system.
 
-#### /var
+**Examples:**
+- reboot
+- shutdown
+- fdisk
+- fsck
+- iptables
+
+==/usr/sbin== -> Contains more advanced admin and service-related programs.
+
+**Contains:**
+- Service management tools
+- Network service binaries
+- Server-related programs
+
+**Examples:**
+- sshd
+- apache2
+- nginx
+- useradd
+- adduser
+
+
+#### /var  (is the folder where Linux stores changing data.)
 “Variable” data (logs, cache, changing stuff)
 
 **Examples:**
 - /var/log/auth.log
 - /var/log/syslog
 
+==**/var/log**==
+**Common log files:**
+- /var/log/auth.log → Login attempts (Debian/Ubuntu)
+- /var/log/secure → Login logs (RHEL/CentOS)
+- /var/log/syslog → General system logs
+- /var/log/messages → System messages
+- /var/log/apache2/ → Web server logs
+- /var/log/nginx/ → Web server logs
 #### /tmp
 Temporary files (often cleared on reboot)/Often writable
 ==every user can work in this directory==
+
+==**/var/tmp**==
+- Temporary files
+- Similar to /tmp
+- Files may persist after reboot
+
+**/var/lib**
+- Application state data
+- Databases
+- Package information
+
+**/var/cache**
+Cached files from applications
+
+
 
 #### /dev
 Devices treated like files./Device files
