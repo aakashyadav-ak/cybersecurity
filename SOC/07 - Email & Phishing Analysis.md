@@ -239,3 +239,58 @@ NEVER Click Suspicious Links Directly!
 
 
 #### Suspicious URL Indicators:
+
+| Indicator                | Example                          | Risk        |
+|--------------------------|----------------------------------|------------|
+| IP instead of domain     | http://45.142.212.61/login       | High 🚨     |
+| Long random string       | http://evil.com/a3f2x9y8z        | High 🚨     |
+| URL shortener            | bit.ly/xyz123                    | Medium      |
+| Misspelled brand         | paypa1-secure.com                | High 🚨     |
+| Suspicious TLD           | company.tk, login.ml             | High 🚨     |
+| @ symbol in URL          | http://google.com@evil.com       | High 🚨     |
+
+
+____
+
+# 5: Spam vs Malicious
+
+## Key Differences
+
+| Aspect        | Spam                                   | Malicious Phishing                                  |
+|--------------|------------------------------------------|----------------------------------------------------|
+| Intent       | Advertising, annoyance                  | Steal credentials, deploy malware                  |
+| Attachments  | Usually none or PDFs                    | Executables, Office files with macros              |
+| Links        | Product pages, unsubscribe links        | Fake login pages, malware downloads                |
+| Urgency      | "Limited offer!"                        | "Account suspended!" "Act now!"                    |
+| Spoofing     | Usually from real sender                | Spoofed trusted brands                             |
+| SPF/DKIM     | Often pass                              | Often fail (but may pass in advanced attacks)      |
+| Response     | Block sender, ignore                    | Investigate, block IOCs, alert users               |
+
+
+## Analysis Decision Tree
+
+```
+START: Suspicious Email Received
+    │
+    ├─ Check SPF/DKIM/DMARC
+    │   ├─ FAIL → Likely Spoofed → MALICIOUS 🚨
+    │   └─ PASS → Continue analysis
+    │
+    ├─ Has Attachment?
+    │   ├─ .exe/.js/.vbs/.scr → MALICIOUS 🚨
+    │   ├─ .docm/.xlsm (macro) → MALICIOUS 🚨
+    │   └─ .pdf/.docx → Check hash in VT
+    │
+    ├─ Has Link?
+    │   ├─ Fake login page → MALICIOUS 🚨
+    │   ├─ URL shortener → Expand & analyze
+    │   └─ Product page → Likely SPAM
+    │
+    ├─ Requests Credentials/Payment?
+    │   ├─ YES → MALICIOUS 🚨
+    │   └─ NO → Continue
+    │
+    └─ Verdict:
+        ├─ MALICIOUS → Block IOCs, alert users, report
+        └─ SPAM → Block sender, no urgent action
+```
