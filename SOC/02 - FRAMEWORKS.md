@@ -49,22 +49,22 @@ It is a knowledge base of:
 
 ##### The 14 Tactics (in attack order):
 
-| # | Tactic | Simple Explanation | Attacker's Goal |
-| :--- | :--- | :--- | :--- |
-| 1 | **Reconnaissance** | Gathering information | "Let me research my target" |
-| 2 | **Resource Development** | Preparing attack infrastructure | "Let me buy a domain, setup server" |
-| 3 | **Initial Access** | Getting into the network | "How do I get in?" |
-| 4 | **Execution** | Running malicious code | "Let me run my malware" |
-| 5 | **Persistence** | Maintaining access | "How do I stay in even after reboot?" |
-| 6 | **Privilege Escalation** | Getting higher permissions | "I need admin rights" |
-| 7 | **Defense Evasion** | Avoiding detection | "How do I hide from security tools?" |
-| 8 | **Credential Access** | Stealing passwords/tokens | "I need more credentials" |
-| 9 | **Discovery** | Learning about the environment | "What systems exist? Who are the admins?" |
-| 10 | **Lateral Movement** | Moving to other systems | "Let me access other computers" |
-| 11 | **Collection** | Gathering data to steal | "Where's the valuable data?" |
-| 12 | **Command and Control (C2)** | Communicating with attacker's server | "Let me phone home for instructions" |
-| 13 | **Exfiltration** | Stealing data out | "Time to upload the data" |
-| 14 | **Impact** | Causing damage | "Let me encrypt/delete everything" |
+| #   | Tactic                       | Simple Explanation                   | Attacker's Goal                           |
+| :-- | :--------------------------- | :----------------------------------- | :---------------------------------------- |
+| 1   | **Reconnaissance**           | Gathering information                | "Let me research my target"               |
+| 2   | **Resource Development**     | Preparing attack infrastructure      | "Let me buy a domain, setup server"       |
+| 3   | **Initial Access**           | Getting into the network             | "How do I get in?"                        |
+| 4   | **Execution**                | Running malicious code               | "Let me run my malware"                   |
+| 5   | **Persistence**              | Maintaining access                   | "How do I stay in even after reboot?"     |
+| 6   | **Privilege Escalation**     | Getting higher permissions           | "I need admin rights"                     |
+| 7   | **Defense Evasion**          | Avoiding detection                   | "How do I hide from security tools?"      |
+| 8   | **Credential Access**        | Stealing passwords/tokens            | "I need more credentials"                 |
+| 9   | **Discovery**                | Learning about the environment       | "What systems exist? Who are the admins?" |
+| 10  | **Lateral Movement**         | Moving to other systems              | "Let me access other computers"           |
+| 11  | **Collection**               | Gathering data to steal              | "Where's the valuable data?"              |
+| 12  | **Command and Control (C2)** | Communicating with attacker's server | "Let me phone home for instructions"      |
+| 13  | **Exfiltration**             | Stealing data out                    | "Time to upload the data"                 |
+| 14  | **Impact**                   | Causing damage                       | "Let me encrypt/delete everything"        |
 
 
 **Example:**
