@@ -158,7 +158,7 @@ touch file1 file2 file3         # Create multiple files
 touch -t 202301151030 file.txt  # Set specific timestamp
 ```
 
-**Note:** touch also updates timestamps of existing files.
+==**Note:** touch also updates timestamps of existing files.==
 
 ## Copying Files - cp Command
 ```
