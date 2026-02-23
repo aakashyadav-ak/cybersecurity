@@ -151,3 +151,78 @@ ANALYSIS:
 - Real sender: mail-sender.com (45.142.212.61)
 - MISMATCH → SPOOFED EMAIL 🚨
 ```
+
+## Common Spoofing Techniques
+
+| Technique       | Real Domain     | Spoofed Domain Example                    |
+|-----------------|----------------|--------------------------------------------|
+| Typosquatting   | microsoft.com  | micros0ft.com, mircosoft.com               |
+| Homograph       | apple.com      | аpple.com (Cyrillic 'а')                   |
+| Subdomain       | company.com    | company.com.evil.com                       |
+| Added Word      | paypal.com     | paypal-secure.com                          |
+| TLD Swap        | amazon.com     | amazon.org, amazon.co                      |
+
+
+_____
+
+
+# 4: Analyzing Attachments & URLs
+
+## Attachment Analysis
+#### Step 1: Get File Hash (Without Opening!)
+```bash
+# Windows PowerShell
+Get-FileHash -Algorithm SHA256 .\suspicious_file.exe
+
+# Linux
+sha256sum suspicious_file.exe
+```
+
+#### Step 2: Check Hash on VirusTotal
+```
+URL: https://www.virustotal.com
+
+STEPS:
+1. Go to Search tab
+2. Paste file hash
+3. Check detection ratio
+
+RESULTS:
+0/70  → Likely clean (or brand new malware)
+5/70  → Suspicious, investigate further
+40/70 → Confirmed malicious 🚨
+```
+
+#### Step 3: Sandbox Detonation
+Safe environments to execute suspicious files:
+
+### Online Malware Analysis Tools
+
+| Tool            | URL                           | Best For              |
+| --------------- | ----------------------------- | --------------------- |
+| Any.Run         | `https://any.run`             | Interactive analysis  |
+| Hybrid Analysis | `https://hybrid-analysis.com` | Detailed reports      |
+| Joe Sandbox     | `https://joesandbox.com`      | Deep analysis         |
+| VirusTotal      | `https://virustotal.com`      | Quick reputation scan |
+
+**WHAT SANDBOXES SHOW:**
+- Network connections (C2 servers)
+- File modifications
+- Registry changes
+- Process creation
+- Screenshots of behavior
+
+
+
+## URL Analysis
+
+NEVER Click Suspicious Links Directly!
+
+#### Safe URL Analysis Tools:
+
+| Tool         | URL                       | Purpose                          |
+|-------------|---------------------------|----------------------------------|
+| URLScan.io  | https://urlscan.io        | Screenshot, IP, linked resources |
+| VirusTotal  | https://virustotal.com    | Detection ratio & reputation     |
+| CheckPhish  | https://checkphish.ai     | Phishing detection               |
+| URL2PNG     | https://url2png.com       | Safe webpage screenshot          |
