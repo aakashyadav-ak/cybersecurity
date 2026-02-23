@@ -112,7 +112,11 @@ echo $0
 /etc/bash.bashrc    # Global bash config
 ```
 
-### 3. File System
+
+
+_____
+
+# 3. File System
 A filesystem is how Linux stores and organizes data on disk (SSD/HDD/USB).
 
 **It controls:**
@@ -121,7 +125,7 @@ A filesystem is how Linux stores and organizes data on disk (SSD/HDD/USB).
 - where system files live
 - how devices get mounted
 
-#### **/ (root)**
+## / (root)
 The top of everything. Every folder starts from here.
 
 - Hierarchical structure starting from / (root)
@@ -129,17 +133,17 @@ The top of everything. Every folder starts from here.
 - Directories, devices, sockets, processes are all files
 - Case-sensitive naming
 
-#### **/home**
+## /home
 Where user files live.
 
 **Example:**
 - /home/username/Documents
 - /home/username/Downloads
 
-#### **/root**
+## /root
 Home folder for the root user (admin).
 
-#### ==/etc==
+### ==/etc==
 System configuration files.
 **/etc** is the folder where Linux keeps its settings and rules.
 
@@ -159,17 +163,17 @@ System configuration files.
 - /etc/ssh/sshd_config
 - /etc/hosts
 
-#### /bin and /usr/bin
+### /bin and /usr/bin
 Essential commands and programs./ Essential user binaries
 
-==**/bin**== → Contains basic system commands needed for Linux to run.
+#### ==**/bin**== → Contains basic system commands needed for Linux to run.
 **Examples:**
 - ls
 - cat
 - bash
 - python3
 
-==**/usr/bin**== → Contains most of the user-level programs and applications.
+#### ==**/usr/bin**== → Contains most of the user-level programs and applications.
 
 **Examples:**
 - nmap
@@ -177,10 +181,10 @@ Essential commands and programs./ Essential user binaries
 - wget
 - python
 
-#### /sbin and /usr/sbin
+### /sbin and /usr/sbin
 Admin/system commands.
 
-==**/sbin**== → Contains important system administration commands.
+##### ==**/sbin**== → Contains important system administration commands.
 Contains essential system management commands needed for booting and repairing the system.
 
 **Examples:**
@@ -190,7 +194,7 @@ Contains essential system management commands needed for booting and repairing t
 - fsck
 - iptables
 
-==/usr/sbin== -> Contains more advanced admin and service-related programs.
+#### ==/usr/sbin== -> Contains more advanced admin and service-related programs.
 
 **Contains:**
 - Service management tools
