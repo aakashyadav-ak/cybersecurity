@@ -422,13 +422,13 @@ Some alerts are just "FYI" – they require documentation but no action.
 
 **If the affected system is critical, escalate immediately:**
 
-| Critical Asset | Why Critical | Escalation Priority |
-| :--- | :--- | :--- |
-| Domain Controller | Controls entire network authentication | 🔴 CRITICAL |
-| Database Server | Contains sensitive customer/financial data | 🔴 CRITICAL |
-| Email Server | Communication backbone, potential data leak | 🔴 HIGH |
-| Web Server (public-facing) | Brand reputation, customer trust | 🔴 HIGH |
-| CEO/CFO/Executive laptop | High-value target, sensitive information | 🔴 HIGH |
+| Critical Asset             | Why Critical                                | Escalation Priority |
+| :------------------------- | :------------------------------------------ | :------------------ |
+| Domain Controller          | Controls entire network authentication      | 🔴 CRITICAL         |
+| Database Server            | Contains sensitive customer/financial data  | 🔴 CRITICAL         |
+| Email Server               | Communication backbone, potential data leak | 🔴 HIGH             |
+| Web Server (public-facing) | Brand reputation, customer trust            | 🔴 HIGH             |
+| CEO/CFO/Executive laptop   | High-value target, sensitive information    | 🔴 HIGH             |
 
 Even a "minor" alert on a critical asset = ESCALATE
 
