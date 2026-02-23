@@ -38,7 +38,7 @@ The command line (also called terminal, console, or shell) is a text-based inter
 - Access via Applications menu or right-click desktop
 
 
-**PTY (Pseudo Terminal)**
+### **PTY (Pseudo Terminal)**
 Used when you open terminals inside GUI or SSH sessions.
 
 **Examples:**
