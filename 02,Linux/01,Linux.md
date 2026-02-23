@@ -284,23 +284,24 @@ Virtual filesystem showing running system info.
 ├── /var           # Variable data (logs, mail, etc.)
 ```
 
-```bash
-# Configuration files (credentials, settings)
+
+### ==Configuration files (credentials, settings)==
 /etc/passwd         # User accounts
 /etc/shadow         # Password hashes
 /etc/sudoers        # Sudo privileges
 /etc/ssh/           # SSH configuration
 
-# Logs (information disclosure)
+### ==Logs (information disclosure)==
 /var/log/auth.log   # Authentication logs
 /var/log/syslog     # System logs
 /var/log/apache2/   # Web server logs
 
-# Temporary (privilege escalation)
+### ==Temporary (privilege escalation)==
 /tmp/               # World-writable
 /var/tmp/           # Persistent temp
 /dev/shm/           # Shared memory
-```
+
+
 ### 4. Userspace
 - All applications and utilities running outside kernel
 - Includes system tools, libraries, and user programs
