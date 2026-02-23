@@ -115,3 +115,39 @@ dmarc=fail                    	Email failed authentication ❌
 ____
 
 # 3: Extract Sender IP & Identify Spoofing
+
+## Finding Real Sender IP
+#### Method 1: X-Originating-IP Header
+```
+X-Originating-IP: [45.142.212.61]
+
+→ This is the sender's actual IP
+→ Look this up in threat intel (AbuseIPDB, VirusTotal)
+```
+
+
+#### Method 2: Received Headers (Read Bottom to Top)
+```
+Received: from mail.company.com (10.0.0.5) by mx.google.com
+Received: from unknown (45.142.212.61) by mail.company.com  ← REAL ORIGIN
+Received: from localhost (127.0.0.1) by unknown             ← OLDEST (START)
+
+Read bottom → top
+First external IP = Real sender IP
+```
+
+
+#### Example:
+```
+Email claims: From: ceo@company.com
+
+HEADERS (bottom to top):
+3. Received: by mx.google.com (recipient's server)
+4. Received: from mail-sender.com [45.142.212.61] ← REAL SENDER
+5. Received: from localhost
+
+ANALYSIS:
+- Claimed domain: company.com
+- Real sender: mail-sender.com (45.142.212.61)
+- MISMATCH → SPOOFED EMAIL 🚨
+```
