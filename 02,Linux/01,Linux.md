@@ -227,7 +227,7 @@ Temporary files (often cleared on reboot)/Often writable
 ==**/var/tmp**==
 - Temporary files
 - Similar to /tmp
-- Files may persist after reboot
+- Files may persist after reboot ==(the file will still be there even after you restart the system.)==
 
 **/var/lib**
 - Application state data
