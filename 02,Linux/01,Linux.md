@@ -125,7 +125,7 @@ A filesystem is how Linux stores and organizes data on disk (SSD/HDD/USB).
 - where system files live
 - how devices get mounted
 
-## / (root)
+# / (root)
 The top of everything. Every folder starts from here.
 
 - Hierarchical structure starting from / (root)
@@ -133,14 +133,14 @@ The top of everything. Every folder starts from here.
 - Directories, devices, sockets, processes are all files
 - Case-sensitive naming
 
-## /home
+## 1) /home
 Where user files live.
 
 **Example:**
 - /home/username/Documents
 - /home/username/Downloads
 
-## /root
+## 2) /root
 Home folder for the root user (admin).
 
 ### ==/etc==
@@ -163,7 +163,7 @@ System configuration files.
 - /etc/ssh/sshd_config
 - /etc/hosts
 
-### /bin and /usr/bin
+## 3) /bin and /usr/bin
 Essential commands and programs./ Essential user binaries
 
 #### ==**/bin**== → Contains basic system commands needed for Linux to run.
@@ -181,7 +181,7 @@ Essential commands and programs./ Essential user binaries
 - wget
 - python
 
-### /sbin and /usr/sbin
+## 4) /sbin and /usr/sbin
 Admin/system commands.
 
 ##### ==**/sbin**== → Contains important system administration commands.
@@ -209,14 +209,14 @@ Contains essential system management commands needed for booting and repairing t
 - adduser
 
 
-#### /var  (is the folder where Linux stores changing data.)
+## ==***5) /var  (is the folder where Linux stores changing data.)***==
 “Variable” data (logs, cache, changing stuff)
 
 **Examples:**
 - /var/log/auth.log
 - /var/log/syslog
 
-==**/var/log**==
+#### ==**/var/log**==
 **Common log files:**
 - /var/log/auth.log → Login attempts (Debian/Ubuntu)
 - /var/log/secure → Login logs (RHEL/CentOS)
@@ -224,38 +224,38 @@ Contains essential system management commands needed for booting and repairing t
 - /var/log/messages → System messages
 - /var/log/apache2/ → Web server logs
 - /var/log/nginx/ → Web server logs
-#### /tmp
+## 6) /tmp
 Temporary files (often cleared on reboot)/Often writable
 ==every user can work in this directory==
 
-==**/var/tmp**==
+#### ==**/var/tmp**==
 - Temporary files
 - Similar to /tmp
 - Files may persist after reboot ==(the file will still be there even after you restart the system.)==
 
-**/var/lib**
+#### **/var/lib**
 - Application state data
 - Databases
 - Package information
 
-**/var/cache**
+#### **/var/cache**
 Cached files from applications
 
 
 
-#### /dev
-Devices treated like files./Device files
+## /dev
+Devices treated like files / Device files
 
 **Examples:**
 - /dev/sda (disk)
 - /dev/null
 - /dev/tty
 
-#### /mnt and /media
+## /mnt and /media
 Where drives get mounted (USB, external disks)
 
 
-#### /proc
+## /proc
 Virtual filesystem showing running system info.
 
 **Examples:**
