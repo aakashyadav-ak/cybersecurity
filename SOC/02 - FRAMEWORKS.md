@@ -10,7 +10,7 @@
 
 #### **ATT&CK** = Adversarial Tactics, Techniques, and Common Knowledge
 
-It's a giant encyclopedia of how hackers attack systems, based on real-world observations.
+MITRE ATT&CK is a knowledge base that documents real-world attacker techniques and organizes them into tactics and techniques to help defenders detect and prevent attacks.
 
 It is a knowledge base of:
 - How attackers behave
