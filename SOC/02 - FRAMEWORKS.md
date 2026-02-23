@@ -1,7 +1,9 @@
 
 #  1: MITRE ATT&CK Framework (Tactic vs Technique)
 
-- MITRE ATT&CK is THE industry standard framework for understanding adversary behavior.
+- ==MITRE ATT&CK is a list of common hacking methods attackers use.==
+- MITRE ATT&CK is THE industry standard framework for understanding adversary behaviour.
+- ==It is a framework that shows how hackers attack step-by-step==
 
 - MITRE Corporation created the ATT&CK framework.
 
