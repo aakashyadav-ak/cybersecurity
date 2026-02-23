@@ -98,7 +98,6 @@ ls -la      # Long listing with hidden files
 | `~/.ssh/authorized_keys` | Allowed SSH public keys        |
 | `~/.ssh/id_rsa`          | Private SSH key (**CRITICAL**) |
 | `~/.ssh/known_hosts`     | Known SSH servers              |
-| `~/.gnupg/`              | GPG keys                       |
 | `~/.config/`             | Application configs            |
 
 **View file:**
