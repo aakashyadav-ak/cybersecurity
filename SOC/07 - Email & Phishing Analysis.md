@@ -226,3 +226,16 @@ NEVER Click Suspicious Links Directly!
 | VirusTotal  | https://virustotal.com    | Detection ratio & reputation     |
 | CheckPhish  | https://checkphish.ai     | Phishing detection               |
 | URL2PNG     | https://url2png.com       | Safe webpage screenshot          |
+
+#### URLScan.io Analysis:
+
+**SUBMIT URL → GET:**
+- Screenshot (see page without visiting)
+- Final destination (after redirects)
+- IP address
+- Technologies detected
+- Linked domains
+- Malicious indicators
+
+
+#### Suspicious URL Indicators:
