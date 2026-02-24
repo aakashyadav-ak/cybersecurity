@@ -163,11 +163,29 @@ EOF
 ### awk (Pattern Scanning & Processing)
 AWK is mainly used to extract and process columns (fields) from text.
 
+==awk is a tool to work with columns in text files.==
+
 **AWK is best for:**
 - printing specific columns
 - filtering based on conditions
-- counting / summing
 - parsing logs, /etc/passwd, command output
+
+**If a file looks like:**
+```
+xyz 25 india
+john 30 usa
+```
+
+**command:**
+```bash
+awk '{print $1}' file.txt
+```
+
+**output:**
+```
+ak
+john
+```
 
 **How AWK sees data**
 By default, AWK splits each line by spaces/tabs into fields:
