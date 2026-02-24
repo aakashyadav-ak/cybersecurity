@@ -62,7 +62,7 @@ It is a knowledge base of:
 | 9   | **Collection**               | Gathering data to steal              | "Where's the valuable data?"              |
 | 10  | **Command and Control (C2)** | Communicating with attacker's server | "Let me phone home for instructions"      |
 | 11  | **Exfiltration**             | Stealing data out                    | "Time to upload the data"                 |
-| 14  | 2**Impact**                  | Causing damage                       | "Let me encrypt/delete everything"        |
+| 14  | **Impact**                   | Causing damage                       | "Let me encrypt/delete everything"        |
 
 
 **Example:**
