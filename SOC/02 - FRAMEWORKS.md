@@ -231,7 +231,7 @@ THEN ALERT "Possible Brute Force (T1110)"
 
 
 ### 2) PHISHING → T1566
-- Attackers send deceptive messages to trick users into clicking links, opening files, or revealing credentials.
+- Attackers send fake/misleading messages to trick users into clicking links, opening files, or revealing credentials.
 - Tricking people via email/messages
 
 - Technique ID: T1566
