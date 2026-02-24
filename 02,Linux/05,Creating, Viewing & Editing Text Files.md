@@ -222,6 +222,8 @@ awk '$3 > 1000 {print $1, $3}' /etc/passwd
 
 **Purpose:** Find/replace + delete/insert for text streams
 
+==sed is used to find and replace text.==
+
 **SED is best for:**
 - replacing text
 - deleting lines
@@ -233,6 +235,12 @@ awk '$3 > 1000 {print $1, $3}' /etc/passwd
 ```bash
 sed 'command' file
 ```
+
+**example:**
+```bash
+sed 's/india/USA/' file.txt
+```
+It replaces india with USA.
 
 **example:**
 ```
