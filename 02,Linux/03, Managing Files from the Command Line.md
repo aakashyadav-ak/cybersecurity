@@ -99,6 +99,7 @@ ls -la      # Long listing with hidden files
 | `~/.ssh/id_rsa`          | Private SSH key (**CRITICAL**) |
 | `~/.ssh/known_hosts`     | Known SSH servers              |
 | `~/.config/`             | Application configs            |
+==`~/.bashrc` - It's a file run in background when we open terminal & configure the terminal according to our alias or predefined alias.==
 
 **View file:**
 ```bash
