@@ -146,7 +146,7 @@ ___
 
 # Manage File System Permissions from the Command Line
 
-## chmod - Change Permissions
+## ==chmod - Change Permissions==
 
 **Two ways to use chmod:**
 - Symbolic method (letters)
@@ -165,6 +165,10 @@ chmod WHO+/-PERMISSION filename
 chmod u+x script.sh
 ```
 
+**Remove write for others:**
+```
+chmod o-w file.txt
+```
 #### WHO:
 | Letter | Meaning        |
 | :----- | :------------- |
@@ -179,19 +183,6 @@ chmod u+x script.sh
 | `+`    | Add permission       |
 | `-`    | Remove permission    |
 | `=`    | Set exact permission |
-
-### Symbolic Examples
-
-**Add execute for owner:**
-```
-chmod u+x script.sh
-```
-
-
-**Remove write for others:**
-```
-chmod o-w file.txt
-```
 
 
 ### Numeric Method
