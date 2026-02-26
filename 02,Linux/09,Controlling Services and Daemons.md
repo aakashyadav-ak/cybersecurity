@@ -10,7 +10,7 @@
 - httpd - Apache web server
 - nginx - Nginx web server
 - mysqld - MySQL database
-- crond - Scheduled tasks
+- crond - Run Scheduled tasks
 - firewalld - Firewall
 Note: Many daemon names end with d (for daemon).
 
