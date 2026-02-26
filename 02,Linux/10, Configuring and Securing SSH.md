@@ -1,5 +1,6 @@
 
 # SSH = Secure Shell
+SSH (Secure Shell) allows you to remotely access and manage a Linux system securely over a network.
 
 SSH lets you:
 
