@@ -238,7 +238,7 @@ sed 'command' file
 
 **example:**
 ```bash
-sed 's/india/USA/' file.txt
+sed 's/india/USA/g' file.txt
 ```
 It replaces india with USA.
 
