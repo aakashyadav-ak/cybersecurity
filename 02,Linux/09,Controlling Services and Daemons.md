@@ -45,6 +45,23 @@ systemctl list-units --type=service
 ```
 
 
+#### Difference: Start vs Enable
+**Command**                	**What It Does**
+___
+`start`                      	Runs service now
+`enable`	                        Runs service at boot
+`stop`                         	Stops service now
+`disable`	                        Prevents starting at boot
+
 ___ 
+**Enable** (start automatically at boot)
+```
+sudo systemctl enable ssh
+```
+
+**Disable** (do not start at boot)
+```
+sudo systemctl disable ssh
+```
 
 # Control System Services
