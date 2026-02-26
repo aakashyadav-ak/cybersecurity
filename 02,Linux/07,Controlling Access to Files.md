@@ -269,6 +269,12 @@ Files:       666 - 022 = 644 (rw-r--r--)
 Directories: 777 - 022 = 755 (rwxr-xr-x)
 ```
 
+**So new files & Directories become:**
+
+```
+-rw-r--r--   #files
+drwxr-xr-x)  #Directories
+```
 ## Set umask
 #### Temporary (current session):
 ```
