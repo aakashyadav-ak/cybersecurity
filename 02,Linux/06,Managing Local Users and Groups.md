@@ -218,7 +218,12 @@ cat /etc/passwd
 
 
 ## ==Create New User==
-```
+
+**There are two common commands:**
+==adduser==
+useradd
+
+```bash
 sudo adduser <username>
 ```
 
@@ -226,7 +231,17 @@ sudo adduser <username>
 - User "username"
 - Home folder /home/"username"
 - Primary group "username"
+- Prompts you to set password
 
+
+```bash
+sudo useradd <username>
+```
+**This only:**
+- Creates user entry in /etc/passwd
+- Does NOT set password
+- Does NOT create home directory (unless -m)
+- Not interactive
 
 ### Set Password for New User
 
