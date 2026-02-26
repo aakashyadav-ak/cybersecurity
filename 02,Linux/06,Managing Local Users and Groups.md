@@ -16,7 +16,7 @@ A user is an account that can log into the system.
 | **System users**  | `1-999`   | Run services, no login  | `apache`, `mysql` |
 | **Regular users** | `1000+`   | Normal people           | `john`, `sarah`   |
 
-
+==UID 0 = superuser privileges==
 ## Group?
 A group is a collection of users.
 
