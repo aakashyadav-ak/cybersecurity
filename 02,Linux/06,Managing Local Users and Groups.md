@@ -262,7 +262,7 @@ sudo usermod -s /bin/zsh <username>
 sudo usermod -aG wheel <username>
 ```
 - a → append (very important)
-- G → supplementary groups
+- G → supplementary (secondary) groups
 
 **⚠ Never forget -a.**
 If you run:
@@ -272,7 +272,15 @@ sudo usermod -G fgroup ak
 ==It will replace all existing supplementary groups and may remove sudo access.==
 
 #### Unlock user:
-```
+
+**Locking:**
+The user cannot authenticate (log in) using their password.
+
+**Unlocking:**
+Unlocking restores the ability to log in.
+It does NOT delete the account.
+
+```bash
 sudo usermod -U john
 ```
 
