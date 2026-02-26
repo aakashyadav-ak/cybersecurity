@@ -192,6 +192,18 @@ kill <PPID>                      # Kill parent
 ```
 
 
+#### pkill = Process Kill by Name
+
+It allows you to kill processes using their name, instead of using the PID.
+```
+pkill processname
+```
+
+##### Force kill
+```
+pkill -9 processname
+```
+
 ___
 
 # Monitor Process Activity
