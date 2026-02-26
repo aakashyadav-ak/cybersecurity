@@ -237,3 +237,26 @@ htop
 ```
 free -h
 ```
+
+
+___
+
+# Managing Services (systemd)
+
+**Modern Linux uses ==systemctl==.**
+
+Check service:
+```
+systemctl status ssh
+```
+
+**Start:**
+```
+sudo systemctl start ssh
+
+```
+
+**Stop:**
+```
+sudo systemctl stop ssh
+```
