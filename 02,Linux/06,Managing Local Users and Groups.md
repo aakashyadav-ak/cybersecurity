@@ -271,11 +271,15 @@ sudo usermod -G fgroup ak
 ```
 ==It will replace all existing supplementary groups and may remove sudo access.==
 
-#### Unlock user:
 
+#### Lock a User:
 **Locking:**
 The user cannot authenticate (log in) using their password.
+```bash
+sudo usermod -L ak
+```
 
+#### Unlock user:
 **Unlocking:**
 Unlocking restores the ability to log in.
 It does NOT delete the account.
