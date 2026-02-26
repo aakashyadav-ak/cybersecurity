@@ -204,7 +204,7 @@ sudo -s                         # Get root shell (keeps environment)
 | `su - john` | Switch to john (full environment)    | **John's** password |
 | `sudo su`   | Switch to root using YOUR password   | **Your** password   |
 | `sudo su -` | Switch to root with full environment | **Your** password   |
-| `sudo -i`   | Same as `sudo su -`                  | **Your** password   |
+
 
 ---
 
@@ -217,7 +217,7 @@ cat /etc/passwd
 ```
 
 
-## Create New User
+## ==Create New User==
 ```
 sudo adduser <username>
 ```
