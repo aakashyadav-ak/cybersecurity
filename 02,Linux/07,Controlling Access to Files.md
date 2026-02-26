@@ -87,15 +87,15 @@ ls -l
 #### Numeric (Octal) Permissions
 **Each permission has a number:**
 
-| Permission | Number |
-| :--- | :--- |
-| **Read** (`r`) | `4` |
-| **Write** (`w`) | `2` |
-| **Execute** (`x`) | `1` |
-| **None** (`-`) | `0` |
+| Permission        | Number |
+| :---------------- | :----- |
+| **Read** (`r`)    | `4`    |
+| **Write** (`w`)   | `2`    |
+| **Execute** (`x`) | `1`    |
+| **None** (`-`)    | `0`    |
 
 **Add them together:**
-```
+
 | Permissions | Calculation | Number |
 | :--- | :--- | :--- |
 | `rwx` | 4 + 2 + 1 | **7** |
@@ -106,7 +106,7 @@ ls -l
 | `-w-` | 0 + 2 + 0 | **2** |
 | `--x` | 0 + 0 + 1 | **1** |
 | `---` | 0 + 0 + 0 | **0** |
-```
+
 
 #### Three-Digit Permission Numbers
 ```
