@@ -64,11 +64,11 @@ ___
 
 ## Use of SSH Keys
 
-| Feature | Password Login | Key-based Login |
-| :--- | :--- | :--- |
-| **User Experience** | Type password every time | No password needed |
-| **Security Risk** | Can be brute-forced | ✅ Much more secure |
-| **Weakness** | Easy to guess weak passwords | Keys are very long |
+| Feature             | Password Login               | Key-based Login    |
+| :------------------ | :--------------------------- | :----------------- |
+| **User Experience** | Type password every time     | No password needed |
+| **Security Risk**   | Can be brute-forced          | ✅ Much more secure |
+| **Weakness**        | Easy to guess weak passwords | Keys are very long |
 
 #### How Key Authentication Works
 ```
