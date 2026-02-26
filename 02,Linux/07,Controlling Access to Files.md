@@ -212,7 +212,7 @@ chmod 700 private           # Only owner can access
 ```
 
 
-## chown - Change Owner
+## ==chown - Change Owner==
 
 **Change owner:**
 ```
@@ -230,7 +230,7 @@ sudo chown :newgroup file.txt
 ```
 
 
-## chgrp - Change Group
+## ==chgrp - Change Group==
 
 **Change group only:**
 ```
