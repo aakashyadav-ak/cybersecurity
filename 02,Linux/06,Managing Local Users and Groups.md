@@ -295,7 +295,7 @@ sudo usermod -l newname oldname
 ```
 
 
-#### Delete User:
+### Delete User ==(userdel)==:
 
 **Delete user only:**
 ```
@@ -327,7 +327,7 @@ groups
 groups john
 ```
 
-## Create New Group
+## Create New Group(==groupadd==):
 
 ```
 sudo groupadd developers
@@ -343,12 +343,7 @@ sudo groupadd -g 2000 developers
 sudo usermod -aG developers john
 ```
 
-==Remember: Always use -aG (append) or you remove other groups!==
-
-**Alternative command:**
-```
-sudo gpasswd -a john developers
-```
+==Remember: Always use -aG (append) or user will be removed from other secondary groups!==
 
 ### Remove User from Group
 ```
@@ -360,7 +355,7 @@ sudo gpasswd -d john developers
 sudo groupdel developers
 ```
 
-Note: Cannot delete a group if it's someone's primary group.
+==Note: Cannot delete a group if it's someone's primary group.==
 
 
 ___
@@ -417,17 +412,4 @@ sudo passwd -S john
 output:
 ```
 john PS 2023-01-15 0 99999 7 -1 (Password set, SHA512 crypt.)
-```
-
-### Lock and Unlock Accounts
-
-**Lock account (disable password):**
-```
-sudo passwd -l john
-```
-
-
-**Unlock account:**
-```
-sudo passwd -u john
 ```
