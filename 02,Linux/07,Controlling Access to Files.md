@@ -242,9 +242,10 @@ ___
 
 # Manage Default Permissions and File Access
 ## umask - Default Permission Mask
-When you create new files, what permissions do they get?
+- When you create new files, what permissions do they get?
+- umask controls this!
 
-umask controls this!
+==umask (User Mask) defines the default permissions that are removed when a new file or directory is created.==
 
 
 #### Check Current umask
@@ -260,8 +261,11 @@ umask
 ### How umask Works
 
 **Default permissions:**
-- Files: 666 (no execute by default)
-- Directories: 777
+When Linux creates:
+- Files → start with 666 (rw-rw-rw-)
+- Directories → start with 777 (rwxrwxrwx)
+
+Then umask removes bits.
 
 **umask subtracts from defaults:**
 ```
