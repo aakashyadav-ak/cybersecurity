@@ -250,7 +250,7 @@ sudo useradd <username>
 sudo passwd <username>
 ```
 
-### Modify Existing User
+### Modify Existing User ==(usermod)==
 
 #### Change shell:
 ```
@@ -261,6 +261,15 @@ sudo usermod -s /bin/zsh <username>
 ```
 sudo usermod -aG wheel <username>
 ```
+- a → append (very important)
+- G → supplementary groups
+
+**⚠ Never forget -a.**
+If you run:
+```
+sudo usermod -G fgroup ak
+```
+==It will replace all existing supplementary groups and may remove sudo access.==
 
 #### Unlock user:
 ```
