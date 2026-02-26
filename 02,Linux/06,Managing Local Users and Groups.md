@@ -56,15 +56,15 @@ cat /etc/passwd
 john:x:1001:1001:John Smith:/home/john:/bin/bash
 ```
 
-| Part | Meaning |
-|------|---------|
-| john | Username |
-| x | Password is in `/etc/shadow` |
-| 1001 | User ID (UID) |
-| 1001 | Group ID (GID) |
-| John Smith | Description / Full name |
-| /home/john | Home directory |
-| /bin/bash | Login shell |
+| Part       | Meaning                      |
+| ---------- | ---------------------------- |
+| john       | Username                     |
+| x          | Password is in `/etc/shadow` |
+| 1001       | User ID (UID)                |
+| 1001       | Group ID (GID)               |
+| John Smith | Description / Full name      |
+| /home/john | Home directory               |
+| /bin/bash  | Login shell                  |
 ### Understanding /etc/group
 ```
 cat /etc/group
@@ -76,12 +76,12 @@ developers:x:1010:john,sarah,mike
 ```
 
 
-| Part | Meaning |
-| :--- | :--- |
-| `developers` | Group name |
-| `x` | Password (usually empty) |
-| `1010` | Group ID (GID) |
-| `john,sarah,mike` | Members of this group |
+| Part              | Meaning                  |
+| :---------------- | :----------------------- |
+| `developers`      | Group name               |
+| `x`               | Password (usually empty) |
+| `1010`            | Group ID (GID)           |
+| `john,sarah,mike` | Members of this group    |
 
 **What groups am I in?**
 ```
