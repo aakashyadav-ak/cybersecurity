@@ -161,6 +161,20 @@ groups
 
 Look for "wheel" in the list.
 
+#### Wheel Group
+==The wheel group is a special administrative group used to control who is allowed to gain superuser (root) privileges.==
+It acts as a security control layer for privileged access.
+
+##### Different Distros Use Different Admin Groups
+
+| Distribution             | Admin Group |
+| ------------------------ | ----------- |
+| Ubuntu                   | `sudo`      |
+| Debian                   | `sudo`      |
+| Red Hat Enterprise Linux | `wheel`     |
+| CentOS                   | `wheel`     |
+| Fedora                   | `wheel`     |
+
 
 **Check sudo configuration:**
 ```
