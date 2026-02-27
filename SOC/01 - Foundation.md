@@ -848,7 +848,7 @@ ____
 #### 1. Time to Acknowledge (TTA)
 "How quickly did we acknowledge the alert exists?"
 #### 2. Time to Respond (TTR)
-"How quickly d      id we start investigating?"
+"How quickly did we start investigating?"
 #### 3. Time to Resolve (TTRes)
 "How quickly did we fully resolve the incident?"
 
