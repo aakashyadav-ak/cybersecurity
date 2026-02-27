@@ -16,15 +16,15 @@ LOG COLLECTION → NORMALIZATION → CORRELATION → ALERTING → DASHBOARD
 
 ## SIEM / Log Analysis Basic Concepts
 
-| Concept       | Meaning                           | Example                          |
-|--------------|------------------------------------|----------------------------------|
-| Log Source   | Where logs come from               | Windows, Firewall, Linux         |
-| Index        | Storage container for logs         | "windows_logs", "firewall"       |
-| Event        | Single log entry                   | One failed login                 |
-| Field        | Data element in event              | EventID, Username, IP            |
-| Query        | Search command                     | Find all failed logins           |
-| Alert        | Automated notification             | Trigger when >10 failures        |
-| Correlation  | Connect related events             | Failed logins → then success     |
+| Concept     | Meaning                    | Example                      |
+| ----------- | -------------------------- | ---------------------------- |
+| Log Source  | Where logs come from       | Windows, Firewall, Linux     |
+| Index       | Storage container for logs | "windows_logs", "firewall"   |
+| Event       | Single log entry           | One failed login             |
+| Field       | Data element in event      | EventID, Username, IP        |
+| Query       | Search command             | Find all failed logins       |
+| Alert       | Automated notification     | Trigger when >10 failures    |
+| Correlation | Connect related events     | Failed logins → then success |
 
 ### 
 
