@@ -161,7 +161,7 @@ This search finds: Brute force attempts (more than 10 failed logins per IP/user)
 
 ---
 
-# Log Sources (On-Prem vs Cloud)
+# Log Sources (On-Premises vs Cloud)
 
 ## On-Premises Log Sources:
 
