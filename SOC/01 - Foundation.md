@@ -499,12 +499,12 @@ ____
                     YES         |    NO
                     ____________|____________
          YES    |               |
-ALERT    TRUE POSITIVE  | FALSE POSITIVE
-FIRED?          ✅      |      ❌
+ALERT    TRUE POSITIVE | FALSE POSITIVE
+FIRED?          ✅     |      ❌
          ______|_______|____________
-         NO     |               |
-         FALSE NEGATIVE | TRUE NEGATIVE
-                ⚠️      |      ✅
+         NO    |       |
+         FALSE NEGATIVE| TRUE NEGATIVE
+                ⚠️     |      ✅
 ```
 
 ## 1) TRUE POSITIVE (TP)
