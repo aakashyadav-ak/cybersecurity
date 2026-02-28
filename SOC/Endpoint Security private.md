@@ -44,10 +44,10 @@
 
 ## Module 05: Log Analysis 
 >  Priority:  (Crucial for Interviews)
-- [ ] 5.1 Windows Event Logs (Security, System, Application)
-- [ ] 5.2 Critical Windows Event IDs (See Table Below)
-- [ ] 5.3 **Logon Types** (Type 2, 3, 10 - Crucial for Interviews)
-- [ ] 5.4 Linux Logs (auth.log, syslog)
+- [x] 5.1 Windows Event Logs (Security, System, Application)
+- [x] 5.2 Critical Windows Event IDs (See Table Below)
+- [x] 5.3 **Logon Types** (Type 2, 3, 10 - Crucial for Interviews)
+- [x] 5.4 Linux Logs (auth.log, syslog)
 
 | Event ID | Description | Why it matters? |
 | :--- | :--- | :--- |
@@ -76,7 +76,7 @@
 ---
 
 ## Module 08: SOC Operations & Metrics
-- [ ] 8.1 SOC Structure (L1/L2/L3)
+- [x] 8.1 SOC Structure (L1/L2/L3)
 - [ ] 8.2 Ticketing & Case Management
 - [ ] 8.3 SLA & Metrics (**MTTD, MTTR**)
 - [ ] 8.4 **AI Security Copilots** (Using AI to summarize logs)
