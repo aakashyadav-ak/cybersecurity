@@ -400,4 +400,3 @@ int('a', 16)     # 10 (hex)
 
 ---
 
-#python #numbering-system #binary #hexadecimal #basics
