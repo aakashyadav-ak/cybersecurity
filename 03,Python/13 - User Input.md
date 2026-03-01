@@ -87,3 +87,53 @@ last_name = input("Enter last name: ")
 full_name = first_name + " " + last_name
 print(f"Full name: {full_name}")
 ```
+
+
+
+## Integer Input
+
+#### Converting String to Integer
+```bash
+# input() returns string, so we must convert
+
+# WRONG way:
+age = input("Enter your age: ")
+# age is a string like "25"
+
+# RIGHT way:
+age = int(input("Enter your age: "))
+# Now age is an integer: 25
+
+print(f"Next year you'll be {age + 1}")
+print(type(age))    # <class 'int'>
+```
+
+```bash
+# Two ways to convert
+
+# Method 1: All in one line
+age = int(input("Enter your age: "))
+
+# Method 2: Separate steps (clearer)
+age_string = input("Enter your age: ")    # "25"
+age = int(age_string)                      # 25
+
+# Both methods work the same
+```
+
+
+## Float Input
+#### Converting String to Float
+```bash
+# For decimal numbers, use float()
+
+# Get float input
+price = float(input("Enter price: "))
+print(f"Price: ${price}")
+print(type(price))    # <class 'float'>
+
+# Calculations
+tax_rate = 0.08
+total = price + (price * tax_rate)
+print(f"Total with tax: ${total:.2f}")
+```
