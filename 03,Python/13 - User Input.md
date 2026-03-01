@@ -52,3 +52,20 @@ print(f"Hello, {name}!")
 # 4. "Alice" is stored in 'name' variable
 # 5. "Hello, Alice!" is printed
 ```
+
+
+### Input Always Returns String!
+==VERY IMPORTANT: input() ALWAYS returns a STRING!==
+```
+# VERY IMPORTANT: input() ALWAYS returns a STRING!
+
+age = input("Enter your age: ")
+print(age)              # "25" (looks like a number)
+print(type(age))        # <class 'str'> (but it's a string!)
+
+# This causes problems with math:
+# age + 1               # ERROR! Can't add string + int
+
+# User types: 25
+# Variable contains: "25" (string, not integer)
+```
