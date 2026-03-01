@@ -124,48 +124,48 @@
   - [x] symmetric difference
 
 ## Module 16: User Input
-- [ ] String Input
-- [ ] Integer Input
-- [ ] Float Input
-- [ ] List / Tuple Input
-- [ ] Input Validation
+- [x] String Input
+- [x] Integer Input
+- [x] Float Input
+- [x] List / Tuple Input
+- [x] Input Validation
 
 ## Module 17: Data Type Casting
-- [ ] Integer ↔ Float
-- [ ] String ↔ Integer / Float
-- [ ] Integer ↔ Boolean
-- [ ] List ↔ Tuple
+- [x] Integer ↔ Float
+- [x] String ↔ Integer / Float
+- [x] Integer ↔ Boolean
+- [x] List ↔ Tuple
 
 ## Module 18: Operators
-- [ ] Arithmetic Operators
-- [ ] Comparison Operators
-- [ ] Logical Operators
-- [ ] Assignment Operators
-- [ ] Membership Operators
-- [ ] Identity Operators
-- [ ] Bitwise Operators
-- [ ] Operator Precedence
+- [x] Arithmetic Operators
+- [x] Comparison Operators
+- [x] Logical Operators
+- [x] Assignment Operators
+- [x] Membership Operators
+- [x] Identity Operators
+- [x] Bitwise Operators
+- [x] Operator Precedence
 
 ## Module 19: Numbering System
-- [ ] Decimal Number System
-- [ ] Binary Conversion
-- [ ] Octal Conversion
-- [ ] Hexadecimal Conversion
+- [x] Decimal Number System
+- [x] Binary Conversion
+- [x] Octal Conversion
+- [x] Hexadecimal Conversion
 
 ## Module 20: Flow Control Statements
-- [ ] Conditional Statements
-  - [ ] if
-  - [ ] elif
-  - [ ] else
-- [ ] Nested Conditions
-- [ ] Ternary Operator
+- [x] Conditional Statements
+  - [x] if
+  - [x] elif
+  - [x] else
+- [x] Nested Conditions
+- [x] Ternary Operator
 
 ## Module 21: Looping Statements
-- [ ] for Loop
-- [ ] while Loop
-- [ ] range() Function
-- [ ] Infinite Loop
-- [ ] Nested Loops
+- [x] for Loop
+- [x] while Loop
+- [x] range() Function
+- [x] Infinite Loop
+- [x] Nested Loops
 
 ## Module 22: Control / Transfer Statements
 - [ ] break
