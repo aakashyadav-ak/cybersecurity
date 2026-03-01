@@ -178,3 +178,153 @@ print(temp_string)          # 36.6
 print(type(temp_string))    # <class 'str'>
 ```
 
+
+## Integer ↔ Boolean
+```bash
+# int → bool
+
+# Rule:
+# 0 = False
+# Any other number = True
+
+print(bool(0))      # False
+print(bool(1))      # True
+print(bool(5))      # True
+print(bool(100))    # True
+print(bool(-1))     # True (any non-zero is True!)
+print(bool(-50))    # True
+```
+
+#### Rule
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    INTEGER TO BOOLEAN                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   0        →    False                                           │
+│   Non-zero →    True                                            │
+│                                                                  │
+│   Examples:                                                      │
+│   bool(0)   = False                                             │
+│   bool(1)   = True                                              │
+│   bool(42)  = True                                              │
+│   bool(-5)  = True                                              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+## Boolean to Integer
+```bash
+# bool → int
+
+# Rule:
+# True = 1
+# False = 0
+
+print(int(True))    # 1
+print(int(False))   # 0
+
+# Useful for counting!
+results = [True, False, True, True, False]
+success_count = sum(results)    # Treats True as 1
+print(f"Successes: {success_count}")  # Successes: 3
+```
+
+## List ↔ Tuple
+
+```bash
+# list → tuple
+
+my_list = [1, 2, 3, 4, 5]
+print(my_list)          # [1, 2, 3, 4, 5]
+print(type(my_list))    # <class 'list'>
+
+# Convert to tuple
+my_tuple = tuple(my_list)
+print(my_tuple)         # (1, 2, 3, 4, 5)
+print(type(my_tuple))   # <class 'tuple'>
+```
+
+## Tuple to List
+```bash
+# tuple → list
+
+my_tuple = (1, 2, 3, 4, 5)
+print(my_tuple)         # (1, 2, 3, 4, 5)
+print(type(my_tuple))   # <class 'tuple'>
+
+# Convert to list
+my_list = list(my_tuple)
+print(my_list)          # [1, 2, 3, 4, 5]
+print(type(my_list))    # <class 'list'>
+```
+
+
+
+## String to List
+```bash
+# string → list (each character becomes an item)
+
+text = "hello"
+char_list = list(text)
+print(char_list)    # ['h', 'e', 'l', 'l', 'o']
+
+# IP address
+ip = "192.168.1.1"
+ip_list = list(ip)
+print(ip_list)      # ['1', '9', '2', '.', '1', '6', '8', ...]
+```
+
+
+
+# Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MODULE 17 SUMMARY                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  CONVERSION FUNCTIONS:                                           │
+│                                                                  │
+│  int()     "25" → 25        10.7 → 10                          │
+│  float()   "3.14" → 3.14    10 → 10.0                          │
+│  str()     25 → "25"        3.14 → "3.14"                      │
+│  bool()    0 → False        1 → True                           │
+│  list()    (1,2,3) → [1,2,3]                                   │
+│  tuple()   [1,2,3] → (1,2,3)                                   │
+│                                                                  │
+│  REMEMBER:                                                       │
+│  • int() removes decimal (doesn't round)                        │
+│  • bool(0) = False, bool(non-zero) = True                      │
+│  • Use type() to check data type                                │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+
+```bash
+# String to Number
+int("25")          # 25
+float("3.14")      # 3.14
+
+# Number to String
+str(25)            # "25"
+str(3.14)          # "3.14"
+
+# Integer ↔ Float
+float(10)          # 10.0
+int(10.7)          # 10
+
+# Boolean
+bool(0)            # False
+bool(1)            # True
+int(True)          # 1
+int(False)         # 0
+
+# List ↔ Tuple
+tuple([1,2,3])     # (1, 2, 3)
+list((1,2,3))      # [1, 2, 3]
+
+# Check type
+type(x)            # Shows type of x
+```
