@@ -601,14 +601,14 @@ Why? Because weaponization happens on the attacker's infrastructure, not yours.
 Attacker delivers the weapon to the target.
 
 #### common delivery methods
-| Method | Description | Example |
-| :--- | :--- | :--- |
-| **Email Attachment** | Weaponized file via email | Phishing with malicious `.docx` |
-| **Malicious Link** | URL in email/message | "Click here to reset password" |
-| **Watering Hole** | Compromised legitimate website | News site infected with exploit kit |
-| **USB Drive** | Physical delivery | Drop infected USB in parking lot |
-| **Supply Chain** | Compromise software update | SolarWinds attack |
-| **Removable Media** | CD/DVD, external drive | Infected installation media |
+| Method               | Description                    | Example                             |
+| :------------------- | :----------------------------- | :---------------------------------- |
+| **Email Attachment** | Weaponized file via email      | Phishing with malicious `.docx`     |
+| **Malicious Link**   | URL in email/message           | "Click here to reset password"      |
+| **Watering Hole**    | Compromised legitimate website | News site infected with exploit kit |
+| **USB Drive**        | Physical delivery              | Drop infected USB in parking lot    |
+| **Supply Chain**     | Compromise software update     | SolarWinds attack                   |
+| **Removable Media**  | CD/DVD, external drive         | Infected installation media         |
 
 ### How to Defend Against Delivery:
 1. **Email Security Gateway**
