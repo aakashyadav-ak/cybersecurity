@@ -135,5 +135,8 @@ print(type(price))    # <class 'float'>
 # Calculations
 tax_rate = 0.08
 total = price + (price * tax_rate)
-print(f"Total with tax: ${total:.2f}")
+print(f"Total with tax: ${total}")
 ```
+
+## List / Tuple Input
+#### Method 1: Input Items One by One
