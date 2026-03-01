@@ -522,15 +522,15 @@ RESULT: Business operations halted for 2 weeks
 
 #### Breaking the Chain (Defense at Each Stage)
 
-| Stage | How to Break It | Impact if Broken |
-| :--- | :--- | :--- |
-| **1. Reconnaissance** | Hide public info, detect scanning | Attack planning disrupted |
-| **2. Weaponization** | *(Can't defend directly)* | N/A |
-| **3. Delivery** | Email filtering, user training | 🔥 **BEST PLACE TO STOP** |
-| **4. Exploitation** | Patching, disable macros | Attack neutralized |
-| **5. Installation** | EDR, app whitelisting | Malware can't persist |
-| **6. C2** | Network monitoring, firewall | Attacker can't control system |
-| **7. Actions** | DLP, backups, monitoring | Damage minimized |
+| Stage                 | How to Break It                   | Impact if Broken              |
+| :-------------------- | :-------------------------------- | :---------------------------- |
+| **1. Reconnaissance** | Hide public info, detect scanning | Attack planning disrupted     |
+| **2. Weaponization**  | *(Can't defend directly)*         | N/A                           |
+| **3. Delivery**       | Email filtering, user training    | 🔥 **BEST PLACE TO STOP**     |
+| **4. Exploitation**   | Patching, disable macros          | Attack neutralized            |
+| **5. Installation**   | EDR, app whitelisting             | Malware can't persist         |
+| **6. C2**             | Network monitoring, firewall      | Attacker can't control system |
+| **7. Actions**        | DLP, backups, monitoring          | Damage minimized              |
 
 
 ## 1: RECONNAISSANCE (Recon)
