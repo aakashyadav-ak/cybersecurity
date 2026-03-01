@@ -146,3 +146,35 @@ print(type(age_string))  # <class 'str'>
 message = "I am " + age_string + " years old"
 print(message)       # I am 25 years old
 ```
+
+## String ↔ Float
+```bash
+# string → float
+
+price_string = "19.99"
+print(type(price_string))    # <class 'str'>
+
+# Convert to float
+price = float(price_string)
+print(price)                 # 19.99
+print(type(price))           # <class 'float'>
+
+# Now we can do math
+tax = price * 0.1
+print(f"Tax: {tax}")         # Tax: 1.999
+```
+
+
+## Float to String
+```bash
+# float → string
+
+temperature = 36.6
+print(type(temperature))    # <class 'float'>
+
+# Convert to string
+temp_string = str(temperature)
+print(temp_string)          # 36.6
+print(type(temp_string))    # <class 'str'>
+```
+
