@@ -140,3 +140,102 @@ print(f"Total with tax: ${total}")
 
 ## List / Tuple Input
 #### Method 1: Input Items One by One
+```bash
+# Get 3 ports from user
+ports = []
+
+port1 = int(input("Enter port 1: "))
+ports.append(port1)
+
+port2 = int(input("Enter port 2: "))
+ports.append(port2)
+
+port3 = int(input("Enter port 3: "))
+ports.append(port3)
+
+print(f"Ports: {ports}")
+```
+
+
+#### Method 2: Using a Loop
+```bash
+# Get multiple items using loop
+ports = []
+
+for i in range(3):
+    port = int(input(f"Enter port {i+1}: "))
+    ports.append(port)
+
+print(f"Ports: {ports}")
+```
+
+
+
+___
+
+# Input Validation 
+
+**Problem: User Types Wrong Thing**
+```bash
+age = int(input("Enter your age: "))
+
+# If user types "hello" instead of a number:
+# ERROR! ValueError: invalid literal for int()
+```
+
+**Solution: Use try-except**
+```bash
+try:
+    age = int(input("Enter your age: "))
+    print(f"You are {age} years old")
+except ValueError:
+    print("Error! Please enter a number.")
+```
+
+
+## Summary
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MODULE 16 SUMMARY                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  BASIC INPUT:                                                    │
+│  variable = input("message")                                    │
+│                                                                  │
+│  GETTING DIFFERENT TYPES:                                        │
+│                                                                  │
+│  String:   name = input("Name: ")                               │
+│  Integer:  age = int(input("Age: "))                            │
+│  Float:    price = float(input("Price: "))                      │
+│                                                                  │
+│  REMEMBER:                                                       │
+│  • input() always returns STRING                                │
+│  • Use int() for whole numbers                                  │
+│  • Use float() for decimal numbers                              │
+│  • Use try-except for error handling                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+```bash
+# String
+name = input("Name: ")
+
+# Integer  
+age = int(input("Age: "))
+
+# Float
+price = float(input("Price: "))
+
+# With error handling
+try:
+    num = int(input("Number: "))
+except ValueError:
+    print("Invalid input!")
+
+# Clean whitespace
+text = input("Text: ").strip()
+
+# List (space-separated)
+items = input("Enter items: ").split()
+```
