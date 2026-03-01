@@ -1,5 +1,4 @@
 
-# Module 19: Numbering System
 
 ## What is a Numbering System?
 
