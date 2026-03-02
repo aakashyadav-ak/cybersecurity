@@ -53,3 +53,39 @@ A Firewall is a network security device (hardware/software) that monitors and fi
 - Cloud-based firewall
 - Protects cloud infrastructure
 - Examples: Azure Firewall, AWS Security Groups/NACLs, GCP Firewall Rules, Zscaler
+
+
+
+##  Firewall Deployment Modes
+```
+┌─────────────────────────────────────────────────────────┐
+│  Mode          │  Description                           │
+├─────────────────────────────────────────────────────────┤
+│  Routed Mode   │  Acts as a router (Layer 3), has IP    │
+│                │  on each interface, most common        │
+│  Transparent   │  Acts as a bridge (Layer 2), no IP     │
+│  (Bridge) Mode │  change, invisible to network          │
+│  Inline Mode   │  Traffic MUST pass through it          │
+│  TAP/Monitor   │  Only monitors (copy of traffic),      │
+│  Mode          │  cannot block - used for monitoring    │
+└─────────────────────────────────────────────────────────┘
+```
+
+
+##  Firewall Architecture & Zones
+```
+                    ┌──────────────┐
+    INTERNET ──────►│   FIREWALL   │
+   (UNTRUSTED)      │              │
+                    │  ┌────────┐  │
+                    │  │ RULES  │  │
+                    │  │ ENGINE │  │
+                    │  └────────┘  │
+                    └──┬───┬───┬──┘
+                       │   │   │
+                       ▼   ▼   ▼
+              ┌────┐ ┌────┐ ┌─────┐
+              │DMZ │ │LAN │ │MGMT │
+              │Zone│ │Zone│ │Zone │
+              └────┘ └────┘ └─────┘
+```
