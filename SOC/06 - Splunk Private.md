@@ -75,3 +75,65 @@ An Index is where logs are stored.
 ```
 index=windows
 ```
+
+____
+
+
+## Splunk Data Structure
+
+**Every event has:**
+- `_time` → timestamp
+- host → system name
+- source → log file path
+- sourcetype → log type
+- index → storage location
+
+**Example:**
+```
+index=windows sourcetype=WinEventLog:Security
+```
+
+
+____
+
+
+## SPL (Search Processing Language)
+
+SPL is how you search logs.
+
+#### Basic Search
+```
+index=windows
+```
+Search all Windows logs.
+
+#### Keyword Search
+```
+index=windows "failed"
+```
+
+
+#### Field Based Search
+```
+index=windows EventCode=4625
+```
+
+4625 = Failed login
+
+#### stats
+
+Used to aggregate data.
+
+**Example:**
+```
+index=windows EventCode=4625
+| stats count by user
+
+```
+Shows failed login count per user.
+
+#### top
+```
+index=windows EventCode=4625
+| top user
+```
