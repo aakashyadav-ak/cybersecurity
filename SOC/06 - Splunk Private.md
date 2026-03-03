@@ -137,3 +137,86 @@ Shows failed login count per user.
 index=windows EventCode=4625
 | top user
 ```
+
+
+#### table
+```
+index=windows EventCode=4688
+| table _time host user process_name
+```
+
+#### sort
+```
+index=windows EventCode=4688
+| sort - count
+```
+
+
+#### where
+```
+index=windows EventCode=4688
+| where count > 10
+```
+
+
+
+_____
+
+## Creating Alerts
+
+**Example:** Alert for brute force
+
+```
+index=windows EventCode=4625
+| stats count by user
+| where count > 20
+```
+
+Save As → Alert
+Trigger → If results > 0
+
+__________
+
+
+## Dashboards in Splunk
+Dashboards are visual panels (charts, tables, graphs).
+
+**Used in SOC to monitor:**
+- Failed logins
+- Top talkers
+- Malware alerts
+- Firewall denies
+
+### How to Create Dashboard
+
+1. Run query
+2. Click Visualization
+3. Choose chart type (bar, pie, line)
+4. Save As → Dashboard panel
+
+
+**Example:**
+```
+index=windows EventCode=4625
+| stats count by host
+```
+Visualize as bar chart.
+
+____
+
+
+
+## Splunk Apps 
+#### 1) Splunk Enterprise Security
+
+- SIEM layer
+- Correlation searches
+- Risk scoring
+- Incident review
+Used in enterprise SOC.
+
+#### 2) Splunk SOAR
+
+- Automation
+- Playbooks
+- Auto response
