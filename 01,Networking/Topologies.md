@@ -1,0 +1,269 @@
+# Network Topologies
+
+##  What is a Network Topology?
+> **Network Topology** refers to the **physical or logical arrangement** of nodes (devices) and connections (links) in a computer network. It defines how devices are connected and how data flows between them.
+
+---
+
+##  Types of Network Topologies
+
+### 1. 🔵 Bus Topology
+- All devices are connected to a **single central cable** (called the **backbone** or **trunk**).
+- Data travels in **both directions** along the cable.
+- Uses **terminators** at both ends to prevent signal reflection.
+
+| Advantages | Disadvantages |
+|---|---|
+| Easy to install | Single point of failure (backbone) |
+| Cost-effective (less cable) | Performance degrades with more devices |
+| Good for small networks | Difficult to troubleshoot |
+| No specialized hardware needed | Limited cable length & number of devices |
+
+> **Example:** Early Ethernet networks (10BASE2, 10BASE5)
+
+---
+
+### 2. ⭐ Star Topology
+- All devices are connected to a **central device** (switch/hub).
+- All data passes **through the central device**.
+- **Most commonly used** topology in modern LANs.
+
+| Advantages | Disadvantages |
+|---|---|
+| Easy to install & manage | Central device is a single point of failure |
+| Easy to troubleshoot | Requires more cable than bus |
+| Failure of one node doesn't affect others | Cost of central device (switch/hub) |
+| Scalable – easy to add new devices | Performance depends on central device |
+
+```
+       PC1
+        |
+        |
+PC2 ════╬════ PC3
+        ║
+     [SWITCH]
+        ║
+PC4 ════╬════ PC5
+        |
+        |
+       PC6
+```
+
+> **Example:** Modern Ethernet LANs using switches
+
+---
+
+### 3. 💍 Ring Topology
+- Each device is connected to **exactly two other devices**, forming a **circular path**.
+- Data travels in **one direction** (unidirectional) or **both directions** (bidirectional/dual ring).
+- Uses **token passing** mechanism for data transmission.
+
+| Advantages | Disadvantages |
+|---|---|
+| Equal access for all devices | Failure of one device can break the ring |
+| No collisions (token passing) | Difficult to troubleshoot |
+| Performs well under heavy load | Adding/removing devices disrupts network |
+| Orderly data transfer | Slower – data must pass through each node |
+
+```
+     PC1
+    ╱   ╲
+   ╱     ╲
+ PC2     PC6
+  |   ↻   |      ↻ = Data Flow Direction
+ PC3     PC5
+   ╲     ╱
+    ╲   ╱
+     PC4
+```
+
+> **Example:** Token Ring (IEEE 802.5), FDDI (Fiber Distributed Data Interface)
+
+---
+
+### 4. 🔗 Mesh Topology
+- Every device is connected to **every other device** in the network.
+- Two types:
+  - **Full Mesh** – Every device connected to every other device
+  - **Partial Mesh** – Some devices connected to all, others connected to fewer
+
+**Formula for Full Mesh connections:**
+$$\text{Links} = \frac{n(n-1)}{2}$$
+Where `n` = number of devices
+
+| Advantages | Disadvantages |
+|---|---|
+| Highly **redundant** & **fault-tolerant** | Very **expensive** (lots of cabling) |
+| No single point of failure | Complex installation & management |
+| Multiple paths for data | Impractical for large networks |
+| High performance | Each device needs multiple NIC ports |
+
+```
+     Router1
+    ╱│╲    ╲
+   ╱ │ ╲    ╲
+  ╱  │  ╲    ╲
+R2───┼───R3───R4
+  ╲  │  ╱    ╱
+   ╲ │ ╱    ╱
+    ╲│╱    ╱
+     R5───╱
+
+Every router connected to every other router
+5 routers = 10 links [n(n-1)/2]
+```
+
+**Partial Mesh**
+```
+     Router1
+    ╱   │   ╲
+   ╱    │    ╲
+  R2────R3────R4
+        │    ╱
+        │   ╱
+        R5─╱
+
+Only critical connections maintained
+```
+
+> **Example:** WAN connections between routers, Internet backbone
+
+---
+
+### 5. 🌳 Tree (Hierarchical) Topology
+- Combination of **Star and Bus** topologies.
+- Devices are arranged in a **hierarchical structure** with a **root node**.
+- Uses **parent-child** relationships between nodes.
+
+| Advantages | Disadvantages |
+|---|---|
+| Scalable & manageable | Failure of backbone breaks the network |
+| Hierarchical structure aids management | Difficult to configure |
+| Grouping of devices is easy | Dependent on root node |
+| Point-to-point wiring for segments | More cabling required |
+
+```
+                [Root Switch]
+                     |
+        ┌────────────┼────────────┐
+        |            |            |
+    [Switch1]    [Switch2]    [Switch3]
+        |            |            |
+    ┌───┼───┐    ┌───┼───┐    ┌───┼───┐
+    |   |   |    |   |   |    |   |   |
+   PC1 PC2 PC3  PC4 PC5 PC6  PC7 PC8 PC9
+```
+
+Three Tier Hierarchy 
+```
+                  [Core]
+                    |
+          ┌─────────┴─────────┐
+          |                   |
+    [Distribution 1]    [Distribution 2]
+          |                   |
+    ┌─────┴─────┐       ┌─────┴─────┐
+    |           |       |           |
+[Access1]  [Access2] [Access3]  [Access4]
+    |           |       |           |
+  Hosts       Hosts   Hosts       Hosts
+```
+
+> **Example:** Corporate networks with multiple departments, Active Directory structure
+
+---
+
+### 6. 🔄 Hybrid Topology
+- **Combination of two or more** different topologies.
+- Designed to leverage the **strengths** of each topology while minimizing weaknesses.
+- Most **real-world enterprise networks** use hybrid topologies.
+
+| Advantages | Disadvantages |
+|---|---|
+| Flexible & scalable | Complex design |
+| Reliable | Expensive to implement |
+| Tailored to specific needs | Difficult to manage |
+| Fault detection is easier | Requires skilled administration |
+
+> **Example:** Star-Mesh in data centers, Star-Bus in campus networks
+
+---
+
+## 📊 Quick Comparison Table
+
+| Topology | Cable Required | Cost | Fault Tolerance | Scalability | Complexity |
+|---|---|---|---|---|---|
+| **Bus** | Low | Low | Low | Low | Low |
+| **Star** | Moderate | Moderate | Moderate | High | Low |
+| **Ring** | Moderate | Moderate | Low | Low | Moderate |
+| **Mesh** | Very High | Very High | Very High | Low | Very High |
+| **Tree** | High | High | Moderate | High | Moderate |
+| **Hybrid** | Varies | High | High | High | High |
+
+---
+
+## 🧠 Physical vs Logical Topology
+
+| Physical Topology | Logical Topology |
+|---|---|
+| How devices are **physically wired** | How data **actually flows** in the network |
+| Visible layout of cables & devices | Defined by **protocols & configurations** |
+| Example: Physically a **Star** | Example: Logically a **Bus** (old hubs) |
+| Deals with **hardware layout** | Deals with **data path & signal flow** |
+
+> [!tip] **CCNA Key Point**
+> A network can have a **different physical and logical topology**. For example, a network physically wired as a **Star** (using a hub) can logically function as a **Bus** because the hub broadcasts data to all ports.
+
+---
+
+## 🎯 CCNA Exam Key Points
+
+> [!important] **Remember for the Exam**
+> - **Star topology** is the **most common** in modern LANs
+> - **Mesh topology** provides the **highest redundancy** (used in WANs)
+> - **Bus topology** uses **terminators** and has a **single point of failure**
+> - **Ring topology** uses **token passing** to avoid collisions
+> - **Full mesh formula**: `n(n-1)/2` — memorize this!
+> - **Hybrid** is what most **enterprise networks** actually use
+> - Know the **difference between physical and logical** topology
+> - **Switches** create a **star physical topology** in modern networks
+> - **WAN topologies** (point-to-point, hub-and-spoke, full mesh, partial mesh) are important for CCNA
+
+---
+
+## 🏢 WAN Topologies (CCNA Specific)
+
+### Point-to-Point
+- Direct connection between **two sites**
+- Simple and common for WAN links
+
+### Hub-and-Spoke (Star WAN)
+- Central site (**hub**) connects to multiple remote sites (**spokes**)
+- Spokes communicate **through the hub**
+- Cost-effective but hub is single point of failure
+
+### Full Mesh WAN
+- Every site connected to **every other site**
+- Maximum redundancy, highest cost
+- Links = `n(n-1)/2`
+
+### Partial Mesh WAN
+- **Some sites** are fully connected, others are not
+- **Balance** between cost and redundancy
+- Most **practical** for real-world WANs
+
+---
+
+## 🔗 Related CCNA Topics
+- [[Network Devices]]
+- [[OSI Model]]
+- [[TCP-IP Model]]
+- [[Ethernet Standards]]
+- [[LAN Switching]]
+- [[WAN Technologies]]
+- [[Network Design]]
+
+---
+
+## 📝 Tags
+#CCNA #Networking #Topology #LAN #WAN #NetworkDesign #Infrastructure
