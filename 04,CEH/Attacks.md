@@ -1,14 +1,14 @@
-## Phishing Attack
+## 1) Phishing Attack
 
 **Definition:**
 A phishing attack tricks users into revealing sensitive information like passwords or credit card details through fake emails or websites.
 
-## Brute Force Attack
+## 2) Brute Force Attack
 
 **Definition:**
 An attacker tries many passwords repeatedly until the correct one is found.
 
-## Malware Attack
+## 3) Malware Attack
 
 **Definition:**
 Malware is malicious software designed to damage systems, steal data, or gain unauthorized access.
@@ -59,42 +59,42 @@ Ransomware is malware that encrypts a victim’s files or locks their system and
 - Victim must pay cryptocurrency
 - Often spreads through phishing emails
 
-## DDoS Attack (Distributed Denial of Service)
-
-**Definition:**
-A DDoS attack floods a server or network with huge traffic to make it unavailable.
-
-
-## Man-in-the-Middle (MITM)
-
-**Definition:**
-An attacker secretly intercepts communication between two parties.
-
-
-## SQL Injection
-
-**Definition:**
-SQL Injection happens when attackers insert malicious SQL commands into input fields to access or manipulate databases.
-
-
-## Cross-Site Scripting (XSS)
-
-**Definition:**
-XSS allows attackers to inject malicious scripts into web pages viewed by users.
-
-## Privilege Escalation
-
-**Definition:**
-An attacker gains higher access permissions than originally allowed.
-
-
-## Command and Control (C2)
+## 4) Command and Control (C2)
 
 **Definition:**
 After infecting a system, malware connects to a Command and Control server to receive instructions.
 
 
-## Data Exfiltration
+## 5) DDoS Attack (Distributed Denial of Service)
+
+**Definition:**
+A DDoS attack floods a server or network with huge traffic to make it unavailable.
+
+
+## 6) Man-in-the-Middle (MITM)
+
+**Definition:**
+An attacker secretly intercepts communication between two parties.
+
+
+## 7) SQL Injection
+
+**Definition:**
+SQL Injection happens when attackers insert malicious SQL commands into input fields to access or manipulate databases.
+
+
+## 8) Cross-Site Scripting (XSS)
+
+**Definition:**
+XSS allows attackers to inject malicious scripts into web pages viewed by users.
+
+## 9) Privilege Escalation
+
+**Definition:**
+An attacker gains higher access permissions than originally allowed.
+
+
+## 10) Data Exfiltration
 
 **Definition:**
 Unauthorized transfer of sensitive data outside an organization.
