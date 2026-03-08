@@ -3,9 +3,9 @@
 ##  Fundamentals
 - [x] OSI Model (L1–L7)
 - [x] TCP/IP Model
-- [ ] TCP vs UDP
-- [ ] Encapsulation / Decapsulation
-- [ ] MTU + Fragmentation (basic)
+- [x] TCP vs UDP
+- [x] Encapsulation / Decapsulation
+- [x] MTU + Fragmentation (basic)
 
 ---
 
@@ -25,17 +25,17 @@
 - [x] MAC Address basics
 - [x] ARP working (Request/Reply)
 - [x] ARP Table meaning
-- [ ] Switch vs Hub vs Router
-- [ ] VLAN basics
-- [ ] Trunk vs Access ports (basic)
+- [x] Switch vs Hub vs Router
+- [x] VLAN basics
+- [x] Trunk vs Access ports (basic)
 
 ---
 
 ## Routing Concepts (Layer 3)
-- [ ] Routing basics
-- [ ] Route table basics
-- [ ] Static vs Dynamic routing (high level)
-- [ ] Traceroute working
+- [x] Routing basics
+- [x] Route table basics
+- [x] Static vs Dynamic routing (high level)
+- [x] Traceroute working
 - [x] ICMP basics (Echo, TTL)
 
 ---
@@ -50,16 +50,16 @@
 ---
 
 ##  Firewalls & Filtering
-- [ ] Stateful vs Stateless firewall
+- [x] Stateful vs Stateless firewall
 - [ ] Inbound vs Outbound rules
 - [ ] Egress filtering
-- [ ] ACL basics
+- [x] ACL basics
 - [ ] Open vs Closed vs Filtered ports
 
 ---
 
 ##  Ports & Services (Very Important)
-- [ ] What is a port?
+- [x] What is a port?
 - [ ] What is a service?
 - [ ] Well-known vs Ephemeral ports
 - [ ] Common TCP ports
@@ -70,22 +70,22 @@
 ##  Core Protocols (Must Know)
 
 ### DNS
-- [ ] DNS working
-- [ ] A / AAAA / CNAME / MX / NS / TXT records
+- [x] DNS working
+- [x] A / AAAA / CNAME / MX / NS / TXT records
 - [ ] Forward DNS vs Reverse DNS
 - [ ] Zone transfer concept
 - [ ] Subdomain enumeration concept
 
 ### HTTP/HTTPS
-- [ ] HTTP request/response
-- [ ] Methods: GET, POST, PUT, DELETE
+- [x] HTTP request/response
+- [x] Methods: GET, POST, PUT, DELETE
 - [ ] Headers + Cookies basics
 - [ ] Sessions vs Tokens (basic)
 - [ ] HTTPS + TLS basics
 
 ### DHCP
-- [ ] DHCP working
-- [ ] DORA process
+- [x] DHCP working
+- [x] DORA process
 - [ ] DHCP scope concept
 ---
 
