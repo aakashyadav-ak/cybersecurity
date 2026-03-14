@@ -236,11 +236,11 @@ It prevents loop by shutting down a line thats not needed or making a loop.
 A STP packet is generate every 10sec to check loop occurrence and prevent the loop by downing  the line and also up the line when needed.
 
 
-## Router/Switch Packet Switching Methods
+# Router Packet Switching Methods
 These are methods used by routers (especially Cisco) to forward packets from source to destination.
 
 ![[Screenshot (98) 1.png]]
-#### 1. Process Switching
+## 1. Process Switching
 
 - Oldest and slowest method
 - **Every packet processed by CPU**
@@ -261,7 +261,7 @@ CPU forwards packet
 (Repeat for EVERY packet)
 ```
 
-#### 2. Fast Switching (Route Cache)
+## 2. Fast Switching (Route Cache)
 
 
 - Also called route-cache switching (called switch engine)
@@ -293,7 +293,7 @@ Forward using cached info (fast)
 └─────────────────┴──────────────┴─────────────┴─────────────┘
 ```
 
-##### RIB (Routing Information Base)
+### RIB (Routing Information Base)
 What is RIB?
 
 - Also called Routing Table
@@ -302,16 +302,14 @@ What is RIB?
 - Maintained by CPU/Route Processor
 - Selects best path based on administrative distance and metrics
 
-# Routing Table
-
-## Definition
+### Routing Table
 A **routing table** is a table inside a **router** that stores information about **where to send IP packets**.
 
 The router checks this table to decide the **best path (next hop) to reach the destination network**.
 
 ---
 
-# What a Routing Table Contains
+#### What a Routing Table Contains
 
 A routing table usually stores:
 
@@ -323,7 +321,7 @@ A routing table usually stores:
 
 ---
 
-# Example Routing Table
+##### Example Routing Table
 
 ```
 Destination        Next Hop        Interface
@@ -335,9 +333,9 @@ Destination        Next Hop        Interface
 
 ---
 
-# Meaning of Each Entry
+#### Meaning of Each Entry
 
-### 1. Directly Connected Network
+##### 1. Directly Connected Network
 ```
 192.168.1.0/24 → Gig0/0
 ```
@@ -351,7 +349,7 @@ Packets go directly out of Gig0/0
 
 ---
 
-### 2. Remote Network
+##### 2. Remote Network
 ```
 10.0.0.0/24 → Next hop 192.168.1.2
 ```
@@ -364,7 +362,7 @@ Router must send packet to another router (192.168.1.2)
 
 ---
 
-### 3. Default Route
+##### 3. Default Route
 ```
 0.0.0.0/0 → 192.168.1.1
 ```
@@ -378,7 +376,7 @@ send packet to this gateway (usually ISP)
 
 ---
 
-# How Router Uses Routing Table
+### How Router Uses Routing Table
 
 Example:
 
@@ -396,7 +394,7 @@ Router sends packet to **192.168.1.2**.
 
 ---
 
-# Types of Routes in Routing Table
+### Types of Routes in Routing Table
 
 ### 1. Connected Route
 Automatically added when interface is configured.
@@ -428,25 +426,6 @@ Learned automatically from routing protocols like:
 
 ---
 
-# Simple Flow
-
-```
-Packet arrives at router
-        ↓
-Router checks routing table
-        ↓
-Finds best route
-        ↓
-Forward packet to next hop or interface
-```
-
----
-
-# One Line Summary
-
-```
-Routing Table = Router's map that tells where to send IP packets.
-```
 #### ==3. CEF Switching (Cisco Express Forwarding)==
 
 - Fastest and most preferred method
