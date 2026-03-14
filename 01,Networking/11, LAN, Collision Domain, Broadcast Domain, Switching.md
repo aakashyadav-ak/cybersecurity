@@ -302,7 +302,151 @@ What is RIB?
 - Maintained by CPU/Route Processor
 - Selects best path based on administrative distance and metrics
 
+# Routing Table
 
+## Definition
+A **routing table** is a table inside a **router** that stores information about **where to send IP packets**.
+
+The router checks this table to decide the **best path (next hop) to reach the destination network**.
+
+---
+
+# What a Routing Table Contains
+
+A routing table usually stores:
+
+- **Destination Network**
+- **Subnet Mask / Prefix**
+- **Next Hop (Gateway)**
+- **Outgoing Interface**
+- **Metric (cost of route)**
+
+---
+
+# Example Routing Table
+
+```
+Destination        Next Hop        Interface
+------------------------------------------------
+192.168.1.0/24     Direct          Gig0/0
+10.0.0.0/24        192.168.1.2     Gig0/1
+0.0.0.0/0          192.168.1.1     Gig0/0
+```
+
+---
+
+# Meaning of Each Entry
+
+### 1. Directly Connected Network
+```
+192.168.1.0/24 → Gig0/0
+```
+
+This means:
+
+```
+Router is directly connected to this network
+Packets go directly out of Gig0/0
+```
+
+---
+
+### 2. Remote Network
+```
+10.0.0.0/24 → Next hop 192.168.1.2
+```
+
+This means:
+
+```
+Router must send packet to another router (192.168.1.2)
+```
+
+---
+
+### 3. Default Route
+```
+0.0.0.0/0 → 192.168.1.1
+```
+
+This means:
+
+```
+If router does not know the destination network,
+send packet to this gateway (usually ISP)
+```
+
+---
+
+# How Router Uses Routing Table
+
+Example:
+
+```
+Packet destination: 10.0.0.5
+```
+
+Router checks routing table:
+
+```
+10.0.0.0/24 → Next hop 192.168.1.2
+```
+
+Router sends packet to **192.168.1.2**.
+
+---
+
+# Types of Routes in Routing Table
+
+### 1. Connected Route
+Automatically added when interface is configured.
+
+Example:
+```
+C 192.168.1.0/24 is directly connected, Gig0/0
+```
+
+---
+
+### 2. Static Route
+Manually configured by administrator.
+
+Example:
+```
+ip route 10.0.0.0 255.255.255.0 192.168.1.2
+```
+
+---
+
+### 3. Dynamic Route
+Learned automatically from routing protocols like:
+
+- RIP
+- OSPF
+- EIGRP
+- BGP
+
+---
+
+# Simple Flow
+
+```
+Packet arrives at router
+        ↓
+Router checks routing table
+        ↓
+Finds best route
+        ↓
+Forward packet to next hop or interface
+```
+
+---
+
+# One Line Summary
+
+```
+Routing Table = Router's map that tells where to send IP packets.
+```
 #### ==3. CEF Switching (Cisco Express Forwarding)==
 
 - Fastest and most preferred method
