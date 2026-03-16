@@ -1,5 +1,6 @@
 # VLAN
-A VLAN is a logical grouping of devices within the same broadcast domain. By default, a switch is one big broadcast domain. VLANs break that switch into multiple smaller, isolated virtual switches.
+==A VLAN divides **ONE physical switch** into **MULTIPLE virtual switches**.==
+A VLAN is a logical grouping of devices within the same broadcast domain. By default, a switch is one big broadcast domain. 
 
 **Key Rule:**
 
