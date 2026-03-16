@@ -208,6 +208,16 @@ Device Details:
 
 ## Access Port vs Trunk Port
 ### Access Port
+An **Access Port** is a switch port that carries traffic for **only one VLAN**.
+
+It is used to connect **end devices**, such as:
+- PC
+- Laptop
+- Printer
+- IP Phone
+
+Devices connected to an access port **do not understand VLAN tagging**, so the switch automatically places their traffic into the configured VLAN.
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        ACCESS PORT                              │
