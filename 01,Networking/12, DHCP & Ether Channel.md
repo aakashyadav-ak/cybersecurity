@@ -833,7 +833,7 @@ Bundles multiple physical links into one logical link for increased bandwidth & 
 
 ---
 
-## 📌 8. EtherChannel Load Balancing
+## 8. EtherChannel Load Balancing
 
 ### How Does Traffic Split?
 
