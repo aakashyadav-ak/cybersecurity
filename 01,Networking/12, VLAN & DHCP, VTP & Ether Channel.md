@@ -12,6 +12,16 @@ A VLAN is a logical grouping of devices within the same broadcast domain. By def
 - **Performance:** Reduces broadcast traffic (broadcasts in VLAN 10 don't reach VLAN 20).
 - **Organization:** Group users by department, not physical location.
 
+1. **Separate Networks** - Different groups isolated
+2. **Reduce Broadcast** - Broadcasts stay in their VLAN
+3. **Security** - VLAN 10 cannot see VLAN 20 traffic
+4. **Organization** - Group devices logically
+5. **Performance** - Less unnecessary traffic
+
+---
+
+### Network Design
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                     WITHOUT VLAN                                │
@@ -45,6 +55,152 @@ A VLAN is a logical grouping of devices within the same broadcast domain. By def
 ```
 
 ![[Screenshot (102).png]]
+
+## Configuration of 3 Different VLANs
+
+### Network Design
+
+```
+          [SWITCH]
+     /      |      \
+ VLAN 10  VLAN 20  VLAN 30
+ Group A  Group B  Group C
+```
+
+### VLAN 10 Configuration
+
+- VLAN ID: 10
+- VLAN Name: GROUP_A
+- Network: 192.168.10.0/24
+- Subnet Mask: 255.255.255.0
+- Gateway: 192.168.10.1
+- First Usable IP: 192.168.10.2
+- Last Usable IP: 192.168.10.254
+- Broadcast Address: 192.168.10.255
+- Total Hosts: 254
+
+
+### VLAN 20 Configuration
+
+- VLAN ID: 20
+- VLAN Name: GROUP_B
+- Network: 192.168.20.0/24
+- Subnet Mask: 255.255.255.0
+- Gateway: 192.168.20.1
+- First Usable IP: 192.168.20.2
+- Last Usable IP: 192.168.20.254
+- Broadcast Address: 192.168.20.255
+- Total Hosts: 254
+
+
+### VLAN 30 Configuration
+
+- VLAN ID: 30
+- VLAN Name: GROUP_C
+- Network: 192.168.30.0/24
+- Subnet Mask: 255.255.255.0
+- Gateway: 192.168.30.1
+- First Usable IP: 192.168.30.2
+- Last Usable IP: 192.168.30.254
+- Broadcast Address: 192.168.30.255
+- Total Hosts: 254
+
+---
+
+## 💻 Switch Configuration Commands
+
+### Step 1: Create VLANs on Switch
+```cisco
+Switch# configure terminal
+
+Create VLAN 10
+Switch(config)# vlan 10
+Switch(config-vlan)# name GROUP_A
+Switch(config-vlan)# exit
+
+Create VLAN 20
+Switch(config)# vlan 20
+Switch(config-vlan)# name GROUP_B
+Switch(config-vlan)# exit
+
+Create VLAN 30
+Switch(config)# vlan 30
+Switch(config-vlan)# name GROUP_C
+Switch(config-vlan)# exit
+```
+
+
+### Step 2: Assign Ports to VLANs
+```
+! Put Port 1-5 in VLAN 10
+Switch(config)# interface range FastEthernet 0/1-5
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 10
+Switch(config-if-range)# exit
+
+! Put Port 6-10 in VLAN 20
+Switch(config)# interface range FastEthernet 0/6-10
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 20
+Switch(config-if-range)# exit
+
+! Put Port 11-15 in VLAN 30
+Switch(config)# interface range FastEthernet 0/11-15
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 30
+Switch(config-if-range)# exit
+```
+
+### Step 3: Verify Configuration
+```
+! Show all VLANs
+Switch# show vlan brief
+
+VLAN Name                     Status    Ports
+---- ------------------------ --------- -----------------
+1    default                  active    Fa0/16-24
+10   GROUP_A                  active    Fa0/1-5
+20   GROUP_B                  active    Fa0/6-10
+30   GROUP_C                  active    Fa0/11-15
+
+! Show specific port
+Switch# show interface Fa0/1 switchport
+Administrative Mode: access
+Operational Mode: access
+Access Mode VLAN: 10 (GROUP_A)
+```
+
+```
+                    [SWITCH]
+         ┌─────────────┼─────────────┐
+         │             │             │
+      VLAN 10       VLAN 20       VLAN 30
+   192.168.10.0   192.168.20.0   192.168.30.0
+         │             │             │
+    ┌────┼────┐   ┌────┼────┐   ┌────┼────┐
+    │    │    │   │    │    │   │    │    │
+   PC1  PC2  PC3 PC4  PC5  PC6 PC7  PC8  PC9
+    ↓    ↓    ↓   ↓    ↓    ↓   ↓    ↓    ↓
+  .10  .11  .12 .10  .11  .12 .10  .11  .12
+
+Device Details:
+┌──────┬─────────┬──────────────────┬─────────────────┐
+│Device│  VLAN   │    IP Address    │  Broadcast      │
+├──────┼─────────┼──────────────────┼─────────────────┤
+│ PC1  │ VLAN 10 │ 192.168.10.10    │ 192.168.10.255  │
+│ PC2  │ VLAN 10 │ 192.168.10.11    │ 192.168.10.255  │
+│ PC3  │ VLAN 10 │ 192.168.10.12    │ 192.168.10.255  │
+├──────┼─────────┼──────────────────┼─────────────────┤
+│ PC4  │ VLAN 20 │ 192.168.20.10    │ 192.168.20.255  │
+│ PC5  │ VLAN 20 │ 192.168.20.11    │ 192.168.20.255  │
+│ PC6  │ VLAN 20 │ 192.168.20.12    │ 192.168.20.255  │
+├──────┼─────────┼──────────────────┼─────────────────┤
+│ PC7  │ VLAN 30 │ 192.168.30.10    │ 192.168.30.255  │
+│ PC8  │ VLAN 30 │ 192.168.30.11    │ 192.168.30.255  │
+│ PC9  │ VLAN 30 │ 192.168.30.12    │ 192.168.30.255  │
+└──────┴─────────┴──────────────────┴─────────────────┘
+```
+
 ## Access Port vs Trunk Port
 ### Access Port
 ```
