@@ -274,45 +274,6 @@ DHCP Server:
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
-# VTP (VLAN Trunking Protocol)
-```
-┌────────────────────────────────────────────────────────────────────────────┐
-│                           VTP OVERVIEW                                     │
-├────────────────────────────────────────────────────────────────────────────┤
-│                                                                            │
-│  VTP = VLAN Trunking Protocol                                              │
-│                                                                            │
-│  PURPOSE: Automatically synchronize VLAN information across all switches   │
-│                                                                            │
-│  ┌────────────────────────────────────────────────────────────────────────┐│
-│  │  WITHOUT VTP:                                                          ││
-│  │  ─────────────                                                         ││
-│  │    • Create VLAN 10 on Switch 1                                        ││
-│  │    • Manually create VLAN 10 on Switch 2                               ││
-│  │    • Manually create VLAN 10 on Switch 3                               ││
-│  │    • Manually create VLAN 10 on Switch 4...                            ││
-│  │    • 100 switches = 100 times manual configuration! 😫                 ││
-│  │                                                                         ││
-│  ├────────────────────────────────────────────────────────────────────────┤│
-│  │  WITH VTP:                                                             ││
-│  │  ──────────                                                            ││
-│  │    • Create VLAN 10 on VTP Server                                      ││
-│  │    • ALL switches automatically learn VLAN 10! ✅                      ││
-│  │    • 100 switches = 1 time configuration! 😊                           ││
-│  └────────────────────────────────────────────────────────────────────────┘│
-│                                                                            │
-│  CISCO PROPRIETARY: Works only on Cisco switches                           │
-│  LAYER 2 PROTOCOL: Works over trunk links                                  │
-│                                                                            │
-└────────────────────────────────────────────────────────────────────────────┘
-```
-
-**VTP is Used to create multiple VLAN (1-1000)**
-**Its Require Layer 3 switch which has 64 Ports so we can connect 64 layer 2 switch and Layer 2 switch has 24 ports to connect n device this how we can create 1000 VLAN.**
-**We have to configure VLANs on Layer 3 switch only.**
-
-![[Screenshot (103).png]]
-
 
 # Ether Channel 
 Bundles multiple physical links into one logical link for increased bandwidth & redundancy
