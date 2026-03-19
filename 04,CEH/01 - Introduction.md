@@ -37,6 +37,8 @@ Ensures that information is accessible only to authorized individuals and remain
 #### 🛡️ Integrity
 Ensures that information remains accurate, complete, and unaltered by unauthorized parties during storage and transmission.
 
+=="Integrity = Trustworthiness. We ensure data is accurate and has not been tampered with using hashing and digital signatures."==
+
 **Key Implementation Methods:**
 - **Cryptographic hashing**: SHA-256, MD5 checksums for data verification
 - **Digital signatures**: Non-repudiation and authenticity verification
