@@ -19,7 +19,8 @@ The **CIA Triad** forms the foundation of information security, representing thr
 Ensures that information is accessible only to authorized individuals and remains protected from unauthorized access.
 
 - =="Confidentiality = Privacy. We use encryption and strong access control to protect sensitive data from unauthorized access."==
-- ==Tools/Methods: Encryption, Access Controls, Authentication, VPN.==
+- Ensures that sensitive information is only accessible to authorized users.
+- Prevents unauthorized access or disclosure.
 
 **Key Implementation Methods:**
 - **Authentication mechanisms**: Username/password combinations, multi-factor authentication
@@ -37,7 +38,9 @@ Ensures that information is accessible only to authorized individuals and remain
 #### 🛡️ Integrity
 Ensures that information remains accurate, complete, and unaltered by unauthorized parties during storage and transmission.
 
-=="Integrity = Trustworthiness. We ensure data is accurate and has not been tampered with using hashing and digital signatures."==
+- =="Integrity = Trustworthiness. We ensure data is accurate and has not been tampered with using hashing and digital signatures."==
+- Ensures that data is accurate, consistent, and not tampered with.
+- Protects information from unauthorized modification.
 
 **Key Implementation Methods:**
 - **Cryptographic hashing**: SHA-256, MD5 checksums for data verification
