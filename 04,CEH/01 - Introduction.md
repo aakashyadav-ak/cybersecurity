@@ -18,6 +18,9 @@ The **CIA Triad** forms the foundation of information security, representing thr
 #### 🔒 Confidentiality
 Ensures that information is accessible only to authorized individuals and remains protected from unauthorized access.
 
+- =="Confidentiality = Privacy. We use encryption and strong access control to protect sensitive data from unauthorized access."==
+- ==Tools/Methods: Encryption, Access Controls, Authentication, VPN.==
+
 **Key Implementation Methods:**
 - **Authentication mechanisms**: Username/password combinations, multi-factor authentication
 - **Access controls**: Role-based permissions, least privilege principle
