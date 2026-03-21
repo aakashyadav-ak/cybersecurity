@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # 🐧 Linux Beginner Roadmap
 
 ---
@@ -518,27 +518,4 @@ START HERE
         JOBS
 ```
 
----
-
-## ⚙️ Lab Setup (Do This First)
-
-- [ ] Download VirtualBox
-- [ ] Download Rocky Linux 9 ISO (minimal install)
-- [ ] Create VM (2 CPU, 2GB RAM, 20GB disk)
-- [ ] Install Rocky Linux
-- [ ] Take a snapshot (so you can reset anytime)
-- [ ] Create a second VM for multi-server projects
-- [ ] Practice every command — do not just read
-
----
-
-## 📝 Daily Practice Routine
-
-| Time    | Task                                |
-| ------- | ----------------------------------- |
-| 30 min  | Watch/Read theory for current phase |
-| 45 min  | Practice commands on your VM        |
-| 15 min  | Write notes in Obsidian             |
-| Weekend | Work on projects                    |
-
----
+____
