@@ -347,7 +347,7 @@ Linux Distributions Family Tree
 
 **Package manager:**
 Debian/Ubuntu= apt (file extension .deb)
-RHEL = YUM
+RHEL = yum/dnf
 ## Hidden Files
 
 Files starting with . are hidden.
