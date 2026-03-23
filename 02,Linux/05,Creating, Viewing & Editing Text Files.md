@@ -15,7 +15,7 @@ stdout	                   Standard Output	             1	                       
 _________________________________________
 stderr	                   Standard Error	                 2	                                Error messages
 
-## 1. Standard Output #stdout - File Descriptor 1
+## 1. Standard Output #stdout - File Descriptor `1`
 
 - What it is: Normal output from a command
 - Where it goes: Your screen by default
@@ -25,7 +25,7 @@ Example:**
 ls          # Lists files - this output is stdout
 echo "Hi"  # Prints "Hi" - this is stdout
 ```
-## 2. Standard Error #stderr - File Descriptor 2
+## 2. Standard Error #stderr - File Descriptor `2`
 
 - What it is: Error messages
 - Where it goes: Your screen by default (but separate from stdout)
@@ -36,7 +36,7 @@ ls /fake/folder   # Error message "No such file" is stderr
 cat wrongfile.txt # Error goes to stderr
 ```
 
-## 3. Standard Input (stdin) - File Descriptor 0
+## 3. Standard Input (stdin) - File Descriptor `0`
 
 - What it is: Input TO a command (not output, but related)
 - Where it comes from: Your keyboard by default
@@ -47,9 +47,9 @@ cat           # Waits for you to type (stdin)
 read name     # Takes input from user
 ```
 
-### Save Output to a File 
+# Save Output to a File 
 
-#### Create New File or #Overwrite (>)
+### Create New File or #Overwrite (>)
 
 - Redirects output to a file by replacing its existing contents
 - If the file doesn’t exist → it gets created
@@ -73,7 +73,7 @@ This saves the file list into myfiles.txt
 
 
 
-#### Add to Existing File / #Append (>>)
+### Add to Existing File / #Append (>>)
 
 - Redirects output to a file by adding to the end
 - If the file doesn’t exist → it gets created
