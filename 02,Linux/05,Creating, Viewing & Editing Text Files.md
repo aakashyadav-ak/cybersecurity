@@ -71,7 +71,8 @@ Now notes.txt has 3 lines.
 
 ## #Pipe( | ) - Connect Commands
 
-Send output of one command to another command.
+- It passes the output of one command as input to another command.
+- Send output of one command to another command.
 ```bash
 cat /etc/passwd | grep root
 ```
@@ -98,7 +99,7 @@ ___
 | **nano** | Easy       | Beginners      |
 | **vim**  | Hard       | Advanced users |
 
-## Nano Editor
+## #Nano Editor
 
 Open a File
 ```bash
@@ -117,7 +118,7 @@ nano filename.txt
 | **Go to line** | `Ctrl` + `_`              |
 
 
-## Vim Editor
+## #Vim Editor
 Vim has modes. This confuses beginners.
 
 **Two Main Modes:**
