@@ -15,6 +15,11 @@ stdout	                   Standard Output	             1	                       
 _________________________________________
 stderr	                   Standard Error	                 2	                                Error messages
 
+## 1. Standard Output (stdout) - File Descriptor 1
+
+- What it is: Normal output from a command
+- Where it goes: Your screen by default
+**Example:**
 
 
 ### Save Output to a File 
