@@ -8,23 +8,23 @@
 ## Phase 1: Linux Basics (Week 1-2)
 
 ### 1.1 What is Linux
-- [ ] What is Linux, Kernel, Shell
-- [ ] What is a Distribution (RHEL, Ubuntu, CentOS, Rocky)
-- [ ] Linux vs Windows differences
-- [ ] Install Rocky Linux / Ubuntu on VirtualBox
-- [ ] Connect via SSH using terminal
+- [x] What is Linux, Kernel, Shell
+- [x] What is a Distribution (RHEL, Ubuntu, CentOS, Rocky)
+- [x] Linux vs Windows differences
+- [x] Install Rocky Linux / Ubuntu on VirtualBox
+- [x] Connect via SSH using terminal
 
 ### 1.2 Linux Directory Structure
-- [ ] `/` — Root
-- [ ] `/home` — User home directories
-- [ ] `/etc` — Configuration files
-- [ ] `/var` — Logs, variable data
-- [ ] `/tmp` — Temporary files
-- [ ] `/boot` — Boot files
-- [ ] `/opt` — Optional software
-- [ ] `/usr` — User programs
-- [ ] `/dev` — Device files
-- [ ] `/proc` — Process information
+- [x] `/` — Root
+- [x] `/home` — User home directories
+- [x] `/etc` — Configuration files
+- [x] `/var` — Logs, variable data
+- [x] `/tmp` — Temporary files
+- [x] `/boot` — Boot files
+- [x] `/opt` — Optional software
+- [x] `/usr` — User programs
+- [x] `/dev` — Device files
+- [x] `/proc` — Process information
 
 ### 1.3 Basic Navigation Commands
 ```bash
