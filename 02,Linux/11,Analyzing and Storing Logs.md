@@ -1,4 +1,3 @@
-
 # Logs 
 
 **Logs record everything that happens on a system:**
