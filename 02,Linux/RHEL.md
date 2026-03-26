@@ -310,37 +310,29 @@ status: in-progress
 
 ## 📊 Progress Tracker
 
-| Day | Topic | Tasks | Done | Status |
-|-----|-------|-------|------|--------|
-| 1 | Setup & Linux Basics | 9 | 0 | ⬜ |
-| 2 | Users, Groups & Permissions | 11 | 0 | ⬜ |
-| 3 | SSH, Software & Vim | 10 | 0 | ⬜ |
-| 4 | Processes & Systemd | 10 | 0 | ⬜ |
-| 5 | Storage & LVM | 12 | 0 | ⬜ |
-| 6 | Networking & Firewall | 13 | 0 | ⬜ |
-| 7 | SELinux + Review | 12 | 0 | ⬜ |
-| 8 | Scheduling & Logging | 12 | 0 | ⬜ |
-| 9 | Boot & Troubleshooting | 9 | 0 | ⬜ |
-| 10 | NFS, Autofs & Storage | 8 | 0 | ⬜ |
-| 11 | Containers (Podman) | 9 | 0 | ⬜ |
-| 12 | Shell Scripting | 12 | 0 | ⬜ |
-| 13 | Practice Exam | 17 | 0 | ⬜ |
-| 14 | Final Review | 22 | 0 | ⬜ |
-| **TOTAL** | | **~166** | **0** | **0%** |
+| Day       | Topic                       | Tasks    | Done  | Status |
+| --------- | --------------------------- | -------- | ----- | ------ |
+| 1         | Setup & Linux Basics        | 9        | 0     | ⬜      |
+| 2         | Users, Groups & Permissions | 11       | 0     | ⬜      |
+| 3         | SSH, Software & Vim         | 10       | 0     | ⬜      |
+| 4         | Processes & Systemd         | 10       | 0     | ⬜      |
+| 5         | Storage & LVM               | 12       | 0     | ⬜      |
+| 6         | Networking & Firewall       | 13       | 0     | ⬜      |
+| 7         | SELinux + Review            | 12       | 0     | ⬜      |
+| 8         | Scheduling & Logging        | 12       | 0     | ⬜      |
+| 9         | Boot & Troubleshooting      | 9        | 0     | ⬜      |
+| 10        | NFS, Autofs & Storage       | 8        | 0     | ⬜      |
+| 11        | Containers (Podman)         | 9        | 0     | ⬜      |
+| 12        | Shell Scripting             | 12       | 0     | ⬜      |
+| 13        | Practice Exam               | 17       | 0     | ⬜      |
+| 14        | Final Review                | 22       | 0     | ⬜      |
+| **TOTAL** |                             | **~166** | **0** | **0%** |
 
 > [!tip] Status Key
 > ⬜ Not Started | 🟡 In Progress | ✅ Completed
 
 ---
 
-## 🏆 Completion
-
-- [ ] Week 1 completed
-- [ ] Week 2 completed
-- [ ] All labs done
-- [ ] Mock exam passed (80%+)
-- [ ] Personal cheat sheet created
-- [ ] **READY FOR EXAM** 🎯
 
 ---
 
