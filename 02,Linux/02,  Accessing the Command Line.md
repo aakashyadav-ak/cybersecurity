@@ -172,15 +172,6 @@ cd /nonexistent || echo "Directory not found"
 ```
 
 
-### Getting Help
-| Method     | Usage                | Example        |
-| :--------- | :------------------- | :------------- |
-| **--help** | Quick help           | `ls --help`    |
-| **man**    | Full manual          | `man ls`       |
-| **info**   | Detailed info        | `info ls`      |
-| **whatis** | One-line description | `whatis ls`    |
-| **which**  | Command location     | `which python` |
-| **type**   | Command type         | `type cd`      |
 
 ## cyber
 #### System Enumeration:
