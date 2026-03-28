@@ -23,6 +23,16 @@ The command line (also called **terminal, console,** or **shell**) is a text-bas
 You might log into one console as root and another as a normal user
 
 
+**TTY originally means Teletypewriter (old physical terminals).**
+
+**TTY usually refers to:**
+- physical console
+- virtual console like Ctrl+Alt+F1
+
+**Examples:**
+- /dev/tty1
+- /dev/tty2
+
 ### 2. Terminal Emulator (GUI Console)
 - A graphical application that behaves like a console
 - Runs inside a desktop environment like GNOME or KDE Plasma
@@ -45,7 +55,7 @@ Used for low-level system access via serial ports (RS-232, USB serial)
 No monitor or keyboard is attached
 
 
-### 4. System/Kernel/Physical Consol
+### 4. System/Kernel/Physical Console
 
 The primary console used by the Linux kernel
 
@@ -54,9 +64,12 @@ The primary console used by the Linux kernel
 - Kernel logs
 - Usually mapped to the first ==**TTY (like /dev/tty1)**==
 
+- Direct keyboard and monitor connection
+- Used for server rooms and local access
+- Login prompt appears after boot
 
 ### 5. Pseudo Terminals (PTY)
-
+Used when you open terminals inside **GUI** or **SSH** sessions.
 Virtual terminals created by software
 
 **Used by:**
@@ -66,6 +79,9 @@ Virtual terminals created by software
 **Example:**
 When you connect using SSH, you’re using a PTY
 
+**Examples:**
+/dev/pts/0
+/dev/pts/1
 ### 6. Remote Console
 Accessing a system from another machine over network
 
@@ -73,43 +89,6 @@ Accessing a system from another machine over network
 - OpenSSH
 - Telnet (less secure, mostly outdated)
 
-### 1. Physical Console
-- Direct keyboard and monitor connection
-- Used for server rooms and local access
-- Login prompt appears after boot
-
-### 2. Virtual Consoles (TTY)
-- RHEL provides multiple virtual consoles
-- Switch between them using keyboard shortcuts
-- Ctrl + Alt + F1 to F6 for text consoles
-- Ctrl + Alt + F1 or F2 usually returns to GUI (if installed)
-
-**TTY originally means Teletypewriter (old physical terminals).**
-
-**TTY usually refers to:**
-- physical console
-- virtual console like Ctrl+Alt+F1
-
-**Examples:**
-- /dev/tty1
-- /dev/tty2
-### 3. Terminal Emulator (GUI)
-- Application within desktop environment
-- GNOME Terminal is default in RHEL
-- Access via Applications menu or right-click desktop
-
-
-### **PTY (Pseudo Terminal)**
-Used when you open terminals inside GUI or SSH sessions.
-
-**Examples:**
-/dev/pts/0
-/dev/pts/1
-### 4. Remote Access (SSH)
-- Secure Shell protocol
-- Access from another machine over network
-- Most common method for servers
-- Command: ssh username@hostname
 
 
 #### After login, you see the shell prompt:
@@ -233,30 +212,3 @@ cd /nonexistent || echo "Directory not found"
 ```
 
 
-
-## cyber
-#### System Enumeration:
-```
-uname -a                    # Kernel version
-cat /etc/os-release         # OS details
-cat /proc/version           # Kernel and compiler info
-hostname                    # System name
-hostnamectl                 # Detailed host info
-```
-
-#### User Enumeration:
-```
-whoami                      # Current user
-id                          # User ID and groups
-cat /etc/passwd             # All users
-cat /etc/group              # All groups
-cat /etc/shadow             # Password hashes (needs root)
-```
-
-#### Network Enumeration:
-```
-ip a                        # Network interfaces
-ip route                    # Routing table
-cat /etc/resolv.conf        # DNS servers
-ss -tulnp                   # Open ports
-```

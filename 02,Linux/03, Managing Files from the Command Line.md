@@ -23,23 +23,6 @@ Linux uses a hierarchical (tree) structure starting from the root directory /. U
 └── var
 ```
 
-| Directory  | Purpose                       | VAPT Relevance                     |
-| :--------- | :---------------------------- | :--------------------------------- |
-| `/`        | Root of file system           | Starting point for enumeration     |
-| `/etc`     | Configuration files           | Passwords, configs, sensitive data |
-| `/home`    | User home directories         | User data, SSH keys, history files |
-| `/root`    | Root user's home              | High-value target                  |
-| `/var`     | Variable data (logs, mail)    | Log analysis, evidence             |
-| `/tmp`     | Temporary files               | World-writable, exploit staging    |
-| `/opt`     | Optional/third-party software | Installed applications             |
-| `/proc`    | Process information (virtual) | Running processes, system info     |
-| `/dev`     | Device files                  | Hardware access                    |
-| `/bin`     | Essential user binaries       | Basic commands                     |
-| `/sbin`    | System binaries               | Admin commands                     |
-| `/usr`     | User programs and data        | Applications, libraries            |
-| `/var/log` | Log files                     | Attack evidence, troubleshooting   |
-| `/var/www` | Web server files              | Web application files              |
-==/usr/bin = main location of installed command-line tools==
 ### Absolute vs Relative Paths
 #### Absolute Path
 - Starts from root /
@@ -64,11 +47,11 @@ documents/report.txt      # From /home/john
 ```
 
 #### Special Directory References
-| Symbol | Meaning |
-| :--- | :--- |
-| `.` | Current directory |
-| `..` | Parent directory |
-| `~` | Home directory |
+| Symbol  | Meaning             |
+| :------ | :------------------ |
+| `.`     | Current directory   |
+| `..`    | Parent directory    |
+| `~`     | Home directory      |
 | `~user` | Another user's home |
 # Specify Files by Name
 **File Naming Rules:**
@@ -110,6 +93,7 @@ ls -la      # Long listing with hidden files
 ```Bash
 nano ~/.bashrc
 ```
+
 # Manage Files with Command-line Tools
 
 ## Listing Files - ls Command
