@@ -109,12 +109,6 @@ cat /etc/shells
 # Current shell
 echo $SHELL
 echo $0
-
-# Shell-specific configs (attack vectors)
-~/.bashrc           # User bash config
-~/.bash_history     # Command history (passwords!)
-/etc/profile        # System-wide settings
-/etc/bash.bashrc    # Global bash config
 ```
 
 
@@ -138,8 +132,19 @@ The top of everything. Every folder starts from here.
 - Directories, devices, sockets, processes are all files
 - Case-sensitive naming
 
+```
+cd /
+ls
+```
+
+```
+bin  boot  dev  etc  home  root  tmp  usr  var
+```
+
+
 ## 1) /home
 Where user files live.
+This is where normal users keep their personal files.
 
 **Example:**
 - /home/username/Documents
@@ -147,9 +152,14 @@ Where user files live.
 
 ## 2) /root
 Home folder for the root user (admin).
+A private Folder For Admin.
 
-### ==/etc==
-System configuration files.
+==where / = Its a directory(folder storing file)==
+example:  **/root/etc** 
+Linux use **Absolute path** that's why it use (/) in every directory 
+
+## 3) ==/etc==
+It store **System configuration files**.
 **/etc** is the folder where Linux keeps its settings and rules.
 
 **It stores configuration files that tell the system:**
@@ -164,12 +174,13 @@ System configuration files.
  /etc = Linux control center for system settings
  
 **Examples:**
-- /etc/passwd
-- /etc/ssh/sshd_config
-- /etc/hosts
+- /etc/passwd      (user account Info)
+- /etc/ssh/sshd_config     (ssh server config)
+- /etc/hosts     (local host mapping)
 
-## 3) /bin and /usr/bin
-Essential commands and programs./ Essential user binaries
+## 4) /bin and /usr/bin
+- Essential commands and programs needed by User and System
+- Essential user binaries
 
 #### ==**/bin**== → Contains basic system commands needed for Linux to run.
 **Examples:**
@@ -186,8 +197,8 @@ Essential commands and programs./ Essential user binaries
 - wget
 - python
 
-## 4) /sbin and /usr/sbin
-Admin/system commands.
+## 5) /sbin and /usr/sbin
+Contain important system **Admin**/system commands.
 
 ##### ==**/sbin**== → Contains important system administration commands.
 Contains essential system management commands needed for booting and repairing the system.
@@ -214,7 +225,7 @@ Contains essential system management commands needed for booting and repairing t
 - adduser
 
 
-## ==***5) /var  (is the folder where Linux stores changing data.)***==
+## ==***6) /var  (is the folder where Linux stores changing data.)***==
 “Variable” data (logs, cache, changing stuff)
 
 **Examples:**
@@ -229,14 +240,6 @@ Contains essential system management commands needed for booting and repairing t
 - /var/log/messages → System messages
 - /var/log/apache2/ → Web server logs
 - /var/log/nginx/ → Web server logs
-## 6) /tmp
-Temporary files (often cleared on reboot)/Often writable
-==every user can work in this directory==
-
-#### ==**/var/tmp**==
-- Temporary files
-- Similar to /tmp
-- Files may persist after reboot ==(the file will still be there even after you restart the system.)==
 
 #### **/var/lib**
 - Application state data
@@ -247,8 +250,17 @@ Temporary files (often cleared on reboot)/Often writable
 Cached files from applications
 
 
+## 7) /tmp
+Temporary files (often cleared on reboot)/Often writable
+==every user can work in this directory==
 
-## /dev
+#### ==**/var/tmp**==
+- Temporary files
+- Similar to /tmp
+- Files may persist after reboot ==(the file will still be there even after you restart the system.)==
+
+
+## 8) /dev
 Devices treated like files / Device files
 
 **Examples:**
@@ -259,13 +271,42 @@ Devices treated like files / Device files
 ## /mnt and /media
 Where drives get mounted (USB, external disks)
 
+## 9) /boot
+This contains files needed to start Linux.
+
+**Examples:**
+
+- kernel files
+- initramfs
+- bootloader-related files
+
+Without this, **system booting is affected.**
+
 
 ## /proc
 Virtual filesystem showing running system info.
+It Does not store normal files like Document.
+
+**It gives info about:-**
+- Running process
+- Kernel
+- Memory
+- CPU
 
 **Examples:**
-- /proc/cpuinfo
-- /proc/meminfo
+```
+cat /proc/cpuinfo
+cat /proc/meminfo
+```
+
+## 11) /opt 
+Used for **optional** or **third party software**.
+
+If you install Some extra Application manually, it may go here.
+
+## 12) /run
+- Stores runtime info 
+- current running system data 
 
 
 ```bash
