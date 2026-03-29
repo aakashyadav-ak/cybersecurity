@@ -194,12 +194,13 @@ nano filename.txt
 ## #Vim Editor
 Vim has modes. This confuses beginners.
 
-**Two Main Modes:**
+**Three Main Modes:**
 
-| Mode       | Purpose                   | How to enter |
-| :--------- | :------------------------ | :----------- |
-| **Normal** | Move around, delete, copy | Press `Esc`  |
-| **Insert** | Type text                 | Press `i`    |
+| Mode         | Purpose                   | How to enter |
+| :----------- | :------------------------ | :----------- |
+| **Normal**   | Move around, delete, copy | Press `Esc`  |
+| **Insert**   | Type text                 | Press `i`    |
+| Command mode | save/exit                 | press `:`    |
 
 ### Basic Vim Steps
 #### Open file:
