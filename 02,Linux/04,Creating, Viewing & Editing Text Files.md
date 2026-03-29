@@ -172,7 +172,7 @@ ___
 | **nano** | Easy       | Beginners      |
 | **vim**  | Hard       | Advanced users |
 
-## #Nano Editor
+## #Nano Text Editor
 
 Open a File
 ```bash
