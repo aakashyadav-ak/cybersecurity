@@ -17,7 +17,7 @@ status: in-progress
 - [x] Install RHEL 9 on VM (VirtualBox/KVM)
 - [ ] Register with developer subscription
 - [x] Explore the desktop & terminal
-- [ ] Practice: `ls`, `cd`, `pwd`, `mkdir`, `cp`, `mv`, `rm`, `touch`
+- [x] Practice: `ls`, `cd`, `pwd`, `mkdir`, `cp`, `mv`, `rm`, `touch`
 - [ ] Practice: `cat`, `less`, `head`, `tail`, `wc`, `grep`
 - [x] Understand FHS — navigate every major directory
 - [ ] Practice: I/O redirection (`>`, `>>`, `|`, `2>`, `&>`, `tee`)
