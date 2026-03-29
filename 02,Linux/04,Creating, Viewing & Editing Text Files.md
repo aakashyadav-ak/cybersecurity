@@ -384,13 +384,13 @@ env
 
 #### Important Variables
 
-| Variable | What it stores | Example Value |
-| :--- | :--- | :--- |
-| `$HOME` | Your home folder | `/home/john` |
-| `$USER` | Your username | `john` |
-| `$SHELL` | Your shell program | `/bin/bash` |
-| `$PWD` | Current folder | `/home/john/docs` |
-| `$PATH` | Where commands are found | `/usr/bin:/bin` |
+| Variable | What it stores           | Example Value     |
+| :------- | :----------------------- | :---------------- |
+| `$HOME`  | Your home folder         | `/home/john`      |
+| `$USER`  | Your username            | `john`            |
+| `$SHELL` | Your shell program       | `/bin/bash`       |
+| `$PWD`   | Current folder           | `/home/john/docs` |
+| `$PATH`  | Where commands are found | `/usr/bin:/bin`   |
 ### Create Your Own Variable
 ```
 MYNAME="ak"
