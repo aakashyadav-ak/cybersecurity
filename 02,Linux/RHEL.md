@@ -20,7 +20,7 @@ status: in-progress
 - [x] Practice: `ls`, `cd`, `pwd`, `mkdir`, `cp`, `mv`, `rm`, `touch`
 - [x] Practice: `cat`, `less`, `head`, `tail`, `wc`, `grep`
 - [x] Understand FHS — navigate every major directory
-- [ ] Practice: I/O redirection (`>`, `>>`, `|`, `2>`, `&>`, `tee`)
+- [x] Practice: I/O redirection (`>`, `>>`, `|`, `2>`, `&>`, `tee`)
 - [x] Practice: `find` and `locate` with various options
 - [ ] Read `man` pages for 5 commands
 

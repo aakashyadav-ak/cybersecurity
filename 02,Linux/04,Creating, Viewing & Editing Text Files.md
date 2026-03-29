@@ -121,6 +121,45 @@ history | grep ssh              # Find ssh commands in history
 cat /etc/passwd | wc -l         # Count total lines
 ```
 
+## `2>` (Redirect Errors Only)
+
+2> redirects stderr (error output only) to a file
+
+**example:**
+```bash
+ls file.txt wrongfile 2> error.txt
+```
+- file.txt output → screen
+- Error (wrongfile) → error.txt
+
+## `&>` (Redirect Everything)
+
+&> redirects both stdout + stderr into one file
+
+**example:**
+```
+ls file.txt wrongfile &> output.txt
+```
+- Normal output → file
+- Error output → same file
+
+## `tee` (Output to Screen + File)
+
+tee reads input and sends it to:
+- screen (stdout)
+- file (simultaneously)
+
+**example:**
+```bash
+ls | tee output.txt
+```
+- Shows output
+- Saves output
+
+```
+ls | tee -a output.txt   (append)
+```
+Adds to file instead of overwriting.
 
 ___ 
 
