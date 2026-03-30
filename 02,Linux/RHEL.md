@@ -22,7 +22,7 @@ status: in-progress
 - [x] Understand FHS — navigate every major directory
 - [x] Practice: I/O redirection (`>`, `>>`, `|`, `2>`, `&>`, `tee`)
 - [x] Practice: `find` and `locate` with various options
-- [ ] Read `man` pages for 5 commands
+- [x] Read `man` pages for 5 commands
 
 > [!done] Day 1 Goal
 > Comfortable navigating filesystem and using 20+ basic commands.
