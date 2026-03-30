@@ -35,12 +35,12 @@ status: in-progress
 - [x] Create 5 users with various options (`useradd`)
 - [ ] Create 3 groups, assign users to groups
 - [ ] Practice `passwd`, `chage`, `usermod`, `userdel`
-- [ ] Understand permission bits (`rwx`, numeric)
+- [x] Understand permission bits (`rwx`, numeric)
 - [ ] Practice `chmod` (both numeric and symbolic)
-- [ ] Practice `chown`, `chgrp`
+- [x] Practice `chown`, `chgrp`
 - [ ] Set up SUID, SGID, and Sticky bit — test each
 - [ ] Practice ACLs: `setfacl`, `getfacl`
-- [ ] Understand and modify `umask`
+- [x] Understand and modify `umask`
 - [ ] Lab: Create shared directory for a team with SGID
 
 > [!done] Day 2 Goal
