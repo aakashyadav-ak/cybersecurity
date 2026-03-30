@@ -32,7 +32,7 @@ status: in-progress
 ### 📅 Day 2: Users, Groups & Permissions
 
 - [x] Study `/etc/passwd`, `/etc/shadow`, `/etc/group`
-- [ ] Create 5 users with various options (`useradd`)
+- [x] Create 5 users with various options (`useradd`)
 - [ ] Create 3 groups, assign users to groups
 - [ ] Practice `passwd`, `chage`, `usermod`, `userdel`
 - [ ] Understand permission bits (`rwx`, numeric)
