@@ -15,7 +15,7 @@ status: in-progress
 ### 📅 Day 1: Setup & Linux Basics
 
 - [x] Install RHEL 9 on VM (VirtualBox/KVM)
-- [ ] Register with developer subscription
+- [x] Register with developer subscription
 - [x] Explore the desktop & terminal
 - [x] Practice: `ls`, `cd`, `pwd`, `mkdir`, `cp`, `mv`, `rm`, `touch`
 - [x] Practice: `cat`, `less`, `head`, `tail`, `wc`, `grep`
@@ -31,7 +31,7 @@ status: in-progress
 
 ### 📅 Day 2: Users, Groups & Permissions
 
-- [ ] Study `/etc/passwd`, `/etc/shadow`, `/etc/group`
+- [x] Study `/etc/passwd`, `/etc/shadow`, `/etc/group`
 - [ ] Create 5 users with various options (`useradd`)
 - [ ] Create 3 groups, assign users to groups
 - [ ] Practice `passwd`, `chage`, `usermod`, `userdel`
