@@ -108,6 +108,15 @@ Enter YOUR password (not root's).
 - Logs what you did
 - Safer than being root all the time
 
+#### sudo su
+Uses sudo privileges to become root
+
+```
+sudo su
+```
+
+Requires your user password (not root)
+
 
 ### Who Can Use sudo?
 Users in the wheel group can use sudo.
