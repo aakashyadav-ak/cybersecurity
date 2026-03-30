@@ -184,7 +184,7 @@ cat /etc/passwd
 ```
 
 
-## ==Create New User==
+## ==Create New User== `useradd`
 
 **There are two common commands:**
 ==adduser==
@@ -210,14 +210,15 @@ sudo useradd <username>
 - Does NOT create home directory (unless -m)
 - Not interactive
 
-### Set Password for New User
+# Set Password for New User `passwd`
 
 **New user has no password! Set one:**
 ```
 sudo passwd <username>
 ```
 
-### Modify Existing User ==(usermod)==
+
+# Modify Existing User ==(usermod)==
 
 #### Change shell:
 ```
@@ -238,7 +239,13 @@ sudo usermod -G fgroup ak
 ```
 ==It will replace all existing supplementary groups and may remove sudo access.==
 
-Check Wheel group users
+
+## Change username:
+```
+sudo usermod -l newname oldname
+```
+
+## Check Wheel group users
 ```
 getent group sudo
 cat /etc/group | grep wheel
@@ -246,14 +253,18 @@ or
 groups <username>
 id <username>
 ```
-#### Lock a User:
+
+
+
+
+## Lock a User:
 **Locking:**
 The user cannot authenticate (log in) using their password.
 ```bash
 sudo usermod -L ak
 ```
 
-#### Unlock user:
+## Unlock user:
 **Unlocking:**
 Unlocking restores the ability to log in.
 It does NOT delete the account.
@@ -263,13 +274,9 @@ sudo usermod -U john
 ```
 
 
-#### Change username:
-```
-sudo usermod -l newname oldname
-```
 
 
-### Delete User ==(userdel)==:
+# Delete User ==(userdel)==:
 
 **Delete user only:**
 ```
