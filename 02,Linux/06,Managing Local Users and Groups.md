@@ -83,10 +83,6 @@ developers:x:1010:john,sarah,mike
 | `1010`            | Group ID (GID)           |
 | `john,sarah,mike` | Members of this group    |
 
-**What groups am I in?**
-```
-groups
-```
 
 
 ---
