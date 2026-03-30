@@ -17,11 +17,11 @@
 
 ### Three User Categories
 
-| Category | Meaning |
-| :--- | :--- |
-| **Owner** (`u`) | The user who owns the file |
-| **Group** (`g`) | Users in the file's group |
-| **Others** (`o`) | Everyone else |
+| Category         | Meaning                    |
+| :--------------- | :------------------------- |
+| **Owner** (`u`)  | The user who owns the file |
+| **Group** (`g`)  | Users in the file's group  |
+| **Others** (`o`) | Everyone else              |
 
 ### View Permissions
 ```
