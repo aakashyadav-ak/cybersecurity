@@ -35,13 +35,13 @@ When you open a program, it becomes a process.
 | **Memory %** | RAM usage                  | `2%`              |
 
 #### Process States
-| State | Letter | Meaning |
-| :--- | :--- | :--- |
-| **Running** | `R` | Currently executing |
-| **Sleeping** | `S` | Waiting for something |
-| **Stopped** | `T` | Paused (Ctrl+Z) |
-| **Zombie** | `Z` | Finished but not cleaned up |
-| **Dead** | `X` | Completely finished |
+| State        | Letter | Meaning                     |
+| :----------- | :----- | :-------------------------- |
+| **Running**  | `R`    | Currently executing         |
+| **Sleeping** | `S`    | Waiting for something       |
+| **Stopped**  | `T`    | Paused (Ctrl+Z)             |
+| **Zombie**   | `Z`    | Finished but not cleaned up |
+| **Dead**     | `X`    | Completely finished         |
 
 #### Process Lifecycle
 ```
