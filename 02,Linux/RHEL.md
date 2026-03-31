@@ -68,7 +68,7 @@ status: in-progress
 
 ### 📅 Day 4: Processes, Services & Systemd
 
-- [ ] Practice `ps aux`, `ps -ef`, `top`, `pgrep`, `pkill`
+- [x] Practice `ps aux`, `ps -ef`, `top`, `pgrep`, `pkill`
 - [ ] Run background jobs (`&`, `jobs`, `fg`, `bg`, `nohup`)
 - [ ] Practice signals (`kill -9`, `kill -15`, `kill -1`)
 - [ ] Understand nice values; practice `nice` and `renice`
