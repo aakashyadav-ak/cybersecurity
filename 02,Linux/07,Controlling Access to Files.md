@@ -244,6 +244,16 @@ sudo chown newowner:newgroup file.txt
 sudo chown :newgroup file.txt
 ```
 
+#### Directory ownership change using chown
+```
+sudo chown user:group directory_name
+```
+
+```
+sudo chown newuser:newgroup myfolder
+```
+
+
 
 ## ==chgrp - Change Group==
 
