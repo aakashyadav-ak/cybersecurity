@@ -349,7 +349,8 @@ Tip: SUID files are gold for privilege escalation!
 ### SGID (Set Group ID)
 On files: Runs as the file's group.
 
-On directories: New files inherit the directory's group.
+**On directories:** New files inherit the directory's group.
+When SGID is set on a directory, any new file or folder created inside it will inherit the group of that directory, NOT the user’s default group.
 
 **Example:**
 ```
