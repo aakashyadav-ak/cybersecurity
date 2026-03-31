@@ -327,10 +327,10 @@ echo "umask 077" >> ~/.bashrc
 
 
 ### SUID (Set User ID)
-When you run the file, it runs as the owner (not you).
+- When you run the file, it runs as the owner (not you).
+- When a user runs a file, it runs with owner’s permissions, not user’s.
 
 **Example:** /usr/bin/passwd
-
 ```
 ls -l /usr/bin/passwd
 -rwsr-xr-x. 1 root root 27856 Jan 1 10:00 /usr/bin/passwd
