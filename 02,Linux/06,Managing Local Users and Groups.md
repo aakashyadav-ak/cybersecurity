@@ -343,7 +343,7 @@ ___
 
 #  Manage User Passwords
 
-## Change Your Own Password
+## Change Your Own Password `passwd`
 ```
 passwd
 ```
@@ -355,6 +355,47 @@ sudo passwd john
 ```
 Root doesn't need to know old password!
 
+## `chage` = Change Age (password timing control)
+
+Used to manage password expiry for an existing user
+
+**Key points:**
+- Works on already created users
+- Controls when password expires
+- Does NOT set password (use passwd for that)
+
+**Example:**
+```
+chage -l username                   (Check password info)
+sudo chage -d 0 username            (Force password change on next login)
+sudo chage -M 90 username           (Set expiry to 90 days)
+```
+
+## /etc/login.defs
+Used to set default rules for new users
+
+**Key points:**
+- A config file
+- Affects only new users
+- Defines default password policies
+
+**Example:**
+```
+PASS_MAX_DAYS   90
+PASS_MIN_DAYS   1
+PASS_WARN_AGE   7
+```
+- Max days before expiry
+- Min days before change
+- Warning days
+
+**Example:**
+```
+UID_MIN 1000
+UID_MAX 60000
+CREATE_HOME yes
+ENCRYPT_METHOD SHA512
+```
 
 ## Password Information
 
