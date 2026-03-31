@@ -157,8 +157,23 @@ ___
 
 **Format:**
 ```
+chmod [who][operator][permission] filename
+```
+
+```
 chmod WHO+/-PERMISSION filename
 ```
+#### WHO (users)
+- u → user (owner)
+- g → group
+- o → others
+- a → all (u + g + o)
+
+#### OPERATORS
++ → add permission
+- → remove permission
+- = → set exact permission
+
 
 **example:**
 ```
