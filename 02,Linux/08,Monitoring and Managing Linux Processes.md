@@ -109,7 +109,20 @@ See parent-child relationships:
 pstree
 ```
 
+## 2: top Command (Live View)
+```bash
+top
+# Press 'P' to sort by CPU
+# Press 'M' to sort by memory
+# Press '1' to see all CPU cores
+# Press 'q' to quit
+```
+You'll see live updating process list!
 
+## 3: htop  More colorful and user-friendly!
+```
+htop
+```
 
 ___
 
