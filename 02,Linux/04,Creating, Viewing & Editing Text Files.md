@@ -172,6 +172,9 @@ ___
 | **nano** | Easy       | Beginners      |
 | **vim**  | Hard       | Advanced users |
 
+
+## Vim [[07.1 Vim,]]
+
 ## #Nano Text Editor
 
 Open a File
@@ -190,51 +193,6 @@ nano filename.txt
 | **Search**     | `Ctrl` + `W`              |
 | **Go to line** | `Ctrl` + `_`              |
 
-
-## #Vim Editor
-Vim has modes. This confuses beginners.
-
-**Three Main Modes:**
-
-| Mode         | Purpose                   | How to enter |
-| :----------- | :------------------------ | :----------- |
-| **Normal**   | Move around, delete, copy | Press `Esc`  |
-| **Insert**   | Type text                 | Press `i`    |
-| Command mode | save/exit                 | press `:`    |
-
-### Basic Vim Steps
-#### Open file:
-```
-vim filename.txt
-```
-
-**To type text:**
-- Press **`i`** (now you can type)
-- Type your text
-- Press Esc when done typing
-  
-**To save and quit:**
-- Press Esc
-- Type **`:wq`**
-- Press Enter
-  
-**To quit without saving:**
-- Press Esc
-- Type **`:q!`**
-- Press Enter
-
-#### Vim Cheat Sheet 
-| Action                         | Keys              |
-| :----------------------------- | :---------------- |
-| **Start typing** (Insert mode) | `i`               |
-| **Stop typing** (Normal mode)  | `Esc`             |
-| **Save**                       | `:w` + `Enter`    |
-| **Quit**                       | `:q` + `Enter`    |
-| **Save and quit**              | `:wq` + `Enter`   |
-| **Quit without saving**        | `:q!` + `Enter`   |
-| **Delete line**                | `dd`              |
-| **Undo**                       | `u`               |
-| **Search**                     | `/word` + `Enter` |
 
 ## Create File Without Editor
 Create File Without Editor
