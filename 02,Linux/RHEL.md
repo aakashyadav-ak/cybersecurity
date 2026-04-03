@@ -56,7 +56,7 @@ status: in-progress
   - [x] `set number`, cursor movement, copy/paste blocks
 - [x] Set up SSH key-based authentication between 2 VMs
 - [x] Configure `/etc/ssh/sshd_config` (disable root login)
-- [ ] Practice RPM commands (`rpm -qa`, `-qi`, `-ql`, `-qf`, `-V`)
+- [x] Practice RPM commands (`rpm -qa`, `-qi`, `-ql`, `-qf`, `-V`)
 - [ ] Configure a local repo from ISO
 - [ ] Practice DNF: `install`, `remove`, `search`, `update`, `history`
 - [ ] Install and explore `dnf module` commands
