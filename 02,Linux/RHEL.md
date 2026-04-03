@@ -332,8 +332,3 @@ status: in-progress
 > ⬜ Not Started | 🟡 In Progress | ✅ Completed
 
 ---
-
-
----
-
-#RHEL #Linux #RHCSA #study-plan #2-week #checklist
