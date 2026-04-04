@@ -180,21 +180,19 @@ free -h
 
 ___
 
-# Finding Processes - `pgrep` & `pidof`
+# Finding Processes - `pgrep` 
 
 Work with processes using name instead of PID
 
 ### pgrep
 ```
-pgrep httpd
+pgrep httpd          # Finds PID of httpd
+pgrep -l sshd        # Show name too
+pgrep -u root        # All root processes
 ```
 
-Finds PID of httpd
 
-### pidof
-```
 
-```
 ----
 
 # Kill Processes
