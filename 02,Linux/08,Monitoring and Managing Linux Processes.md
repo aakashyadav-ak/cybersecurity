@@ -180,10 +180,21 @@ free -h
 
 ___
 
+# Finding Processes - `pgrep` & `pidof`
 
+Work with processes using name instead of PID
 
+### pgrep
+```
+pgrep httpd
+```
 
+Finds PID of httpd
 
+### pidof
+```
+
+```
 ----
 
 # Kill Processes
