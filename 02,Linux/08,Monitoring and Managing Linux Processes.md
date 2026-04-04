@@ -74,8 +74,10 @@ init/systemd (PID 1)
 
 #### View Process Information
 ```
-ps
+ps     (#Snapshot of processes)
 ```
+Think of ps as a photo of system at that moment
+
 
 **Output:**
 ```
@@ -94,6 +96,10 @@ root         1  0.0  0.1 169836 12456 ?        Ss   10:00   0:02 /usr/lib/system
 ```
 ps aux
 ```
+- a → all users
+- u → user format (CPU, MEM)
+- x → background processes
+
 **Shows:**
 - all processes
 - CPU, memory usage
@@ -110,6 +116,17 @@ See parent-child relationships:
 ```
 pstree
 ```
+
+or
+
+```
+ps -ef
+```
+Shows process tree relation
+
+**Important columns:**
+- PID → process
+- PPID → parent process
 
 ----
 
