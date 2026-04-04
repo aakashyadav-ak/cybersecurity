@@ -26,7 +26,7 @@ ACL is a network security filter - like a security guard that checks traffic and
 ┌─────────────────────────────────────────────────────────────────┐
 │                    STANDARD ACL                                 │
 ├─────────────────────────────────────────────────────────────────┤
-│  • Number: 1-99                                  │
+│  • Number: 1-99                                                 │
 │  • Filters by: SOURCE IP only                                   │
 │  • Simple but less precise                                      │
 │  • Place: CLOSE TO DESTINATION                                  │
@@ -35,8 +35,8 @@ ACL is a network security filter - like a security guard that checks traffic and
 ┌─────────────────────────────────────────────────────────────────┐
 │                    EXTENDED ACL                                 │
 ├─────────────────────────────────────────────────────────────────┤
-│  • Number: 100-199                                 │
-│  • Filters by: Source IP, Dest IP, Protocol, Ports             │
+│  • Number: 100-199                                              │
+│  • Filters by: Source IP, Dest IP, Protocol, Ports              │
 │  • More precise control                                         │
 │  • Place: CLOSE TO SOURCE                                       │
 └─────────────────────────────────────────────────────────────────┘
