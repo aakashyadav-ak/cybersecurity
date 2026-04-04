@@ -57,8 +57,8 @@ status: in-progress
 - [x] Set up SSH key-based authentication between 2 VMs
 - [x] Configure `/etc/ssh/sshd_config` (disable root login)
 - [x] Practice RPM commands (`rpm -qa`, `-qi`, `-ql`, `-qf`, `-V`)
-- [ ] Configure a local repo from ISO
-- [ ] Practice DNF: `install`, `remove`, `search`, `update`, `history`
+- [x] Configure a local repo from ISO
+- [x] Practice DNF: `install`, `remove`, `search`, `update`, `history`
 - [ ] Install and explore `dnf module` commands
 
 > [!done] Day 3 Goal
