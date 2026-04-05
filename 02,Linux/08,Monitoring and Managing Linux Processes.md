@@ -402,6 +402,11 @@ nohup sleep 100 &
 
 👉 Keeps running even after logout
 
+**Even if:**
+- You logout
+- Terminal closes
+
+Process keeps running
 
 ___
 
