@@ -432,13 +432,32 @@ nice -n 10 ./script.sh        # Start with low priority
 renice -n 5 -p 1234          # Change priority of running process
 ```
 
+**Use case:** Running a backup script that shouldn't slow down your server.
+```bash
+nice -n 15 tar -czf backup.tar.gz /data
+```
+
+
 
 ____________
 # Managing Services (systemd)
 
+Systemd is the "manager" that controls services (programs that run in the background).
+
 **Modern Linux uses ==systemctl==.**
 
-Check service:
+```bash
+systemctl start httpd       # Start Apache web server
+systemctl stop httpd        # Stop it
+systemctl restart httpd     # Stop then start
+systemctl status httpd      # Check if running
+
+systemctl enable httpd      # Start automatically at boot
+systemctl disable httpd     # Don't start at boot
+systemctl mask httpd        # Completely prevent from starting
+```
+
+**Check service:**
 ```
 systemctl status ssh
 ```
