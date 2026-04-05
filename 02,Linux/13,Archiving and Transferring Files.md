@@ -20,13 +20,13 @@ Originally for backup tapes, now used everywhere.
 
 #### Common Archive Extensions
 
-| Extension | Meaning |
-| :--- | :--- |
-| `.tar` | Archive only (not compressed) |
-| `.tar.gz` or `.tgz` | Compressed with gzip |
-| `.tar.bz2` | Compressed with bzip2 |
-| `.tar.xz` | Compressed with xz |
-| `.zip` | Zip format |
+| Extension           | Meaning                       |
+| :------------------ | :---------------------------- |
+| `.tar`              | Archive only (not compressed) |
+| `.tar.gz` or `.tgz` | Compressed with gzip          |
+| `.tar.bz2`          | Compressed with bzip2         |
+| `.tar.xz`           | Compressed with xz            |
+| `.zip`              | Zip format                    |
 
 #### Compression Comparison
 
