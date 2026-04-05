@@ -328,6 +328,79 @@ Runs behind the scenes
 sleep 100 &
 ```
 
+### Jobs Working
+
+##### Start a background job
+```
+sleep 100 &
+```
+
+**Output:**
+```
+[1] 1234
+```
+- `[1]` → Job number
+- 1234 → PID
+
+##### See jobs
+```
+jobs
+```
+
+**Example:**
+```
+[1]+ Running sleep 100 &
+```
+
+##### Stop a job (pause it)
+
+**Press:**
+```
+Ctrl + Z
+```
+
+**Job becomes:**
+```
+Stopped
+```
+
+##### Resume in background
+```
+bg %1
+```
+
+##### Bring to foreground
+```
+fg %1
+```
+
+
+
+## Jobs vs Processes
+
+| Feature       | Job              | Process       |
+| ------------- | ---------------- | ------------- |
+| Controlled by | Shell            | OS            |
+| Scope         | Current terminal | Entire system |
+| ID            | Job ID (`%1`)    | PID (`1234`)  |
+==Every job is a process, but not every process is a job==
+
+
+### What happens when terminal closes?
+
+**❌ Normal background job:**
+```
+sleep 100 &
+```
+
+👉 Dies when terminal closes
+
+**✅ Persistent job (nohup):**
+```
+nohup sleep 100 &
+```
+
+👉 Keeps running even after logout
 
 
 ___
