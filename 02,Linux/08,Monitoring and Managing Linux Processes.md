@@ -293,6 +293,40 @@ ___
 
 # Background Jobs (`&`, `jobs`, `fg`, `bg`, `nohup`)
 
+## job 
+- A command started from your terminal
+- It is linked to your current shell session
+
+**Example:**
+```
+sleep 100
+```
+This becomes a job
+
+
+## Types of Jobs
+#### 1. Foreground Job
+
+Runs in front of you
+
+- Blocks terminal 
+- You must wait
+
+**Example:**
+```
+sleep 100
+```
+
+#### 2. Background Job
+
+Runs behind the scenes
+
+**Terminal is free**
+
+**Example:**
+```
+sleep 100 &
+```
 
 
 
