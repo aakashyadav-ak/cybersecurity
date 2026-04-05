@@ -41,6 +41,7 @@ This is your gateway (internet path)
 _____________
 
 ### Open Ports
+
 **Check Open Ports:**
 ```
 ss -tuln
@@ -80,7 +81,6 @@ Changes system name
 **Check:**
 ```
 hostnamectl
-
 ```
 
 _________
