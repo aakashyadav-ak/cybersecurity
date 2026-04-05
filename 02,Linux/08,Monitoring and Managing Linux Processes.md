@@ -409,7 +409,31 @@ nohup sleep 100 &
 Process keeps running
 
 ___
+# Nice Values (Priority)
 
+**Controls CPU priority**
+
+**Range:**
+```
+-20 (highest priority)
+0 (default)
+19 (lowest priority)
+```
+
+Nice values control how much CPU time a process gets (-20 to 19).
+
+- Lower number = Higher priority (confusing, I know!)
+- -20: Highest priority (not nice at all!)
+- 0: Default
+- 19: Lowest priority (very nice to others!)
+
+```bash
+nice -n 10 ./script.sh        # Start with low priority
+renice -n 5 -p 1234          # Change priority of running process
+```
+
+
+____________
 # Managing Services (systemd)
 
 **Modern Linux uses ==systemctl==.**
