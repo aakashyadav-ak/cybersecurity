@@ -57,36 +57,6 @@ nmap -p- <ip>
 ```
 
 
-------------
-
-### Test Network Connectivity
-
-ping - Test if Host is Reachable
-```
-ping 192.168.1.1
-```
-
-```
-ping -c 4 192.168.1.1
-```
-Sends 4 pings only.
-
-
-### Test DNS Resolution
-```
-nslookup google.com
-```
-
-```
-dig google.com
-```
-
-#### traceroute - Show Path to Destination
-```
-traceroute google.com
-```
-Shows each hop (router) along the way.
-
 
 -----------
 
@@ -167,3 +137,68 @@ Text-based UI (very easy)
 - Set IP
 - Set hostname
 - Enable/disable network
+
+
+___
+
+# 4. DNS Configuration
+
+```
+/etc/hosts (local DNS)
+```
+
+```
+sudo nano /etc/hosts
+```
+
+**Example:**
+```
+192.168.1.10   myserver
+```
+Used for local name resolution
+
+#### via nmcli
+```
+nmcli con modify "System eth0" ipv4.dns "8.8.8.8"
+```
+
+______
+
+
+# 5. Troubleshooting Commands
+
+### Test Network Connectivity
+
+ping - Test if Host is Reachable
+```
+ping 192.168.1.1
+```
+
+```
+ping -c 4 192.168.1.1
+```
+Sends 4 pings only.
+
+
+#### Test DNS Resolution
+```
+nslookup google.com
+```
+
+```
+dig google.com
+```
+DNS lookup
+
+#### traceroute - Show Path to Destination
+```
+traceroute google.com
+```
+Shows each hop (router) along the way.
+
+
+#### HTTP test
+```
+curl http://example.com
+```
+Test HTTP request
