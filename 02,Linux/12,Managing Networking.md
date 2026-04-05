@@ -128,6 +128,7 @@ nmcli con up "System eth0"
 | `nmcli con delete name` | delete           |
 
 ### `nmtui` (Easy Mode)
+
 ```
 nmtui
 ```
