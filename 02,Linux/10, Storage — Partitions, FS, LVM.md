@@ -111,10 +111,58 @@ mount -a
 ```
 
 
-LVM (VERY BASIC INTERVIEW LEVEL)
+# LVM 
 
-👉 LVM = flexible storage system
+**LVM = flexible storage system**
 
-Instead of fixed partitions:
-
+**Instead of fixed partitions:**
+```
 Disk → PV → VG → LV → Mount
+```
+
+| Term | Meaning          |
+| ---- | ---------------- |
+| PV   | Physical disk    |
+| VG   | Pool of storage  |
+| LV   | Usable partition |
+
+### Basic LVM Steps
+##### 1. Create PV
+```
+pvcreate /dev/sdb
+```
+
+#### 2. Create VG
+```
+vgcreate myvg /dev/sdb
+```
+
+#### 3. Create LV
+```
+lvcreate -L 1G -n mylv myvg
+```
+
+#### 4. Format
+```
+mkfs.xfs /dev/myvg/mylv
+```
+
+#### 5. Mount
+```
+mount /dev/myvg/mylv /mnt/data
+```
+
+### Why LVM?
+- Easy to extend storage
+- Combine multiple disks
+- Flexible resizing
+
+### Basic commands
+```
+lsblk          # view disks
+fdisk          # create partition
+mkfs.xfs       # create filesystem
+mount          # mount disk
+df -h          # check usage
+free -h        # check memory/swap
+```
