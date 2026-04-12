@@ -126,7 +126,7 @@ status: in-progress
 
 ---
 
-### 📅 Day 7: SELinux + Week 1 Review
+### 📅 Day 7: SELinux
 
 - [ ] Understand SELinux modes and check status
 - [ ] Practice `setenforce`, edit `/etc/selinux/config`
@@ -137,10 +137,6 @@ status: in-progress
 - [ ] Add custom port with `semanage port`
 - [ ] Troubleshoot SELinux denials with `sealert`, `ausearch`
 - [ ] Lab: Set up Apache on non-standard port with correct SELinux
-- [ ] 🔄 Week 1 Review:
-  - [ ] Redo 5 challenging tasks from the week
-  - [ ] Create flashcards for key commands
-  - [ ] Take practice quiz
 
 > [!done] Day 7 Goal
 > SELinux is no longer scary. Week 1 fundamentals solid.
