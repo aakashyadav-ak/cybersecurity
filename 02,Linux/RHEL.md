@@ -73,8 +73,8 @@ status: in-progress
 - [x] Practice signals (`kill -9`, `kill -15`, `kill -1`)
 - [x] Understand nice values; practice `nice` and `renice`
 - [x] Master `systemctl` — start/stop/enable/disable/mask
-- [ ] Understand systemd targets, switch between them
-- [ ] Check and make `journald` persistent
+- [x] Understand systemd targets, switch between them
+- [x] Check and make `journald` persistent
 - [x] Practice `journalctl` with filters
 - [ ] Create a custom systemd service unit file
 - [ ] Lab: Write a script, create a service for it, enable at boot

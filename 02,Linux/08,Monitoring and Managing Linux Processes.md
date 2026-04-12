@@ -566,20 +566,36 @@ journalctl -u httpd
 
 ### Make logs persistent / Make journald Persistent
 
-**Edit:**
+##### Edit:
 ```
 sudo nano /etc/systemd/journald.conf
 ```
 
-**Change:**
+##### Change:
 ```
 Storage=persistent
 ```
 
-**Then:**
+##### Then:
 ```
 systemctl restart systemd-journald
 ```
+Now logs are saved permanently
+
+
+**or** 
+
+##### Step 1: Create directory
+```
+sudo mkdir -p /var/log/journal
+```
+
+##### Step 2: Restart journald
+```
+sudo systemctl restart systemd-journald
+```
+Now logs are saved permanently
+
 
 ##### Journal Filters 
 ```
