@@ -574,7 +574,6 @@ sudo nano /etc/systemd/journald.conf
 **Change:**
 ```
 Storage=persistent
-
 ```
 
 **Then:**
