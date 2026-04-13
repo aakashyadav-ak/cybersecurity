@@ -29,13 +29,16 @@
 ## Standard ACL 
 ==Filters traffic based on source IP only==
 
-**Place:** CLOSE TO DESTINATION
+**Place:** CLOSE TO DESTINATION Router.
 ## Extended ACL
 Filters traffic based on Source IP, Destination IP, Port number, Protocol (TCP/UDP/ICMP)
 
-**Place:** CLOSE TO SOURCE  
+**Place:** CLOSE TO SOURCE  Router.
 
-```
+**ACL ID numbers used to identify ACL type**
+- 1-99 = Standard ACL 
+- 100-199 Extended ACL
+- ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    STANDARD ACL                                 │
 ├─────────────────────────────────────────────────────────────────┤
@@ -55,72 +58,18 @@ Filters traffic based on Source IP, Destination IP, Port number, Protocol (TCP/U
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-# Access Control Lists (ACLs)
-## Standard ACL
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    STANDARD ACL                              │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Standard ACL:                                               │
-│  • Numbers 1-99 or 1300-1999                                 │
-│  • Filters based on SOURCE IP only                           │
-│  • Apply CLOSE to destination                                │
-│                                                              │
-│  NUMBERED STANDARD ACL:                                      │
-│  Router(config)# access-list 10 deny 192.168.1.0 0.0.0.255  │
-│  Router(config)# access-list 10 permit any                   │
-│  Router(config)# interface GigabitEthernet0/1                │
-│  Router(config-if)# ip access-group 10 out                   │
-│                                                              │
-│  NAMED STANDARD ACL:                                         │
-│  Router(config)# ip access-list standard BLOCK-SALES         │
-│  Router(config-std-nacl)# deny 192.168.1.0 0.0.0.255        │
-│  Router(config-std-nacl)# permit any                         │
-│  Router(config-std-nacl)# exit                               │
-│  Router(config)# interface GigabitEthernet0/1                │
-│  Router(config-if)# ip access-group BLOCK-SALES out          │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
 
-## Extended ACL
+_________________
+
+
+
+# Port Security 
+==Port security is a feature used to restrict which devices can connect to a switch port using MAC address==
+
+**Purpose**
+- Prevent unauthorized devices
+- Improve LAN security
+
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    EXTENDED ACL                              │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Extended ACL:                                               │
-│  • Numbers 100-199 or 2000-2699                              │
-│  • Filters based on: Source IP, Dest IP, Protocol, Port     │
-│  • Apply CLOSE to source                                     │
-│                                                              │
-│  SYNTAX:                                                     │
-│  access-list [number] [permit|deny] [protocol]               │
-│              [source] [source-wildcard]                      │
-│              [destination] [dest-wildcard]                   │
-│              [operator port] [options]                       │
-│                                                              │
-│  EXAMPLES:                                                   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ ! Deny HTTP from 10.0.0.0/24 to 192.168.1.100       │   │
-│  │ access-list 100 deny tcp 10.0.0.0 0.0.0.255         │   │
-│  │              host 192.168.1.100 eq 80               │   │
-│  │                                                      │   │
-│  │ ! Permit HTTPS from any to web servers              │   │
-│  │ access-list 100 permit tcp any 192.168.1.0 0.0.0.255│   │
-│  │              eq 443                                  │   │
-│  │                                                      │   │
-│  │ ! Deny ping (ICMP) from 10.1.1.0/24 to anywhere     │   │
-│  │ access-list 100 deny icmp 10.1.1.0 0.0.0.255 any    │   │
-│  │                                                      │   │
-│  │ ! Permit everything else                             │   │
-│  │ access-list 100 permit ip any any                    │   │
-│  │                                                      │   │
-│  │ ! Apply to interface                                 │   │
-│  │ interface GigabitEthernet0/0                         │   │
-│  │ ip access-group 100 in                               │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+Switch Port → Check MAC → Allow / Block
 ```
