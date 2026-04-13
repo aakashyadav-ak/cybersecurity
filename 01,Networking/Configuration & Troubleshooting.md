@@ -5,11 +5,11 @@
 
 Cisco devices have different modes for security and control.
 
-| Mode | Prompt | Purpose | Command |
-|-----|-----|-----|-----|
-| User Mode | `Router>` | Basic view only | Default |
-| Privileged Mode | `Router#` | Admin access | `enable` |
-| Global Config | `(config)#` | Change device settings | `configure terminal` |
+| Mode            | Prompt      | Purpose                | Command              |
+| --------------- | ----------- | ---------------------- | -------------------- |
+| User Mode       | `Router>`   | Basic view only        | Default              |
+| Privileged Mode | `Router#`   | Admin access           | `enable`             |
+| Global Config   | `(config)#` | Change device settings | `configure terminal` |
 
 ### Example
 ```
