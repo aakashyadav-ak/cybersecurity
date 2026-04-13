@@ -1,4 +1,5 @@
-ACL is a network security filter - like a security guard that checks traffic and decides: PERMIT or DENY
+==ACL is a set of rules used to permit or deny network traffic based on IP, port, or protocol.==
+
 ```
                     ┌─────────────┐
    Traffic ────────►│    ACL      │────────► Allowed Traffic
@@ -11,6 +12,9 @@ ACL is a network security filter - like a security guard that checks traffic and
 ```
 
 ### Common Uses of ACLs / Traffic Filtering
+- Control traffic flow
+- Improve security
+- Filter unwanted traffic
 
 | Purpose                  | Example                          |
 | :----------------------- | :------------------------------- |
@@ -22,6 +26,15 @@ ACL is a network security filter - like a security guard that checks traffic and
 | **QoS**                  | Classify traffic for priority    |
 
 ### Types of ACL 
+## Standard ACL 
+==Filters traffic based on source IP only==
+
+**Place:** CLOSE TO DESTINATION
+## Extended ACL
+Filters traffic based on Source IP, Destination IP, Port number, Protocol (TCP/UDP/ICMP)
+
+**Place:** CLOSE TO SOURCE  
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    STANDARD ACL                                 │
