@@ -86,7 +86,7 @@ status: in-progress
 
 ### 📅 Day 5: Storage — Partitions, FS, LVM
 
-- [ ] Add 3 virtual disks to your VM
+- [x] Add 3 virtual disks to your VM
 - [ ] Practice `fdisk` — create MBR partitions
 - [ ] Practice `gdisk` — create GPT partitions
 - [ ] Create XFS and ext4 filesystems
