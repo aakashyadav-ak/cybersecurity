@@ -127,59 +127,6 @@
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Collision Domains
-#### 1: HUB=
-1 collision domain because it multicast so at a time it only process one request that means collision occurs at only one port
-
-#### 2: Switch=
-26 collision domain because it has 26 port and every 26 port can communicate at time so collision occurs at 26 port at a time.
-
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                      COLLISION DOMAIN                                   │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│   Definition:                                                           │
-│   ════════════                                                          │
-│                                                                         │
-│   A collision domain is a network segment where data packets can        │
-│   collide with each other when being sent on a shared medium.           │
-│                                                                         │
-│   When two devices transmit data simultaneously on the same             │
-│   collision domain, a COLLISION occurs, and both transmissions fail.   │
-│                                                                         │
-│                                                                         │
-│   ┌─────────────────────────────────────────────────────────────────┐   │
-│   │                                                                 │   │
-│   │     Device A                              Device B              │   │
-│   │        │                                     │                  │   │
-│   │        │   ══════► Data Frame               │                  │   │
-│   │        │              │                      │                  │   │
-│   │        │              │    Data Frame ◄══════│                  │   │
-│   │        │              │         │            │                  │   │
-│   │        │              ▼         ▼            │                  │   │
-│   │        │           ┌─────────────┐           │                  │   │
-│   │        │           │  COLLISION! │           │                  │   │
-│   │        │           │   💥💥💥    │           │                  │   │
-│   │        │           └─────────────┘           │                  │   │
-│   │        │                                     │                  │   │
-│   │   Both transmissions are corrupted and must be retransmitted   │   │
-│   │                                                                 │   │
-│   └─────────────────────────────────────────────────────────────────┘   │
-│                                                                         │
-│   Key Concept:                                                          │
-│   • Collisions ONLY occur in HALF-DUPLEX communication                 │
-│   • Modern FULL-DUPLEX switches eliminate collisions                   │
-│   • Legacy devices (Hubs, Coax) create large collision domains        │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-## Broadcast Domain
-#### Hub= 1 Broadcast Domain
-#### Switch= 1 broadcast domain
-because it once only one packet can transfer on all 26 ports.
 
 
 
