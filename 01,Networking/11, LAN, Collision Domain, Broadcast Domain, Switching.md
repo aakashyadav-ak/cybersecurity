@@ -1,17 +1,3 @@
-# Cisco's Internetworking Operating System(IOS)
-
-1. LAN Switching Technologies
-2. Troubleshoot interface & Cable issues(collisions,errors,duplex speed)
-3. Infrastructure Managment
-4. Configure & Verify Initial device configuration
-5. Configure, verify & troubleshoot basic device hardening 
-   a. Local Authentication
-   b. secure Password 
-   c. Access to Device 
-   d. Login banner
-6. Ping & Traceroute with extended option
-7. Log events
-
 
 # Types of LAN 
 1. SOHO LAN (Small office/Home office)

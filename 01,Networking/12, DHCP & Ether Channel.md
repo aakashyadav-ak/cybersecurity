@@ -507,7 +507,9 @@ Bundles multiple physical links into one logical link for increased bandwidth & 
 
 Ether Channel combines multiple physical Ethernet links into one logical link to:
 - Increase bandwidth
-- Provide redundancy
+- Provide redundancy(Backup) (if one line break other will work.)
+- Load Balancing
+	Traffic is distributed across multiple links
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
@@ -769,13 +771,20 @@ Ether Channel combines multiple physical Ethernet links into one logical link to
 
 ---
 
-## 6. LACP Modes — How They Pair
+## 6. LACP 
+LACP (Link Aggregation Control Protocol) is a protocol that automatically bundles multiple physical links into one logical link (EtherChannel).
 
-```
-  LACP Modes:
-  • active   = "I will START the negotiation"
-  • passive  = "I will WAIT for the other side to start"
-```
+
+#### Modes — How They Pair
+
+
+==**Active Mode**==
+- Actively sends LACP packets
+- Tries to form channel
+
+==**Passive Mode**==
+- Waits for other side
+- Responds but doesn’t initiate
 
 | SW1 Mode | SW2 Mode | Result |
 |----------|----------|--------|
@@ -855,21 +864,5 @@ Ether Channel combines multiple physical Ethernet links into one logical link to
 | `dst-ip` | Destination IP address | Many destination IPs |
 | `src-dst-ip` | Both IPs | **Best for most networks** |
 ____
-## 9. Without vs With EtherChannel
 
-```
-  WITHOUT EtherChannel              WITH EtherChannel
-  ════════════════════              ══════════════════
-
-  ┌────┐  ─── ✅  ┌────┐          ┌────┐  ════╗  ┌────┐
-  │SW1 │  ─── ❌  │SW2 │          │SW1 │  ════╬  │SW2 │
-  │    │  ─── ❌  │    │          │    │  ════╬  │    │
-  │    │  ─── ❌  │    │          │    │  ════╝  │    │
-  └────┘           └────┘          └────┘   Po1   └────┘
-
-  STP blocks 3 links              ALL links active
-  Only 100 Mbps                   400 Mbps total
-  1 link fails = DOWN             1 link fails = still UP
-  No redundancy                   Full redundancy
-```
 
