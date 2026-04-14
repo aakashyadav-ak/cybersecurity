@@ -172,6 +172,9 @@ STP (Spanning Tree Protocol) is a Layer 2 protocol that **prevents loops** in a 
 - A STP packet is generate every 10sec to check loop occurrence and prevent the loop by downing  the line and also up the line when needed.
 
 
+___________________________________________
+
+
 # Router Packet Switching Methods
 These are methods used by routers (especially Cisco) to forward packets from source to destination.
 
