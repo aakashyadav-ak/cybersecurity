@@ -164,9 +164,12 @@ used to stop network loops while still permitting redundancy.
 switch avoids loop by default STP protocol is enabled on the switch to avoid loop. STP keeps 1 link in the forwarding state and put all other link-blocking states to
 
 ### STP (Spanning Tree Protocol)
- Prevent Layer 2 switching loops in networks with redundant links.
-It prevents loop by shutting down a line thats not needed or making a loop.
-A STP packet is generate every 10sec to check loop occurrence and prevent the loop by downing  the line and also up the line when needed.
+STP (Spanning Tree Protocol) is a Layer 2 protocol that **prevents loops** in a switched network.
+
+**Works on: Switches**.
+
+- It prevents loop by shutting down a line that's not needed or making a loop.
+- A STP packet is generate every 10sec to check loop occurrence and prevent the loop by downing  the line and also up the line when needed.
 
 
 # Router Packet Switching Methods
