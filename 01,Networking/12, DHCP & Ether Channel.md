@@ -88,7 +88,7 @@ DHCP Server (Router)
 │        │    "Any DHCP server?"              │                │
 │        │                                    │                │
 │        │ ◄══════ 2. OFFER ═════════════════ │                │
-│        │    Broadcast/Unicast  (67 → 68)    │                │
+│        │    Broadcast  (67 → 68)            │                │
 │        │    "Here's 192.168.10.10"          │                │
 │        │                                    │                │
 │        │ ═══════ 3. REQUEST ═══════════════►│                │
@@ -96,7 +96,7 @@ DHCP Server (Router)
 │        │    "I want 192.168.10.10"          │                │
 │        │                                    │                │
 │        │ ◄══════ 4. ACK ══════════════════  │                │
-│        │    Broadcast (67 → 68)             │                │
+│        │    Broadcast/Unicast (67 → 68)     │                │
 │        │    "Confirmed! It's yours!"        │                │
 │        │                                    │                │
 │        ▼                                    │                │
@@ -135,8 +135,8 @@ DHCP Server (Router)
 │  │    Dst IP   : 255.255.255.255    (broadcast)            ││
 │  │                                                          ││
 │  │  LAYER 4:                                                ││
-│  │    Src Port : 68                 (DHCP client port)     ││
-│  │    Dst Port : 67                 (DHCP server port)     ││
+│  │    Src Port : 68                 (DHCP client port)     ││   
+│  │    Dst Port : 67                 (DHCP server port)     ││   By using port 67 server accept the request.
 │  │                                                          ││
 │  │  DHCP DATA:                                              ││
 │  │    Message Type   : DISCOVER                             ││
