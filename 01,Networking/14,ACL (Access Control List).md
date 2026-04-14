@@ -64,7 +64,8 @@ _________________
 
 
 # Port Security 
-==Port security is a feature used to restrict which devices can connect to a switch port using MAC address==
+- ==Port security is a feature used to restrict which devices can connect to a switch port using MAC address==
+- Port Security is a feature used on switches to control which devices are allowed to connect to a specific switch port. It helps prevent unauthorized access to a network.
 
 **Purpose**
 - Prevent unauthorized devices
@@ -73,3 +74,20 @@ _________________
 ```
 Switch Port → Check MAC → Allow / Block
 ```
+
+
+## Types of Violations
+When an unauthorized device connects, the switch can respond in different ways:
+
+#### Protect Mode
+- Drops unknown MAC traffic
+- No alert/log generated
+#### Restrict Mode
+**Drops traffic + sends alert**
+- Drops traffic
+- Logs the violation
+- Sends alerts (SNMP trap)
+#### Shutdown Mode (default)
+**Port gets disabled**
+- Disables the port completely
+- Requires manual or automatic recovery
