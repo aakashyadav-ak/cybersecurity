@@ -70,6 +70,10 @@ _________________
 **Purpose**
 - Prevent unauthorized devices
 - Improve LAN security
+- Prevents unauthorized devices from connecting
+- Stops MAC flooding attacks
+- Enhances Layer 2 security
+- Useful in offices, campuses, and enterprise networks
 
 ```
 Switch Port → Check MAC → Allow / Block
