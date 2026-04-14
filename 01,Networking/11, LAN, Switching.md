@@ -377,6 +377,12 @@ Learned automatically from routing protocols like:
 
 - **Mirror of routing table (RIB) and Use it as FIB and store it in temporary memory like RAM (switch engine of switch) after shutdown of switch FIB is rested and again on first connect it clones RIB and store it in switch engine.**
 - Optimized for fast lookup
+-  **Lives in Data Plane (switch engine) or called RAM of switch**
+- **Optimized copy of best routes from RIB**
+- **Used for actual packet forwarding**
+- Hardware-based lookups (ASIC/TCAM)
+- Part of CEF (Cisco Express Forwarding)
+
 
 ```
 ┌─────────────────┬──────────────┬─────────────┐
@@ -388,16 +394,10 @@ Learned automatically from routing protocols like:
 └─────────────────┴──────────────┴─────────────┘
 ```
 
-**FIB (Forwarding Information Base)**
-What is FIB?
-
-- **Lives in Data Plane (switch engine) or called RAM of switch**
-- **Optimized copy of best routes from RIB**
-- **Used for actual packet forwarding**
-- Hardware-based lookups (ASIC/TCAM)
-- Part of CEF (Cisco Express Forwarding)
 
 ###### b) Adjacency Table
+Store Next-hop MAC address and Layer 2 details needed to forward packets.
+
 ```
 ┌──────────────┬───────────────────┬─────────────┐
 │  Next-Hop IP │ Layer 2 Header    │ Interface   │
