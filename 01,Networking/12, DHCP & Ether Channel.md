@@ -88,7 +88,7 @@ DHCP Server (Router)
 │        │    "Any DHCP server?"              │                │
 │        │                                    │                │
 │        │ ◄══════ 2. OFFER ═════════════════ │                │
-│        │    Broadcast (67 → 68)             │                │
+│        │    Broadcast/Unicast  (67 → 68)    │                │
 │        │    "Here's 192.168.10.10"          │                │
 │        │                                    │                │
 │        │ ═══════ 3. REQUEST ═══════════════►│                │
@@ -128,7 +128,7 @@ DHCP Server (Router)
 │  ┌──────────────────────────────────────────────────────────┐│
 │  │  LAYER 2:                                                ││
 │  │    Src MAC  : AAAA.AAAA          (my MAC)               ││
-│  │    Dst MAC  : FFFF.FFFF          (broadcast)            ││
+│  │    Dst MAC  : FFFF.FFFF          (broadcast)             ││
 │  │                                                          ││
 │  │  LAYER 3:                                                ││
 │  │    Src IP   : 0.0.0.0            (I have no IP)         ││
@@ -155,18 +155,6 @@ DHCP Server (Router)
 │  │  DHCP Server  : "That's for ME!" ✅                      ││
 │  │                                                          ││
 │  └──────────────────────────────────────────────────────────┘│
-│                                                              │
-│  DIAGRAM:                                                    │
-│                                                              │
-│  ┌──────┐                              ┌──────────────┐      │
-│  │ PC-A │                              │ DHCP Server  │      │
-│  │      │  ══════ DISCOVER ══════════► │              │      │
-│  │      │  Src: 0.0.0.0               │ 192.168.10.1 │       │
-│  │      │  Dst: 255.255.255.255       │              │       │
-│  │      │  "Any DHCP server here?"    │  "I heard    │       │
-│  └──────┘                              │   that!"     │      │
-│                                        └──────────────┘      │
-│                                                              │
 └──────────────────────────────────────────────────────────────┘
 ```
 
