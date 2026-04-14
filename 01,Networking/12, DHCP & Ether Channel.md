@@ -1,7 +1,7 @@
 # DHCP (Dynamic Host Configuration Protocol) 
-DHCP automatically assigns IP addresses and network configuration to devices.
-
-DHCP (Dynamic Host Configuration Protocol) is a protocol that automatically assigns IP addresses, Subnet Masks, Gateways, and DNS servers to clients so they can communicate on the network.
+- DHCP automatically assigns IP addresses and network configuration to devices.
+- DHCP automatically assigns IP configuration to devices on a network, so you don’t have to set IP addresses manually.
+- ==DHCP (Dynamic Host Configuration Protocol) is a protocol that automatically assigns **IP addresses, Subnet Masks, Gateways, and DNS servers** to clients so they can communicate on the network.==
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
