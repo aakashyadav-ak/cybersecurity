@@ -386,6 +386,17 @@ export PATH=$PATH:/home/john/scripts
 Now system will also look in /home/john/scripts for commands.
 
 
+#### ==Check for passwords in environment:==
+```
+env | grep -i pass
+env | grep -i key
+```
+
+
+
+_______________________________________________
+
+
 
 ## #Aliases - Create Shortcuts
 Tired of typing long commands? Create shortcuts!
@@ -434,6 +445,12 @@ Save and exit (Ctrl+O, Ctrl+X)
 source ~/.bashrc
 ```
 
+
+
+_________________________________________________
+
+
+
 ## Command History
 Bash remembers your old commands.
 
@@ -456,11 +473,8 @@ history -c
 
 
 
-#### ==Check for passwords in environment:==
-```
-env | grep -i pass
-env | grep -i key
-```
+________________________________________________________________________
+
 
 # Make Links Between Files
 
