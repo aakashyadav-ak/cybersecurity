@@ -102,25 +102,6 @@ echo "Line 3" >> notes.txt      # Adds more
 Now notes.txt has 3 lines.
 
 
-## #Pipe( | ) - Connect Commands
-
-- It passes the output of one command as input to another command.
-- Send output of one command to another command.
-```bash
-cat /etc/passwd | grep root
-```
-
-**What happens:**
-- cat /etc/passwd shows file content
-- | sends that content to next command
-- grep root finds lines with "root"
-
-```bash
-ls | head -5                    # Show first 5 files only
-history | grep ssh              # Find ssh commands in history
-cat /etc/passwd | wc -l         # Count total lines
-```
-
 ## `2>` (Redirect Errors Only)
 
 2> redirects stderr (error output only) to a file
@@ -160,6 +141,27 @@ ls | tee output.txt
 ls | tee -a output.txt   (append)
 ```
 Adds to file instead of overwriting.
+
+## #Pipe( | ) - Connect Commands
+
+- It passes the output of one command as input to another command.
+- Send output of one command to another command.
+```bash
+cat /etc/passwd | grep root
+```
+
+**What happens:**
+- cat /etc/passwd shows file content
+- | sends that content to next command
+- grep root finds lines with "root"
+
+```bash
+ls | head -5                    # Show first 5 files only
+history | grep ssh              # Find ssh commands in history
+cat /etc/passwd | wc -l         # Count total lines
+```
+
+
 
 ___ 
 
