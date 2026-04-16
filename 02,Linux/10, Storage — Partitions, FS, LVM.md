@@ -218,6 +218,10 @@ w to save
 
 ## Part 2: GPT Partitions
 
+
+- It is the modern way to manage disk partitions.
+- GPT is a partition table that allows large disks, many partitions, and better reliability.
+
 ```
 GPT (GUID Partition Table):
 - MODERN partitioning scheme
