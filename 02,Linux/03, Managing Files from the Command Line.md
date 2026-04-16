@@ -276,16 +276,16 @@ ls -la      # Long listing with hidden files
 
 #### Important Directories
 
-| File/Directory           | Description                    |
-| :----------------------- | :----------------------------- |
-| `~/.bash_history`        | Command history                |
-| `~/.bashrc`              | Bash configuration             |
-| `~/.bash_profile`        | Login configuration            |
-| `~/.ssh/`                | SSH keys and config            |
-| `~/.ssh/authorized_keys` | Allowed SSH public keys        |
-| `~/.ssh/id_rsa`          | Private SSH key (**CRITICAL**) |
-| `~/.ssh/known_hosts`     | Known SSH servers              |
-| `~/.config/`             | Application configs            |
+| File/Directory           | Description                    |     |
+| :----------------------- | :----------------------------- | --- |
+| `~/.bash_history`        | Command history                |     |
+| `~/.bashrc`              | Bash configuration             |     |
+| `~/.bash_profile`        | Login configuration            |     |
+| `~/.ssh/`                | SSH keys and config            |     |
+| `~/.ssh/authorized_keys` | Allowed SSH public keys        |     |
+| `~/.ssh/id_rsa`          | Private SSH key (**CRITICAL**) |     |
+| `~/.ssh/known_hosts`     | Known SSH servers              |     |
+| `~/.config/`             | Application configs            |     |
 ==`~/.bashrc` - It's a file run in background when we open terminal & configure the terminal according to our alias or predefined alias.==
 
 **View file:**
