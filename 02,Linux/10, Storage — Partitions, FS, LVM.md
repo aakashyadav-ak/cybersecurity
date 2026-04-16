@@ -162,7 +162,8 @@ _____________
 
 # Practice 1: MBR Partitions on nvme or sda
 
-
+**MBR = Master Boot Record**
+MBR is a method that stores partition information in the first part of a disk.
 ```
 fdisk /dev/nvme0n2
 ```
