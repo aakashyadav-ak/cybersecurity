@@ -359,6 +359,56 @@ Disk → PV → VG → LV → Mount
 | VG   | Pool of storage  |
 | LV   | Usable partition |
 
+```
+WITHOUT LVM (Traditional):
+┌──────────┐
+│ /dev/sdb1│ ← Fixed 5GB, need more? TOO BAD!
+│   5GB    │   Must backup, repartition, restore
+│  ext4    │
+└──────────┘
+
+WITH LVM (Flexible):
+┌──────────┐ ┌──────────┐
+│ /dev/sdb │ │ /dev/sdc │    Physical Volumes (PV)
+│   5GB    │ │   5GB    │
+└────┬─────┘ └────┬─────┘
+     └──────┬─────┘
+      ┌─────┴─────┐
+      │ Volume    │              Volume Group (VG)
+      │ Group     │              = Pool of storage
+      │  10GB     │
+      └─┬───┬───┬─┘
+    ┌───┘   │   └───┐
+┌───┴──┐┌───┴──┐┌───┴──┐
+│ LV1  ││ LV2  ││ LV3  │       Logical Volumes (LV)
+│ 4GB  ││ 3GB  ││ 2GB  │       = Virtual partitions
+│ ext4 ││ xfs  ││ ext4 │
+│/data ││/logs ││/app  │       ← Mount points
+└──────┘└──────┘└──────┘
+
+KEY BENEFIT: 
+  LV1 needs more space? 
+  → Just extend it! No downtime! No backup needed!
+```
+
+```
+PV (Physical Volume)  = Raw disk/partition given to LVM
+                        Like raw land plots
+
+VG (Volume Group)     = Pool combining multiple PVs
+                        Like combining land plots into an estate
+
+LV (Logical Volume)   = Virtual partition carved from VG
+                        Like building houses on the estate
+
+PE (Physical Extent)   = Smallest unit of allocation (default 4MB)
+                        Like building blocks
+
+Flow:
+  Disk → PV → VG → LV → Filesystem → Mount
+```
+
+
 ### Basic LVM Steps
 ##### 1. Create PV
 ```
