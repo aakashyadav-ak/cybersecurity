@@ -79,6 +79,23 @@ lsblk
 sdb1
 ```
 
+```
+Modern fdisk commands:
+┌─────────┬────────────────────────────────┐
+│ Command │ What it does                   │
+├─────────┼────────────────────────────────┤
+│ m       │ Help menu                      │
+│ p       │ Print partition table          │
+│ n       │ New partition                  │
+│ d       │ Delete partition               │
+│ t       │ Change partition type          │
+│ g       │ Create NEW GPT table           │
+│ o       │ Create NEW MBR (dos) table     │
+│ w       │ Write and exit                 │
+│ q       │ Quit without saving            │
+│ l       │ List known partition types     │
+└─────────┴────────────────────────────────┘
+```
 
 # Filesystem
 
