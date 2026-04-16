@@ -164,6 +164,30 @@ _____________
 
 **MBR = Master Boot Record**
 MBR is a method that stores partition information in the first part of a disk.
+
+
+```
+MBR (Master Boot Record):
+- OLD partitioning scheme (1983)
+- Max disk size: 2 TB
+- Max 4 primary partitions (or 3 primary + 1 extended)
+- Extended partition can hold many logical partitions
+
+Partition Table Layout:
+┌─────────────────────────────────────────────┐
+│  MBR (512 bytes)                            │
+├───────────┬───────────┬───────────┬─────────┤
+│ Primary 1 │ Primary 2 │ Primary 3 │Extended │
+│ /dev/sdb1 │ /dev/sdb2 │ /dev/sdb3 │/dev/sdb4│
+│           │           │           │┌───────┐│
+│           │           │           ││Logic 5││
+│           │           │           │├───────┤│
+│           │           │           ││Logic 6││
+│           │           │           │└───────┘│
+└───────────┴───────────┴───────────┴─────────┘
+```
+
+
 ```
 fdisk /dev/nvme0n2
 ```
