@@ -187,59 +187,54 @@ Partition Table Layout:
 └───────────┴───────────┴───────────┴─────────┘
 ```
 
+##### Where is MBR located?
+ At the very beginning of the disk
+
+First 512 bytes of disk
+
+**It contains:**
+
+- Bootloader
+- Partition table
 
 ```
 fdisk /dev/nvme0n2
 ```
 
 ```
-Command: o                    ← Create fresh MBR table
-# Created a new DOS (MBR) disklabel
+Command: n                        ← New partition
+Select: p                        ← Primary
+Partition number: 1               ← First partition
+First sector: [press Enter]       ← Accept default (start)
+Last sector: +1G                  ← 1 GB size
 
-Command: p                    ← Verify - should be empty
-# Disklabel type: dos
+# Output: Created a new partition 1 of type 'Linux' and of size 1 GiB
 
-# Create partition 1 (400MB)
-Command: n
-Select: p                    ← Primary
-Partition number: 1
-First sector: [Enter]
-Last sector: +400M
-
-# Create partition 2 (300MB for swap)
-Command: n
-Select: p
-Partition number: 2
-First sector: [Enter]
-Last sector: +300M
-
-# Change partition 2 type to swap
-Command: t
-Partition number: 2
-Hex code: 82                 ← Linux Swap
-
-# Create partition 3 (remaining space, for LVM)
-Command: n
-Select: p
-Partition number: 3
-First sector: [Enter]
-Last sector: [Enter]          ← Use all remaining
-
-# Change partition 3 type to LVM
-Command: t
-Partition number: 3
-Hex code: 8e                 ← Linux LVM
-
-# Verify
-Command: p
-# Device         Boot   Start     End Sectors  Size Id Type
-# /dev/nvme0n2p1         2048  821247  819200  400M 83 Linux
-# /dev/nvme0n2p2       821248 1435647  614400  300M 82 Linux swap
-# /dev/nvme0n2p3      1435648 2097151  661504  323M 8e Linux LVM
-
-Command: w                   ← Write and exit
+w to save
 ```
 
+
+
+
+## Part 2: GPT Partitions
+
+```
+GPT (GUID Partition Table):
+- MODERN partitioning scheme
+- Max disk size: 9.4 ZB (practically unlimited)
+- Up to 128 partitions (no extended/logical needed!)
+- Each partition gets a unique GUID (ID)
+- Has backup partition table at end of disk (safer!)
+
+GPT Layout:
+┌──────────────────────────────────────────────────────────┐
+│ Protective MBR │ GPT Header │ Partition Entries          │
+├────────────────┼────────────┼────────────────────────────┤
+│  Partition 1   │ Partition 2│ Partition 3 │ ... │ P 128  │
+├────────────────┴────────────┴────────────────────────────┤
+│ Backup Partition Entries │ Backup GPT Header              │
+└──────────────────────────────────────────────────────────┘
+```
 
 
 
