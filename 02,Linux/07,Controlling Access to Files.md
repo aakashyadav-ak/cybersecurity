@@ -341,6 +341,26 @@ See the s instead of x? That's SUID.
 
 Regular users can run passwd to change their password, and it runs as root!
 
+**File:**
+```
+/usr/bin/passwd
+Owner: root
+```
+
+**When any user runs passwd:**
+
+- It runs with root privileges
+- Even though user is not root
+
+**System allows:**
+
+- Changing their own password ✅
+- Because program runs as root internally
+
+> [!NOTE]
+> SUID gives temporary root power to the program, not the user
+> User can only do limited allowed actions
+
 #### Set SUID:
 ```
 chmod u+s file
