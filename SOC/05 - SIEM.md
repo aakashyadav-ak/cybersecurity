@@ -30,13 +30,13 @@ LOG COLLECTION → NORMALIZATION → CORRELATION → ALERTING → DASHBOARD
 
 ### Popular SIEMs Platforms & Query Languages
 
-| SIEM                  | Query Language   | Common In                     |
-|-----------------------|------------------|-------------------------------|
-| Splunk                | SPL              | Enterprise, MSSPs             |
-| Microsoft Sentinel    | KQL              | Cloud/Azure environments      |
-| Elastic SIEM          | Lucene / EQL     | Open-source environments      |
-| IBM QRadar            | AQL              | Large enterprises             |
-| Chronicle (Google)    | YARA-L           | Google Cloud                  |
+| SIEM               | Query Language | Common In                |
+| ------------------ | -------------- | ------------------------ |
+| Splunk             | SPL            | Enterprise, MSSPs        |
+| Microsoft Sentinel | KQL            | Cloud/Azure environments |
+| Elastic SIEM       | Lucene / EQL   | Open-source environments |
+| IBM QRadar         | AQL            | Large enterprises        |
+| Chronicle (Google) | YARA-L         | Google Cloud             |
 
 ____
 
