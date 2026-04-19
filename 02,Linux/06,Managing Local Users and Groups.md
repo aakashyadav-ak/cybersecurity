@@ -139,21 +139,6 @@ It acts as a security control layer for privileged access.
 sudo cat /etc/sudoers
 ```
 
-**common commands:**
-```
-sudo cat /etc/shadow            # View shadow file
-sudo useradd newuser            # Add user
-sudo passwd john                # Change password
-sudo systemctl restart sshd     # Restart service
-sudo vim /etc/hosts             # Edit system file
-```
-
-
-### Run Shell as Root
-```
-sudo -i                         # Get root shell
-sudo -s                         # Get root shell (keeps environment)
-```
 
 | Command     | What it does                         | Password needed     |
 | :---------- | :----------------------------------- | :------------------ |
