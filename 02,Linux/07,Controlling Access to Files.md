@@ -369,7 +369,8 @@ chmod 4755 file
 Tip: SUID files are gold for privilege escalation!
 
 ### SGID (Set Group ID)
-On files: Runs as the file's group. / Runs with group permissions.
+**On files:**  Runs as the file's group. / Runs with group permissions.
+- The file runs with the permissions of its group
 
 **On directories:** New files inherit the directory's group.
 When SGID is set on a directory, any new file or folder created inside it will inherit the group of that directory, NOT the user’s default group.
