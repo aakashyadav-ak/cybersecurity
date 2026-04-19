@@ -142,7 +142,7 @@ A filesystem is how Linux stores and organizes data on disk (SSD/HDD/USB).
 
 A Linux Distribution (distro) = Linux Kernel + GNU Tools + Package Manager + Desktop Environment + Pre-configured Software
 
-A Linux distribution is a complete operating system built around the Linux kernel with:
+==A Linux distribution is a complete operating system built around the Linux kernel with:==
 - Package management system
 - Default applications
 - Desktop environment (optional)
