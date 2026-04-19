@@ -16,9 +16,23 @@ The command line is a text-based interface to interact with the Linux operating 
 - Less resource intensive
 - Available on all Linux systems including servers
 
-##
+## Terminal 
+==A terminal is an application that gives you access to a text-based interface.==
 
-## Accessing the Command Line
+- It’s a program/window (like GNOME Terminal or Konsole)
+- It emulates old physical terminals
+- It lets you interact with the system via a shell
+
+
+
+## Console
+
+==A console is a direct system interface, often tied to the machine itself.==
+
+- Originally: physical keyboard + monitor
+- In Linux: refers to virtual consoles (e.g., accessed with Ctrl + Alt + F3)
+- Works without a graphical environment
+### Accessing the Command Line
 
 ### 1. Virtual Consoles (TTYs)
 - Also called **TTY terminals**
