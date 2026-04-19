@@ -12,10 +12,10 @@
 
 **Two Logging Systems:** 
 
-| System | Name | Description |
-| :--- | :--- | :--- |
-| **rsyslog** | Traditional logging | Text files in `/var/log` |
-| **journald** | Modern logging | Binary journal by `systemd` |
+| System       | Name                | Description                 |
+| :----------- | :------------------ | :-------------------------- |
+| **rsyslog**  | Traditional logging | Text files in `/var/log`    |
+| **journald** | Modern logging      | Binary journal by `systemd` |
 
 ### How Logging Works
 ```

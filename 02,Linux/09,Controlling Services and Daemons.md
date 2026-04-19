@@ -1,6 +1,7 @@
 # Service/Daemon
 
-
+- **Daemon** → actual background process (e.g., sshd)
+- **Service** → how the system manages that daemon (e.g., sshd.service)
 
 **Daemon=**	==A daemon is a background process that runs continuously and performs tasks without direct user interaction.==
 
@@ -46,6 +47,11 @@ systemctl list-units --type=service
 ```
 
 
+
+##  `systemctl`
+
+This is the primary command used to control services.
+
 #### Difference: Start vs Enable
 **Command**                	**What It Does**
 ___
@@ -64,5 +70,3 @@ sudo systemctl enable ssh
 ```
 sudo systemctl disable ssh
 ```
-
-# Control System Services
