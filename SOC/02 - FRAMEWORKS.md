@@ -412,12 +412,12 @@ THEN ALERT "Credential Dumping Tool (T1003)"
 
 ### Summary of 4 Key Techniques
 
-| Technique | ID | Tactic | What Happens | Detection | Response |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Brute Force** | T1110 | Credential Access | Trying many passwords | Multiple failed logins | Block IP, lock account |
-| **Phishing** | T1566 | Initial Access | Tricking user via email | Email gateway, user reports | Quarantine email, block domain |
-| **PowerShell** | T1059.001 | Execution | Running malicious commands | Event 4104, suspicious flags | Decode command, isolate system |
-| **Credential Dumping** | T1003 | Credential Access | Stealing passwords from memory | LSASS access, Mimikatz detection | Isolate, reset passwords, hunt |
+| Technique              | ID        | Tactic            | What Happens                   | Detection                        | Response                       |
+| :--------------------- | :-------- | :---------------- | :----------------------------- | :------------------------------- | :----------------------------- |
+| **Brute Force**        | T1110     | Credential Access | Trying many passwords          | Multiple failed logins           | Block IP, lock account         |
+| **Phishing**           | T1566     | Initial Access    | Tricking user via email        | Email gateway, user reports      | Quarantine email, block domain |
+| **PowerShell**         | T1059.001 | Execution         | Running malicious commands     | Event 4104, suspicious flags     | Decode command, isolate system |
+| **Credential Dumping** | T1003     | Credential Access | Stealing passwords from memory | LSASS access, Mimikatz detection | Isolate, reset passwords, hunt |
 
 
 ### must learn
