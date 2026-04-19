@@ -125,6 +125,7 @@ OSPF divides networks into **areas** to reduce complexity:
 - Improves performance and scalability
 
 **Area Types:**
+
 | Area Type | Description |
 |-----------|-------------|
 | **Backbone Area (Area 0)** | The core area; all other areas must connect to it |
