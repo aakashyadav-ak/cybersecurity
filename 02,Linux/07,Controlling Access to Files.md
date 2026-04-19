@@ -66,13 +66,13 @@ ls -l
 | **4** | `r--`      | Others can read only               |
 
 #### Permission Examples
-| Permission | Meaning |
-| :--- | :--- |
-| `rwx` | Read + Write + Execute (full access) |
-| `rw-` | Read + Write (no execute) |
-| `r-x` | Read + Execute (no write) |
-| `r--` | Read only |
-| `---` | No access |
+| Permission | Meaning                              |
+| :--------- | :----------------------------------- |
+| `rwx`      | Read + Write + Execute (full access) |
+| `rw-`      | Read + Write (no execute)            |
+| `r-x`      | Read + Execute (no write)            |
+| `r--`      | Read only                            |
+| `---`      | No access                            |
 
 
 #### Common Permission Patterns
