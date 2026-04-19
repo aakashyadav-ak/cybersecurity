@@ -20,7 +20,7 @@ It is a knowledge base of:
 #### Why SOC Analysts Use MITRE?
 
 - To classify attacks
-- To understand attacker behavior
+- To understand attacker behaviour
 - To map alerts to known techniques
 - To improve detection coverage
 
