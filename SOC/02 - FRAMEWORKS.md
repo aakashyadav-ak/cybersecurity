@@ -94,13 +94,13 @@ One tactic can have MANY techniques.
 
 **Different Techniques to achieve this:**
 
-| Technique ID | Technique Name                         | How it Works                     |
-|-------------|----------------------------------------|----------------------------------|
-| T1566      | Phishing                                | Send malicious email             |
-| T1190      | Exploit Public-Facing Application       | Hack vulnerable web server       |
-| T1133      | External Remote Services                | Brute force VPN login            |
-| T1078      | Valid Accounts                          | Use stolen credentials           |
-| T1091      | Replication Through Removable Media     | USB drive with malware           |
+| Technique ID | Technique Name                      | How it Works               |
+| ------------ | ----------------------------------- | -------------------------- |
+| T1566        | Phishing                            | Send malicious email       |
+| T1190        | Exploit Public-Facing Application   | Hack vulnerable web server |
+| T1133        | External Remote Services            | Brute force VPN login      |
+| T1078        | Valid Accounts                      | Use stolen credentials     |
+| T1091        | Replication Through Removable Media | USB drive with malware     |
 
 Same goal (Initial Access), but 5+ different methods!
 
@@ -112,12 +112,12 @@ Sub-Techniques = Specific variations of a technique.
 
 Sub-Techniques (different types of phishing):
 
-| Sub-Technique ID | Name                         | Description                                      |
-|------------------|------------------------------|--------------------------------------------------|
-| T1566.001        | Spearphishing Attachment     | Email with malicious file (e.g., invoice.exe)    |
-| T1566.002        | Spearphishing Link           | Email with malicious link                        |
-| T1566.003        | Spearphishing via Service    | Phishing via LinkedIn, Teams, etc.               |
-| T1566.004        | Spearphishing Voice          | Vishing (voice phishing)                         |
+| Sub-Technique ID | Name                      | Description                                   |
+| ---------------- | ------------------------- | --------------------------------------------- |
+| T1566.001        | Spearphishing Attachment  | Email with malicious file (e.g., invoice.exe) |
+| T1566.002        | Spearphishing Link        | Email with malicious link                     |
+| T1566.003        | Spearphishing via Service | Phishing via LinkedIn, Teams, etc.            |
+| T1566.004        | Spearphishing Voice       | Vishing (voice phishing)                      |
 
 
 
