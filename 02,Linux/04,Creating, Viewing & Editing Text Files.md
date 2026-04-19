@@ -207,9 +207,8 @@ ________________________________________
 
 
 ### #awk (Pattern Scanning & Processing)
-AWK is mainly used to extract and process columns (fields) from text.
-
-==awk is a tool to work with columns in text files.==
+- `awk` is a pattern scanning and processing tool, mainly used for structured data (columns/fields).
+- ==awk is a tool to work with columns in text files.==
 
 **AWK is best for:**
 - printing specific columns
