@@ -106,6 +106,7 @@ Create filesystem
 | ---------- | ------------------------------------------- |
 | **XFS**    | Default in RHEL, fast, good for large files |
 | **EXT4**   | Older, stable, widely used                  |
+|            |                                             |
 
 
 ```
