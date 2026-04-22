@@ -14,11 +14,11 @@ When you open a program, it becomes a process.
 
 #### Process vs Program
 
-| Feature      | Program      | Process              |
-| :----------- | :----------- | :------------------- |
-| **Location** | File on disk | Running in memory    |
-| **State**    | Static       | Active               |
-| **Quantity** | One copy     | Can have many copies |
+| Feature      | Program      | Process              |     |
+| :----------- | :----------- | :------------------- | --- |
+| **Location** | File on disk | Running in memory    |     |
+| **State**    | Static       | Active               |     |
+| **Quantity** | One copy     | Can have many copies |     |
 **Example:**
 - /usr/bin/firefox = Program (file)
 - Running Firefox = Process
