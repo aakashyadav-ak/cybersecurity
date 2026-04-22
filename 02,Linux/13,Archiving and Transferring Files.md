@@ -1,6 +1,7 @@
 #  Manage Compressed tar Archives
 ###  Archive
 Archive = Multiple files combined into one file.
+==Combining multiple files and folders into a single file.==
 
 Compressed Archive = Archive made smaller.
 ```
