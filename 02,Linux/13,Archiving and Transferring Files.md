@@ -105,3 +105,12 @@ zip archive.zip file1 file2 file3
 ```
 unzip archive.zip
 ```
+
+
+```
+bzip2 file.txt
+```
+
+```
+bunzip2 file.txt.bz2
+```
