@@ -89,7 +89,7 @@ status: in-progress
 - [x] Add 3 virtual disks to your VM
 - [x] Practice `fdisk` — create MBR partitions
 - [x] Practice `gdisk` — create GPT partitions
-- [ ] Create XFS and ext4 filesystems
+- [x] Create XFS and ext4 filesystems
 - [ ] Mount manually and persist in `/etc/fstab`
 - [ ] Create and activate swap partition and swap file
 - [ ] LVM Deep Dive:
