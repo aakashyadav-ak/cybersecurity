@@ -90,11 +90,11 @@ status: in-progress
 - [x] Practice `fdisk` — create MBR partitions
 - [x] Practice `gdisk` — create GPT partitions
 - [x] Create XFS and ext4 filesystems
-- [ ] Mount manually and persist in `/etc/fstab`
+- [x] Mount manually and persist in `/etc/fstab`
 - [ ] Create and activate swap partition and swap file
-- [ ] LVM Deep Dive:
-  - [ ] Create PV → VG → LV
-  - [ ] Format and mount LV
+- [x] LVM Deep Dive:
+  - [x] Create PV → VG → LV
+  - [x] Format and mount LV
   - [ ] Extend VG (add PV)
   - [ ] Extend LV + resize filesystem
   - [ ] Practice `pvs`, `vgs`, `lvs`, `pvdisplay`, `vgdisplay`, `lvdisplay`
