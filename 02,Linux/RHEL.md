@@ -95,9 +95,9 @@ status: in-progress
 - [x] LVM Deep Dive:
   - [x] Create PV → VG → LV
   - [x] Format and mount LV
-  - [ ] Extend VG (add PV)
-  - [ ] Extend LV + resize filesystem
-  - [ ] Practice `pvs`, `vgs`, `lvs`, `pvdisplay`, `vgdisplay`, `lvdisplay`
+  - [x] Extend VG (add PV)
+  - [x] Extend LV + resize filesystem
+  - [x] Practice `pvs`, `vgs`, `lvs`, `pvdisplay`, `vgdisplay`, `lvdisplay`
 - [ ] Lab: Create LVM setup, extend it, add to fstab
 
 > [!done] Day 5 Goal
@@ -107,11 +107,11 @@ status: in-progress
 
 ### 📅 Day 6: Networking & Firewall
 
-- [ ] Examine current network with `ip a`, `ip r`, `ss`
-- [ ] Set hostname with `hostnamectl`
+- [x] Examine current network with `ip a`, `ip r`, `ss`
+- [x] Set hostname with `hostnamectl`
 - [ ] Configure static IP using `nmcli`
 - [ ] Practice `nmcli` connection add/modify/up/down/delete
-- [ ] Use `nmtui` for quick network config
+- [x] Use `nmtui` for quick network config
 - [ ] Configure DNS in `/etc/hosts` and via `nmcli`
 - [ ] Troubleshoot: `ping`, `traceroute`, `dig`, `curl`
 - [ ] Firewalld:
